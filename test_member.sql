@@ -10,19 +10,20 @@ CREATE TABLE test_member (
     addr CLOB,																-- 주소
     phone VARCHAR2(20),														-- 전화번호
     gender VARCHAR2(10),													-- 성별(남성,여성)
-    age NUMBER(3)															-- 나이
+    age NUMBER(3),															-- 나이
+    email VARCHAR2(100) UNIQUE NOT NULL
 );
 
 -- 데이터 삽입 (테이블 생성 후 관리자 계정 추가)
 INSERT INTO test_member (
-    id, pass, name, addr, phone, gender, age
+    id, pass, name, addr, phone, gender, age, email
 ) VALUES (
     'admin', 'admin', 'MASTER',
-    '부산광역시', '01011111111', '남성', 30
+    '부산광역시', '01011111111', '남성', 30, 'admin@admin.com'
 );
 
 -- 조회
 SELECT * FROM test_member;
 
 -- 커밋
-COMMIT;
+COMMIT

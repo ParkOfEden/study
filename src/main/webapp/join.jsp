@@ -40,6 +40,13 @@
 			</td>
 		</tr>
 		<tr>
+		    <td>이메일</td>
+		    <td>
+		        <input type="email" name="email" data-msg="이메일" placeholder="example@mail.com" required/>
+		    </td>
+		</tr>
+		
+		<tr>
 			<td>성별</td>
 			<td>
 				<label>
