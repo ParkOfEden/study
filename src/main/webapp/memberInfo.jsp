@@ -84,7 +84,7 @@ try {
         </tr>
         <tr>
             <th colspan="2" style="padding:15px;">
-                <a href="memberUpdate.jsp">수정하기</a> | 
+                <a href="memberUpdateForm.jsp">수정하기</a> | 
                 <a href="#" onclick="deleteMember(<%= num %>)" style="color:red;">탈퇴하기</a>
             </th>
         </tr>

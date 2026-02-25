@@ -13,7 +13,7 @@
 	
 	//요청 파라미터로 전달된 사용자 등록 요청 ID
 	String id=request.getParameter("id");
-
+	String email = request.getParameter("email"); // 이메일 파라미터
 	//요청 처리 결과 메세지
 	String msg="";
 	
@@ -27,16 +27,24 @@
 	ResultSet rs=null;
 	
 	try{
-		pstmt=conn.prepareStatement("SELECT * FROM test_member where id=?");
+		pstmt=conn.prepareStatement("SELECT id, email FROM test_member WHERE id = ? OR email = ?");
 		pstmt.setString(1,id);
+		pstmt.setString(2, email);
 		
 		rs=pstmt.executeQuery();
 		
 		if(rs.next()){
 			//사용자가 요청하나 아이디와 일치하는 아이디를 사용중인 사용자가 이미 존재
-			//중복아이디
-			msg="이미 존재하는 아이디 입니다.";
-			nextPage="join.jsp";
+			String existId = rs.getString("id");
+			String existEmail = rs.getString("email");
+			//중복			
+			if (id.equals(existId)) {
+                msg = "이미 존재하는 아이디입니다.";
+                nextPage="join.jsp";
+            } else if (email.equals(existEmail)) {
+                msg = "이미 등록된 이메일입니다.";
+                nextPage="join.jsp";
+            }
 		}else{
 			//사용 가능한  아이디
 			//id | pass | name | addr | phone | gender |age (number-int)|email
@@ -47,7 +55,6 @@
 			String gender= request.getParameter("gender");
 			String paramAge= request.getParameter("age");
 			int age=Integer.parseInt(paramAge);
-			String email = request.getParameter("email"); // 추가된 이메일 파라미터 수집
 			//요청 파라미터로 전달된 회원 정보 등록
 String sql = "INSERT INTO test_member (id, pass, name, addr, phone, gender, age, email) " +
              "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";			//기존에 생성 사용된 자원 해제후 새로운 preparedStatement 할당
@@ -76,6 +83,8 @@ String sql = "INSERT INTO test_member (id, pass, name, addr, phone, gender, age,
 		}//end else
 			
 	}catch(Exception e){
+		e.printStackTrace(); // 콘솔에 에러 원인 출력
+
 		msg = "회원가입 요청 처리 실패 : " + e.getMessage();
 		nextPage = "join.jsp";
 	}finally{

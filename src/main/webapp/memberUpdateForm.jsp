@@ -1,78 +1,90 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="common/header.jsp" %>
+<%@ page import="java.sql.*, utils.*" %>
+
+<%
+    String id = (String)session.getAttribute("authUser");
+    if(id == null) {
+        out.println("<script>alert('로그인이 필요합니다.'); location.href='login.jsp';</script>");
+        return;
+    }
+
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    
+    // 초기값 설정을 위한 변수들
+    String name="", addr="", phone="", email="", gender="", pass="";
+    int age=0;
+
+    try {
+        conn = DBCPUtil.getConnection();
+        pstmt = conn.prepareStatement("SELECT * FROM test_member WHERE id = ?");
+        pstmt.setString(1, id);
+        rs = pstmt.executeQuery();
+        if(rs.next()) {
+            pass   = rs.getString("pass");
+            name   = rs.getString("name");
+            addr   = rs.getString("addr");
+            phone  = rs.getString("phone");
+            gender = rs.getString("gender");
+            age    = rs.getInt("age");
+            email  = rs.getString("email");
+        }
+    } catch(Exception e) {
+        e.printStackTrace();
+    } finally {
+        DBCPUtil.close(rs, pstmt, conn);
+    }
+%>
+
 <section>
-<!-- memberUpdateForm.jsp -->
-<script type="text/javascript" src="js/inputCheck.js"></script>
-<form action="memberUpdate.jsp" method="POST">
-	<table>
-		<tr>
-			<th colspan="2"><h1>회원정보 수정</h1></th>
-		</tr>
-		<tr>
-			<td>아이디</td>
-			<td>
-				<input type="text" name="id" data-msg="아이디" value=""/>
-			</td>
-		</tr>
-		<tr>
-			<td>비밀번호</td>
-			<td>
-				<input type="password" name="pass" data-msg="비밀번호" value=""/>
-			</td>
-		</tr>
-		<tr>
-			<td>이름</td>
-			<td>
-				<input type="text" name="name" data-msg="이름" value=""/>
-			</td>
-		</tr>
-		<tr>
-			<td>주소</td>
-			<td>
-				<input type="text" name="addr" data-msg="주소" value=""/>
-			</td>
-		</tr>
-		<tr>
-			<td>전화번호</td>
-			<td>
-				<input type="text" name="phone" data-msg="전화번호" value=""/>
-			</td>
-		</tr>
-		<tr>
-			<td>성별</td>
-			<td>
-				<label>
-				<input type="radio" name="gender" value="남성" />
-				남성
-				</label>
-				<label>
-				<input type="radio" name="gender" value="여성" />
-				여성
-				</label>
-			</td>
-		</tr>
-		<tr>
-			<td>나이</td>
-			<td>
-				<input type="number" name="age" data-msg="나이" value=""/>
-			</td>
-		</tr>
-		<tr>
-			<th colspan="2">
-				<button>회원 정보 수정</button>
-			</th>
-		</tr>
-	</table>
-</form>
+    <form action="memberUpdate.jsp" method="post">
+        <h2>내 정보 수정하기</h2>
+        <table border="1" style="border-collapse: collapse; width: 500px;">
+            <tr>
+                <th>아이디</th>
+                <td><%= id %><input type="hidden" name="id" value="<%= id %>" style="text-align: center;" ></td>
+            </tr>
+            <tr>
+                <th>비밀번호</th>
+                <td><input type="text" name="pass" value="<%= pass %>"style="text-align: center;" required></td>
+            </tr>
+            <tr>
+                <th>이름</th>
+                <td><input type="text" name="name" value="<%= name %>" style="text-align: center;" required></td>
+            </tr>
+            <tr>
+                <th>주소</th>
+                <td><input type="text" name="addr" value="<%= addr %>" style="text-align: center;" style="width:90%;"></td>
+            </tr>
+            <tr>
+                <th>전화번호</th>
+                <td><input type="text" name="phone" value="<%= phone %>" style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <th>성별</th>
+                <td>
+                    <input type="radio" name="gender" value="남성" <%= "남성".equals(gender)?"checked":"" %>> 남성
+                    <input type="radio" name="gender" value="여성" <%= "여성".equals(gender)?"checked":"" %>> 여성
+                </td>
+            </tr>
+            <tr>
+                <th>나이</th>
+                <td><input type="number" name="age" value="<%= age %>" style="text-align: center;"> 세</td>
+            </tr>
+            <tr>
+                <th>이메일</th>
+                <td><input type="email" name="email" value="<%= email %>" style="text-align: center;" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center; padding:10px;">
+                    <button type="submit">변경사항 저장</button>
+                    <button type="button" onclick="location.href='memberUpdate.jsp'">취소</button>
+                </td>
+            </tr>
+        </table>
+    </form>
 </section>
+
 <%@ include file="common/footer.jsp" %>
-
-
-
-
-
-
-
-
-
