@@ -8,10 +8,7 @@
 	    out.println("<script>alert('로그인이 필요합니다.'); location.href='login.jsp';</script>");
 	    return;
 	}
-	
-    String authUser = (String)session.getAttribute("authUser");
-    String userName = (String)session.getAttribute("userName");
-    
+
     
     if(authUser == null) {
         out.println("<script>alert('로그인이 필요합니다.'); location.href='login.jsp';</script>");
