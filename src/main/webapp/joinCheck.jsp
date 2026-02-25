@@ -47,9 +47,9 @@
 			String gender= request.getParameter("gender");
 			String paramAge= request.getParameter("age");
 			int age=Integer.parseInt(paramAge);
-			
+			String email = request.getParameter("email"); // 추가된 이메일 파라미터 수집
 			//요청 파라미터로 전달된 회원 정보 등록
-			String sql="INSERT INTO test_member VALUES(null, ?, ?, ?, ?, ?, ?, ?)";
+			String sql="INSERT INTO test_member VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?)";
 			//기존에 생성 사용된 자원 해제후 새로운 preparedStatement 할당
 			DBCPUtil.close(rs,pstmt);
 			
@@ -62,6 +62,7 @@
 			pstmt.setString(5, phone);
 			pstmt.setString(6, gender);
 			pstmt.setInt(7, age);
+			pstmt.setString(8, email);
 			
 			int result=pstmt.executeUpdate();
 			if(result==1){
@@ -83,3 +84,7 @@
 	
 
 %>
+<script type="text/javascript">
+	alert("<%= msg %>");
+	location.replace("<%= nextPage %>");
+</script>
