@@ -25,7 +25,7 @@
 				<li><a href="join.jsp">회원가입</a></li>
 
 				<!-- 로그인 된 사용자 -->
-				<strong><%= userName %>님 환영합니다!</strong>
+				<strong><a href="memberInfo.jsp"><%= userName %></a>님 환영합니다!</strong>
 				<li><a href="info.jsp"> <!-- 회원이름 -->
 				</a>님 방가방가</li>
 				<li><a href="logout.jsp">로그아웃</a></li>

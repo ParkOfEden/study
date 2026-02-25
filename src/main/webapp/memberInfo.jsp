@@ -3,7 +3,12 @@
 <!-- memberInfo.jsp -->
 <%@ include file="common/header.jsp" %>
 <%
-    
+	String id = (String)session.getAttribute("authUser");
+	if(id == null) {
+	    out.println("<script>alert('로그인이 필요합니다.'); location.href='login.jsp';</script>");
+	    return;
+	}
+	
     String authUser = (String)session.getAttribute("authUser");
     String userName = (String)session.getAttribute("userName");
     
