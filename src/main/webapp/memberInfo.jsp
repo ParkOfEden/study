@@ -45,24 +45,28 @@ try {
 <section>
 <table>
 	<tr>
-		<th colspan="2">
-		</th>
+		<th colspan="2"><h3><%= name %>님의 회원정보</h3></th>
 	</tr>
 	<tr>
 		<td>아이디</td>
-		<td></td>
+		<td><%= id %></td>
 	</tr>
 	<tr>
 		<td>이름</td>
-		<td></td>
+		<td><%= name %></td>
 	</tr>
 	<tr>
 		<td>주소</td>
-		<td></td>
+		<td><%= addr %></td>
+	</tr>
+    <tr>
+		<td>이메일</td>
+		<td><%= email %></td>
 	</tr>
 	<tr>
 		<th colspan="2">
-			<a href="">수정</a> | <a href="">삭제</a>
+            <a href="memberUpdate.jsp?id=<%= id %>">수정</a> | 
+            <a href="memberDeleteCheck.jsp">삭제</a>
 		</th>
 	</tr>
 </table>
