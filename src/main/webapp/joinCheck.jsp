@@ -39,7 +39,7 @@
 			nextPage="join.jsp";
 		}else{
 			//사용 가능한  아이디
-			//id | pass | name | addr | phone | gender |age (number-int)
+			//id | pass | name | addr | phone | gender |age (number-int)|email
 			String pass= request.getParameter("pass");
 			String name= request.getParameter("name");
 			String addr= request.getParameter("addr");
@@ -49,8 +49,8 @@
 			int age=Integer.parseInt(paramAge);
 			String email = request.getParameter("email"); // 추가된 이메일 파라미터 수집
 			//요청 파라미터로 전달된 회원 정보 등록
-			String sql="INSERT INTO test_member VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?)";
-			//기존에 생성 사용된 자원 해제후 새로운 preparedStatement 할당
+String sql = "INSERT INTO test_member (id, pass, name, addr, phone, gender, age, email) " +
+             "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";			//기존에 생성 사용된 자원 해제후 새로운 preparedStatement 할당
 			DBCPUtil.close(rs,pstmt);
 			
 			
