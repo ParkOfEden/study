@@ -148,10 +148,12 @@ a {
     <li><a href="join.jsp">회원가입</a></li>
     <li><a href="#">고객센터</a></li>
 <% } else { %>
-    <li><%= userName %>님 환영합니다</li>
+    <!-- 수정된 부분: 아이디 클릭 시 memberUpdateForm.jsp 로 이동 -->
+    <li><a href="memberUpdateForm.jsp"><%= userName %></a>님 환영합니다</li>
+    
     <li><a href="logout.jsp">로그아웃</a></li>
     <li><a href="memberList.jsp">회원관리</a></li>
-    <li><a href="oi.jsp">주문조회</a></li>
+    <li><a href="orin.jsp">주문조회</a></li>
     
     <%-- admin 일 때만 보이는 글쓰기 버튼 --%>
     <% if ("admin".equals(authUser)) { %>
@@ -170,30 +172,30 @@ a {
         <ul class="submenu">
             <li><a href="new.jsp">신상품 (New)</a></li>
             <li><a href="best.jsp">베스트 (Best)</a></li>
-            <li><a href="r.jsp">MD 추천</a></li>
+            <li><a href="mdre.jsp">MD 추천</a></li>
         </ul>
     </li>
 
     <li class="has-submenu">
         TOP
         <ul class="submenu">
-            <li><a href="T.jsp">티셔츠</a></li>
-            <li><a href="B.jsp">블라우스</a></li>
-            <li><a href="S.jsp">셔츠</a></li>
-            <li><a href="N/S.jsp">니트/스웨터</a></li>
-            <li><a href="K.jsp">카디건</a></li>
-            <li><a href="H.jsp">후드/맨투맨</a></li>
+            <li><a href="Tshirt.jsp">티셔츠</a></li>
+            <li><a href="blouse.jsp">블라우스</a></li>
+            <li><a href="Shirt.jsp">셔츠</a></li>
+            <li><a href="knsw.jsp">니트/스웨터</a></li>
+            <li><a href="card.jsp">카디건</a></li>
+            <li><a href="hosw.jsp">후드/맨투맨</a></li>
         </ul>
     </li>
 
     <li class="has-submenu">
         OUTER
         <ul class="submenu">
-            <li><a href="#">자켓</a></li>
-            <li><a href="#">코트</a></li>
-            <li><a href="#">패딩/경량</a></li>
-            <li><a href="#">조끼</a></li>
-            <li><a href="#">가디건</a></li>
+            <li><a href="jacket.jsp">자켓</a></li>
+            <li><a href="coat.jsp">코트</a></li>
+            <li><a href="pacoat.jsp">패딩/경량</a></li>
+            <li><a href="vest.jsp">조끼</a></li>
+            <li><a href="cardigan.jsp">가디건</a></li>
         </ul>
     </li>
 
@@ -241,9 +243,6 @@ a {
   </ul>
 
 </header>
-
-<!-- 🔹 자바스크립트 제거 (CSS Hover 로 대체) -->
-<!-- 마우스를 올리기만 하면 CSS 가 자동으로 처리합니다 -->
 
 </body>
 </html>
