@@ -1,6 +1,5 @@
-
-<!-- 
-javax.naming.NameNotFoundException: Name [jdbc/OracleDB]은(는) 이 컨텍스트에 바인딩되지 않았습니다. [jdbc]을(를) 찾을 수 없습니다.
+<!-- javax.naming.NameNotFoundException: Name [jdbc/OracleDB]은(는) 이 컨텍스트에 바인딩되지 않았습니다. [jdbc]을(를) 찾을 수 없습니다.
+지정한 이름의 Resource 를 찾을 수 없습니다.
 	at org.apache.naming.NamingContext.lookup(NamingContext.java:485)
 	at org.apache.naming.NamingContext.lookup(NamingContext.java:145)
 	at org.apache.naming.NamingContext.lookup(NamingContext.java:494)
