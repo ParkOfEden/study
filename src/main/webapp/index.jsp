@@ -73,9 +73,20 @@ java.lang.NullPointerException: Cannot invoke "java.sql.Connection.prepareStatem
     pageEncoding="UTF-8"%>
 <%@ include file="common/header.jsp" %>
 	<section class="main">
-	<a href="Tshirt.jsp"><img src="css/img/main/sort_link/T_shirt.jpg"></a>
-	<a href="shirt.jsp"><img src="css/img/main/sort_link/Y_shirt.jpg"></a>
+	<div class="product">
+		<table>
+			<tr>
+				<td><a href="Tshirt.jsp"><img src="css/img/main/sort_link/T_shirt.jpg"></a></td>
+				<td><a href="shirt.jsp"><img src="css/img/main/sort_link/Y_shirt.jpg"></a></td>
+			</tr>
+			<tr>
+				<td>티셔츠</td>
+				<td>블라우스/셔츠</td>
+			</tr>
+		</table>
+	</div>
 		<h1>고객님을 위한 추천 아이템</h1>
+	
 	</section>
 <%@ include file="common/footer.jsp"%>
 
