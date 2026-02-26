@@ -2,35 +2,13 @@
     pageEncoding="UTF-8"%>
 <!-- footer.jsp -->
 
+<!-- 
 <style>
-  .menu {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .menu a {
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-  .menu a:hover {
-    color: red;
-  }
-
-  .company {
-    font-size: 30px;
-    font-weight: bold;
-    margin-top: 20px;
-  }
-
-  .footer-info {
-    text-align: left;
-    font-weight: bold;
-    margin-top: 20px;
-  }
+	여기다가.. css 스타일 요소 부여하면.. 집 가다가 마른 하늘에 벼락 맞음!!
+	이유 : index.jsp 에서 include 해서 불러오면 여기다가 해놓은 style 속성이 그대로 적용되기 때문!!
+	해결책 : 앞으로는 header.css에다가 작업해서 적용하시면 됩니다 :-)
 </style>
+-->
 
 <div class="menu">
   <a href="shopinfo.jsp">매장안내</a>
