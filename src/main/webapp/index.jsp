@@ -73,6 +73,7 @@ java.lang.NullPointerException: Cannot invoke "java.sql.Connection.prepareStatem
     pageEncoding="UTF-8"%>
 <%@ include file="common/header.jsp" %>
 	<section class="main">
+	<image src="img/main/sort_link/T_shirt.jpg">
 		<h1>고객님을 위한 추천 아이템</h1>
 	</section>
 <%@ include file="common/footer.jsp"%>
