@@ -17,7 +17,7 @@
 </style>
 
 <div class="menu" style="display: flex; justify-content: space-between;">
-  <a href="index.jsp">매장안내</a>
+  <a href="login.jsp">매장안내</a>
   <a href="#">고객센터</a>
   <a href="#">채용안내</a>
 </div>
