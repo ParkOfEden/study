@@ -143,16 +143,22 @@ a {
   <ul class="top-menu">
     <li><a href="index.jsp">홈</a></li>
 
-    <% if(authUser == null){ %>
-        <li><a href="login.jsp">로그인</a></li>
-        <li><a href="join.jsp">회원가입</a></li>
-        <li><a href="#">고객센터</a></li>
-    <% } else { %>
-        <li><%= userName %>님 환영합니다</li>
-        <li><a href="logout.jsp">로그아웃</a></li>
-        <li><a href="memberList.jsp">회원관리</a></li>
-        <li><a href="#">주문조회</a></li>
+<% if(authUser == null){ %>
+    <li><a href="login.jsp">로그인</a></li>
+    <li><a href="join.jsp">회원가입</a></li>
+    <li><a href="#">고객센터</a></li>
+<% } else { %>
+    <li><%= userName %>님 환영합니다</li>
+    <li><a href="logout.jsp">로그아웃</a></li>
+    <li><a href="memberList.jsp">회원관리</a></li>
+    <li><a href="oi.jsp">주문조회</a></li>
+    
+    <%-- admin 일 때만 보이는 글쓰기 버튼 --%>
+    <% if ("admin".equals(authUser)) { %>
+        <li><a href="write.jsp">글쓰기</a></li>
     <% } %>
+    
+<% } %>
   </ul>
 
   <!-- 🔹 2 줄 카테고리 메뉴 -->
@@ -162,21 +168,21 @@ a {
     <li class="has-submenu">
         NEW & BEST
         <ul class="submenu">
-            <li><a href="#">신상품 (New)</a></li>
-            <li><a href="#">베스트 (Best)</a></li>
-            <li><a href="#">MD 추천</a></li>
+            <li><a href="new.jsp">신상품 (New)</a></li>
+            <li><a href="best.jsp">베스트 (Best)</a></li>
+            <li><a href="r.jsp">MD 추천</a></li>
         </ul>
     </li>
 
     <li class="has-submenu">
         TOP
         <ul class="submenu">
-            <li><a href="#">티셔츠</a></li>
-            <li><a href="#">블라우스</a></li>
-            <li><a href="#">셔츠</a></li>
-            <li><a href="#">니트/스웨터</a></li>
-            <li><a href="#">카디건</a></li>
-            <li><a href="#">후드/맨투맨</a></li>
+            <li><a href="T.jsp">티셔츠</a></li>
+            <li><a href="B.jsp">블라우스</a></li>
+            <li><a href="S.jsp">셔츠</a></li>
+            <li><a href="N/S.jsp">니트/스웨터</a></li>
+            <li><a href="K.jsp">카디건</a></li>
+            <li><a href="H.jsp">후드/맨투맨</a></li>
         </ul>
     </li>
 
