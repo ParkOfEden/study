@@ -18,16 +18,16 @@
 			<li><a href="login.jsp">로그인</a></li>
 			<li><a href="join.jsp">회원가입</a></li>
 
-			<!-- 카테고리 목록 -->
-			<li>티셔츠</li>
-			<li>니트/스웨터</li>
-			<li>블라우스/셔츠</li>
-			<li>스커트</li>
-			<li>팬츠</li>
-			<li>데님</li>
-			<li>아우터</li>
-			<li>원피스</li>
-			
+<ul class="category">
+  <li>티셔츠</li>
+  <li>니트/스웨터</li>
+  <li>블라우스/셔츠</li>
+  <li>스커트</li>
+  <li>팬츠</li>
+  <li>데님</li>
+  <li>아우터</li>
+  <li>원피스</li>
+</ul>
 
 			<!-- 로그인 된 사용자 -->
 			<li><a href="info.jsp"></a>님 안녕하세요.</li>
@@ -39,3 +39,11 @@
 	</div>
 </body>
 </html>
+<style>
+.category {
+  display: flex;      /* 가로 정렬 */
+  list-style: none;   /* 점 제거 */
+  padding: 0;
+  gap: 20px;          /* 사이 간격 */
+}
+</style>
