@@ -27,3 +27,5 @@ SELECT * FROM test_member;
 
 -- 커밋
 COMMIT
+
+
