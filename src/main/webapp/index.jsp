@@ -5,7 +5,7 @@
 	<section class="main">
 		<h1>MAIN PAGE</h1>
 	</section>
-<%@ include file="common/footer.jsp" %>
+<%@ include file="common/footer.jsp"%>
 
 
 
