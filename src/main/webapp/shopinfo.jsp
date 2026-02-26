@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<section class="main2">
+	<section class="main">
 		<h3>여기는 매장안내 페이지입니다.</h3>
 	</section>
 </body>
