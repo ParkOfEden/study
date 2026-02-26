@@ -35,7 +35,11 @@
             session.setAttribute("userName", userName);
             
             msg = userName + "님, 환영합니다!";
-            nextPage = "index.jsp"; // 메인 페이지로 이동
+            if ("admin".equals(id)) {
+                nextPage = "write.jsp"; // 관리자면 글쓰기로
+            } else {
+                nextPage = "index.jsp"; // 일반 유저는 메인으로
+            }
         } else {
             // [실패] 아이디 또는 비밀번호 불일치
             msg = "아이디 또는 비밀번호가 일치하지 않습니다.";
