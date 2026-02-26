@@ -8,7 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>여기는 매장안내 페이지입니다.</h3>
+	<section class="main">
+		<h3>여기는 매장안내 페이지입니다.</h3>
+	</section>
 </body>
 </html>
 <%@ include file="common/footer.jsp"%>
