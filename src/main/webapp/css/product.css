@@ -8,3 +8,7 @@
 .product {
   text-align: center;
 }
+
+.product table td {
+    text-align: center;
+}
