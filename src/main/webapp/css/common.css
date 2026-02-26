@@ -10,7 +10,7 @@ section {
 }
 
 section.main{
-	background-image:url(img/dog.jpg);
+	/*background-image:url(img/dog.jpg);*/
 	background-position: center;
 	/*background-repeat: no-repeat;*/	
 	/*background-size:cover;*/
@@ -21,8 +21,8 @@ section.main{
 section.main h1{
 	width:100%;
 	min-height: 700px;
-	background-color:#00000066;
-	color:white;
+	background-color:white;
+	color:black;
 	display: flex;
 	align-items: center;
 	justify-content: center;
