@@ -3,6 +3,7 @@
 .product-list {
   display: flex;
   gap: 20px;  /* 이미지 간 간격 */
+  justify-content: center;
 }
 
 .product {
@@ -11,4 +12,9 @@
 
 .product table td {
     text-align: center;
+}
+
+.product table td img {
+    display: block;
+    margin: 0 auto;
 }
