@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, java.util.*, utils.*, vo.*" %>
+<%@ include file="common/header.jsp" %>
 <%
 	// 1. 페이지 번호 파라미터 안전하게 받기
 	String paramPage = request.getParameter("page");
