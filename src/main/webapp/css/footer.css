@@ -1,42 +1,42 @@
 @charset "UTF-8";
 
-<<<<<<< HEAD
+
 .footer {
   background-color: white;
   text-align: center;
-  padding: 40px 0;
+  padding: 40px 20;
   font-family: Arial, sans-serif;
 }
 
 .line1 {
   font-size: 22px;
   font-weight: bold;
-  color: white;
+  color: black;
   margin-bottom: 15px;
 }
 
 .line2 {
   font-size: 22px;
   font-weight: bold;
-  color: white;
+  color: black;
   margin-bottom: 20px;
 }
 
 .line3 {
-  font-size: 11px;
+  font-size: 15px;
   color: gray;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .line4 {
-  font-size: 11px;
+  font-size: 15px;
   color: gray;
 }
 
 .heart {
   color: red;
 }
-=======
+
 footer {
 	height: 100px;
 	text-align: center;
@@ -71,4 +71,4 @@ footer {
     font-weight: bold;
     margin-top: 20px;
   }
->>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
+
