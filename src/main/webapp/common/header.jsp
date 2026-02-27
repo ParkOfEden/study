@@ -104,11 +104,11 @@
     <li class="has-submenu">
         SHOES &amp; BAG
         <ul class="submenu">
-            <li><a href="#">스니커즈</a></li>
-            <li><a href="#">구두/힐</a></li>
-            <li><a href="#">부츠</a></li>
-            <li><a href="#">가방</a></li>
-            <li><a href="#">모자/액세서리</a></li>
+            <li><a href="Headerjump/Sneak.jsp">스니커즈</a></li>
+            <li><a href="Headerjump/shoesheel.jsp">구두/힐</a></li>
+            <li><a href="Headerjump/boots.jsp">부츠</a></li>
+            <li><a href="Headerjump/bag.jsp">가방</a></li>
+            <li><a href="Headerjump/capacc.jsp">모자/액세서리</a></li>
         </ul>
     </li>
 
