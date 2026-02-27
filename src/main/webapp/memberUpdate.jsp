@@ -35,7 +35,7 @@
         conn = DBCPUtil.getConnection();
 
         // 4. UPDATE 문 작성 (아이디는 고유값이므로 WHERE 조건에 사용)
-        String sql = "UPDATE test_member SET "
+        String sql = "UPDATE ACCOUNTS SET "
                    + "pass=?, name=?, addr=?, phone=?, gender=?, age=?, email=? "
                    + "WHERE id=?";
 
