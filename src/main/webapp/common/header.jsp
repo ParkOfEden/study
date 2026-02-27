@@ -3,8 +3,17 @@
 <%
     String authUser = (String)session.getAttribute("authUser");
     String userName = (String)session.getAttribute("userName");
+    String path = request.getContextPath();
 %>
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
+    </head>
+<body>
 <!-- 
 <style>
 	앞으로는 여기에 css 작업 하지 마시고 header.css 에서 작업해주세요 :-)
@@ -16,7 +25,11 @@
 </style>
  -->
 
-<!-- header.jsp 에는 <header></header>태그 안에서만 작성하되, css 효과는 header.css 에서 처리할 것 -->
+
+<!-- header.jsp 에는 <header></header>태그 안에서만 작성하되, css 효과는 header.css에서 처리할 것 
+	 변경사항 : html 선언 & css 링크 선언 (절대 링크로 요청) & body 선언을 헤더에서 작업 후 일괄 include 처리
+-->	 
+
 <header>
 
   <!-- 🔹 1 줄 상단 메뉴 -->

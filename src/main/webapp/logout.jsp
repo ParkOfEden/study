@@ -3,7 +3,7 @@
 <!-- logout.jsp -->
 <!-- 로그아웃 요청 처리 -->
 <% //session에 저장된 속성값들 중에 로그인 정보용으로 저장한 속성(login) 삭제
-session.removeAttribute("login");
+session.removeAttribute("authUser");
 
 //사용자 브라우저에 등록된 쿠키 정보제거
 Cookie cookie = new Cookie("rememberMe","");

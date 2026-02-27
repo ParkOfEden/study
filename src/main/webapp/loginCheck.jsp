@@ -19,7 +19,7 @@
 
     try {
         // 3. 아이디와 비밀번호가 일치하는 사용자 조회
-        String sql = "SELECT name FROM test_member WHERE id=? AND pass=?";
+        String sql = "SELECT name FROM ACCOUNTS WHERE id=? AND pass=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
         pstmt.setString(2, pass);
