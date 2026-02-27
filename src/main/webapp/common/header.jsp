@@ -115,9 +115,9 @@
     <li class="has-submenu sale-text">
         SALE
         <ul class="submenu">
-            <li><a href="#">전상품 할인</a></li>
-            <li><a href="#">시즌 오프</a></li>
-            <li><a href="#">특가 존</a></li>
+            <li><a href="Headerjump/alldis.jsp">전상품 할인</a></li>
+            <li><a href="Headerjump/seoff.jsp">시즌 오프</a></li>
+            <li><a href="Headerjump/Spzone.jsp">특가 존</a></li>
         </ul>
     </li>
 
