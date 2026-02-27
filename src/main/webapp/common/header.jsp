@@ -4,7 +4,7 @@
     String authUser = (String)session.getAttribute("authUser");
     String userName = (String)session.getAttribute("userName");
     String path = request.getContextPath();
- // 2. [자동 로그인 핵심] 세션은 없는데 쿠키가 있는 경우 처리
+ // [자동 로그인 핵심] 세션은 없는데 쿠키가 있는 경우 처리
     if (authUser == null) {
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
