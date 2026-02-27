@@ -25,7 +25,11 @@
 </style>
  -->
 
-<!-- header.jsp 에는 <header></header>태그 안에서만 작성하되, css 효과는 header.css 에서 처리할 것 -->
+
+<!-- header.jsp 에는 <header></header>태그 안에서만 작성하되, css 효과는 header.css에서 처리할 것 
+	 변경사항 : html 선언 & css 링크 선언 (절대 링크로 요청) & body 선언을 헤더에서 작업 후 일괄 include 처리
+-->	 
+
 <header>
 
   <!-- 🔹 1 줄 상단 메뉴 -->
@@ -113,7 +117,7 @@
     <li class="has-submenu">
         SHOES &amp; BAG
         <ul class="submenu">
-            <li><a href="Headerjump/Sneak.jsp">스니커즈</a></li>
+            <li><a href="Headerjump/sneak.jsp">스니커즈</a></li>
             <li><a href="Headerjump/shoesheel.jsp">구두/힐</a></li>
             <li><a href="Headerjump/boots.jsp">부츠</a></li>
             <li><a href="Headerjump/bag.jsp">가방</a></li>
@@ -124,9 +128,9 @@
     <li class="has-submenu sale-text">
         SALE
         <ul class="submenu">
-            <li><a href="#">전상품 할인</a></li>
-            <li><a href="#">시즌 오프</a></li>
-            <li><a href="#">특가 존</a></li>
+            <li><a href="Headerjump/alldis.jsp">전상품 할인</a></li>
+            <li><a href="Headerjump/seoff.jsp">시즌 오프</a></li>
+            <li><a href="Headerjump/Spzone.jsp">특가 존</a></li>
         </ul>
     </li>
 
