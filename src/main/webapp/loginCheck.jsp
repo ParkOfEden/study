@@ -8,7 +8,8 @@
     request.setCharacterEncoding("utf-8");
     String id = request.getParameter("id");
     String pass = request.getParameter("pass");
-
+    String rememberMe = request.getParameter("rememberMe"); // 체크박스 값 수집
+    
     // 2. DB 연결 준비
     Connection conn = DBCPUtil.getConnection();
     PreparedStatement pstmt = null;
@@ -33,7 +34,14 @@
             // 세션에 로그인 정보 저장 (이게 핵심!)
             session.setAttribute("authUser", id);
             session.setAttribute("userName", userName);
-            
+            //자동 로그인 쿠키 처리 (추가된 부분)
+            if(rememberMe != null && rememberMe.equals("login")) {
+                // "rememberMe"라는 이름으로 아이디를 1일간 저장하는 쿠키 생성
+                Cookie cookie = new Cookie("rememberMe", id);
+                cookie.setMaxAge(60 * 60 * 24 * 1); // 1일
+                cookie.setPath("/"); // 프로젝트 전역에서 사용
+                response.addCookie(cookie);
+            }
             msg = userName + "님, 환영합니다!";
             if ("admin".equals(id)) {
                 nextPage = "write.jsp"; // 관리자면 글쓰기로

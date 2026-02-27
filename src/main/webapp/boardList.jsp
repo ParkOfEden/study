@@ -32,9 +32,8 @@
 		if(rs.next()) totalCount = rs.getInt(1);
 		DBCPUtil.close(rs, pstmt); // 개수 조회 후 자원 일시 반납
 
-		// 4. 게시글 목록 조회 (번호가 안 찍힌다면 컬럼명을 명시하는게 안전함)
-		String sql = "SELECT num, title, author, created_at, view_count FROM board_test ORDER BY num DESC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
-		pstmt = conn.prepareStatement(sql);
+		// 4. 게시글 목록 조회 (category를 조회 목록에 추가함)
+String sql = "SELECT num, category, title, author, created_at, view_count FROM board_test ORDER BY num DESC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";		pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, cri.offset());
 		pstmt.setInt(2, cri.getPerPageNum());
 		
@@ -44,6 +43,7 @@
 			BoardVO board = new BoardVO();
 			// 중요: 여기서 num을 반드시 세팅해야 함
 			board.setNum(rs.getInt("num"));
+			board.setCategory(rs.getString("category"));
 			board.setTitle(rs.getString("title"));
 			board.setAuthor(rs.getString("author"));
 			board.setCreatedAt(rs.getTimestamp("created_at"));
@@ -79,38 +79,40 @@
 	<div style="text-align: right;">
 		<a href="write.jsp">[새 상품 등록]</a>
 	</div>
-
-	<table>
-		<thead>
-			<tr>
-				<th>번호</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>작성일</th>
-				<th>조회수</th>
-			</tr>
-		</thead>
-		<tbody>
-		<% if(list.isEmpty()){ %>
-			<tr><td colspan="5">등록된 게시글이 없습니다.</td></tr>
-		<% } else { %>
-			<% for(BoardVO b : list) { %>
-			<tr>
-				<%-- 5. 여기서 b.getNum()이 0이거나 안 나온다면 VO의 setNum 문제임 --%>
-				<td><%= b.getNum() %></td>
-				<td style="text-align: left;">
-					<%-- 상세페이지로 이동할 때 num 파라미터가 정확히 붙는지 확인 --%>
-					<a href="boardDetail.jsp?num=<%= b.getNum() %>"><%= b.getTitle() %></a>
-				</td>
-				<td><%= b.getAuthor() %></td>
-				<td><%= b.getCreatedAt() %></td>
-				<td><%= b.getViewCount() %></td>
-			</tr>		
-			<% } %>
-		<% } %>
-		</tbody>
-	</table>
-
+<table>
+    <thead>
+        <tr>
+            <th>번호</th>
+            <th>카테고리</th> <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>조회수</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% if(list.isEmpty()){ %>
+        <tr><td colspan="6">등록된 게시글이 없습니다.</td></tr>
+    <% } else { %>
+        <% for(BoardVO b : list) { %>
+        <tr>
+            <td><%= b.getNum() %></td>
+            
+            <td><span style="color: #666;">[<%= b.getCategory() %>]</span></td>
+            
+            <td style="text-align: left;">
+                <a href="boardDetail.jsp?num=<%= b.getNum() %>"><%= b.getTitle() %></a>
+            </td>
+            
+            <td><%= b.getAuthor() %></td>
+            
+            <td><%= b.getCreatedAt() %></td>
+            
+            <td><%= b.getViewCount() %></td>
+        </tr>		
+        <% } %>
+    <% } %>
+    </tbody>
+</table>
 	<div class="paging">
 		<% if(pm.isPrev()){ %>
 			<a href="?page=<%=pm.getStartPage()-1%>">[이전]</a>

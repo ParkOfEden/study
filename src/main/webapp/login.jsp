@@ -25,7 +25,7 @@
 				<tr>
 					<td colspan="2">
 						<label>
-						<input type="checkbox" name="login" value="login"/>
+						<input type="checkbox" name="rememberMe" value="login"/>
 							로그인 상태 유지
 						</label>
 					</td>

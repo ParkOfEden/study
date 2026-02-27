@@ -4,6 +4,29 @@
     String authUser = (String)session.getAttribute("authUser");
     String userName = (String)session.getAttribute("userName");
     String path = request.getContextPath();
+ // 2. [자동 로그인 핵심] 세션은 없는데 쿠키가 있는 경우 처리
+    if (authUser == null) {
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie c : cookies) {
+                if (c.getName().equals("rememberMe")) {
+                    String cookieId = c.getValue();
+                    
+                    // 쿠키가 발견되면 세션을 강제로 생성 (로그인 시킴)
+                    session.setAttribute("authUser", cookieId);
+                    
+                    // 실제 이름을 가져오고 싶다면 여기서 DB 조회가 필요하지만,
+                    // 일단 아이디를 이름으로 세팅합니다.
+                    session.setAttribute("userName", cookieId); 
+                    
+                    // 변수 업데이트
+                    authUser = cookieId;
+                    userName = cookieId;
+                    break;
+                }
+            }
+        }
+    }
 %>
 <!DOCTYPE html>
 <html>
