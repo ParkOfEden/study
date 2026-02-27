@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="common/header.jsp" %>
-<<<<<<< HEAD
+
 <link rel="stylesheet" href="css/product.css">
-=======
+
 	
 			<section class="product-list">
 			
@@ -32,7 +32,7 @@
 			</section>
 	
 <%@ include file="common/footer.jsp"%>
->>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
+
 
 <section class="product-list">
     <div class="product">
