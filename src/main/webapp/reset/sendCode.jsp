@@ -15,7 +15,7 @@
    // 사용자가 입력한 id 로 검색된 email정보 저장
    String email=null;
    try{
-	   String sql="SELECT email From test_member WHERE id=?";
+	   String sql="SELECT email From ACCOUNTS WHERE id=?";
 	   pstmt = conn.prepareStatement(sql);
 	   pstmt.setString(1, id);
 	   rs=pstmt.executeQuery();
