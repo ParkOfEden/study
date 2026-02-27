@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
 
-<<<<<<< HEAD
+
 <footer class="footer">
   <div class="line1">
     매장 안내  |  고객센터  |  개인정보처리방침
