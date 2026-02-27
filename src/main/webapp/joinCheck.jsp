@@ -27,7 +27,7 @@
 	ResultSet rs=null;
 	
 	try{
-		pstmt=conn.prepareStatement("SELECT id, email FROM test_member WHERE id = ? OR email = ?");
+		pstmt=conn.prepareStatement("SELECT id, email FROM ACCOUNTS WHERE id = ? OR email = ?");
 		pstmt.setString(1,id);
 		pstmt.setString(2, email);
 		
@@ -56,7 +56,7 @@
 			String paramAge= request.getParameter("age");
 			int age=Integer.parseInt(paramAge);
 			//요청 파라미터로 전달된 회원 정보 등록
-String sql = "INSERT INTO test_member (id, pass, name, addr, phone, gender, age, email) " +
+String sql = "INSERT INTO ACCOUNTS (id, pass, name, addr, phone, gender, age, email) " +
              "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";			//기존에 생성 사용된 자원 해제후 새로운 preparedStatement 할당
 			DBCPUtil.close(rs,pstmt);
 			
