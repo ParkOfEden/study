@@ -104,7 +104,7 @@
     <li class="has-submenu">
         SHOES &amp; BAG
         <ul class="submenu">
-            <li><a href="Headerjump/Sneak.jsp">스니커즈</a></li>
+            <li><a href="Headerjump/sneak.jsp">스니커즈</a></li>
             <li><a href="Headerjump/shoesheel.jsp">구두/힐</a></li>
             <li><a href="Headerjump/boots.jsp">부츠</a></li>
             <li><a href="Headerjump/bag.jsp">가방</a></li>
