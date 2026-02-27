@@ -109,7 +109,15 @@
         </tr>
         <tr>
             <td>등록 시간</td>
-            <td><%= new SimpleDateFormat("yyyy-MM-dd HH:mm").format(board.getCreatedAt()) %></td>
+            <td>
+            <%--
+            <%= new SimpleDateFormat("yyyy-MM-dd HH:mm").format(board.getCreatedAt()) %>
+            --%>
+                    <%= board.getCreatedAt() == null ? "-" :
+            new SimpleDateFormat("yyyy-MM-dd HH:mm")
+                .format(board.getCreatedAt()) %>
+            
+            </td>
         </tr>
         <tr>
             <th colspan="2">

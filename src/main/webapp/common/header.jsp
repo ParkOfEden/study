@@ -168,7 +168,7 @@ a {
   <ul class="category-menu">
     
     <li class="has-submenu">
-        NEW & BEST
+        NEW &amp; BEST
         <ul class="submenu">
             <li><a href="new.jsp">신상품 (New)</a></li>
             <li><a href="best.jsp">베스트 (Best)</a></li>
@@ -221,7 +221,7 @@ a {
     </li>
 
     <li class="has-submenu">
-        SHOES & BAG
+        SHOES &amp; BAG
         <ul class="submenu">
             <li><a href="#">스니커즈</a></li>
             <li><a href="#">구두/힐</a></li>
