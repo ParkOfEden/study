@@ -1,12 +1,17 @@
 @charset "UTF-8";
 
+/* index.jsp */
+
 .product-list {
   display: flex;
-  gap: 20px;  /* 이미지 간 간격 */
-  justify-content: center;
+  justify-content: center;  /* 가로 가운데 정렬 */
+  align-items: flex-start; /* 세로 방향 위쪽 정렬 */
+  padding-top: 40px;        /* 위쪽 여백 조절 */
+  width: 100%;
 }
 
 .product {
+  display: inline-block;
   text-align: center;
 }
 
@@ -17,4 +22,10 @@
 .product table td img {
     display: block;
     margin: 0 auto;
+}
+
+.product-table {
+    margin: 0 auto;		  		/* 테이블 가운데 정렬 */
+    border-collapse: separate;	/* 테이블 간격 적용 */
+    border-spacing: 20px; 		/* 사진 사이 간격 */
 }
