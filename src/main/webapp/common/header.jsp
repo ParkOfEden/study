@@ -5,138 +5,18 @@
     String userName = (String)session.getAttribute("userName");
 %>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>CHOI HOUSE</title>
-
+<!-- 
 <style>
-/* 공통 */
-* { box-sizing: border-box; }
-body { margin: 0; font-family: 'Noto Sans KR', sans-serif; }
-header {
-  border-bottom: 1px solid #ddd;
-  padding: 15px 20px;
-  background-color: #fff;
-  position: relative;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-  color: #333;
-}
-
-/* 상단 메뉴 (로그인 등) */
-.top-menu {
-  display: flex;
-  justify-content: flex-end;
-  gap: 20px;
-  margin-bottom: 15px;
-  font-size: 13px;
-  color: #666;
-}
-
-.top-menu a:hover {
-  color: #ff6600;
-  text-decoration: underline;
-}
-
-/* 카테고리 메뉴 (메인) */
-.category-menu {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  font-weight: bold;
-  font-size: 15px;
-  position: relative;
-  flex-wrap: wrap;
-}
-
-.category-menu > li {
-  position: relative;
-  cursor: pointer;
-  padding: 10px 5px;
-  transition: color 0.3s;
-}
-
-.category-menu > li:hover {
-  color: #ff6600;
-}
-
-/* 화살표 표시 */
-.category-menu > li.has-submenu::after {
-  content: '▼';
-  font-size: 10px;
-  margin-left: 5px;
-  color: #999;
-  vertical-align: middle;
-  transition: transform 0.3s;
-}
-
-/* 메뉴 호버 시 화살표 회전 */
-.category-menu > li:hover::after {
-  color: #ff6600;
-  transform: rotate(180deg);
-}
-
-/* 🔹 서브 메뉴 (드롭다운) 스타일 */
-.submenu {
-  display: none; /* 기본적으로 숨김 */
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #fff;
-  border: 1px solid #eee;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  min-width: 160px;
-  z-index: 1000;
-  padding: 15px 0;
-  text-align: left;
-  border-radius: 4px;
-  margin-top: 10px; /* 메인 메뉴와 살짝 띄우기 */
-  opacity: 0;
-  transition: all 0.3s ease;
-  visibility: hidden;
-}
-
-.submenu li {
-  padding: 8px 20px;
-  font-weight: normal;
-  font-size: 14px;
-  color: #555;
-  white-space: nowrap;
-}
-
-.submenu li:hover {
-  background-color: #f9f9f9;
-  color: #ff6600;
-  padding-left: 25px;
-  transition: all 0.2s;
-}
-
-/* 🔹 핵심: 마우스를 올렸을 때 (Hover) 서브 메뉴 표시 */
-.category-menu > li:hover .submenu {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-  margin-top: 0; /* 올라오는 효과 */
-}
-
-/* 특별 메뉴 (세일 등) 색상 */
-.sale-text { color: #ff3333 !important; }
+	앞으로는 여기에 css 작업 하지 마시고 header.css에서 작업해주세요 :-)
+	(여기 작성된 코드를 지운 것이 아니고 header.css에 옮겨놓음)
+	이유1 : index.jsp(등)에 css 효과 include 처리 되어서 그대로 영향
+	이유2 : 만약 <html> 태그를 사용해서 </html>처리를 해버리면 include 한 index.jsp 등에서 닫힌 <html>태그에 이어서 태그를 작성하는 꼴이 나버림..
+		   이 이유때문에 남아서 작업해도 해결못하고 있다가 집에 가서 전수조사해서 밝혀냄..
+    결론 : header.jsp에서는 style 태그에 작업 금지(index, footer 전역 효과 또는 충돌되어 안먹힘), <html> 열고 </html> 닫기 금지 (치명적, 스파게티 코드 발생 가능)
 </style>
+ -->
 
-</head>
-<body>
-
+<!-- header.jsp 에는 <header></header>태그 안에서만 작성하되, css 효과는 header.css에서 처리할 것 -->
 <header>
 
   <!-- 🔹 1 줄 상단 메뉴 -->
@@ -168,7 +48,8 @@ a {
   <ul class="category-menu">
     
     <li class="has-submenu">
-        NEW & BEST
+
+        NEW &amp; BEST <!-- & 보다 &amp; 가 안전 -->
         <ul class="submenu">
             <li><a href="new.jsp">신상품 (New)</a></li>
             <li><a href="best.jsp">베스트 (Best)</a></li>
@@ -221,7 +102,7 @@ a {
     </li>
 
     <li class="has-submenu">
-        SHOES & BAG
+        SHOES &amp; BAG
         <ul class="submenu">
             <li><a href="#">스니커즈</a></li>
             <li><a href="#">구두/힐</a></li>
@@ -244,5 +125,3 @@ a {
 
 </header>
 
-</body>
-</html>
