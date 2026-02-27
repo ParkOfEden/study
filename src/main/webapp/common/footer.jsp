@@ -3,12 +3,12 @@
 
 <footer class="footer">
   <div class="line1">
-<<<<<<< HEAD
+
     <a href="shopinfo.jsp">매장 안내</a> | 
     <a href="shopinfo.jsp">고객센터</a> | 
     <a href="shopinfo.jsp">개인정보처리방침</a>
   </div>
-=======
+
     
 
 <!-- 
@@ -21,14 +21,14 @@
 
 <div class="menu">
   <a href="shopinfo.jsp">매장안내</a>
-  <a href="customerservice.jsp">고객센터</a>
+  <a href="customerService.jsp">고객센터</a>
   <a href="privacy.jsp">개인정보처리방침</a> 
 </div>
 
 
 
 
->>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
+
 
   <div class="line2">
     WOL<span class="heart">♥</span>CL (월클 주식회사)
@@ -42,6 +42,7 @@
     ©2026    |    WOL<span class="heart">♥</span>CL.com    |    ALL RIGHTS RESERVED
   </div>
 </footer>
+
 <!-- 아랫부분은 건드리지마세요 -->
 </body>
 </html>
