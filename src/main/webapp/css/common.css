@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 /* index.jsp */
+/*
 section {
 	min-height: 700px;
 	display: flex;
@@ -8,6 +9,7 @@ section {
 	justify-content: center;
 	padding: 30px;
 }
+*/
 
 section.main{
 	background-image:url(img/dog.jpg);
@@ -21,31 +23,13 @@ section.main{
 section.main h1{
 	width:100%;
 	min-height: 700px;
-	background-color:#00000066;
-	color:white;
+	background-color:white;
+	color:black;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-section.main2{
-	/* background-image:url(img/dog.jpg); */
-	/* background-position: center; */
-	/*background-repeat: no-repeat;*/	
-	/*background-size:cover;*/
-	padding:0;
-	margin:30px;
-}
-
-section.main2 h3{
-	width:100%;
-	min-height: 700px;
-	background-color:#00000066;
-	color:blue;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
 table {
 	border-collapse: collapse;
 }
