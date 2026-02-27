@@ -4,7 +4,15 @@
     String authUser = (String)session.getAttribute("authUser");
     String userName = (String)session.getAttribute("userName");
 %>
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    </head>
+<body>
 <!-- 
 <style>
 	앞으로는 여기에 css 작업 하지 마시고 header.css 에서 작업해주세요 :-)
