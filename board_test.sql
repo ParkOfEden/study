@@ -11,3 +11,5 @@ CREATE TABLE board_test(
     updated_at TIMESTAMP DEFAULT SYSTIMESTAMP NOT NULL,
     view_count NUMBER DEFAULT 0 NOT NULL CHECK (view_count >= 0)
 );
+
+SELECT * FROM board_test;
