@@ -12,7 +12,7 @@
 							<td><a href="Headerjump/Tshirt.jsp"><img src="css/img/main/sort_link/T_shirt.jpg"></a></td>
 							<td><a href="Headerjump/knsw.jsp"><img src="css/img/main/sort_link/Knit.jpg"></a></td>
 							<td><a href="Headerjump/blouse.jsp"><img src="css/img/main/sort_link/Y_shirt.jpg"></a></td>
-							<td><a href="Headerjump/skirt.jsp""><img src="css/img/main/sort_link/skirt.jpg"></a></td>
+							<td><a href="Headerjump/skirt.jsp""><img src="css/img/main/sort_link/Skirt.jpg"></a></td>
 						</tr>
 						<tr>
 							<td>티셔츠</td>
