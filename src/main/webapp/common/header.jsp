@@ -26,7 +26,7 @@
 <% if(authUser == null){ %>
     <li><a href="login.jsp">로그인</a></li>
     <li><a href="join.jsp">회원가입</a></li>
-    <li><a href="#">고객센터</a></li>
+    <li><a href="cuscen.jsp">고객센터</a></li>
 <% } else { %>
     <!-- 수정된 부분: 아이디 클릭 시 memberUpdateForm.jsp 로 이동 -->
     <li><a href="memberUpdateForm.jsp"><%= userName %></a>님 환영합니다</li>
@@ -84,20 +84,20 @@
         BOTTOM
         <ul class="submenu">
             <li><a href="Headerjump/demin.jsp">데님 (Jeans)</a></li>
-            <li><a href="Headerjump/slacks">슬랙스</a></li>
-            <li><a href="Headerjump/">와이드 팬츠</a></li>
-            <li><a href="#">스커트</a></li>
-            <li><a href="#">쇼츠</a></li>
-            <li><a href="#">트레이닝</a></li>
+            <li><a href="Headerjump/slacks.jsp">슬랙스</a></li>
+            <li><a href="Headerjump/widep.jsp">와이드 팬츠</a></li>
+            <li><a href="Headerjump/skirt.jsp">스커트</a></li>
+            <li><a href="Headerjump/shorts.jsp">쇼츠</a></li>
+            <li><a href="Headerjump/train.jsp">트레이닝</a></li>
         </ul>
     </li>
 
     <li class="has-submenu">
         ONE-PIECE
         <ul class="submenu">
-            <li><a href="#">원피스</a></li>
-            <li><a href="#">점프수트</a></li>
-            <li><a href="#">롬퍼</a></li>
+            <li><a href="Headerjump/onepiece.jsp">원피스</a></li>
+            <li><a href="Headerjump/jumps.jsp">점프수트</a></li>
+            <li><a href="Headerjump/Romper.jsp">롬퍼</a></li>
         </ul>
     </li>
 
