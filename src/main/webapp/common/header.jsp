@@ -48,11 +48,8 @@
   <ul class="category-menu">
     
     <li class="has-submenu">
-<<<<<<< HEAD
-        NEW &amp; BEST
-=======
+
         NEW &amp; BEST <!-- & 보다 &amp; 가 안전 -->
->>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
         <ul class="submenu">
             <li><a href="new.jsp">신상품 (New)</a></li>
             <li><a href="best.jsp">베스트 (Best)</a></li>
