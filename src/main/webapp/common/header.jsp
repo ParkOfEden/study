@@ -16,7 +16,23 @@
 </style>
  -->
 
-<!-- header.jsp 에는 <header></header>태그 안에서만 작성하되, css 효과는 header.css에서 처리할 것 -->
+<!-- header.jsp 에는 <header></header>태그 안에서만 작성하되, css 효과는 header.css에서 처리할 것 
+	 변경사항 : html 선언 & css 링크 선언 (절대 링크로 요청) & body 선언을 헤더에서 작업 후 일괄 include 처리
+	 
+<!-- 확인 후 주석 해제 요청
+ 	<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CHOI HOUSE</title>
+		
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/header.css">		
+		<link rel="stylesheet" href="css/footer.css">
+		<link rel="stylesheet" href="css/product.css">
+	</head>
+		<body>
+-->
 <header>
 
   <!-- 🔹 1 줄 상단 메뉴 -->
