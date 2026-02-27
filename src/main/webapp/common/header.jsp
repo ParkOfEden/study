@@ -21,23 +21,23 @@
 
   <!-- 🔹 1 줄 상단 메뉴 -->
   <ul class="top-menu">
-    <li><a href="Headerjump/index.jsp">홈</a></li>
+    <li><a href="index.jsp">홈</a></li>
 
 <% if(authUser == null){ %>
-    <li><a href="Headerjump/login.jsp">로그인</a></li>
-    <li><a href="Headerjump/join.jsp">회원가입</a></li>
+    <li><a href="login.jsp">로그인</a></li>
+    <li><a href="join.jsp">회원가입</a></li>
     <li><a href="#">고객센터</a></li>
 <% } else { %>
     <!-- 수정된 부분: 아이디 클릭 시 memberUpdateForm.jsp 로 이동 -->
-    <li><a href="Headerjump/memberUpdateForm.jsp"><%= userName %></a>님 환영합니다</li>
+    <li><a href="memberUpdateForm.jsp"><%= userName %></a>님 환영합니다</li>
     
-    <li><a href="Headerjump/logout.jsp">로그아웃</a></li>
-    <li><a href="Headerjump/memberList.jsp">회원관리</a></li>
-    <li><a href="Headerjump/orin.jsp">주문조회</a></li>
+    <li><a href="logout.jsp">로그아웃</a></li>
+    <li><a href="memberList.jsp">회원관리</a></li>
+    <li><a href="orin.jsp">주문조회</a></li>
     
     <%-- admin 일 때만 보이는 글쓰기 버튼 --%>
     <% if ("admin".equals(authUser)) { %>
-        <li><a href="Headerjump/write.jsp">글쓰기</a></li>
+        <li><a href="write.jsp">글쓰기</a></li>
     <% } %>
     
 <% } %>
@@ -83,9 +83,9 @@
     <li class="has-submenu">
         BOTTOM
         <ul class="submenu">
-            <li><a href="#">데님 (Jeans)</a></li>
-            <li><a href="#">슬랙스</a></li>
-            <li><a href="#">와이드 팬츠</a></li>
+            <li><a href="Headerjump/demin.jsp">데님 (Jeans)</a></li>
+            <li><a href="Headerjump/slacks">슬랙스</a></li>
+            <li><a href="Headerjump/">와이드 팬츠</a></li>
             <li><a href="#">스커트</a></li>
             <li><a href="#">쇼츠</a></li>
             <li><a href="#">트레이닝</a></li>
