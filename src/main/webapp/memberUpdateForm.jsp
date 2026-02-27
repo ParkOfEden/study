@@ -23,7 +23,7 @@
         System.out.println("연결 성공! 조회 ID: " + id); // 서버 콘솔 확인용
         
         
-        pstmt = conn.prepareStatement("SELECT * FROM test_member WHERE id = ?");
+        pstmt = conn.prepareStatement("SELECT * FROM ACCOUNTS WHERE id = ?");
         pstmt.setString(1, id);
         rs = pstmt.executeQuery();
         

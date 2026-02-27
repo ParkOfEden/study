@@ -22,7 +22,7 @@
     String nextPage = "";
 try {
         conn = DBCPUtil.getConnection();
-        String sql = "SELECT * FROM test_member WHERE id = ?";
+        String sql = "SELECT * FROM ACCOUNTS WHERE id = ?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
         rs = pstmt.executeQuery();
