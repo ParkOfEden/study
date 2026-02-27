@@ -21,7 +21,7 @@
 
 <div class="menu">
   <a href="shopinfo.jsp">매장안내</a>
-  <a href="customerservice.jsp">고객센터</a>
+  <a href="customerService.jsp">고객센터</a>
   <a href="privacy.jsp">개인정보처리방침</a> 
 </div>
 
