@@ -39,18 +39,6 @@
     }
 %>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>CHOI HOUSE</title>
-	
-	<link rel="stylesheet" href="css/common.css">
-	<link rel="stylesheet" href="css/header.css">		
-	<link rel="stylesheet" href="css/footer.css">
-	<link rel="stylesheet" href="css/product.css">
-</head>
-	<body>
 		<section>
 		    <form action="memberUpdate.jsp" method="post">
 		        <h2>내 정보 수정하기</h2>
@@ -99,7 +87,5 @@
 		        </table>
 		    </form>
 		</section>
-	</body>
-</html>
 
 <%@ include file="common/footer.jsp" %>
