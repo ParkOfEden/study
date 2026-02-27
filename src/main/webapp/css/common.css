@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 /* index.jsp */
+
 /*
 section {
 	min-height: 700px;
@@ -10,6 +11,15 @@ section {
 	padding: 30px;
 }
 */
+
+/* 전역 설정 방지 예시 */
+.section-base {
+	min-height: 700px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 30px;
+}
 
 section.main{
 	background-image:url(img/dog.jpg);
@@ -23,12 +33,41 @@ section.main{
 section.main h1{
 	width:100%;
 	min-height: 700px;
-	background-color:white;
+	background-color:#ffffff80;
 	color:black;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
+
+section.main2{
+	background-image:url(img/bg001.jpg);
+	background-position: center;
+	/*background-repeat: no-repeat;*/	
+	/*background-size:cover;*/
+	padding:0;
+	margin:30px;
+}
+
+section.main2 h3{
+	width:100%;
+	min-height: 700px;
+	background-color:#00000020;
+	color:blue;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* ⚠️ 전역 table 스타일 사용 금지
+
+이 설정은 모든 테이블에 영향을 주어 충돌 가능성이 높음.
+
+2025-XX-XX 리팩토링:
+- 클래스 기반 테이블 스타일로 전환
+- 특정 테이블에만 스타일 적용하도록 구조 변경
+
+필요 시 .table-base 클래스 사용
 
 table {
 	border-collapse: collapse;
@@ -69,4 +108,48 @@ table tr td input[type='number'] {
 	border: none;
 	padding: 10px;
 	font-size: 14px;
+}
+*/
+
+/* 기존 전역 table 스타일 대신 클래스 기반으로 변경 */
+.pd-table {
+    margin: 0 auto;          /* 가운데 정렬 */
+    border-collapse: collapse;
+}
+
+.pd-table tr {
+    height: 40px;
+}
+
+.pd-table tr td,
+.pd-table tr th {
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.pd-table tr:first-child th {
+    color: white;
+    background-color: navy;
+}
+
+.pd-table tr td:first-child {
+    padding: 10px;
+    text-align: left;
+}
+
+.pd-table.list tr td:nth-child(2) {
+    text-align: left;
+}
+
+.pd-table.list tr td:first-child {
+    text-align: center;
+}
+
+.pd-table tr td input[type='text'],
+.pd-table tr td input[type='password'],
+.pd-table tr td input[type='number'] {
+    outline: none;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
 }
