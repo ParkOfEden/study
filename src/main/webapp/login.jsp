@@ -30,9 +30,14 @@
 						</label>
 					</td>
 				</tr>
+				
 				<tr>
-					<th colspan="2"><button>로그인</button></th>
-				</tr>
+			<th colspan="2">
+				<button>로그인</button>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="reset/resetPass.jsp">비밀번호 찾기</a>
+			</th>
+		</tr>
 			</table>
 		</form>
 		</section>
