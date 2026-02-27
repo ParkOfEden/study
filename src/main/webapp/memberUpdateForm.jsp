@@ -20,10 +20,16 @@
 
     try {
         conn = DBCPUtil.getConnection();
+        System.out.println("연결 성공! 조회 ID: " + id); // 서버 콘솔 확인용
+        
+        
         pstmt = conn.prepareStatement("SELECT * FROM test_member WHERE id = ?");
         pstmt.setString(1, id);
         rs = pstmt.executeQuery();
+        
+        
         if(rs.next()) {
+        	System.out.println("데이터 찾음!"); // 데이터가 있을 때만 출력
             pass   = rs.getString("pass");
             name   = rs.getString("name");
             addr   = rs.getString("addr");
@@ -31,6 +37,8 @@
             gender = rs.getString("gender");
             age    = rs.getInt("age");
             email  = rs.getString("email");
+        }else {
+            System.out.println("데이터가 테이블에 없습니다."); // ID는 있는데 DB에 데이터가 없을 때
         }
     } catch(Exception e) {
         e.printStackTrace();
