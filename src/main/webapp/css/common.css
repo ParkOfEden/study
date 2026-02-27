@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 /* index.jsp */
+/*
 section {
 	min-height: 700px;
 	display: flex;
@@ -8,6 +9,7 @@ section {
 	justify-content: center;
 	padding: 30px;
 }
+*/
 
 section.main{
 	background-image:url(img/dog.jpg);
