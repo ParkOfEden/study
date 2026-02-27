@@ -26,7 +26,7 @@
 	Connection conn=DBCPUtil.getConnection();
 	PreparedStatement pstmt =null;
 	
-	String sql="UPDATE test_member SET pass=? WHERE id=?";
+	String sql="UPDATE ACCOUNTS SET pass=? WHERE id=?";
 	try{
 		pstmt=conn.prepareStatement(sql);
 		pstmt.setString(1,password);
