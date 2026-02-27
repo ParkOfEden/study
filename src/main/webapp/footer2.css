@@ -1,7 +1,7 @@
 @charset "UTF-8";
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/img/footer.css">
 .footer {
-  background-color: white;
+  background-color: yellow;
   text-align: center;
   padding: 40px 0;
   font-family: Arial, sans-serif;
