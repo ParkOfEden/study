@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page trimDirectiveWhitespaces="true" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><footer class="footer">
+
 <!-- header.jsp에서 관리함(중복 코드) 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
  -->
@@ -14,7 +14,7 @@
 </style>
 -->
 
-<footer class="footer">
+
 <section>
 	<div class="line1">
 	  <!-- EL 사용하여 contextPath 자동 적용 -->
