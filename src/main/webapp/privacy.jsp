@@ -22,14 +22,14 @@
 
 <body>
  -->
- 
-<div class="pv-section container">
+<section class="pv-section"> 
+<div class="container">
 <h1>개인정보처리방침</h1>
 
 <p><strong>WOL♥CL</strong>은(는) 고객님의 개인정보를 중요시하며, 
 「개인정보 보호법」을 준수하고 있습니다.</p>
 
-<div class="pv-section policy-box">
+<div class="policy-box">
 
 <h3>제1조 (개인정보의 수집 항목)</h3>
 <p>회사는 회원가입, 주문, 상담을 위해 다음과 같은 정보를 수집합니다.</p>
@@ -57,5 +57,5 @@
 </div>
 
 </div>
-
+</section>
 <%@ include file="common/footer.jsp" %>
