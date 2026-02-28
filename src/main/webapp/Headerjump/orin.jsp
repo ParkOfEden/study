@@ -19,7 +19,7 @@ request.setAttribute("pageTitle", "주문조회");
 <!-- section 태그 내에서 관리하세요. (골격 구조 통일 - common.css 참조) -->
 
 <section class="main2 section-base">
-	<h3>여기는 (상품)주문조회 페이지입니다.</h3>
+	<h3>여기는 주문조회 안내 페이지입니다.</h3>
 </section>
 
 
