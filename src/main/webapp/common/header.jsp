@@ -30,6 +30,7 @@
 <head>
     <meta charset="UTF-8">
     <title><%= request.getAttribute("pageTitle") != null ? request.getAttribute("pageTitle") : "월클의류(주)" %></title>
+    <link rel="icon" href="${pageContext.request.contextPath}/css/img/wolcl.ico" type="image/x-icon">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
