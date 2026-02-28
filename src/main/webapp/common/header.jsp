@@ -66,7 +66,7 @@
     <li><a href="<%=path%>/cuscen.jsp">고객센터</a></li>
 <% } else { %>
     <!-- 수정된 부분: 아이디 클릭 시 memberUpdateForm.jsp 로 이동 -->
-    <li><a href="memberUpdateForm.jsp"><%= userName %></a>님 환영합니다</li>
+    <li><a href="<%=path%>/memberUpdateForm.jsp"><%= userName %></a>님 환영합니다</li>
     
     <li><a href="<%=path%>/logout.jsp">로그아웃</a></li>
     <li><a href="<%=path%>/memberList.jsp">회원관리</a></li>

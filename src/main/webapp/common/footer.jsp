@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- header.jsp에서 관리함(중복 코드 => 500 에러 발생) 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
-
+ -->
 <!-- 절대경로 path 지정 -->
 <% String path = request.getContextPath(); %>
 
