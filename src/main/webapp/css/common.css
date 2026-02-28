@@ -2,15 +2,12 @@
 
 /* index.jsp */
 
-/*
+/* section 은 최대한 수정하지 않습니다. (전역 설정 : 틀 유지용) */ 
 section {
 	min-height: 700px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	padding: 30px;
 }
-*/
+
 
 /* 전역 설정 방지 예시 */
 .section-base {
