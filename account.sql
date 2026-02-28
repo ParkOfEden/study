@@ -1,5 +1,17 @@
--- 필요 시 테이블 제거
-DROP TABLE ACCOUNTS PURGE;
+
+---------------------------------------------------------------------------
+--	여기서부터 추가된 내용 													 --
+---------------------------------------------------------------------------
+-- 기존 테이블 삭제 (존재할 경우만)
+BEGIN
+    EXECUTE IMMEDIATE 'DROP TABLE ACCOUNTS PURGE';
+EXCEPTION
+    WHEN OTHERS THEN
+        IF SQLCODE != -942 THEN
+            RAISE;
+        END IF;
+END;
+/
 
 -- 테이블 생성
 CREATE TABLE ACCOUNTS (
@@ -11,10 +23,10 @@ CREATE TABLE ACCOUNTS (
     phone VARCHAR2(20),														-- 전화번호
     gender VARCHAR2(10),													-- 성별(남성,여성)
     age NUMBER(3),															-- 나이
-    email VARCHAR2(100) UNIQUE NOT NULL
+    email VARCHAR2(100) UNIQUE NOT NULL										-- 이메일주소
 );
 
--- 데이터 삽입 (테이블 생성 후 관리자 계정 추가)
+-- 관리자 계정 추가
 INSERT INTO ACCOUNTS (
     id, pass, name, addr, phone, gender, age, email
 ) VALUES (
@@ -22,13 +34,8 @@ INSERT INTO ACCOUNTS (
     '부산광역시', '01011111111', '남성', 30, 'admin@admin.com'
 );
 
--- 조회
+COMMIT;
+
+-- 확인용
 SELECT * FROM ACCOUNTS;
-
--- 커밋
-COMMIT
-
----------------------------------------------------------------------------
-
-
 
