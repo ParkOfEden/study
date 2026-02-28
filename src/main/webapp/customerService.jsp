@@ -23,15 +23,6 @@
 <body> => header.jsp 에서 body 선언하므로 중복 => 쓰기 금지
 -->
 
-	<script>
-	
-	document.getElementById("inquiryBtn")
-    .addEventListener("click", function() {
-        location.href = "inquiry.jsp";
-    });
-	
-	</script>
-
   	<h1>고객센터</h1>
     <p>WOL♥CL을 이용해주셔서 감사합니다 😊</p>
    
@@ -54,7 +45,14 @@
     
     <br>
     <button id = "inquiryBtn">1:1 문의하기</button>
+    
+	<script>
+	
+	document.getElementById("inquiryBtn")
+    .addEventListener("click", function() {
+        location.href = "inquiry.jsp";
+    });
+	
+	</script>    
 
-<!-- 아래 부분은 수정하지 마세요 -->
-</body>
-</html>
+<%@ include file="common/footer.jsp" %>
