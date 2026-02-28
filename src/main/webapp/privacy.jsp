@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="common/header.jsp" %>
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/customerService.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/privacy.css">
 
 <!--
 <!DOCTYPE html>
