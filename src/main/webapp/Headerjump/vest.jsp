@@ -1,6 +1,10 @@
 <!-- vest.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!-- 타이틀은 여기서 작업하면 반영됩니다. -->
+<%
+request.setAttribute("pageTitle", "조끼");
+%>    
 <%@ include file="/common/header.jsp"%>
 <!-- header.jsp에서 처리합니다.(중복코드)
 <!DOCTYPE html>
@@ -11,11 +15,6 @@
 </head>
 <body>
  -->
- 
- <!-- 타이틀은 여기서 작업하면 반영됩니다. -->
- <%
- request.setAttribute("pageTitle", "조끼");
- %>
 
 <!-- section 태그 내에서 관리하세요. (골격 구조 통일 - common.css 참조) -->
 
