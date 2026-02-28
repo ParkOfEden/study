@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
 
+<!-- 절대경로 path 지정 -->
+<% String path = request.getContextPath(); %>
+
 <!-- 
 <style>
 	여기다가.. css 스타일 요소 부여하지 마시고 오직 footer.css에서만 작업하세요
@@ -12,9 +15,9 @@
 <section>
 	<div class="line1">
 	
-	  <a href="shopinfo.jsp">매장 안내</a> | 
-	  <a href="customerService.jsp">고객센터</a> | 
-	  <a href="privacy.jsp">개인정보처리방침</a>
+	  <a href="<%=path%>/shopinfo.jsp">매장 안내</a> | 
+	  <a href="<%=path%>/customerService.jsp">고객센터</a> | 
+	  <a href="<%=path%>/privacy.jsp">개인정보처리방침</a>
 	  
 	</div>
 
