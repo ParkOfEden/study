@@ -49,10 +49,15 @@
     <button id = "inquiryBtn">1:1 문의하기</button>
     
 	<script>
-	
-	document.getElementById("inquiryBtn")
-    .addEventListener("click", function() {
-        location.href = "inquiry.jsp";
+	document.addEventListener("DOMContentLoaded", function() {
+		document.getElementById("inquiryBtn")
+    		.addEventListener("click", function() {
+                window.open(
+                        "inquiry.jsp",
+                        "inquiryPopup",
+                        "width=600,height=700,scrollbars=yes"
+                );
+    		});
     });
 	
 	</script>    
