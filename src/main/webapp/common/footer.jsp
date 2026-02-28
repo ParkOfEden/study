@@ -13,17 +13,18 @@
 	<div class="line1">
 	
 	  <a href="shopinfo.jsp">매장 안내</a> | 
-	  <a href="shopinfo.jsp">고객센터</a> | 
-	  <a href="shopinfo.jsp">개인정보처리방침</a>
+	  <a href="customerService.jsp">고객센터</a> | 
+	  <a href="privacy.jsp">개인정보처리방침</a>
 	  
 	</div>
 
+<!-- 중복되는 내용이지만 혹시 내용을 추가하게 될 때 재사용할 수 있으므로 놔둘게요. (직접 첨삭지도예정)
 	<div class="menu">
-	  <a href="shopinfo.jsp">매장안내</a>
-	  <a href="customerService.jsp">고객센터</a>
-	  <a href="privacy.jsp">개인정보처리방침</a> 
+	  <a href="#">매장안내</a>
+	  <a href="#">고객센터</a>
+	  <a href="#">개인정보처리방침</a> 
 	</div>
-	
+ -->	
 	<div class="line2">
 	  WOL<span class="heart">♥</span>CL (월클 주식회사)
 	</div>

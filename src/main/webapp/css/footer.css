@@ -94,6 +94,9 @@
   font-weight: bold;
   color: gray; /* 색상 다름(white=>gray 수정(안보여서) */
   margin-bottom: 15px;
+  
+  display: flex; /* 자식들을 가로 정렬 모드로 바꿈 */
+  justify-content: space-between; /* 정렬 : 양 끝 고정 + 사이 균등 */
 }
 
 .line1 a:hover {
@@ -103,8 +106,11 @@
 .line2 {
   font-size: 22px;
   font-weight: bold;
-  color: white; /* 색상 다름 */
+  color: gray; /* 색상 다름(white=>gray 수정(안보여서) */
   margin-bottom: 20px;
+  
+  display: flex; /* 자식들을 가로 정렬 모드로 바꿈 */
+  justify-content: center; /* 정렬 : 가운데 정렬 */
 }
 
 .line3 {
