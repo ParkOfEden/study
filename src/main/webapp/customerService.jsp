@@ -1,27 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+<%@ include file="common/header.jsp" %>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/customerService.css">
+
 <title>customerService.jsp</title>
 
+<!-- 
 <style>
-body { padding:40px; font-family: Arial; }
-h1 { border-bottom:2px solid black; padding-bottom:10px; }
-button {
-    padding:10px 20px;
-    background-color:black;
-    color:white;
-    border:none;
-    cursor:pointer;
-}
-button:hover { background-color:red; }
-</style>
-     
-</head>
+[CSS 규칙]
 
-<body>
+1. <style> 태그 사용 금지
+2. 전역 선택자 사용 금지 (table, section, ul)
+3. header.css / index.css / footer.css 에서만 관리
+4. 클래스 prefix 사용
+
+</style>
+ 
+      
+</head> => header.jsp 에서 head 닫으므로 불필요 => 쓰기 금지
+
+<body> => header.jsp 에서 body 선언하므로 중복 => 쓰기 금지
+-->
+
+	<script>
+	
+	document.getElementById("inquiryBtn")
+    .addEventListener("click", function() {
+        location.href = "inquiry.jsp";
+    });
+	
+	</script>
 
   	<h1>고객센터</h1>
     <p>WOL♥CL을 이용해주셔서 감사합니다 😊</p>
@@ -44,7 +53,8 @@ button:hover { background-color:red; }
     <p>A. 3만원 이상 구매 시 무료배송입니다.</p>
     
     <br>
-    <button onclick="location.href='inquiry.jsp'">1:1 문의하기</button>
+    <button id = "inquiryBtn">1:1 문의하기</button>
 
+<!-- 아래 부분은 수정하지 마세요 -->
 </body>
 </html>

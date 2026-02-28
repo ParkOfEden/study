@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+body { padding:40px; font-family: Arial; }
+h1 { border-bottom:2px solid black; padding-bottom:10px; }
+button {
+    padding:10px 20px;
+    background-color:black;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+button:hover { background-color:red; }
