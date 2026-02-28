@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><%
     String authUser = (String)session.getAttribute("authUser");
     String userName = (String)session.getAttribute("userName");
     String path = request.getContextPath();
@@ -27,8 +25,7 @@
             }
         }
     }
-%>
-<!DOCTYPE html>
+%><!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -36,8 +33,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
     </head>
-<body>
-<!-- 
+<body><%-- 
 <style>
 	앞으로는 여기에 css 작업 하지 마시고 header.css 에서 작업해주세요 :-)
 	(여기 작성된 코드를 지운 것이 아니고 header.css 에 옮겨놓음)
@@ -46,14 +42,9 @@
 		   이 이유때문에 남아서 작업해도 해결못하고 있다가 집에 가서 전수조사해서 밝혀냄..
     결론 : header.jsp 에서는 style 태그에 작업 금지 (index, footer 전역 효과 또는 충돌되어 안먹힘), <html> 열고 </html> 닫기 금지 (치명적, 스파게티 코드 발생 가능)
 </style>
- -->
-
-
-<!-- header.jsp 에는 <header></header>태그 안에서만 작성하되, css 효과는 header.css에서 처리할 것 
+ --%><%-- header.jsp 에는 <header></header>태그 안에서만 작성하되, css 효과는 header.css에서 처리할 것 
 	 변경사항 : html 선언 & css 링크 선언 (절대 링크로 요청) & body 선언을 헤더에서 작업 후 일괄 include 처리
--->	 
-
-<header>
+--%><header>
 
 
   <!-- 🔹 1 줄 상단 메뉴 -->
