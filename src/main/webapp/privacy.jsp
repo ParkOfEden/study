@@ -1,56 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="common/header.jsp" %>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/customerService.css">
+
+<!--
 <!DOCTYPE html>
-<html>
-<head>
+<html> => html태그를 header.jsp에서 열기때문에 필요없습니다.
+<head> => head태그를 header.jsp에서 열기때문에 필요없습니다.
 <meta charset="UTF-8">
-<title>privacy.jsp</title>
-
+-->
+<title>privacy</title>
+<!--
 <style>
-body {
-    font-family: 'Noto Sans KR', sans-serif;
-    background-color: #f8f8f8;
-    padding: 40px;
-}
-
-.container {
-    background: white;
-    padding: 40px;
-    max-width: 900px;
-    margin: auto;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-h1 {
-    border-bottom: 2px solid black;
-    padding-bottom: 15px;
-}
-
-.policy-box {
-    margin-top: 30px;
-    height: 400px;
-    overflow-y: scroll;
-    border: 1px solid #ddd;
-    padding: 20px;
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-h3 {
-    margin-top: 25px;
-}
+※ 제발 여기에다가 전역 설정 하지마세요. ※ 
 </style>
+-->
+
+<!-- 이 부분도 header.jsp에서 작업했기때문에 중복되는태그.
 </head>
 
 <body>
-
-<div class="container">
+ -->
+ 
+<div class="pv-section container">
 <h1>개인정보처리방침</h1>
 
 <p><strong>WOL♥CL</strong>은(는) 고객님의 개인정보를 중요시하며, 
 「개인정보 보호법」을 준수하고 있습니다.</p>
 
-<div class="policy-box">
+<div class="pv-section policy-box">
 
 <h3>제1조 (개인정보의 수집 항목)</h3>
 <p>회사는 회원가입, 주문, 상담을 위해 다음과 같은 정보를 수집합니다.</p>
@@ -79,10 +58,4 @@ h3 {
 
 </div>
 
-</body>
-</html>
-</head>
-<body>
-
-</body>
-</html>
+<%@ include file="common/footer.jsp" %>
