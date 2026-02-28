@@ -1,6 +1,11 @@
 @charset "UTF-8";
 
-.cs-section { padding:40px; font-family: Arial; }
+.cs-section { 
+	padding:40px;
+	font-family: Arial; 
+	background-image:url(img/bluesky01.png);
+	background-position: center;
+}
 .cs-section h1 { border-bottom:2px solid black; padding-bottom:10px; }
 .cs-section button {
     padding:10px 20px;
