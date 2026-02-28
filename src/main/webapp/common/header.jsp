@@ -58,12 +58,12 @@
 
   <!-- 🔹 1 줄 상단 메뉴 -->
   <ul class="top-menu">
-    <li><a href="index.jsp">홈</a></li>
+    <li><a href="<%=path%>/index.jsp">홈</a></li>
 	<li><a href="<%=path%>/sendMail.jsp">SEND MAIL</a></li>
 <% if(authUser == null){ %>
-    <li><a href="login.jsp">로그인</a></li>
-    <li><a href="join.jsp">회원가입</a></li>
-    <li><a href="cuscen.jsp">고객센터</a></li>
+    <li><a href="<%=path%>/login.jsp">로그인</a></li>
+    <li><a href="<%=path%>/join.jsp">회원가입</a></li>
+    <li><a href="<%=path%>/cuscen.jsp">고객센터</a></li>
 <% } else { %>
     <!-- 수정된 부분: 아이디 클릭 시 memberUpdateForm.jsp 로 이동 -->
     <li><a href="memberUpdateForm.jsp"><%= userName %></a>님 환영합니다</li>
