@@ -13,7 +13,9 @@
  -->
  
  <!-- 타이틀은 여기서 작업하면 반영됩니다. -->
- <title>조끼</title>
+ <%
+ request.setAttribute("pageTitle", "조끼");
+ %>
 
 <!-- section 태그 내에서 관리하세요. (골격 구조 통일 - common.css 참조) -->
 

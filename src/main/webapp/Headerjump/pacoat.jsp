@@ -13,7 +13,10 @@
  -->
  
  <!-- 타이틀은 여기서 작업하면 반영됩니다. -->
- <title>패딩 &amp; 경량</title>
+ <%
+ request.setAttribute("pageTitle", "패딩 &amp; 경량");
+ %>
+ 
 
 <!-- section 태그 내에서 관리하세요. (골격 구조 통일 - common.css 참조) -->
 
