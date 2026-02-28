@@ -55,6 +55,7 @@
 
 <header>
 
+
   <!-- 🔹 1 줄 상단 메뉴 -->
   <ul class="top-menu">
     <li><a href="index.jsp">홈</a></li>
@@ -87,73 +88,73 @@
 
         NEW &amp; BEST <!-- & 보다 &amp; 가 안전 -->
         <ul class="submenu">
-            <li><a href="Headerjump/new.jsp">신상품 (New)</a></li>
-            <li><a href="Headerjump/best.jsp">베스트 (Best)</a></li>
-            <li><a href="Headerjump/mdre.jsp">MD 추천</a></li>
+            <li><a href="<%=path%>/Headerjump/new.jsp">신상품 (New)</a></li>
+            <li><a href="<%=path%>/Headerjump/best.jsp">베스트 (Best)</a></li>
+            <li><a href="<%=path%>/Headerjump/mdre.jsp">MD 추천</a></li>
         </ul>
     </li>
 
     <li class="has-submenu">
         TOP
         <ul class="submenu">
-            <li><a href="Headerjump/Tshirt.jsp">티셔츠</a></li>
-            <li><a href="Headerjump/blouse.jsp">블라우스</a></li>
-            <li><a href="Headerjump/Shirt.jsp">셔츠</a></li>
-            <li><a href="Headerjump/knsw.jsp">니트/스웨터</a></li>
-            <li><a href="Headerjump/card.jsp">카디건</a></li>
-            <li><a href="Headerjump/hosw.jsp">후드/맨투맨</a></li>
+            <li><a href="<%=path%>/Headerjump/Tshirt.jsp">티셔츠</a></li>
+            <li><a href="<%=path%>/Headerjump/blouse.jsp">블라우스</a></li>
+            <li><a href="<%=path%>/Headerjump/Shirt.jsp">셔츠</a></li>
+            <li><a href="<%=path%>/Headerjump/knsw.jsp">니트/스웨터</a></li>
+            <li><a href="<%=path%>/Headerjump/card.jsp">카디건</a></li>
+            <li><a href="<%=path%>/Headerjump/hosw.jsp">후드/맨투맨</a></li>
         </ul>
     </li>
 
     <li class="has-submenu">
         OUTER
         <ul class="submenu">
-            <li><a href="Headerjump/jacket.jsp">자켓</a></li>
-            <li><a href="Headerjump/coat.jsp">코트</a></li>
-            <li><a href="Headerjump/pacoat.jsp">패딩/경량</a></li>
-            <li><a href="Headerjump/vest.jsp">조끼</a></li>
-            <li><a href="Headerjump/cardigan.jsp">가디건</a></li>
+            <li><a href="<%=path%>/Headerjump/jacket.jsp">자켓</a></li>
+            <li><a href="<%=path%>/Headerjump/coat.jsp">코트</a></li>
+            <li><a href="<%=path%>/Headerjump/pacoat.jsp">패딩/경량</a></li>
+            <li><a href="<%=path%>/Headerjump/vest.jsp">조끼</a></li>
+            <li><a href="<%=path%>/Headerjump/cardigan.jsp">가디건</a></li>
         </ul>
     </li>
 
     <li class="has-submenu">
         BOTTOM
         <ul class="submenu">
-            <li><a href="Headerjump/demin.jsp">데님 (Jeans)</a></li>
-            <li><a href="Headerjump/slacks.jsp">슬랙스</a></li>
-            <li><a href="Headerjump/widep.jsp">와이드 팬츠</a></li>
-            <li><a href="Headerjump/skirt.jsp">스커트</a></li>
-            <li><a href="Headerjump/shorts.jsp">쇼츠</a></li>
-            <li><a href="Headerjump/train.jsp">트레이닝</a></li>
+            <li><a href="<%=path%>/Headerjump/demin.jsp">데님 (Jeans)</a></li>
+            <li><a href="<%=path%>/Headerjump/slacks.jsp">슬랙스</a></li>
+            <li><a href="<%=path%>/Headerjump/widep.jsp">와이드 팬츠</a></li>
+            <li><a href="<%=path%>/Headerjump/skirt.jsp">스커트</a></li>
+            <li><a href="<%=path%>/Headerjump/shorts.jsp">쇼츠</a></li>
+            <li><a href="<%=path%>/Headerjump/train.jsp">트레이닝</a></li>
         </ul>
     </li>
 
     <li class="has-submenu">
         ONE-PIECE
         <ul class="submenu">
-            <li><a href="Headerjump/onepiece.jsp">원피스</a></li>
-            <li><a href="Headerjump/jumps.jsp">점프수트</a></li>
-            <li><a href="Headerjump/Romper.jsp">롬퍼</a></li>
+            <li><a href="<%=path%>/Headerjump/onepiece.jsp">원피스</a></li>
+            <li><a href="<%=path%>/Headerjump/jumps.jsp">점프수트</a></li>
+            <li><a href="<%=path%>/Headerjump/Romper.jsp">롬퍼</a></li>
         </ul>
     </li>
 
     <li class="has-submenu">
         SHOES &amp; BAG
         <ul class="submenu">
-            <li><a href="Headerjump/sneak.jsp">스니커즈</a></li>
-            <li><a href="Headerjump/shoesheel.jsp">구두/힐</a></li>
-            <li><a href="Headerjump/boots.jsp">부츠</a></li>
-            <li><a href="Headerjump/bag.jsp">가방</a></li>
-            <li><a href="Headerjump/capacc.jsp">모자/액세서리</a></li>
+            <li><a href="<%=path%>/Headerjump/sneak.jsp">스니커즈</a></li>
+            <li><a href="<%=path%>/Headerjump/shoesheel.jsp">구두/힐</a></li>
+            <li><a href="<%=path%>/Headerjump/boots.jsp">부츠</a></li>
+            <li><a href="<%=path%>/Headerjump/bag.jsp">가방</a></li>
+            <li><a href="<%=path%>/Headerjump/capacc.jsp">모자/액세서리</a></li>
         </ul>
     </li>
 
     <li class="has-submenu sale-text">
         SALE
         <ul class="submenu">
-            <li><a href="Headerjump/alldis.jsp">전상품 할인</a></li>
-            <li><a href="Headerjump/seoff.jsp">시즌 오프</a></li>
-            <li><a href="Headerjump/Spzone.jsp">특가 존</a></li>
+            <li><a href="<%=path%>/Headerjump/alldis.jsp">전상품 할인</a></li>
+            <li><a href="<%=path%>/Headerjump/seoff.jsp">시즌 오프</a></li>
+            <li><a href="<%=path%>/Headerjump/Spzone.jsp">특가 존</a></li>
         </ul>
     </li>
 
