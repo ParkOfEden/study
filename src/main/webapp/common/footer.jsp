@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><footer class="footer">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!-- header.jsp에서 관리함(중복 코드) 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
@@ -14,7 +14,7 @@
 </style>
 -->
 
-
+<footer class="footer">
 <section>
 	<div class="line1">
 	  <!-- EL 사용하여 contextPath 자동 적용 -->
