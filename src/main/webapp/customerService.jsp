@@ -23,6 +23,8 @@
 <body> => header.jsp 에서 body 선언하므로 중복 => 쓰기 금지
 -->
 
+<section class="cs-section">
+
   	<h1>고객센터</h1>
     <p>WOL♥CL을 이용해주셔서 감사합니다 😊</p>
    
@@ -54,5 +56,7 @@
     });
 	
 	</script>    
+	
+</section>
 
 <%@ include file="common/footer.jsp" %>
