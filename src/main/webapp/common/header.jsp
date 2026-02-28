@@ -63,7 +63,7 @@
     <li><a href="<%=path%>/memberUpdateForm.jsp"><%= userName %></a>님 환영합니다</li>
     
     <li><a href="<%=path%>/logout.jsp">로그아웃</a></li>
-    <li><a href="<%=path%>/memberList.jsp">회원관리</a></li>
+    <li><a href="<%=path%>/memberList.do">회원관리</a></li> <%-- <li><a href="<%=path%>/memberList.jsp">회원관리</a></li> --%>
     <li><a href="<%=path%>/orin.jsp">주문조회</a></li>
     
     <%-- admin 일 때만 보이는 글쓰기 버튼 --%>
