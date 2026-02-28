@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-
+/* 주석처리 후 footer2.jsp 의 효과를 적용 중
 .footer {
   background-color: white;
   text-align: center;
@@ -32,18 +32,18 @@
   font-size: 15px;
   color: gray;
 }
-
+*/
 .heart {
   color: red;
 }
-
+/*
 footer {
 	height: 100px;
 	text-align: center;
 	line-height: 100px;
 	border-top: 1px solid #ccc;
 }
-
+*/
  .menu {
     display: flex;
     justify-content: space-between;
@@ -71,4 +71,49 @@ footer {
     font-weight: bold;
     margin-top: 20px;
   }
+*/
 
+/* footer2.jsp 에서 가져옴
+주석 처리 후 설명하겠습니다. footer2.jsp 는 만들어봤자 소용없고, 따로 관리하면 전역설정 효과 덮어쓰기로 뒤죽박죽됨.
+해결책 1 : footer 에 section 을 만드는 법 (이건 index.css를 참고해주세요)
+해결책 1로 기대할 수 있는 효과 : 스타일을 섹션마다 따로 관리할 수 있게 됩니다. .footer{}는 전역설정이므로 덮어쓰기하지마세요.
+						 .section{}도 어마무시한 전역설정이므로 클래스 이름 넣어서 쓰시길 바랍니다.
+해결책 2 : footer 에 다른 jsp 를 include 하는 법 (이건 index.jsp를 참고해주세요)
+		 footer.jsp가 아닌 다른 ooo.jsp를 생성해서 그 페이지에다가 ooo.css를 적용시켜서 별개의 페이지로 관리하는 법입니다.
+해결책 2로 기대할 수 있는 효과 : 별개의 페이지를 따로 관리해서 하나의 페이지로 통합할 수 있다는 장점
+						 스타일이 지나치게 다르면 이질감이 느껴지고, css 이름이 중복되었을 시에 관리가 어려움.
+*/
+
+ /* 아랫 부분 차이점만 주석처리한 뒤 직접 첨삭해드리겠습니다! */
+
+.footer {
+  background-color: yellow; /* 색상 다름 */
+  text-align: center;
+  padding: 40px 0;
+  font-family: Arial, sans-serif;
+}
+
+.line1 {
+  font-size: 22px;
+  font-weight: bold;
+  color: white; /* 색상 다름 */
+  margin-bottom: 15px;
+}
+
+.line2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: white; /* 색상 다름 */
+  margin-bottom: 20px;
+}
+
+.line3 {
+  font-size: 11px; /* 폰트 크기 다름 */
+  color: gray;
+  margin-bottom: 5px; /* 추가됨 */
+}
+
+.line4 {
+  font-size: 11px; /* 폰트 크기 다름 */
+  color: gray;
+}
