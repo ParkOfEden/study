@@ -4,7 +4,7 @@
 .footer {
   background-color: white;
   text-align: center;
-  padding: 40px 20;
+  padding: 40px 20px;
   font-family: Arial, sans-serif;
 }
 
@@ -82,7 +82,7 @@
 .footer {
   background-color: yellow; /* 색상 다름 */
   text-align: center;
-  padding: 40px 0;
+  padding: 40px 0px;
   font-family: Arial, sans-serif;
   height: 100px;
   line-height: 100px;
@@ -92,7 +92,7 @@
 .line1 {
   font-size: 22px;
   font-weight: bold;
-  color: white; /* 색상 다름 */
+  color: gray; /* 색상 다름(white=>gray 수정(안보여서) */
   margin-bottom: 15px;
 }
 

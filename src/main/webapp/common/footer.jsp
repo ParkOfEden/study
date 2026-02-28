@@ -7,6 +7,7 @@
     <a href="shopinfo.jsp">매장 안내</a> | 
     <a href="shopinfo.jsp">고객센터</a> | 
     <a href="shopinfo.jsp">개인정보처리방침</a>
+    
   </div>
 
     
