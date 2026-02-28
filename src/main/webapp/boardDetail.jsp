@@ -57,12 +57,12 @@
     }
 %>
 
-<% if(board == null){ %>
-    <script>
-        alert("해당 게시글이 존재하지 않습니다.");
-        location.href = "boardList.jsp";
-    </script>
-<% return; } %>
+<% if(board == null){
+   out.print("<script>");
+   out.print("alert('해당 게시글이 존재하지 않습니다.');");
+   out.print("location.href='boardList.jsp';");
+   out.print("</script>");
+   return; } %>
 
 <!DOCTYPE html>
 <html>

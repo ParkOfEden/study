@@ -127,7 +127,6 @@ String sql = "SELECT num, category, title, author, created_at, view_count FROM b
 		<% } %>
 	</div>
 
-</body>
-</html>
-</html>
+
+
 <%@ include file="common/footer.jsp"%>
