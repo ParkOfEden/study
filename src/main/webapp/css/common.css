@@ -151,7 +151,7 @@ table tr td input[type='number'] {
 
 .pd-table tr:first-child th {
     color: white;
-    background-color: blue;
+    background-color: #CD5C5C;
 }
 
 .pd-table tr td:first-child {
