@@ -1,9 +1,7 @@
 @charset "UTF-8";
 
 /* a:hover 커서효과 */
-.top-menu a:hover,
-.category-menu a:hover,
-.submenu a:hover {
+header li:hover {
     cursor: url("link-w.cur"), pointer;
 }
 
