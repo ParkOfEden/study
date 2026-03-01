@@ -56,7 +56,7 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 			            <td>${b.viewCount}</td>
 			            
                         <td>
-                            <a href="boardUpdateForm.jsp?num=${b.num}">수정</a>
+                            <a href="boardUpdateForm.do?num=${b.num}">수정</a>
                             |
                             <a href="boardDelete.jsp?num=${b.num}"
                                onclick="return confirm('삭제하시겠습니까?');">
