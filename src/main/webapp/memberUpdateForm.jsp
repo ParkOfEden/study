@@ -48,9 +48,9 @@
 %>
 
 		<section>
-		    <form action="memberUpdate.jsp" method="post">
+		    <form class="form-card" action="memberUpdate.jsp" method="post">
 		        <h2>내 정보 수정하기</h2>
-		        <table border="1" style="border-collapse: collapse; width: 500px;">
+		        <table class="pd-table">
 		            <tr>
 		                <th>아이디</th>
 		                <td><%= id %><input type="hidden" name="id" value="<%= id %>" style="text-align: center;" ></td>
