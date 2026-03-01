@@ -69,7 +69,7 @@
     
     <%-- admin 일 때만 보이는 글쓰기 버튼 --%>
     <% if ("admin".equals(authUser)) { %>
-        <li><a href="<%=path%>/write.jsp">글쓰기</a></li>
+        <li><a href="<%=path%>/boardWrite.jsp">글쓰기</a></li>
     <% } %>
     
 <% } %>
