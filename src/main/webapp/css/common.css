@@ -151,7 +151,7 @@ table tr td input[type='number'] {
 
 .pd-table tr:first-child th {
     color: white;
-    background-color: coral;
+    background-color: blue;
 }
 
 .pd-table tr td:first-child {
@@ -220,7 +220,7 @@ table tr td input[type='number'] {
 .form-card input[type="submit"] {
     padding: 8px 16px;
     border: none;
-    background: #2c7be5;
+    background: coral;
     color: white;
     border-radius: 4px;
     cursor: pointer;
