@@ -6,7 +6,7 @@
 <section class="section-base">
     <h2>상품 수정</h2>
 
-    <form action="boardUpdate.do" method="post">
+    <form class="form-card" action="boardUpdate.do" method="post">
         
         <!-- num은 숨겨서 보냄 -->
         <input type="hidden" name="num" value="${board.num}"/>

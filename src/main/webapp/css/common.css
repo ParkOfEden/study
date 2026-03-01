@@ -175,3 +175,55 @@ table tr td input[type='number'] {
     padding: 10px;
     font-size: 14px;
 }
+
+/* 폼(form) 전용 스타일러 */
+/* 카드 박스 */
+.form-card {
+    width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    font-size: 14px;
+}
+
+/* 텍스트 입력창 */
+.form-card input[type="text"],
+.form-card textarea {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* textarea 조절 */
+.form-card textarea {
+    resize: vertical;
+}
+
+/* 줄바꿈(br) 간격 정리 */
+.form-card br {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* 버튼 정렬 */
+.form-card input[type="submit"] {
+    padding: 8px 16px;
+    border: none;
+    background: #2c7be5;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+/* float 정리 */
+.form-card::after {
+    content: "";
+    display: block;
+    clear: both;
+}
