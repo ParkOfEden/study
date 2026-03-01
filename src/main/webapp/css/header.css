@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+/* a:hover 커서효과 */
+header a:hover {
+    cursor: url("link-w.cur"), pointer;
+}
+
 /* ============================= */
 /* 공통 초기화 */
 /* ============================= */
