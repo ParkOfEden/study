@@ -151,7 +151,7 @@ table tr td input[type='number'] {
 
 .pd-table tr:first-child th {
     color: white;
-    background-color: navy;
+    background-color: coral;
 }
 
 .pd-table tr td:first-child {
@@ -187,6 +187,12 @@ table tr td input[type='number'] {
     background: #fafafa;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     font-size: 14px;
+}
+
+/* 폼 & 폼 레이블 색상 적용 */
+.form-card label,
+.form-card {
+    color: #333;
 }
 
 /* 텍스트 입력창 */
@@ -226,4 +232,12 @@ table tr td input[type='number'] {
     content: "";
     display: block;
     clear: both;
+}
+
+/* form 입력창 글꼴 통일 */
+.form-card,
+.form-card input,
+.form-card textarea,
+.form-card button {
+    font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
 }
