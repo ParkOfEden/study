@@ -80,7 +80,7 @@
 		            </tr>
 		            <tr>
 		                <th>나이</th>
-		                <td><input type="number" name="age" value="<%= age %>" style="text-align: center;"> 세</td>
+		                <td><input type="number" name="age" value="<%= age %>" style="text-align: center;"> <span>세</span></td>
 		            </tr>
 		            <tr>
 		                <th>이메일</th>
