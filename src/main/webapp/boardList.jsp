@@ -10,8 +10,7 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 
 <section class="section-container">
 
-<link rel="stylesheet"
-      href="${pageContext.request.contextPath}/css/boardList.css">
+
      
 <h2 class="board-title">전체 게시글 목록 
 <c:if test="${sessionScope.authUser == 'admin'}">
