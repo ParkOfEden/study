@@ -35,6 +35,10 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
     
+    <!-- 아래는 요청받아 추가한 css 링크입니다. -->
+    <link rel="stylesheet"
+      href="${pageContext.request.contextPath}/css/boardList.css">
+      
     </head>
 <body><%-- 
 <style>
