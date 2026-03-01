@@ -241,3 +241,22 @@ table tr td input[type='number'] {
 .form-card button {
     font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
 }
+
+/* 기본 버튼 리셋 */
+.form-card input[type="submit"],
+.form-card button {
+    padding: 10px 20px;
+    background-color: #c95a5a;   /* 헤더색과 맞춤 */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* hover 효과 */
+.form-card input[type="submit"]:hover,
+.form-card button:hover {
+    background-color: #b14a4a;
+}
