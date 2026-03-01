@@ -317,6 +317,10 @@ table tr td input[type='number'] {
     vertical-align: middle;
 }
 
-.form-table tr:last-child td {
+.button-row td {
     text-align: center;
+}
+
+.button-row button {
+    margin: 0 8px;
 }

@@ -88,7 +88,7 @@
 		                <th>이메일</th>
 		                <td><input type="email" name="email" value="<%= email %>" style="text-align: center;" required></td>
 		            </tr>
-		            <tr>
+		            <tr class="button-row">
 		                <td colspan="2" style="text-align:center; padding:10px;">
 		                    <button type="submit">변경사항 저장</button>
 		                    <button type="button" onclick="location.href='memberUpdate.jsp'">취소</button>
