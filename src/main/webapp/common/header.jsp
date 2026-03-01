@@ -53,7 +53,7 @@
   <!-- 🔹 1 줄 상단 메뉴 -->
   <ul class="top-menu">
     <li><a href="<%=path%>/index.jsp">홈</a></li>
-    <li><a href="<%=path%>/boardList.jsp">PRODUCTS</a></li>
+    <li><a href="<%=path%>/boardList.do">PRODUCTS</a></li>
 	<li><a href="<%=path%>/sendMail.jsp">SEND MAIL</a></li>
 <% if(authUser == null){ %>
     <li><a href="<%=path%>/login.jsp">로그인</a></li>
