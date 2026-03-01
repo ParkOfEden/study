@@ -195,5 +195,25 @@ public class BoardDAO {
 
         return result;
     }
+    
+    // 게시글 삭제
+    public int deleteBoard(int num) {
 
-}
+        int result = 0;
+
+        String sql = "DELETE FROM board_test WHERE num=?";
+
+        try (Connection conn = DBCPUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, num);
+            result = pstmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }    
+
+} // end BoardDAO class
