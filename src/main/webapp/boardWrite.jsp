@@ -22,7 +22,7 @@ request.setAttribute("pageTitle", "관리자 게시글 작성");
 
     <!-- 학원 코드 스타일 그대로 적용 -->
     <form action="boardWrite.do" method="POST">
-        <table border="1">
+        <table class="pd-table">
             <tr>
                 <th colspan="2">
                     <h3>상품/게시글 등록</h3>
