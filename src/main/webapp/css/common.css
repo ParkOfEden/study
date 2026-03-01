@@ -282,7 +282,8 @@ table tr td input[type='number'] {
 /* pd-table 을 수정하지 않고 어색해진 table 효과 적용 */
 
 .form-table {
-    width: 500px;
+    width: 100%;
+    table-layout: fixed;
     margin: 20px auto;
     border-collapse: collapse;
 }
@@ -295,9 +296,17 @@ table tr td input[type='number'] {
 }
 
 .form-table td {
-    padding: 12px;
+    padding: 10px 12px;
 }
 
 .form-table tr {
     border-bottom: 1px solid #eee;
+}
+
+.form-table input[type="text"],
+.form-table input[type="password"],
+.form-table input[type="number"],
+.form-table textarea {
+    width: 100%;
+    box-sizing: border-box;
 }
