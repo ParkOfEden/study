@@ -44,7 +44,7 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 			            <td>[${b.category}]</td>
             
             			<td style="text-align:left;">
-            				<a href="boardDetail.do?num=${b.num}">
+            				<a href="boardDetail.jsp?num=${b.num}">
             					${b.title}
             				</a>
             			</td>
@@ -56,9 +56,9 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 			            <td>${b.viewCount}</td>
 			            
                         <td>
-                            <a href="boardUpdateForm.do?num=${b.num}">수정</a>
+                            <a href="boardUpdateForm.jsp?num=${b.num}">수정</a>
                             |
-                            <a href="boardDelete.do?num=${b.num}"
+                            <a href="boardDelete.jsp?num=${b.num}"
                                onclick="return confirm('삭제하시겠습니까?');">
                                 삭제
                             </a>

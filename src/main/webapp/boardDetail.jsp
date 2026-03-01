@@ -60,7 +60,7 @@
 <% if(board == null){
    out.print("<script>");
    out.print("alert('해당 게시글이 존재하지 않습니다.');");
-   out.print("location.href='boardList.jsp';");
+   out.print("location.href='boardList.do';");
    out.print("</script>");
    return; } %>
 
@@ -121,7 +121,7 @@
         </tr>
         <tr>
             <th colspan="2">
-                <button onclick="location.href='boardList.jsp'">목록</button>
+                <button onclick="location.href='boardList.do'">목록</button>
                 <button onclick="location.href='boardUpdate.jsp?num=<%= board.getNum() %>'">수정</button>
                 <button onclick="if(confirm('정말 삭제하시겠습니까?')) location.href='boardDelete.jsp?num=<%= board.getNum() %>'">삭제</button>
             </th>
