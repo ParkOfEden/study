@@ -8,7 +8,7 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 
 <%@ include file="common/header.jsp" %>
 
-<section class="section-grid">
+<section class="section-container">
 
 <link rel="stylesheet"
       href="${pageContext.request.contextPath}/css/boardList.css">

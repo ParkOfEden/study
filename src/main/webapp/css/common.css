@@ -28,13 +28,20 @@ section {
   align-items: center;
 }
 
-/* 게시판용 */
+/* grid 게시판용 */
 .section-grid {
   min-height: 700px;	
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
+
+/* 기본(테이블형) 게시판용 */ 
+.section-container {
+  min-height: 700px;	
+  display: block; 
+  
+} 
 
 section.main{
 	background-image:url(img/dog.jpg);
