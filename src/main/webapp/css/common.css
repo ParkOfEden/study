@@ -295,11 +295,7 @@ table tr td input[type='number'] {
     border-bottom: 1px solid #eee;
 }
 
-.form-table input[name="age"] {
-    width: 80px;
-    display: inline-block;
-    vertical-align: middle;
-}
+
 
 .age-unit {
     margin-left: 6px;
@@ -308,9 +304,19 @@ table tr td input[type='number'] {
 
 .form-table input[type="text"],
 .form-table input[type="password"],
-.form-table input[type="number"],
+.form-table input[type="number"], /* age 에 영향을 줌 => !important */
 .form-table input[type="email"],
 .form-table textarea {
     width: 100%;
     box-sizing: border-box;
+}
+
+.form-table input[name="age"] {
+    width: 80px !important;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form-table tr:last-child td {
+    text-align: center;
 }
