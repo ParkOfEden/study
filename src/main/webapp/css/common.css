@@ -189,9 +189,9 @@ table tr td input[type='number'] {
     font-size: 14px;
 }
 
-/* 폼 & 폼 레이블 색상 적용 */
+/* 폼 텍스트 & 폼 레이블 색상 적용 */
 .form-card label,
-.form-card {
+.form-card textarea {
     color: #333;
 }
 
