@@ -10,7 +10,7 @@
 }
 
 .write-area a {
-    
+	color : gray;    
 }
 
 .board-table { width: 100%; border-collapse: collapse; margin-top: 20px; }

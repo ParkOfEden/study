@@ -5,6 +5,10 @@
     pageEncoding="UTF-8" %>
 <!-- memberList.jsp -->
 <%@ include file="common/header.jsp" %>
+
+<link rel="stylesheet"
+      href="${pageContext.request.contextPath}/css/boardList.css">
+
 			<section>
 			<table border=1 class="list">
 				<tr>

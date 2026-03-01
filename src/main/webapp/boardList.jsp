@@ -21,7 +21,7 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 </c:if>
 </h2>
 
-<div class="white-area">
+<div class="write-area">
 <c:if test="${sessionScope.authUser == 'admin'}">
 	<a href="boardWrite.jsp">[새 상품 등록]</a>
 </c:if>
