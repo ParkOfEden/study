@@ -21,12 +21,14 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 </span>
 </c:if>
 </h2>
+<br/>
 
 <div style="text-align: right;">
 <c:if test="${sessionScope.authUser == 'admin'}">
 	<a href="boardWrite.jsp">[새 상품 등록]</a>
 </c:if>
 </div>
+<br/>
 
 <table class="board-table">
     <thead>

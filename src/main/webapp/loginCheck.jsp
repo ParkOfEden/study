@@ -44,7 +44,7 @@
             }
             msg = userName + "님, 환영합니다!";
             if ("admin".equals(id)) {
-                nextPage = "write.jsp"; // 관리자면 글쓰기로
+                nextPage = "boardWrite.jsp"; // 관리자면 글쓰기로
             } else {
                 nextPage = "index.jsp"; // 일반 유저는 메인으로
             }
