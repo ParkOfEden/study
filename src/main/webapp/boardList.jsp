@@ -11,7 +11,7 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 <link rel="stylesheet"
       href="${pageContext.request.contextPath}/css/boardList.css">
       
-<h2>전체 게시글 목록 (Admin)</h2>
+<h2>전체 게시글 목록 <c:if test="${sessionScope.authUser == 'admin'}">(Admin)</c:if></h2>
 
 <div style="text-align: right;">
 	<a href="boardWrite.jsp">[새 상품 등록]</a>
@@ -54,16 +54,18 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 			            <td>${b.createdAt}</td>
 			            
 			            <td>${b.viewCount}</td>
-			            
+		            
+		            <c:if test="${sessionScope.authUser == 'admin'}">
                         <td>
                             <a href="boardUpdateForm.do?num=${b.num}">수정</a>
                             |
-                            <a href="boardDelete.jsp?num=${b.num}"
+                            <a href="boardDelete.do?num=${b.num}"
                                onclick="return confirm('삭제하시겠습니까?');">
                                 삭제
                             </a>
                         </td>			            
-    				</tr>		
+    				</tr>
+    				</c:if>		
         	</c:forEach>
     	</c:otherwise>
    	</c:choose>

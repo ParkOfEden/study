@@ -7,7 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
+import jakarta.servlet.http.HttpSession;
 import dao.BoardDAO;
 import vo.BoardVO;
 
@@ -20,6 +20,13 @@ public class BoardUpdateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)
             throws ServletException, IOException {
+    	
+    	HttpSession session = request.getSession(false);
+
+    	if (session == null || !"admin".equals(session.getAttribute("authUser"))) {
+    	    response.sendRedirect("index.jsp");
+    	    return;
+    	}
 
         request.setCharacterEncoding("UTF-8");
 
