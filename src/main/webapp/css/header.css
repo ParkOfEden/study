@@ -1,7 +1,13 @@
 @charset "UTF-8";
 
 /* a:hover 커서효과 */
-header li:hover {
+/* 상위 카테고리 */
+.category-menu > li:hover {
+    cursor: url("link-w.cur"), pointer;
+}
+
+/* 서브 메뉴 링크 */
+.submenu a:hover {
     cursor: url("link-w.cur"), pointer;
 }
 
