@@ -21,7 +21,7 @@ request.setAttribute("pageTitle", "관리자 게시글 작성");
 %>
 
     <!-- 학원 코드 스타일 그대로 적용 -->
-    <form action="boardWrite.do" method="POST">
+    <form class="form-card" action="boardWrite.do" method="POST">
         <table class="pd-table">
             <tr>
                 <th colspan="2">
