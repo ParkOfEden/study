@@ -20,6 +20,20 @@ section {
 	padding: 30px;
 }
 
+/* 중앙 정렬이 필요할 때만 */
+.section-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 게시판용 */
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
 section.main{
 	background-image:url(img/dog.jpg);
 	background-position: center;
