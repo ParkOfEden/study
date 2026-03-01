@@ -5,10 +5,12 @@
 }
 
 .write-area {
-    display: flex;
-    justify-content: flex-end;
-    /* text-align: right; */
+    text-align: right;
     margin-bottom: 20px;
+}
+
+.write-area a {
+    
 }
 
 .board-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
