@@ -50,7 +50,7 @@
 		<section>
 		    <form class="form-card" action="memberUpdate.jsp" method="post">
 		        <h2>내 정보 수정하기</h2>
-		        <table class="pd-table">
+		        <table class="form-table">
 		            <tr>
 		                <th>아이디</th>
 		                <td><%= id %><input type="hidden" name="id" value="<%= id %>" style="text-align: center;" ></td>

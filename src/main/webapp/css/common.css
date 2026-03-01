@@ -278,3 +278,26 @@ table tr td input[type='number'] {
 .form-card input[type="checkbox"], input[type="radio"] {
     accent-color: #c95a5a;
 }
+
+/* pd-table 을 수정하지 않고 어색해진 table 효과 적용 */
+
+.form-table {
+    width: 500px;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.form-table th {
+    width: 120px;
+    text-align: left;
+    padding: 12px;
+    background: #f7f7f7;
+}
+
+.form-table td {
+    padding: 12px;
+}
+
+.form-table tr {
+    border-bottom: 1px solid #eee;
+}
