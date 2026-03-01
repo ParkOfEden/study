@@ -7,7 +7,7 @@
 <%@ include file="common/header.jsp" %>
 
 			<section>
-			<table border=1 class="list">
+			<table class="pd-table">
 				<tr>
 					<th colspan="7"><h1>회원목록</h1></th>
 				</tr>
