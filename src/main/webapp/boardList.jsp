@@ -12,7 +12,7 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 
 <link rel="stylesheet"
       href="${pageContext.request.contextPath}/css/boardList.css">
-      
+     
 <h2>전체 게시글 목록 
 <c:if test="${sessionScope.authUser == 'admin'}">
 <span style="color: gray;
@@ -21,7 +21,6 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 </span>
 </c:if>
 </h2>
-<p>
 
 <div style="text-align: right;">
 <c:if test="${sessionScope.authUser == 'admin'}">
@@ -86,8 +85,6 @@ request.setAttribute("pageTitle", "상품 관리 목록");
    	</c:choose>
     </tbody>
 </table>
-
-<p>
 
 <!-- 페이징 -->
 <div class="paging">
