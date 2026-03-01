@@ -4,8 +4,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/common/header.jsp" %>
 <section>
-	<form action="sendCode.jsp" method="POST">
-		<table>
+	<form class="form-card" action="sendCode.jsp" method="POST">
+		<table class="pd-table">
 			<tr>
 				<th colspan="2">
 					<h2>비밀번호 찾기</h2>
