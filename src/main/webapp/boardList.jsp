@@ -13,7 +13,7 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 <link rel="stylesheet"
       href="${pageContext.request.contextPath}/css/boardList.css">
      
-<h2>전체 게시글 목록 
+<h2 class="board-title">전체 게시글 목록 
 <c:if test="${sessionScope.authUser == 'admin'}">
 <span style="color: gray;
 			 font-weight: bold;">
@@ -21,14 +21,12 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 </span>
 </c:if>
 </h2>
-<br/>
 
-<div style="text-align: right;">
+<div class="white-area">
 <c:if test="${sessionScope.authUser == 'admin'}">
 	<a href="boardWrite.jsp">[새 상품 등록]</a>
 </c:if>
 </div>
-<br/>
 
 <table class="board-table">
     <thead>

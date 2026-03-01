@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+.board-title {
+    margin-bottom: 20px;
+}
+
+.write-area {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
 .board-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
 
 .board-table th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
