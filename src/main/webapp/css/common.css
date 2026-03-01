@@ -298,10 +298,12 @@ table tr td input[type='number'] {
 .form-table input[name="age"] {
     width: 80px;
     display: inline-block;
+    vertical-align: middle;
 }
 
 .age-unit {
     margin-left: 6px;
+    vertical-align: middle;
 }
 
 .form-table input[type="text"],
