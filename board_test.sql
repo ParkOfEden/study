@@ -34,3 +34,15 @@ INSERT INTO board_test (
 COMMIT;
 
 SELECT * FROM board_test;
+
+----------------------------------------------------------------------
+-- 상품 수정
+----------------------------------------------------------------------
+UPDATE board_test
+SET 
+    category = ?,
+    title = ?,
+    content = ?,
+    img_url = ?,
+    updated_at = SYSTIMESTAMP
+WHERE num = ?;
