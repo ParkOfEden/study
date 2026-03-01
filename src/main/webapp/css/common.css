@@ -273,3 +273,8 @@ table tr td input[type='number'] {
     color: #a94444;
     text-decoration: underline;
 }
+
+/* check-box 효과 */
+.form-card input[type="checkbox"] {
+    accent-color: #c95a5a;
+}
