@@ -21,6 +21,7 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 </span>
 </c:if>
 </h2>
+<p>
 
 <div style="text-align: right;">
 <c:if test="${sessionScope.authUser == 'admin'}">
@@ -85,6 +86,8 @@ request.setAttribute("pageTitle", "상품 관리 목록");
    	</c:choose>
     </tbody>
 </table>
+
+<p>
 
 <!-- 페이징 -->
 <div class="paging">
