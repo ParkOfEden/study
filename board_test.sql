@@ -13,3 +13,24 @@ CREATE TABLE board_test(
 );
 
 SELECT * FROM board_test;
+
+----------------------------------------------------------------------
+-- 상품 등록
+----------------------------------------------------------------------
+INSERT INTO board_test (
+    category,
+    title,
+    author,
+    content,
+    img_url
+) VALUES (
+    'TOP>TSHIRT',
+    '기본 반팔 티셔츠',
+    'admin',
+    '부드러운 면 소재의 기본 반팔입니다.',
+    'css/img/upload/product/top/tshirt1.jpg'
+);
+
+COMMIT;
+
+SELECT * FROM board_test;
