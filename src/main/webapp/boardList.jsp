@@ -8,6 +8,8 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 
 <%@ include file="common/header.jsp" %>
 
+<section class="section-base">
+
 <link rel="stylesheet"
       href="${pageContext.request.contextPath}/css/boardList.css">
       
@@ -105,5 +107,5 @@ request.setAttribute("pageTitle", "상품 관리 목록");
     </c:if>
 
 </div>
-
+</section>
 <%@ include file="common/footer.jsp"%>
