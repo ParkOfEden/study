@@ -122,7 +122,7 @@
         <tr>
             <th colspan="2">
                 <button onclick="location.href='boardList.do'">목록</button>
-                <button onclick="location.href='boardUpdateForm.jsp?num=<%= board.getNum() %>'">수정</button>
+                <button onclick="location.href='boardUpdateForm.do?num=<%= board.getNum() %>'">수정</button>
                 <button onclick="if(confirm('정말 삭제하시겠습니까?')) location.href='boardDelete.jsp?num=<%= board.getNum() %>'">삭제</button>
             </th>
         </tr>
