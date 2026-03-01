@@ -296,16 +296,22 @@ table tr td input[type='number'] {
 }
 
 .form-table td {
-    padding: 10px 12px;
+    vertical-align: middle;
 }
 
 .form-table tr {
     border-bottom: 1px solid #eee;
 }
 
+.form-table input[name="age"] {
+    width: 80px;
+    display: inline-block;
+}
+
 .form-table input[type="text"],
 .form-table input[type="password"],
 .form-table input[type="number"],
+.form-table input[type="email"],
 .form-table textarea {
     width: 100%;
     box-sizing: border-box;
