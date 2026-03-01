@@ -260,3 +260,16 @@ table tr td input[type='number'] {
 .form-card button:hover {
     background-color: #b14a4a;
 }
+
+/* 하이퍼링크 관련 효과 */
+.form-card a {
+    color: #c95a5a;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.form-card a:hover {
+    color: #a94444;
+    text-decoration: underline;
+}
