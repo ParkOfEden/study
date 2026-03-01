@@ -191,6 +191,7 @@ table tr td input[type='number'] {
 
 /* 폼 텍스트 & 폼 레이블 색상 적용 */
 .form-card label,
+.form-card input,
 .form-card textarea {
     color: #333;
 }
@@ -214,17 +215,6 @@ table tr td input[type='number'] {
 .form-card br {
     display: block;
     margin-bottom: 10px;
-}
-
-/* 버튼 정렬 */
-.form-card input[type="submit"] {
-    padding: 8px 16px;
-    border: none;
-    background: coral;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
 }
 
 /* float 정리 */
@@ -275,7 +265,8 @@ table tr td input[type='number'] {
 }
 
 /* check-box 효과 */
-.form-card input[type="checkbox"], input[type="radio"] {
+.form-card input[type="checkbox"], 
+.form-card input[type="radio"] {
     accent-color: #c95a5a;
 }
 
@@ -307,6 +298,10 @@ table tr td input[type='number'] {
 .form-table input[name="age"] {
     width: 80px;
     display: inline-block;
+}
+
+.age-unit {
+    margin-left: 6px;
 }
 
 .form-table input[type="text"],
