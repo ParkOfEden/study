@@ -21,7 +21,7 @@
         conn = DBCPUtil.getConnection();
         
         // 3. SQL문 작성 (번호를 기준으로 삭제)
-        String sql = "DELETE FROM test_member WHERE num = ?";
+        String sql = "DELETE FROM ACCOUNTS WHERE num = ?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setInt(1, sessionNum);
         
