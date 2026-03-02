@@ -119,7 +119,7 @@ request.setAttribute("pageTitle", "관리자 게시글 작성");
             <tr>
                 <th colspan="2">
                     <button type="submit">작성완료</button>
-                    <button type="button" onclick="boardList.jsp">취소</button>
+                    <button type="button" onclick="location.href='boardList.jsp'">취소</button>
                 </th>
             </tr>
         </table>
