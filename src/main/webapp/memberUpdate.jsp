@@ -43,7 +43,8 @@
     try {
         // 3. DB 연결
         conn = DBCPUtil.getConnection();
-        
+
+        /* null값으로 생성된 id가 페이지를 넘길 수 있도록 하는 로직 (join 관련 수정 필요)
         if(email == null || email.trim().equals("")){
         	// 기존 email 유지
             String sql3 = "SELECT email FROM ACCOUNTS WHERE id=?";
@@ -69,7 +70,8 @@
             rs2.close();
             ps2.close();
         }        
-
+		*/
+		
         // 4. UPDATE 문 작성 (아이디는 고유값이므로 WHERE 조건에 사용)
 		String sql = "UPDATE ACCOUNTS SET "
 		           + "pass=?, name=?, addr=?, phone=?, gender=?, age=?, email=? "
