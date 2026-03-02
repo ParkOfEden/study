@@ -50,17 +50,18 @@
 %>
 
 		<section>
-		    <div class="form-card" action="memberUpdate.jsp" method="post">
+		    <div class="form-card">
 		    
-			<!-- 우상단 회원탈퇴 버튼 -->
+			<!-- 우상단 회원탈퇴 버튼 (탈퇴폼) -->
 			<form action="memberDelete.jsp" method="post"
 			      onsubmit="return confirm('정말 탈퇴하시겠습니까?');"
 			      class="withdraw-form">
 			      
 			    <input type="hidden" name="num" value="<%= num %>">
-			    <button type="submit" class="btn btn-danger">회원탈퇴</button>
-			</form>		  		    
-		    
+			    <button type="submit" class="btn-danger">회원탈퇴</button>
+			</form>
+			<!-- 수정폼 -->		  		    
+		    <form action="memberUpdate.jsp" method="post">
 		        <h2>내 정보 수정하기</h2>
 		        <table class="form-table">
 		            <tr>
@@ -108,6 +109,7 @@
 		                </td>
 		            </tr>
 		        </table>
+	        </form>
 		    </div>
 			  
 		</section>
