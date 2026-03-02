@@ -397,3 +397,25 @@ table tr td input[type='number'] {
     background-color: #c9302c;
 }
 */
+
+/* 이메일 인증 프레임 관리 */
+.verify-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 80px auto;
+}
+
+.verify-text {
+    flex: 1;
+}
+
+.verify-card {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}

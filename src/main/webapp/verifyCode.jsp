@@ -23,15 +23,20 @@
 <body>
 
 	<section class="section-base">
-		<h2>이메일 인증</h2>
+		<div class="verify-wrapper">
+
+    		<div class="verify-text">
+				<h2>이메일 인증</h2>
+				
+				<p>입력하신 이메일로 인증코드를 발송했습니다.</p>
+				<p>받은 인증코드를 아래에 입력해주세요.</p>
+			</div>
 		
-		<p>입력하신 이메일로 인증코드를 발송했습니다.</p>
-		<p>받은 인증코드를 아래에 입력해주세요.</p>
-		
-		<form class="form-card" action="verifyCheck.jsp" method="post">
-		   <input type="text" name="inputCode" placeholder="인증코드 6자리 입력" required>
-		   <button type="submit">인증하기</button>
-		</form>
+			<form class="verify-card" action="verifyCheck.jsp" method="post">
+			   <input type="text" name="inputCode" placeholder="인증코드 6자리 입력" required>
+			   <button type="submit">인증하기</button>
+			</form>
+		</div>
 	</section>
 </body>
 </html>
