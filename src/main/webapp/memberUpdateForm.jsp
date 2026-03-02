@@ -17,7 +17,8 @@
     // 초기값 설정을 위한 변수들
     String name="", addr="", phone="", email="", gender="", pass="";
     int age=0;
-
+    int num=0;   // memberDelete.jsp 실행에 필요
+    
     try {
         conn = DBCPUtil.getConnection();
         System.out.println("연결 성공! 조회 ID: " + id); // 서버 콘솔 확인용
@@ -30,6 +31,7 @@
         
         if(rs.next()) {
         	System.out.println("데이터 찾음!"); // 데이터가 있을 때만 출력
+        	num    = rs.getInt("num");   // memberDelete.jsp 실행에 필요
             pass   = rs.getString("pass");
             name   = rs.getString("name");
             addr   = rs.getString("addr");
@@ -91,11 +93,19 @@
 		            <tr class="button-row">
 		                <td colspan="2" style="text-align:center; padding:10px;">
 		                    <button type="submit">변경사항 저장</button>
-		                    <button type="button" onclick="location.href='memberUpdate.jsp'">취소</button>
+		                    <button type="button" onclick="location.href='memberUpdate.jsp'">취소</button>	                    
 		                </td>
 		            </tr>
 		        </table>
 		    </form>
+			<!-- 회원탈퇴 폼 -->
+			<form action="memberDelete.jsp" method="post"
+			      onsubmit="return confirm('정말 탈퇴하시겠습니까?');"
+			      style="text-align:center; margin-top:15px;">
+			      
+			    <input type="hidden" name="num" value="<%= num %>">
+			    <button type="submit" class="btn btn-danger">회원탈퇴</button>
+			</form>		    
 		</section>
 
 <%@ include file="common/footer.jsp" %>

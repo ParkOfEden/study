@@ -20,7 +20,7 @@
 
     try {
         // 3. 아이디와 비밀번호가 일치하는 사용자 조회
-        String sql = "SELECT name FROM ACCOUNTS WHERE id=? AND pass=?";
+        String sql = "SELECT num, name FROM ACCOUNTS WHERE id=? AND pass=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
         pstmt.setString(2, pass);
@@ -29,10 +29,12 @@
 
         if(rs.next()) {
             // [성공] 일치하는 회원 있음
+            int userNum = rs.getInt("num");   // 회원탈퇴 로직 처리용
             String userName = rs.getString("name");
             
             // 세션에 로그인 정보 저장 (이게 핵심!)
             session.setAttribute("authUser", id);
+            session.setAttribute("authNum", userNum);   // 회원탈퇴 로직 처리용
             session.setAttribute("userName", userName);
             //자동 로그인 쿠키 처리 (추가된 부분)
             if(rememberMe != null && rememberMe.equals("login")) {
