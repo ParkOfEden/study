@@ -186,6 +186,11 @@ table tr td input[type='number'] {
     font-size: 14px;
 }
 
+/* memberList.jsp 전용 스타일러 */
+.member-table {
+    min-width: 800px;
+}
+
 /* 폼(form) 전용 스타일러 */
 /* 카드 박스 */
 .form-card {
