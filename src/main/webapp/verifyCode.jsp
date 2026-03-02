@@ -17,6 +17,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <title>이메일 인증</title>
 </head>
 <body>
