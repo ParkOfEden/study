@@ -7,8 +7,13 @@
     // 1. 한글 깨짐 방지 인코딩
     request.setCharacterEncoding("UTF-8");
 
-    // 2. 파라미터 받기 (input 태그의 name 속성값들)
+    // 2. 세션에서 id를 가져온다
     String id     = (String)session.getAttribute("authUser");
+    
+    if(id == null){
+        response.sendRedirect("login.jsp");
+        return;
+    }    
     
     System.out.println("수정요청 id = [" + id + "]");	
     
@@ -39,6 +44,19 @@
         // 3. DB 연결
         conn = DBCPUtil.getConnection();
         
+        if(email == null || email.trim().equals("")){
+        	// 기존 email 유지
+            String sql3 = "SELECT email FROM ACCOUNTS WHERE id=?";
+            PreparedStatement ps3 = conn.prepareStatement(sql3);
+            ps3.setString(1, id);
+            ResultSet rs3 = ps3.executeQuery();
+            if(rs3.next()){
+                email = rs3.getString("email");
+            }
+            rs3.close();
+            ps3.close();
+        }
+        
         if(pass == null || pass.trim().equals("")){
             // 기존 비밀번호 유지
             String sql2 = "SELECT pass FROM ACCOUNTS WHERE id=?";
@@ -53,9 +71,9 @@
         }        
 
         // 4. UPDATE 문 작성 (아이디는 고유값이므로 WHERE 조건에 사용)
-        String sql = "UPDATE ACCOUNTS SET "
-                   + "pass=?, name=?, addr=?, phone=?, gender=?, age=?, email=? "
-                   + "WHERE id=?";
+		String sql = "UPDATE ACCOUNTS SET "
+		           + "pass=?, name=?, addr=?, phone=?, gender=?, age=?, email=? "
+		           + "WHERE id=?";
 
         pstmt = conn.prepareStatement(sql);
 
