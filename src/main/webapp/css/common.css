@@ -363,6 +363,19 @@ table tr td input[type='number'] {
     right: 20px;
 }
 
+.withdraw-form .btn-danger {
+    background-color: transparent;   /* 배경 제거 */
+    color: #CD5C5C;                  /* 글자색만 유지 */
+    border: 1px solid #CD5C5C;       /* 테두리 유지 */
+    transition: all 0.2s ease;
+}
+
+.withdraw-form .btn-danger:hover {
+    box-shadow: 0 4px 10px rgba(205, 92, 92, 0.4);  /* hover시 그림자 */
+    transform: translateY(-1px);                    /* 살짝 뜨는 느낌 */
+}
+
+/* 기존 회원탈퇴 테마 버튼 (구버전) 
 .btn-withdraw {
     background-color: #d9534f;
     color: white;
@@ -376,3 +389,4 @@ table tr td input[type='number'] {
 .btn-withdraw:hover {
     background-color: #c9302c;
 }
+*/
