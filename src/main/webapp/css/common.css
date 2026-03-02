@@ -363,7 +363,7 @@ table tr td input[type='number'] {
     right: 20px;
 }
 
-.withdraw-form button {
+.form-card .withdraw-form button {
     background-color: transparent;   /* 배경 제거 */
     color: #999;                  /* 회색 글자 */
     border: 1px solid #ccc;       /* 연한 회색 테두리 */
@@ -374,7 +374,8 @@ table tr td input[type='number'] {
     transition: all 0.2s ease;    
 }
 
-.withdraw-form button:hover {
+.form-card .withdraw-form button:hover {
+	background-color: transparent;
 	color: #CD5C5C;
 	border-color: #CD5C5C;
     box-shadow: 0 4px 10px rgba(205, 92, 92, 0.4);  /* hover시 그림자 */
