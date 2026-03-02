@@ -420,7 +420,8 @@ table tr td input[type='number'] {
 }
 
 .verify-card button {
-    margin: 15px auto 0;
+    /* margin: 15px auto 0; => 버튼 가운데 정렬 */
+    margin: 15px 0 0 0; 	/* 버튼 왼쪽 정렬 */
     display: block;
     padding: 10px;
     width: 120px;
