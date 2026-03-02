@@ -58,7 +58,7 @@
 			      class="withdraw-form">
 			      
 			    <input type="hidden" name="num" value="<%= num %>">
-			    <button type="submit" class="btn-danger">회원탈퇴</button>
+			    <button type="submit">회원탈퇴</button>
 			</form>
 			<!-- 수정폼 -->		  		    
 		    <form action="memberUpdate.jsp" method="post">
