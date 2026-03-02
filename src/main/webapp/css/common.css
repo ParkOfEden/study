@@ -196,6 +196,8 @@ table tr td input[type='number'] {
     background: #fafafa;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     font-size: 14px;
+    
+    position: relative;   /* 기준점 */
 }
 
 /* 폼 텍스트 & 폼 레이블 색상 적용 */
@@ -346,4 +348,25 @@ table tr td input[type='number'] {
 .paging a:hover {
     color: #c95a5a;
     text-decoration: underline;
+}
+
+/* 회원탈퇴 버튼 관련 */
+.withdraw-form {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.btn-withdraw {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-withdraw:hover {
+    background-color: #c9302c;
 }

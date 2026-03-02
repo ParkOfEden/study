@@ -98,10 +98,10 @@
 		            </tr>
 		        </table>
 		    </form>
-			<!-- 회원탈퇴 폼 -->
+			<!-- 우상단 회원탈퇴 버튼 -->
 			<form action="memberDelete.jsp" method="post"
 			      onsubmit="return confirm('정말 탈퇴하시겠습니까?');"
-			      style="text-align:center; margin-top:15px;">
+			      class="withdraw-form">
 			      
 			    <input type="hidden" name="num" value="<%= num %>">
 			    <button type="submit" class="btn btn-danger">회원탈퇴</button>
