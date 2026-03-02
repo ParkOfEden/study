@@ -2,11 +2,16 @@
 <%@ page import="java.sql.*, utils.*" %>
 
 <%
+
+
     // 1. 한글 깨짐 방지 인코딩
     request.setCharacterEncoding("UTF-8");
 
     // 2. 파라미터 받기 (input 태그의 name 속성값들)
-    String id     = request.getParameter("id");
+    String id     = (String)session.getAttribute("authUser");
+    
+    System.out.println("수정요청 id = [" + id + "]");	
+    
     String pass   = request.getParameter("pass");
     String name   = request.getParameter("name");
     String addr   = request.getParameter("addr");
