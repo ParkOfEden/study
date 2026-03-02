@@ -365,13 +365,18 @@ table tr td input[type='number'] {
 
 .withdraw-form button {
     background-color: transparent;   /* 배경 제거 */
-    color: #CD5C5C;                  /* 글자색만 유지 */
-    border: 1px solid #CD5C5C;       /* 테두리 유지 */
+    color: #999;                  /* 회색 글자 */
+    border: 1px solid #ccc;       /* 연한 회색 테두리 */
     padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;    
 }
 
 .withdraw-form button:hover {
-	background-color: transparent;
+	color: #CD5C5C;
+	border-color: #CD5C5C;
     box-shadow: 0 4px 10px rgba(205, 92, 92, 0.4);  /* hover시 그림자 */
     transform: translateY(-1px);                    /* 살짝 뜨는 느낌 */
 }
