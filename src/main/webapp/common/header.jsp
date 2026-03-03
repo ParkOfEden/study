@@ -81,22 +81,23 @@
 
 	<li class="top-search">
 
-	    <!-- 상품조회 텍스트 -->
-	    <a href="javascript:void(0);" onclick="toggleSearch()">
+	    <!-- 1. 숨겨진 체크박스 -->
+	    <input type="checkbox" id="searchToggle" class="search-checkbox">
+	
+	    <!-- 2. 상품조회 라벨 (클릭용) -->
+	    <label for="searchToggle" class="search-toggle">
 	        상품조회
-	    </a>	
-
-		<!-- 숨겨진 검색폼 -->	
-		<div id="searchBox" class="search-box">
-		    <form action="<%=path%>/boardList.do" method="get">
-		        <input type="hidden" name="type" value="all">
-		        <input type="text"
-		               name="keyword"
-		               placeholder="상품 검색"
-		               value="<%= request.getParameter("keyword") != null ? request.getParameter("keyword") : "" %>">
-		        <button type="submit">검색</button>
-		    </form>
+	    </label>
+	
+	    <!-- 3. 검색창 -->
+	    <div class="search-box">
+	        <form action="<%=path%>/boardList.do" method="get">
+	            <input type="hidden" name="type" value="all">
+	            <input type="text" name="keyword" placeholder="상품 검색">
+	            <button type="submit">검색</button>
+	        </form>
 	    </div>
+
 	</li>
 
   </ul>

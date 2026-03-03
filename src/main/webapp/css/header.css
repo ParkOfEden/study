@@ -200,6 +200,11 @@ header {
     background-color: #333;
 }
 
+/* 체크박스 숨기기 */
+.search-checkbox {
+    display: none;
+}
+
 /* 기본은 숨김 */
 .search-box {
     display: none;
@@ -208,10 +213,9 @@ header {
     right: 0;
     background: #fff;
     padding: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    white-space: nowrap;
-    z-index: 999;    
+    white-space: nowrap;    
 }
 
 .search-box input {
@@ -225,4 +229,9 @@ header {
     color: white;
     border: none;
     cursor: pointer;
+}
+
+/* 체크되면 보이기 */
+.search-checkbox:checked + .search-toggle + .search-box {
+    display: block;
 }
