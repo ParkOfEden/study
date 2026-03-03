@@ -99,6 +99,7 @@
     }
 </style>
 
+<header>
 
 <!-- 🔹 상단 메뉴 (수정됨: </ul> 태그 추가 및 클래스 적용) -->
 <ul class="top-menu">
@@ -108,13 +109,6 @@
 <%-- header.jsp 에는 <header></header>태그 안에서만 작성하되, css 효과는 header.css에서 처리할 것 
 	 변경사항 : html 선언 & css 링크 선언 (절대 링크로 요청) & body 선언을 헤더에서 작업 후 일괄 include 처리
 --%>
-
-
-<header>
-    <ul class="top-menu">
-        <li><a href="<%=path%>/index.jsp">홈</a></li>
-        <li><a href="<%=path%>/boardList.do">PRODUCTS</a></li>
-        <li><a href="<%=path%>/sendMail.jsp">SEND MAIL</a></li>
 
         <% if(authUser == null){ %>
             <li><a href="<%=path%>/login.jsp">로그인</a></li>
