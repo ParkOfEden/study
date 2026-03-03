@@ -28,11 +28,10 @@
     <title><%= request.getAttribute("pageTitle") != null ? request.getAttribute("pageTitle") : "월클의류(주)" %></title>
     <link rel="icon" href="<%=path%>/css/img/wolcl.ico" type="image/x-icon">
     <link rel="stylesheet" href="<%=path%>/css/common.css">
-    <link rel="stylesheet" href="<%=path%>/css/header.css">
+    <%-- <link rel="stylesheet" href="<%=path%>/css/header.css"> header.css 비활성화(필요시 header.css 열람) --%>
     <link rel="stylesheet" href="<%=path%>/css/footer.css">
     <link rel="stylesheet" href="<%=path%>/css/boardList.css">
-</head>
-<body>
+
 
 <style>
     .top-menu li {
@@ -98,6 +97,9 @@
         display: block;
     }
 </style>
+
+</head>
+<body>
 
 <header>
 
