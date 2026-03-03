@@ -78,6 +78,18 @@
     <% } %>
     
 <% } %>
+
+	<li class="top-search">
+	    <form action="<%=path%>/boardList.do" method="get">
+	        <input type="hidden" name="type" value="all">
+	        <input type="text"
+	               name="keyword"
+	               placeholder="상품 검색"
+	               value="<%= request.getParameter("keyword") != null ? request.getParameter("keyword") : "" %>">
+	        <button type="submit">검색</button>
+	    </form>
+	</li>
+
   </ul>
 
   <!-- 🔹 2 줄 카테고리 메뉴 -->
