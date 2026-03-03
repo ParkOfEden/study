@@ -35,11 +35,43 @@ INSERT INTO board_test (
     content,
     img_url
 ) VALUES (
-    'TOP>TSHIRT',
+    '티셔츠',
     '기본 반팔 티셔츠',
     'admin',
     '부드러운 면 소재의 기본 반팔입니다.',
     'css/img/upload/product/top/tshirt1.jpg'
+);
+
+COMMIT;
+
+INSERT INTO board_test (
+    category,
+    title,
+    author,
+    content,
+    img_url
+) VALUES (
+    '티셔츠',
+    '여성) 스트라이프 반팔 T',
+    'admin',
+    '부드러운 면 소재의 스트라이프 무늬 반팔입니다.',
+    'css/img/upload/product/top/tshirt2.jpg'
+);
+
+COMMIT;
+
+INSERT INTO board_test (
+    category,
+    title,
+    author,
+    content,
+    img_url
+) VALUES (
+    '티셔츠',
+    '여성) [디즈니] 코튼 반팔 T',
+    'admin',
+    '부드러운 면 소재의 스트라이프 무늬 반팔입니다.',
+    'css/img/upload/product/top/tshirt3.jpg'
 );
 
 COMMIT;

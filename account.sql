@@ -11,7 +11,7 @@ EXCEPTION
             RAISE;
         END IF;
 END;
-/
+
 
 -- 테이블 생성
 CREATE TABLE ACCOUNTS (
@@ -30,8 +30,8 @@ CREATE TABLE ACCOUNTS (
 INSERT INTO ACCOUNTS (
     id, pass, name, addr, phone, gender, age, email
 ) VALUES (
-    'admin', 'admin', 'MASTER',
-    '부산광역시', '01011111111', '남성', 30, 'admin@admin.com'
+    '1', '1', 'MASTER',
+    '부산광역시', '1', '남성', 30, '1@admin.com'
 );
 
 COMMIT;
