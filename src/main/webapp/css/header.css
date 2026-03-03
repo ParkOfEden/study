@@ -144,3 +144,13 @@ header {
 .sale-text {
     color: #ff3333 !important;
 }
+
+/* ============================= */
+/* 커서 효과 (맨 아래 위치!) */
+/* ============================= */
+
+.category-menu > li:hover,
+.submenu a:hover,
+.top-menu a:hover {
+    cursor: url("link-w.cur"), pointer;
+}

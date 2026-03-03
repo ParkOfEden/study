@@ -1,6 +1,7 @@
 package vo;
 
 import java.util.Date;
+import java.sql.Timestamp;
 
 public class BoardVO {
     private int num;

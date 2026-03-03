@@ -12,3 +12,38 @@ CREATE TABLE board_test(
     updated_at TIMESTAMP DEFAULT SYSTIMESTAMP NOT NULL,
     view_count NUMBER DEFAULT 0 NOT NULL CHECK (view_count >= 0)
 );
+
+SELECT * FROM board_test;
+
+----------------------------------------------------------------------
+-- 상품 등록
+----------------------------------------------------------------------
+INSERT INTO board_test (
+    category,
+    title,
+    author,
+    content,
+    img_url
+) VALUES (
+    'TOP>TSHIRT',
+    '기본 반팔 티셔츠',
+    'admin',
+    '부드러운 면 소재의 기본 반팔입니다.',
+    'css/img/upload/product/top/tshirt1.jpg'
+);
+
+COMMIT;
+
+SELECT * FROM board_test;
+
+----------------------------------------------------------------------
+-- 상품 수정
+----------------------------------------------------------------------
+UPDATE board_test
+SET 
+    category = ?,
+    title = ?,
+    content = ?,
+    img_url = ?,
+    updated_at = SYSTIMESTAMP
+WHERE num = ?;

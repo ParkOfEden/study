@@ -17,7 +17,8 @@
     // 초기값 설정을 위한 변수들
     String name="", addr="", phone="", email="", gender="", pass="";
     int age=0;
-
+    int num=0;   // memberDelete.jsp 실행에 필요
+    
     try {
         conn = DBCPUtil.getConnection();
         System.out.println("연결 성공! 조회 ID: " + id); // 서버 콘솔 확인용
@@ -30,6 +31,7 @@
         
         if(rs.next()) {
         	System.out.println("데이터 찾음!"); // 데이터가 있을 때만 출력
+        	num    = rs.getInt("num");   // memberDelete.jsp 실행에 필요
             pass   = rs.getString("pass");
             name   = rs.getString("name");
             addr   = rs.getString("addr");
@@ -48,9 +50,20 @@
 %>
 
 		<section>
+		    <div class="form-card">
+		    
+			<!-- 우상단 회원탈퇴 버튼 (탈퇴폼) -->
+			<form action="memberDelete.jsp" method="post"
+			      onsubmit="return confirm('정말 탈퇴하시겠습니까?');"
+			      class="withdraw-form">
+			      
+			    <input type="hidden" name="num" value="<%= num %>">
+			    <button type="submit">회원탈퇴</button>
+			</form>
+			<!-- 수정폼 -->		  		    
 		    <form action="memberUpdate.jsp" method="post">
 		        <h2>내 정보 수정하기</h2>
-		        <table border="1" style="border-collapse: collapse; width: 500px;">
+		        <table class="form-table">
 		            <tr>
 		                <th>아이디</th>
 		                <td><%= id %><input type="hidden" name="id" value="<%= id %>" style="text-align: center;" ></td>
@@ -80,20 +93,25 @@
 		            </tr>
 		            <tr>
 		                <th>나이</th>
-		                <td><input type="number" name="age" value="<%= age %>" style="text-align: center;"> 세</td>
+		                <td><input type="number" name="age" value="<%= age %>" style="text-align: center;"> 
+		                	<span class="age-unit">세</span>
+	                	</td>
 		            </tr>
 		            <tr>
 		                <th>이메일</th>
 		                <td><input type="email" name="email" value="<%= email %>" style="text-align: center;" required></td>
 		            </tr>
-		            <tr>
+		            <tr class="button-row">
 		                <td colspan="2" style="text-align:center; padding:10px;">
 		                    <button type="submit">변경사항 저장</button>
-		                    <button type="button" onclick="location.href='memberUpdate.jsp'">취소</button>
+		                    <!-- memberUpdate.jsp 로 이동해서 업데이트를 수행할 이유가 없음 -->
+		                    <button type="button" onclick="history.back()">취소</button>	                    
 		                </td>
 		            </tr>
 		        </table>
-		    </form>
+	        </form>
+		    </div>
+			  
 		</section>
 
 <%@ include file="common/footer.jsp" %>

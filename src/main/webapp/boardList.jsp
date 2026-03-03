@@ -1,85 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*, java.util.*, utils.*, vo.*" %>
+
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<!-- 타이틀은 여기서 작업하면 반영됩니다. -->
 <%
-	// 1. 페이지 번호 파라미터 안전하게 받기
-	String paramPage = request.getParameter("page");
-	int pageNum = 1; 
-	if (paramPage != null && !paramPage.trim().isEmpty()) {
-		try {
-			pageNum = Integer.parseInt(paramPage);
-		} catch (NumberFormatException e) {
-			pageNum = 1; 
-		}
-	}
-	
-	// 2. 페이징 및 리스트 준비
-	Criteria cri = new Criteria(pageNum, 10);
-	List<BoardVO> list = new ArrayList<>();
-	
-	Connection conn = null;
-	PreparedStatement pstmt = null;
-	ResultSet rs = null;
-	
-	int totalCount = 0;
+request.setAttribute("pageTitle", "상품 관리 목록");
+%>  
 
-	try {
-		conn = DBCPUtil.getConnection();
-		
-		// 3. 전체 게시글 개수 조회 (페이징용)
-		String countSql = "SELECT count(*) FROM board_test";
-		pstmt = conn.prepareStatement(countSql);
-		rs = pstmt.executeQuery();
-		if(rs.next()) totalCount = rs.getInt(1);
-		DBCPUtil.close(rs, pstmt); // 개수 조회 후 자원 일시 반납
+<%@ include file="common/header.jsp" %>
 
-		// 4. 게시글 목록 조회 (category를 조회 목록에 추가함)
-String sql = "SELECT num, category, title, author, created_at, view_count FROM board_test ORDER BY num DESC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";		pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, cri.offset());
-		pstmt.setInt(2, cri.getPerPageNum());
-		
-		rs = pstmt.executeQuery();
-		
-		while(rs.next()){
-			BoardVO board = new BoardVO();
-			// 중요: 여기서 num을 반드시 세팅해야 함
-			board.setNum(rs.getInt("num"));
-			board.setCategory(rs.getString("category"));
-			board.setTitle(rs.getString("title"));
-			board.setAuthor(rs.getString("author"));
-			board.setCreatedAt(rs.getTimestamp("created_at"));
-			board.setViewCount(rs.getInt("view_count"));
-			list.add(board);
-		}
-	} catch(Exception e) {
-		e.printStackTrace();	
-	} finally {
-		DBCPUtil.close(rs, pstmt, conn);
-	}
-	
-	PageMaker pm = new PageMaker(cri, totalCount, 10);
-%>    
-    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>상품 관리 목록</title>
-<style>
-	table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-	th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
-	th { background-color: #f4f4f4; }
-	.paging { text-align: center; margin-top: 20px; }
-	.paging a { text-decoration: none; color: black; margin: 0 5px; }
-	.current-page { font-weight: bold; color: red; text-decoration: underline; }
-</style>
-</head>
-<body>
+<section class="section-container">
 
-	<h2>전체 게시글 목록 (Admin)</h2>
-	<div style="text-align: right;">
-		<a href="write.jsp">[새 상품 등록]</a>
-	</div>
-<table>
+
+     
+<h2 class="board-title">전체 게시글 목록 
+<c:if test="${sessionScope.authUser == 'admin'}">
+<span style="color: gray;
+			 font-weight: bold;">
+(Admin)
+</span>
+</c:if>
+</h2>
+
+<div class="write-area">
+<c:if test="${sessionScope.authUser == 'admin'}">
+	<a href="boardWrite.jsp">[새 상품 등록]</a>
+</c:if>
+</div>
+
+<table class="board-table">
     <thead>
         <tr>
             <th>번호</th>
@@ -87,47 +35,76 @@ String sql = "SELECT num, category, title, author, created_at, view_count FROM b
             <th>작성자</th>
             <th>작성일</th>
             <th>조회수</th>
+        <c:if test="${sessionScope.authUser == 'admin'}">
+            <th>관리</th>
+        </c:if>
         </tr>
     </thead>
     <tbody>
-    <% if(list.isEmpty()){ %>
-        <tr><td colspan="6">등록된 게시글이 없습니다.</td></tr>
-    <% } else { %>
-        <% for(BoardVO b : list) { %>
-        <tr>
-            <td><%= b.getNum() %></td>
+    	<c:choose>
+    		<c:when test="${empty boardList}">
+	        	<tr>
+	            	<td colspan="7">등록된 게시글이 없습니다.</td>
+	            </tr>
+            </c:when>
             
-            <td><span style="color: #666;">[<%= b.getCategory() %>]</span></td>
+            <c:otherwise>
+            	<c:forEach var="b" items="${boardList}">
+            		<tr>
+			            <td>${b.num}</td>
+			            
+			            <td>[${b.category}]</td>
             
-            <td style="text-align: left;">
-                <a href="boardDetail.jsp?num=<%= b.getNum() %>"><%= b.getTitle() %></a>
-            </td>
-            
-            <td><%= b.getAuthor() %></td>
-            
-            <td><%= b.getCreatedAt() %></td>
-            
-            <td><%= b.getViewCount() %></td>
-        </tr>		
-        <% } %>
-    <% } %>
+            			<td style="text-align:left;">
+            				<a href="boardDetail.jsp?num=${b.num}">
+            					${b.title}
+            				</a>
+            			</td>
+            			
+			            <td>${b.author}</td>
+			            
+			            <td>${b.createdAt}</td>
+			            
+			            <td>${b.viewCount}</td>
+		            
+		            <c:if test="${sessionScope.authUser == 'admin'}">
+                        <td>
+                            <a href="boardUpdateForm.do?num=${b.num}">수정</a>
+                            |
+                            <a href="boardDelete.do?num=${b.num}"
+                               onclick="return confirm('삭제하시겠습니까?');">
+                                삭제
+                            </a>
+                        </td>			            
+    				</c:if>		
+    				
+   				</tr>
+        	</c:forEach>
+    	</c:otherwise>
+   	</c:choose>
     </tbody>
 </table>
-	<div class="paging">
-		<% if(pm.isPrev()){ %>
-			<a href="?page=<%=pm.getStartPage()-1%>">[이전]</a>
-		<% } %>
-		
-		<% for(int i=pm.getStartPage(); i<=pm.getEndPage(); i++){ %>
-			<a href="?page=<%=i%>" class="<%= (pageNum == i) ? "current-page" : "" %>"><%= i %></a>
-		<% } %>
-		
-		<% if(pm.isNext()){ %>
-			<a href="?page=<%=pm.getEndPage()+1%>">[다음]</a>
-		<% } %>
-	</div>
 
-</body>
-</html>
-</html>
+<!-- 페이징 -->
+<div class="paging">
+
+    <c:if test="${pageMaker.prev}">
+        <a href="?page=${pageMaker.startPage - 1}">[이전]</a>
+    </c:if>
+
+    <c:forEach var="i"
+               begin="${pageMaker.startPage}"
+               end="${pageMaker.endPage}">
+        <a href="?page=${i}"
+           class="${pageMaker.criteria.page == i ? 'current-page' : ''}">
+            ${i}
+        </a>
+    </c:forEach>
+
+    <c:if test="${pageMaker.next}">
+        <a href="?page=${pageMaker.endPage + 1}">[다음]</a>
+    </c:if>
+
+</div>
+</section>
 <%@ include file="common/footer.jsp"%>

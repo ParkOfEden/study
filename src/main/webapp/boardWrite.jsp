@@ -1,8 +1,10 @@
-<<<<<<< HEAD
-
-
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- boardWrite.jsp -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!-- 타이틀은 여기서 작업하면 반영됩니다. -->
+<%
+request.setAttribute("pageTitle", "관리자 게시글 작성");
+%>   
 <%@ include file="common/header.jsp" %>
 <%
     
@@ -17,20 +19,10 @@
         return; // 아래의 글쓰기 HTML 양식이 실행되지 않도록 강제 종료
     }
 %>
-<html>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<html>
-<head>
-<meta charset="UTF-8">
-<title>관리자 게시글 작성</title>
-</head>
-<body>
+
     <!-- 학원 코드 스타일 그대로 적용 -->
-    <form action="writeSubmit.jsp" method="POST">
-        <table border="1">
+    <form class="form-card" action="boardWrite.do" method="POST">
+        <table class="pd-table">
             <tr>
                 <th colspan="2">
                     <h3>상품/게시글 등록</h3>
@@ -127,12 +119,10 @@
             <tr>
                 <th colspan="2">
                     <button type="submit">작성완료</button>
-                    <button type="button" onclick="location.href='index.jsp'">취소</button>
+                    <button type="button" onclick="location.href='boardList.do'">취소</button>
                 </th>
             </tr>
         </table>
     </form>
-</body>
-</html>
-<%@ include file="common/footer.jsp"%>
 
+<%@ include file="common/footer.jsp"%>

@@ -17,19 +17,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <title>이메일 인증</title>
 </head>
 <body>
 
-<h2>이메일 인증</h2>
+	<section class="section-base">
+		<div class="verify-wrapper">
 
-<p>입력하신 이메일로 인증코드를 발송했습니다.</p>
-<p>받은 인증코드를 아래에 입력해주세요.</p>
-
-<form action="verifyCheck.jsp" method="post">
-   <input type="text" name="inputCode" placeholder="인증코드 6자리 입력" required>
-   <button type="submit">인증하기</button>
-</form>
-
+    		<div class="verify-text">
+				<h2>이메일 인증</h2>
+				
+				<p>입력하신 이메일로 인증코드를 발송했습니다.</p>
+				<p>받은 인증코드를 아래에 입력해주세요.</p>
+			</div>
+		
+			<form class="form-card verify-card" action="verifyCheck.jsp" method="post">
+			   <input type="text" name="inputCode" placeholder="인증코드 6자리 입력" required>
+			   <button type="submit">인증하기</button>
+			</form>
+		</div>
+	</section>
 </body>
 </html>
