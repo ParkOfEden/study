@@ -426,3 +426,19 @@ table tr td input[type='number'] {
     padding: 10px;
     width: 120px;
 }
+
+/* 검색창 테마 관리 */
+.search-area {
+    margin: 20px 0;
+    text-align: right;
+}
+
+.search-area select,
+.search-area input {
+    padding: 5px;
+}
+
+.search-area button {
+    padding: 6px 10px;
+    cursor: pointer;
+}

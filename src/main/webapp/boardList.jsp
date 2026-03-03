@@ -27,6 +27,26 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 </c:if>
 </div>
 
+<div class="search-area">
+    <form action="boardList.do" method="get">
+        
+        <select name="type">
+            <option value="title"
+            	${param.type == 'title' ? 'selected' : ''}>제목</option>
+            <option value="category"
+            	${param.type == 'category' ? 'selected' : ''}>카테고리</option>
+            <option value="all"
+            	${param.type == 'all' ? 'selected' : ''}>제목+카테고리</option>
+        </select>
+		<!-- 검색 후에도 값 유지 -->
+        <input type="text" name="keyword" 
+               value="${param.keyword}" 
+               placeholder="검색어 입력">
+
+        <button type="submit">검색</button>
+    </form>
+</div>
+
 <table class="board-table">
     <thead>
         <tr>

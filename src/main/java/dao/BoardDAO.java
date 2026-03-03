@@ -215,5 +215,106 @@ public class BoardDAO {
 
         return result;
     }    
+    
+    // 검색용 전체 개수 구하기
+    public int getSearchBoardCount(String type, String keyword) {
+
+        int count = 0;
+
+        String sql = "SELECT COUNT(*) FROM board_test WHERE ";
+
+        if ("title".equals(type)) {
+            sql += "title LIKE ?";
+        } else if ("category".equals(type)) {
+            sql += "category LIKE ?";
+        } else {
+            sql += "title LIKE ? OR category LIKE ?";
+        }
+
+        try (Connection conn = DBCPUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            if ("all".equals(type)) {
+                ps.setString(1, "%" + keyword + "%");
+                ps.setString(2, "%" + keyword + "%");
+            } else {
+                ps.setString(1, "%" + keyword + "%");
+            }
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return count;
+    }
+    
+    // 검색 + 페이지 목록 조회
+    public List<BoardVO> getSearchBoardListPaging(
+            String type,
+            String keyword,
+            int offset,
+            int limit) {
+
+        List<BoardVO> list = new ArrayList<>();
+
+        String condition = "";
+
+        if ("title".equals(type)) {
+            condition = "title LIKE ?";
+        } else if ("category".equals(type)) {
+            condition = "category LIKE ?";
+        } else {
+            condition = "title LIKE ? OR category LIKE ?";
+        }
+
+        String sql =
+            "SELECT * FROM (" +
+            "  SELECT t.*, ROWNUM rnum FROM (" +
+            "    SELECT * FROM board_test WHERE " + condition +
+            "    ORDER BY num DESC" +
+            "  ) t WHERE ROWNUM <= ?" +
+            ") WHERE rnum > ?";
+
+        try (Connection conn = DBCPUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            int idx = 1;
+
+            if ("all".equals(type)) {
+                ps.setString(idx++, "%" + keyword + "%");
+                ps.setString(idx++, "%" + keyword + "%");
+            } else {
+                ps.setString(idx++, "%" + keyword + "%");
+            }
+
+            ps.setInt(idx++, offset + limit);
+            ps.setInt(idx, offset);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                BoardVO vo = new BoardVO();
+
+                vo.setNum(rs.getInt("num"));
+                vo.setTitle(rs.getString("title"));
+                vo.setCategory(rs.getString("category"));
+                vo.setAuthor(rs.getString("author"));
+                vo.setCreatedAt(rs.getTimestamp("created_at"));
+                vo.setViewCount(rs.getInt("view_count"));
+
+                list.add(vo);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }    
 
 } // end BoardDAO class

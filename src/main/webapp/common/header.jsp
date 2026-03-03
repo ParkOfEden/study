@@ -78,6 +78,27 @@
     <% } %>
     
 <% } %>
+
+	<li class="top-search">
+
+	    <!-- 상품조회 텍스트 -->
+	    <a href="javascript:void(0);" onclick="toggleSearch()">
+	        상품조회
+	    </a>	
+
+		<!-- 숨겨진 검색폼 -->	
+		<div id="searchBox" class="search-box">
+		    <form action="<%=path%>/boardList.do" method="get">
+		        <input type="hidden" name="type" value="all">
+		        <input type="text"
+		               name="keyword"
+		               placeholder="상품 검색"
+		               value="<%= request.getParameter("keyword") != null ? request.getParameter("keyword") : "" %>">
+		        <button type="submit">검색</button>
+		    </form>
+	    </div>
+	</li>
+
   </ul>
 
   <!-- 🔹 2 줄 카테고리 메뉴 -->
