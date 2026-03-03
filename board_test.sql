@@ -65,6 +65,23 @@ INSERT INTO board_test (
 
 COMMIT;
 
+INSERT INTO board_test (
+    category,
+    title,
+    author,
+    content,
+    img_url
+) VALUES (
+    '슈즈',
+    '남아) 남색 로퍼',
+    'admin',
+    'null',
+    'css/img/upload/product/shoes_bag/shoes-boy140.jpg'
+);
+
+COMMIT;
+
+
 SELECT * FROM board_test;
 
 ----------------------------------------------------------------------
