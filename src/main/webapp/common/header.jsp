@@ -171,9 +171,6 @@
             </ul>
         </li>
 
-  </ul>
-
-
         <li class="has-submenu">
             BOTTOM
             <ul class="submenu">
