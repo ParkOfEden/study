@@ -74,7 +74,7 @@ section.main h1{
 
 section.main2{
 	background-image:url(img/sitemapbg01.png);
-	background-color:#ffffff80;
+	
 	background-position: center;
 	/*background-repeat: no-repeat;*/	
 	/*background-size:cover;*/
@@ -447,7 +447,7 @@ table tr td input[type='number'] {
 .content-wrapper {
     max-width: 900px;
     margin: 60 auto; /* 위아래 여백 추가 */
-    background: rgba(255,255,255,0.85);
+    background-color:#ffffff80;
     padding: 30px;
     border-radius: 10px;   /* 선택사항 */
 }
