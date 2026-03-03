@@ -42,13 +42,89 @@
     </head>
 <body><%-- 
 <style>
-	앞으로는 여기에 css 작업 하지 마시고 header.css 에서 작업해주세요 :-)
-	(여기 작성된 코드를 지운 것이 아니고 header.css 에 옮겨놓음)
-	이유 1 : index.jsp(등) 에 css 효과 include 처리 되어서 그대로 영향
-	이유 2 : 만약 <html> 태그를 사용해서 </html>처리를 해버리면 include 한 index.jsp 등에서 닫힌 <html>태그에 이어서 태그를 작성하는 꼴이 나버림..
-		   이 이유때문에 남아서 작업해도 해결못하고 있다가 집에 가서 전수조사해서 밝혀냄..
-    결론 : header.jsp 에서는 style 태그에 작업 금지 (index, footer 전역 효과 또는 충돌되어 안먹힘), <html> 열고 </html> 닫기 금지 (치명적, 스파게티 코드 발생 가능)
+	<style>
+    /* 🔹 상단 메뉴 (오른쪽 정렬) */
+    .top-menu {
+        display: flex;             /* flexbox 활성화 */
+        justify-content: flex-end; /* 항목들을 오른쪽으로 밀어냄 */
+        align-items: center;       /* 수직 중앙 정렬 */
+        list-style: none;          /* 불릿점 제거 */
+        margin: 0;
+        padding: 10px 20px;        /* 상단 여백 */
+        background-color: #f5f5f5; /* 배경색 (선택사항) */
+        font-size: 13px;
+    }
+
+    .top-menu li {
+        margin-left: 15px;         /* 메뉴 항목 간 간격 */
+    }
+
+    .top-menu a {
+        text-decoration: none;     /* 밑줄 제거 */
+        color: #333;               /* 글자색 */
+    }
+
+    .top-menu a:hover {
+        color: #000;               /* 마우스 올렸을 때 색상 */
+        text-decoration: underline;
+    }
+
+    /* 🔹 카테고리 메뉴 (가로 정렬 기본 스타일) */
+    .category-menu {
+        display: flex;             /* 가로 나열 */
+        justify-content: center;   /* 중앙 정렬 (원하시면 flex-start 로 변경) */
+        list-style: none;
+        margin: 0;
+        padding: 15px 0;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .category-menu > li {
+        position: relative;        /* 서브메뉴 위치 기준 */
+        margin: 0 15px;
+        padding: 10px 0;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    /* 서브메뉴 숨김 */
+    .category-menu .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #ddd;
+        list-style: none;
+        padding: 10px;
+        min-width: 150px;
+        z-index: 100;
+    }
+
+    /* 마우스 올렸을 때 서브메뉴 보임 */
+    .category-menu > li:hover .submenu {
+        display: block;
+    }
+
+    .category-menu .submenu li {
+        padding: 5px 0;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .category-menu .submenu li a {
+        text-decoration: none;
+        color: #555;
+        display: block;
+    }
 </style>
+<<<<<<< HEAD
+
+<!-- 🔹 상단 메뉴 (수정됨: </ul> 태그 추가 및 클래스 적용) -->
+<ul class="top-menu">
+    <li><a href="<%= request.getContextPath() %>/index.jsp">홈</a></li>
+    <li><a href="<%= request.getContextPath() %>/sendMail.jsp">SEND MAIL</a></li>
+=======
  --%><%-- header.jsp 에는 <header></header>태그 안에서만 작성하되, css 효과는 header.css에서 처리할 것 
 	 변경사항 : html 선언 & css 링크 선언 (절대 링크로 요청) & body 선언을 헤더에서 작업 후 일괄 include 처리
 --%>
@@ -60,10 +136,17 @@
     <li><a href="<%=path%>/index.jsp">홈</a></li>
     <li><a href="<%=path%>/boardList.do">PRODUCTS</a></li>
 	<li><a href="<%=path%>/sendMail.jsp">SEND MAIL</a></li>
+>>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
 <% if(authUser == null){ %>
+<<<<<<< HEAD
+    <li><a href="<%= request.getContextPath() %>/login.jsp">로그인</a></li>
+    <li><a href="<%= request.getContextPath() %>/join.jsp">회원가입</a></li>
+    <li><a href="<%= request.getContextPath() %>/join.jsp">고객센터</a></li>
+=======
     <li><a href="<%=path%>/login.jsp">로그인</a></li>
     <li><a href="<%=path%>/join.jsp">회원가입</a></li>
     <li><a href="<%=path%>/cuscen.jsp">고객센터</a></li>
+>>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
 <% } else { %>
     <!-- 수정된 부분: 아이디 클릭 시 memberUpdateForm.jsp 로 이동 -->
     <li><a href="<%=path%>/memberUpdateForm.jsp"><%= userName %></a>님 환영합니다</li>
@@ -76,8 +159,10 @@
     <% if ("admin".equals(authUser)) { %>
         <li><a href="<%=path%>/boardWrite.jsp">글쓰기</a></li>
     <% } %>
-    
 <% } %>
+<<<<<<< HEAD
+</ul> <!-- 👈 이 닫는 태그가 원래 코드에 없었습니다. 추가 필요합니다. -->
+=======
 
 	<li class="top-search">
 
@@ -101,14 +186,12 @@
 	</li>
 
   </ul>
+>>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
 
-  <!-- 🔹 2 줄 카테고리 메뉴 -->
-  <!-- onclick 제거, CSS hover 로 작동 -->
-  <ul class="category-menu">
-    
+<!-- 🔹 2 줄 카테고리 메뉴 -->
+<ul class="category-menu">
     <li class="has-submenu">
-
-        NEW &amp; BEST <!-- & 보다 &amp; 가 안전 -->
+        NEW &amp; BEST
         <ul class="submenu">
             <li><a href="<%=path%>/Headerjump/new.jsp">신상품 (New)</a></li>
             <li><a href="<%=path%>/Headerjump/best.jsp">베스트 (Best)</a></li>
@@ -179,7 +262,6 @@
             <li><a href="<%=path%>/Headerjump/Spzone.jsp">특가 존</a></li>
         </ul>
     </li>
-
-  </ul>
+</ul>
 
 </header>
