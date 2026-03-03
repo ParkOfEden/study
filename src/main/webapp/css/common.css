@@ -2,15 +2,23 @@
 
 /* index.jsp */
 
-/*
-section {
-	min-height: 700px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 30px;
+/* 마우스 커서 효과 */
+body {
+    cursor: url("normal-w.cur"), default;
 }
-*/
+
+a:hover {
+    cursor: url("link-w.cur"), pointer;
+}
+
+/* section 은 최대한 수정하지 않습니다. (전역 설정 : 틀 유지용) */ 
+section {
+    max-width: 1100px;  /* 기준 너비 */	
+	min-height: 300px; /* 섹션의 최소높이 (테스트 페이지용) */
+	padding: 30px; /* 섹션의 내부 여백 */
+	margin: 0 auto 30px auto; /* 가운데 정렬 + 하단 여백 */
+}
+
 
 /* 전역 설정 방지 예시 */
 .section-base {
@@ -21,13 +29,37 @@ section {
 	padding: 30px;
 }
 
+/* 상단 중앙 정렬이 필요할 때만 */
+.section-center {
+  min-height: 700px;
+  display: flex;
+  align-items: flex-start;   /* 세로 상단 */
+  justify-content: center;   /* 가로 중앙 */
+  padding-top: 60px;         /* 위에서 조금 내려오게 (선택) */
+}
+
+/* grid 게시판용 */
+.section-grid {
+  min-height: 700px;	
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* 기본(테이블형) 게시판용 */ 
+.section-container {
+  min-height: 700px;	
+  display: block; 
+  
+} 
+
 section.main{
 	background-image:url(img/dog.jpg);
 	background-position: center;
 	/*background-repeat: no-repeat;*/	
 	/*background-size:cover;*/
 	padding:0;
-	margin:30px;
+	
 }
 
 section.main h1{
@@ -41,18 +73,18 @@ section.main h1{
 }
 
 section.main2{
-	background-image:url(img/bg001.jpg);
+	background-image:url(img/sitemapbg01.png);
 	background-position: center;
 	/*background-repeat: no-repeat;*/	
 	/*background-size:cover;*/
 	padding:0;
-	margin:30px;
+	/* margin 설정 안함 */
 }
 
 section.main2 h3{
 	width:100%;
 	min-height: 700px;
-	background-color:#00000020;
+	background-color:#ffffff80;
 	color:blue;
 	display: flex;
 	align-items: center;
@@ -129,7 +161,7 @@ table tr td input[type='number'] {
 
 .pd-table tr:first-child th {
     color: white;
-    background-color: navy;
+    background-color: #CD5C5C;
 }
 
 .pd-table tr td:first-child {
@@ -152,4 +184,261 @@ table tr td input[type='number'] {
     border: none;
     padding: 10px;
     font-size: 14px;
+}
+
+/* memberList.jsp 전용 스타일러 */
+.member-table {
+    min-width: 800px;
+}
+
+/* 폼(form) 전용 스타일러 */
+/* 카드 박스 */
+.form-card {
+    width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    font-size: 14px;
+    
+    position: relative;   /* 기준점 */
+}
+
+/* 폼 텍스트 & 폼 레이블 색상 적용 */
+.form-card label,
+.form-card input,
+.form-card textarea {
+    color: #333;
+}
+
+/* 텍스트 입력창 */
+.form-card input[type="text"],
+.form-card textarea {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* textarea 조절 */
+.form-card textarea {
+    resize: vertical;
+}
+
+/* 줄바꿈(br) 간격 정리 */
+.form-card br {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* float 정리 */
+.form-card::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* form 입력창 글꼴 통일 */
+.form-card,
+.form-card input,
+.form-card textarea,
+.form-card button {
+    font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
+}
+
+/* 기본 버튼 리셋 */
+.form-card input[type="submit"],
+.form-card button {
+    padding: 10px 20px;
+    background-color: #c95a5a;   /* 헤더색과 맞춤 */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* hover 효과 */
+.form-card input[type="submit"]:hover,
+.form-card button:hover {
+    background-color: #b14a4a;
+}
+
+/* 하이퍼링크 관련 효과 */
+.form-card a {
+    color: #c95a5a;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.form-card a:hover {
+    color: #a94444;
+    text-decoration: underline;
+}
+
+/* check-box 효과 */
+.form-card input[type="checkbox"], 
+.form-card input[type="radio"] {
+    accent-color: #c95a5a;
+}
+
+/* pd-table 을 수정하지 않고 어색해진 table 효과 적용 */
+
+.form-table {
+    width: 100%;
+    table-layout: fixed;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.form-table th {
+    width: 120px;
+    text-align: left;
+    padding: 12px 12px 12px 0;
+    background: #f7f7f7;
+}
+
+.form-table td {
+	padding: 10px 12px;
+    vertical-align: middle;
+}
+
+.form-table tr {
+    border-bottom: 1px solid #eee;
+}
+
+
+
+.age-unit {
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+.form-table input[type="text"],
+.form-table input[type="password"],
+.form-table input[type="number"], /* age 에 영향을 줌 => !important */
+.form-table input[type="email"],
+.form-table textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-table input[name="age"] {
+    width: 80px !important;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.button-row td {
+    text-align: center;
+}
+
+.button-row button {
+    margin: 0 8px;
+}
+
+/* 페이징 기본 링크 */
+.paging a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 6px;
+    transition: 0.2s ease;
+}
+
+/* 마우스 오버 */
+.paging a:hover {
+    color: #c95a5a;
+    text-decoration: underline;
+}
+
+/* 회원탈퇴 버튼 관련 */
+.withdraw-form {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.form-card .withdraw-form button {
+    background-color: transparent;   /* 배경 제거 */
+    color: #999;                  /* 회색 글자 */
+    border: 1px solid #ccc;       /* 연한 회색 테두리 */
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;    
+}
+
+.form-card .withdraw-form button:hover {
+	background-color: transparent;
+	color: #CD5C5C;
+	border-color: #CD5C5C;
+    box-shadow: 0 4px 10px rgba(205, 92, 92, 0.4);  /* hover시 그림자 */
+    transform: translateY(-1px);                    /* 살짝 뜨는 느낌 */
+}
+
+/* 기존 회원탈퇴 테마 버튼 (구버전) 
+.btn-withdraw {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-withdraw:hover {
+    background-color: #c9302c;
+}
+*/
+
+/* 이메일 인증 프레임 관리 */
+.verify-wrapper {
+    /*display: block;*/ 
+    max-width: 800px;
+    margin: 80px auto;
+}
+
+.verify-card {
+	
+    max-width: 420px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin: 30px auto 0;
+}
+
+.verify-card input {
+    width: 100%;
+}
+
+.verify-card button {
+    /* margin: 15px auto 0; => 버튼 가운데 정렬 */
+    margin: 15px 0 0 0; 	/* 버튼 왼쪽 정렬 */
+    display: block;
+    padding: 10px;
+    width: 120px;
+}
+
+/* 검색창 테마 관리 */
+.search-area {
+    margin: 20px 0;
+    text-align: right;
+}
+
+.search-area select,
+.search-area input {
+    padding: 5px;
+}
+
+.search-area button {
+    padding: 6px 10px;
+    cursor: pointer;
 }

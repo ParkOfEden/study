@@ -39,7 +39,7 @@ String imgUrl = request.getParameter("imgUrl");
 		//msg에 등록된 메시지 알림창 출력
 		out.println("alert('"+msg+"')");
 		//게시글 목록 페이지로 이동
-		out.println("location.href='boardList.jsp';");
+		out.println("location.href='boardList.do';");
 		out.println("</script>");
 	}
 %>

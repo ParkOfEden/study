@@ -3,9 +3,12 @@
 
 <%
     // 1. 삭제할 번호(num) 파라미터 받기
+    Integer sessionNum = (Integer)session.getAttribute("authNum");
     String numStr = request.getParameter("num");
     
-    if (numStr == null || numStr.trim().isEmpty()) {
+    if(sessionNum == null || numStr == null ||
+    	       sessionNum != Integer.parseInt(numStr)) {
+    
         out.println("<script>alert('잘못된 접근입니다.'); location.href='index.jsp';</script>");
         return;
     }
@@ -18,9 +21,9 @@
         conn = DBCPUtil.getConnection();
         
         // 3. SQL문 작성 (번호를 기준으로 삭제)
-        String sql = "DELETE FROM test_member WHERE num = ?";
+        String sql = "DELETE FROM ACCOUNTS WHERE num = ?";
         pstmt = conn.prepareStatement(sql);
-        pstmt.setInt(1, Integer.parseInt(numStr));
+        pstmt.setInt(1, sessionNum);
         
         // 4. 실행
         int result = pstmt.executeUpdate();
@@ -45,7 +48,12 @@
         }
     } catch (Exception e) {
         e.printStackTrace();
-        out.println("<script>alert('에러 발생: " + e.getMessage() + "'); history.back();</script>");
+%>
+        <script>
+        alert("시스템 오류가 발생했습니다."); // alert("에러 발생: <%= e.getMessage() %>"); => 테스트용(보안 취약)
+        history.back();
+        </script>
+<%
     } finally {
         // 5. 자원 해제
         DBCPUtil.close(null, pstmt, conn);

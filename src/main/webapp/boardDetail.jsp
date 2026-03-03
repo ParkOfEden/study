@@ -57,12 +57,12 @@
     }
 %>
 
-<% if(board == null){ %>
-    <script>
-        alert("해당 게시글이 존재하지 않습니다.");
-        location.href = "boardList.jsp";
-    </script>
-<% return; } %>
+<% if(board == null){
+   out.print("<script>");
+   out.print("alert('해당 게시글이 존재하지 않습니다.');");
+   out.print("location.href='boardList.do';");
+   out.print("</script>");
+   return; } %>
 
 <!DOCTYPE html>
 <html>
@@ -121,9 +121,14 @@
         </tr>
         <tr>
             <th colspan="2">
-                <button onclick="location.href='boardList.jsp'">목록</button>
-                <button onclick="location.href='boardUpdate.jsp?num=<%= board.getNum() %>'">수정</button>
-                <button onclick="if(confirm('정말 삭제하시겠습니까?')) location.href='boardDelete.jsp?num=<%= board.getNum() %>'">삭제</button>
+                <button onclick="location.href='boardList.do'">목록</button>
+            <%
+            String loginUser = (String)session.getAttribute("authUser");
+            if ("admin".equals(loginUser)) { 
+            %>
+                <button onclick="location.href='boardUpdateForm.do?num=<%= board.getNum() %>'">수정</button>
+                <button onclick="if(confirm('정말 삭제하시겠습니까?')) location.href='boardDelete.do?num=<%= board.getNum() %>'">삭제</button>
+            <% } %>
             </th>
         </tr>
     </table>

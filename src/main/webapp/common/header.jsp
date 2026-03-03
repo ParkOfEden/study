@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><%
     String authUser = (String)session.getAttribute("authUser");
     String userName = (String)session.getAttribute("userName");
     String path = request.getContextPath();
@@ -27,17 +25,22 @@
             }
         }
     }
-%>
-<!DOCTYPE html>
+%><!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
+    <title><%= request.getAttribute("pageTitle") != null ? request.getAttribute("pageTitle") : "월클의류(주)" %></title>
+    <link rel="icon" href="${pageContext.request.contextPath}/css/img/wolcl.ico" type="image/x-icon">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
+    
+    <!-- 아래는 요청받아 추가한 css 링크입니다. -->
+    <link rel="stylesheet"
+      href="${pageContext.request.contextPath}/css/boardList.css">
+      
     </head>
-<body>
-<!-- 
+<body><%-- 
 <style>
 	<style>
     /* 🔹 상단 메뉴 (오른쪽 정렬) */
@@ -115,29 +118,75 @@
         display: block;
     }
 </style>
+<<<<<<< HEAD
 
 <!-- 🔹 상단 메뉴 (수정됨: </ul> 태그 추가 및 클래스 적용) -->
 <ul class="top-menu">
     <li><a href="<%= request.getContextPath() %>/index.jsp">홈</a></li>
     <li><a href="<%= request.getContextPath() %>/sendMail.jsp">SEND MAIL</a></li>
+=======
+ --%><%-- header.jsp 에는 <header></header>태그 안에서만 작성하되, css 효과는 header.css에서 처리할 것 
+	 변경사항 : html 선언 & css 링크 선언 (절대 링크로 요청) & body 선언을 헤더에서 작업 후 일괄 include 처리
+--%>
+<header>
+
+
+  <!-- 🔹 1 줄 상단 메뉴 -->
+  <ul class="top-menu">
+    <li><a href="<%=path%>/index.jsp">홈</a></li>
+    <li><a href="<%=path%>/boardList.do">PRODUCTS</a></li>
+	<li><a href="<%=path%>/sendMail.jsp">SEND MAIL</a></li>
+>>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
 <% if(authUser == null){ %>
+<<<<<<< HEAD
     <li><a href="<%= request.getContextPath() %>/login.jsp">로그인</a></li>
     <li><a href="<%= request.getContextPath() %>/join.jsp">회원가입</a></li>
     <li><a href="<%= request.getContextPath() %>/join.jsp">고객센터</a></li>
+=======
+    <li><a href="<%=path%>/login.jsp">로그인</a></li>
+    <li><a href="<%=path%>/join.jsp">회원가입</a></li>
+    <li><a href="<%=path%>/cuscen.jsp">고객센터</a></li>
+>>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
 <% } else { %>
     <!-- 수정된 부분: 아이디 클릭 시 memberUpdateForm.jsp 로 이동 -->
-    <li><a href="memberUpdateForm.jsp"><%= userName %></a>님 환영합니다</li>
+    <li><a href="<%=path%>/memberUpdateForm.jsp"><%= userName %></a>님 환영합니다</li>
     
     <li><a href="<%=path%>/logout.jsp">로그아웃</a></li>
-    <li><a href="<%=path%>/memberList.jsp">회원관리</a></li>
+    <li><a href="<%=path%>/memberList.do">회원관리</a></li> <%-- <li><a href="<%=path%>/memberList.jsp">회원관리</a></li> --%>
     <li><a href="<%=path%>/orin.jsp">주문조회</a></li>
     
     <%-- admin 일 때만 보이는 글쓰기 버튼 --%>
     <% if ("admin".equals(authUser)) { %>
-        <li><a href="<%=path%>/write.jsp">글쓰기</a></li>
+        <li><a href="<%=path%>/boardWrite.jsp">글쓰기</a></li>
     <% } %>
 <% } %>
+<<<<<<< HEAD
 </ul> <!-- 👈 이 닫는 태그가 원래 코드에 없었습니다. 추가 필요합니다. -->
+=======
+
+	<li class="top-search">
+
+	    <!-- 1. 숨겨진 체크박스 -->
+	    <input type="checkbox" id="searchToggle" class="search-checkbox">
+	
+	    <!-- 2. 상품조회 라벨 (클릭용) -->
+	    <label for="searchToggle" class="search-toggle">
+	        상품조회
+	    </label>
+	
+	    <!-- 3. 검색창 -->
+	    <div class="search-box">
+	        <form action="<%=path%>/boardList.do" method="get">
+	            <input type="hidden" name="type" value="all">
+	            <input type="text" name="keyword" placeholder="상품 검색">
+	            <button type="submit">검색</button>
+	        </form>
+	    </div>
+
+	</li>
+
+  </ul>
+>>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
 
 <!-- 🔹 2 줄 카테고리 메뉴 -->
 <ul class="category-menu">

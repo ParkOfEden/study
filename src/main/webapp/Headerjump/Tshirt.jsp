@@ -1,14 +1,43 @@
+<!-- Tshirt.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+    String keyword = request.getParameter("keyword");
+
+    if (keyword != null) {
+        keyword = new String(keyword.getBytes("ISO-8859-1"), "UTF-8");
+    }
+%>
+<!-- 타이틀은 여기서 작업하면 반영됩니다. -->    
+<%
+request.setAttribute("pageTitle", "티셔츠");
+%>    
 <%@ include file="/common/header.jsp"%>
+<!-- header.jsp에서 처리합니다.(중복코드)
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+
 </head>
 <body>
+ -->
 
+<!-- section 태그 내에서 관리하세요. (골격 구조 통일 - common.css 참조) -->
+
+<section class="main2 section-base">
+	<h3>여기는 티셔츠 상품 페이지입니다.</h3>
+	<jsp:include page="/boardList.do">
+	    <jsp:param name="type" value="category"/>
+	    <jsp:param name="keyword" value="티셔츠"/>
+	    <jsp:param name="include" value="table"/>
+	</jsp:include>	
+	
+</section>
+
+
+<!-- footer.jsp에서 처리합니다.(중복코드)
 </body>
 </html>
+ -->
 <%@ include file="/common/footer.jsp"%>

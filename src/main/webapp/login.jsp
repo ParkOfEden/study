@@ -5,8 +5,8 @@
 
 		<script type="text/javascript" src="js/inputCheck.js"></script>
 		<section>
-		<form action="loginCheck.jsp" method="POST">
-			<table>
+		<form class="form-card" action="loginCheck.jsp" method="POST">
+			<table class="pd-table">
 				<tr>
 					<th colspan="2"><h1>로그인</h1></th>
 				</tr>
