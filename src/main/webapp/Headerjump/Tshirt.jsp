@@ -20,6 +20,11 @@ request.setAttribute("pageTitle", "티셔츠");
 
 <section class="main2 section-base">
 	<h3>여기는 티셔츠 상품 페이지입니다.</h3>
+	<jsp:include page="/boardTable.jsp">
+	    <jsp:param name="type" value="all"/>
+	    <jsp:param name="keyword" value="티셔츠"/>
+	</jsp:include>	
+	
 </section>
 
 
