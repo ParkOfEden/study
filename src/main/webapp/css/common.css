@@ -86,7 +86,7 @@ section.main2{
 }
 
 .main2-inner {
-    background: rgba(255,255,255,0.8);
+    background: #ffffff80;
     height: 100%;           /* 부모(section) 높이 그대로 */
     width: 100%;
     padding: 30px;
