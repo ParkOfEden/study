@@ -26,7 +26,11 @@ public class BoardListServlet extends HttpServlet {
     	// 1. 파라미터 받기
         String paramPage = request.getParameter("page");
         String type = request.getParameter("type");
-        String keyword = request.getParameter("keyword");        
+        String keyword = request.getParameter("keyword");    
+        
+        // Console 출력 확인
+        System.out.println("type = [" + type + "]");
+        System.out.println("keyword = [" + keyword + "]");
         
         int pageNum = 1;
 

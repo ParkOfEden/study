@@ -304,8 +304,8 @@ public class BoardDAO {
                 vo.setTitle(rs.getString("title"));
                 vo.setCategory(rs.getString("category"));
                 vo.setAuthor(rs.getString("author"));
-                vo.setCreatedAt(rs.getDate("createdAt"));
-                vo.setViewCount(rs.getInt("viewCount"));
+                vo.setCreatedAt(rs.getTimestamp("created_at"));
+                vo.setViewCount(rs.getInt("view_count"));
 
                 list.add(vo);
             }
