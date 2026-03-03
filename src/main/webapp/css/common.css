@@ -75,11 +75,26 @@ section.main h1{
 section.main2{
 	background-image:url(img/sitemapbg01.png);
 	
-	background-position: center;
+	background-position: relative;   /* 필수 */
 	/*background-repeat: no-repeat;*/	
 	/*background-size:cover;*/
 	padding:0;
 	/* margin 설정 안함 */
+}
+
+/* 흰색 반투명 오버레이 */
+section.main2::before {
+    content: "";
+    position: absolute;
+    inset: 0;                  /* top:0 left:0 right:0 bottom:0 */
+    background: rgba(255,255,255,0.8); /* ← 투명도 조절 */
+    z-index: 1;
+}
+
+/* 안에 있는 내용은 위로 올려줘야 함 */
+section.main2 > * {
+    position: relative;
+    z-index: 2;
 }
 
 section.main2 h3{
