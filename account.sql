@@ -11,7 +11,7 @@ EXCEPTION
             RAISE;
         END IF;
 END;
-/
+
 
 -- 테이블 생성
 CREATE TABLE ACCOUNTS (
