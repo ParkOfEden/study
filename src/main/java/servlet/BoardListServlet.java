@@ -32,6 +32,10 @@ public class BoardListServlet extends HttpServlet {
         System.out.println("type = [" + type + "]");
         System.out.println("keyword = [" + keyword + "]");
         
+        if (keyword != null) {
+            keyword = new String(keyword.getBytes("ISO-8859-1"), "UTF-8");
+        }
+        
         int pageNum = 1;
 
         if (paramPage != null && !paramPage.trim().isEmpty()) {
