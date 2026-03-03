@@ -173,7 +173,7 @@ header {
 
 .sale-text {
     color: #ff3333 !important;
-<<<<<<< HEAD
+
     /* [Action Tag] 강조 텍스트 애니메이션 훅: .animate-pulse */
 }
 
@@ -188,8 +188,7 @@ header {
    2. 서브메뉴 접근성을 위해 keydown (Enter, Space) 이벤트도 
       .js-category-trigger 클래스에 연결하는 것을 권장합니다.
 */
-=======
-}
+
 
 /* ============================= */
 /* 커서 효과 (맨 아래 위치!) */
@@ -281,4 +280,3 @@ header {
 .search-checkbox:checked + .search-toggle + .search-box {
     display: block;
 }
->>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
