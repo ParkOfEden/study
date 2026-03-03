@@ -34,7 +34,7 @@
 </head>
 <body>
 
-
+<style>
     .top-menu li {
         margin-left: 15px;         /* 메뉴 항목 간 간격 */
     }
