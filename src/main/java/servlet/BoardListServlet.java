@@ -25,6 +25,9 @@ public class BoardListServlet extends HttpServlet {
 
     	// 1. 파라미터 받기
         String paramPage = request.getParameter("page");
+        String type = request.getParameter("type");
+        String keyword = request.getParameter("keyword");        
+        
         int pageNum = 1;
 
         if (paramPage != null && !paramPage.trim().isEmpty()) {
@@ -34,23 +37,40 @@ public class BoardListServlet extends HttpServlet {
                 pageNum = 1;
             }
         }    	
-
+        
         // 2. Criteria 생성
         Criteria cri = new Criteria(pageNum, 10);        
     	
         BoardDAO dao = new BoardDAO();
         
-        // 3. 전체 개수 조회       
-        int totalCount = dao.getBoardCount();
+        int totalCount = 0;
+        List<BoardVO> list = null;        
         
-        // 4. 페이징 목록 조회     
-        List<BoardVO> list =
-        		dao.getBoardListPaging(cri.offset(), cri.getPerPageNum());
-        
-        // 5. PageMaker 생성
+        if(keyword != null && !keyword.trim().isEmpty()) {
+        	
+        	totalCount = dao.getSearchBoardCount(type, keyword);
+        	
+            list = dao.getSearchBoardListPaging(
+                    type,
+                    keyword,
+                    cri.offset(),
+                    cri.getPerPageNum()
+            );
+            
+        } else {
+        	
+            totalCount = dao.getBoardCount();
+
+            list = dao.getBoardListPaging(
+                    cri.offset(),
+                    cri.getPerPageNum()
+            );
+        }
+
+        // 3. PageMaker 생성
         PageMaker pm = new PageMaker(cri, totalCount, 10);     
         
-        // 6. JSP에 전달
+        // 4. JSP에 전달
         request.setAttribute("boardList", list);
         request.setAttribute("pageMaker", pm);
 
