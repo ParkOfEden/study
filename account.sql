@@ -22,7 +22,7 @@ CREATE TABLE ACCOUNTS(
 INSERT INTO ACCOUNTS (
     id, pass, name, addr, phone, gender, age, email
 ) VALUES (
-    'ADMIN', 'ADMIN', 'MASTER',
+    'admin', 'admin', 'MASTER',
     '부산광역시', '01011111111', '남성', 30, 'ADMIN@admin.com'
 );
 
