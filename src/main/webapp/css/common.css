@@ -79,15 +79,16 @@ section.main2{
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size:cover;
-	padding:0;
+	padding:60px 0;
 	/* margin 설정 안함 */
-    height: 800px;      /* 배경 높이 고정 (원하는 값으로 조절) */
+    /* min-height: 800px; */      /* 배경 높이 고정 (원하는 값으로 조절) */
     overflow: hidden;
 }
 
 .main2-inner {
     background: rgba(255,255,255,0.8);
     padding: 30px;
+    
 }
 
 section.main2 h3{
