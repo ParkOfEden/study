@@ -33,7 +33,7 @@ request.setAttribute("pageTitle", "티셔츠");
 			<jsp:include page="/boardList.do">
 			    <jsp:param name="type" value="category"/>
 			    <jsp:param name="keyword" value="티셔츠"/>
-			    
+			    <jsp:param name="include" value="table"/>
 			</jsp:include>	
 		</div>
 	</div>
