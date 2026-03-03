@@ -155,6 +155,97 @@
         color: #555;
         display: block;
     }
+    	
+	/* ============================= */
+	/* 🔍 상단 검색창 */
+	/* ============================= */
+	
+	.top-search {
+	    
+	    position: relative;   /* 검색창 absolute 기준 */
+	}
+	
+	.top-search form {
+	    display: flex;
+	    align-items: center;
+	    gap: 6px;
+	}
+	
+	.top-search input {
+	    height: 28px;
+	    padding: 0 8px;
+	    border: 1px solid #ccc;
+	    border-radius: 3px;
+	    font-size: 13px;
+	    outline: none;
+	    transition: 0.2s ease;
+	}
+	
+	.top-search input:focus {
+	    border-color: #000;
+	}
+	
+	.top-search button {
+	    height: 28px;
+	    padding: 0 10px;
+	    border: 1px solid #000;
+	    background-color: #000;
+	    color: #fff;
+	    font-size: 13px;
+	    cursor: pointer;
+	    border-radius: 3px;
+	    transition: 0.2s ease;
+	}
+	
+	.top-search button:hover {
+	    background-color: #333;
+	}
+	
+	/* 체크박스 숨기기 */
+	.search-checkbox {
+	    display: none;
+	}
+	
+	/* 기본은 숨김 */
+	.search-box {
+	    display: none;
+	    position: absolute;
+	    top: 30px;
+	    right: 0;
+	    background: #fff;
+	    padding: 8px;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    white-space: nowrap;    
+	}
+	
+	.search-box input {
+	    padding: 4px 6px;
+	    border: 1px solid #ccc;
+	}
+	
+	.search-box button {
+	    padding: 4px 8px;
+	    background: #CD5C5C;
+	    color: white;
+	    border: none;
+	    cursor: pointer;
+	}
+	
+	/* 체크되면 보이기 */
+	.search-checkbox:checked + .search-toggle + .search-box {
+	    display: block;
+	}
+	
+	/* ============================= */
+	/* 커서 효과 (맨 아래 위치!) */
+	/* ============================= */
+	
+	.category-menu > li:hover,
+	.submenu a:hover,
+	.top-menu a:hover {
+	    cursor: url("link-w.cur"), pointer;
+	}	    
 </style>
 
 </head>
