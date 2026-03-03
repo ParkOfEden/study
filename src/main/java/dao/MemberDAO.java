@@ -52,6 +52,7 @@ public class MemberDAO {
                     vo.setName(rs.getString("name"));
                     vo.setAddr(rs.getString("addr"));
                     vo.setPhone(rs.getString("phone"));
+                    vo.setEmail(rs.getString("email"));
                     vo.setGender(rs.getString("gender"));
                     vo.setAge(rs.getInt("age"));
                     list.add(vo);
@@ -79,6 +80,7 @@ public class MemberDAO {
                 vo.setName(rs.getString("name"));
                 vo.setAddr(rs.getString("addr"));
                 vo.setPhone(rs.getString("phone"));
+                vo.setEmail(rs.getString("email"));
                 vo.setGender(rs.getString("gender"));
                 vo.setAge(rs.getInt("age"));
 
