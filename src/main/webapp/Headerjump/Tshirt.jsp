@@ -26,7 +26,7 @@ request.setAttribute("pageTitle", "티셔츠");
 <!-- section 태그 내에서 관리하세요. (골격 구조 통일 - common.css 참조) -->
 
 <section class="main2">
-	<div class="main2-inner">
+	<div>
 		<div class="contents-wrapper">
 			<h3>여기는 티셔츠 상품 페이지입니다.</h3>
 		

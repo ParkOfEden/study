@@ -75,18 +75,30 @@ section.main h1{
 section.main2{
 	background-image:url(img/sitemapbg01.png);
 	
+	background-position: relative;
 	background-position: center;
-	/*background-repeat: no-repeat;*/	
+	background-repeat: no-repeat;
 	background-size:cover;
 	padding:0;
 	/* margin 설정 안함 */
+    height: 800px;      /* 배경 높이 고정 (원하는 값으로 조절) */
+    overflow: hidden;
 }
 
-/* 오버레이는 inner에만 적용 */
+section.main2::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.8);
+    pointer-events: none;
+}
+
+/*
 .main2-inner {
     background: rgba(255,255,255,0.8);
     padding: 40px 0;
 }
+*/
 
 section.main2 h3{
 	width:100%;
