@@ -7,10 +7,20 @@ CREATE TABLE board_test(
     author VARCHAR2(50) NOT NULL,
     content CLOB NOT NULL,
     -- 서버에 저장될 최종 파일명 (파일명 + num)
-    system_filename VARCHAR2(500), 
+    system_filename VARCHAR2(500) UNIQUE, 
     created_at TIMESTAMP DEFAULT SYSTIMESTAMP NOT NULL,
     updated_at TIMESTAMP DEFAULT SYSTIMESTAMP NOT NULL,
     view_count NUMBER DEFAULT 0 NOT NULL CHECK (view_count >= 0)
+);
+
+INSERT INTO board_test (category, title, author, content, system_filename)
+VALUES (
+    '티셔츠', 
+    '여름 신상', 
+    'admin', 
+    '상세 내용...', 
+    -- '파일명' + '_' + '현재 전체 개수' + '.확장자'
+    'tshirts' || '_' || (SELECT COUNT(*) FROM board_test) || '.jpg'
 );
 
 SELECT * FROM board_test;
