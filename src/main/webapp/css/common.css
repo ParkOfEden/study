@@ -75,7 +75,7 @@ section.main h1{
 section.main2{
 	background-image:url(img/sitemapbg01.png);
 	
-	background-position: relative;
+	/* background-position: relative; */
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size:cover;
@@ -85,26 +85,10 @@ section.main2{
     overflow: hidden;
 }
 
-section.main2::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(255,255,255,0.8);
-    pointer-events: none;
-    z-index: 0;   /* 낮게 */
-}
-
-section.main2 > * {
-    position: relative;
-    z-index: 1;
-}
-
-/*
 .main2-inner {
     background: rgba(255,255,255,0.8);
-    padding: 40px 0;
+    padding: 30px;
 }
-*/
 
 section.main2 h3{
 	width:100%;
