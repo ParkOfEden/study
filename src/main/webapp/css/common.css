@@ -74,6 +74,7 @@ section.main h1{
 
 section.main2{
 	background-image:url(img/sitemapbg01.png);
+	background-color:#ffffff80;
 	background-position: center;
 	/*background-repeat: no-repeat;*/	
 	/*background-size:cover;*/
@@ -84,7 +85,7 @@ section.main2{
 section.main2 h3{
 	width:100%;
 	/* min-height: 700px; */
-	background-color:#ffffff80;
+	/* background-color:#ffffff80; */
 	color:blue;
 	display: flex;
 	align-items: center;
