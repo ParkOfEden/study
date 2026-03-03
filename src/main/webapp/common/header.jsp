@@ -36,6 +36,19 @@
 <style>
 
 	/* ============================= */
+	/* 헤더 기본 구조 */
+	/* ============================= */
+	
+	header {
+	    height: auto;
+	    border-bottom: 1px solid #ccc;
+	    padding: 15px 20px;
+	    background-color: #fff;
+	    position: relative;
+	    /* [Action Tag] 스크롤 시 헤더 고정용 클래스 hook: .header-fixed */
+	}
+
+	/* ============================= */
 	/* 상단 메뉴 (로그인 등) */
 	/* ============================= */
 	
