@@ -1,3 +1,4 @@
+<!-- boardWrite.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
     request.setAttribute("pageTitle", "관리자 상품 등록");

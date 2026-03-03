@@ -3,6 +3,7 @@ package servlet;
 
 import java.io.IOException;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
@@ -10,6 +11,7 @@ import dao.BoardDAO;
 import vo.BoardVO;
 
 @WebServlet("/boardWrite.do")
+@MultipartConfig
 public class BoardWriteServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;

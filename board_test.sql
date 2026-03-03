@@ -6,6 +6,7 @@ CREATE TABLE board_test(
     title VARCHAR2(200) NOT NULL,
     author VARCHAR2(50) NOT NULL,
     content CLOB NOT NULL,
+    img_url VARCHAR2(500),  -- 상품 이미지 url
     -- 서버에 저장될 최종 파일명 (파일명 + num)
     system_filename VARCHAR2(500) UNIQUE, 
     created_at TIMESTAMP DEFAULT SYSTIMESTAMP NOT NULL,
@@ -89,3 +90,4 @@ SET
     img_url = ?,
     updated_at = SYSTIMESTAMP
 WHERE num = ?;
+
