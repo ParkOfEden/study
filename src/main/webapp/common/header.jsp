@@ -67,7 +67,8 @@
 	
 	header {
 	    height: auto;
-	    border-bottom: 1px solid #ccc;
+	    /* border-bottom: 1px solid #ccc; */
+	    border-bottom: none;
 	    padding: 15px 20px;
 	    background-color: #fff;
 	    position: relative;
