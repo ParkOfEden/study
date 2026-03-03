@@ -118,13 +118,13 @@
         display: block;
     }
 </style>
-<<<<<<< HEAD
+
 
 <!-- 🔹 상단 메뉴 (수정됨: </ul> 태그 추가 및 클래스 적용) -->
 <ul class="top-menu">
     <li><a href="<%= request.getContextPath() %>/index.jsp">홈</a></li>
     <li><a href="<%= request.getContextPath() %>/sendMail.jsp">SEND MAIL</a></li>
-=======
+
  --%><%-- header.jsp 에는 <header></header>태그 안에서만 작성하되, css 효과는 header.css에서 처리할 것 
 	 변경사항 : html 선언 & css 링크 선언 (절대 링크로 요청) & body 선언을 헤더에서 작업 후 일괄 include 처리
 --%>
@@ -161,7 +161,7 @@
     <% } %>
 <% } %>
 
-</ul> <!-- 👈 이 닫는 태그가 원래 코드에 없었습니다. 추가 필요합니다. -->
+
 
 
 	<li class="top-search">
