@@ -36,6 +36,32 @@
 <style>
 
 	/* ============================= */
+	/* 공통 초기화 */
+	/* ============================= */
+	
+	* {
+	    box-sizing: border-box;
+	    margin: 0;
+	    padding: 0;
+	}
+	
+	body {
+	    margin: 0;
+	    font-family: 'Noto Sans KR', sans-serif;
+	}
+	
+	a {
+	    text-decoration: none;
+	    color: #333;
+	    /* [Action Tag] 링크 클릭 시 기본 동작 */
+	    cursor: pointer; 
+	}
+	
+	ul {
+	    list-style: none;
+	}
+
+	/* ============================= */
 	/* 헤더 기본 구조 */
 	/* ============================= */
 	
