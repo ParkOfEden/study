@@ -160,7 +160,8 @@ header {
 /* ============================= */
 
 .top-search {
-    margin-left: auto;          /* 오른쪽 끝으로 이동 */
+    
+    position: relative;   /* 검색창 absolute 기준 */
 }
 
 .top-search form {
@@ -203,12 +204,14 @@ header {
 .search-box {
     display: none;
     position: absolute;
-    top: 35px;
+    top: 30px;
     right: 0;
-    background: white;
-    padding: 10px;
-    border: 1px solid #ccc;
+    background: #fff;
+    padding: 8px;
+    border: 1px solid #ddd;
     border-radius: 4px;
+    white-space: nowrap;
+    z-index: 999;    
 }
 
 .search-box input {
