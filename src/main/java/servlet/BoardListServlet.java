@@ -78,8 +78,16 @@ public class BoardListServlet extends HttpServlet {
         request.setAttribute("boardList", list);
         request.setAttribute("pageMaker", pm);
 
-        request.getRequestDispatcher("boardList.jsp")
-               .forward(request, response);
+        // forward 분기 처리
+        String include = request.getParameter("include");
+
+        if ("table".equals(include)) {
+            request.getRequestDispatcher("boardTable.jsp")
+                   .forward(request, response);
+        } else {
+            request.getRequestDispatcher("boardList.jsp")
+                   .forward(request, response);
+        }
     } // end doGet method	
 
 } // end BoardListServlet class
