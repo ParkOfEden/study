@@ -5,7 +5,7 @@
 <section class="section-center">
     <table class="pd-table member-table list">
         <tr>
-            <th colspan="7"><h1>회원목록</h1></th>
+            <th colspan="8"><h1>회원목록</h1></th>
         </tr>
         <tr>
             <th>번호</th>
@@ -13,6 +13,7 @@
             <th>이름</th>
             <th>주소</th>
             <th>전화번호</th>
+            <th>이메일</th>
             <th>성별</th>
             <th>나이</th>
         </tr>
@@ -20,7 +21,7 @@
         <c:choose>
             <c:when test="${empty memberList}">
                 <tr>
-                    <td colspan="7" style="text-align:center;">등록된 회원이 없습니다.</td>
+                    <td colspan="8" style="text-align:center;">등록된 회원이 없습니다.</td>
                 </tr>
             </c:when>
             <c:otherwise>
@@ -31,6 +32,7 @@
                         <td>${m.name}</td>
                         <td>${m.addr}</td>
                         <td>${m.phone}</td>
+                        <td>${m.email}</td>
                         <td>${m.gender}</td>
                         <td>${m.age}</td>
                     </tr>
