@@ -18,6 +18,8 @@ body {
 a {
     text-decoration: none;
     color: #333;
+    /* [Action Tag] 링크 클릭 시 기본 동작 */
+    cursor: pointer; 
 }
 
 ul {
@@ -34,6 +36,7 @@ header {
     padding: 15px 20px;
     background-color: #fff;
     position: relative;
+    /* [Action Tag] 스크롤 시 헤더 고정용 클래스 hook: .header-fixed */
 }
 
 /* ============================= */
@@ -49,6 +52,7 @@ header {
     color: #666;
 }
 
+/* [Action Tag] 마우스 오버 시 색상 변화 */
 .top-menu a:hover {
     color: #ff6600;
     text-decoration: underline;
@@ -72,13 +76,20 @@ header {
     cursor: pointer;
     padding: 10px 15px;
     transition: color 0.3s;
+    /* [Action Tag] 서브메뉴 토글을 위한 JS 훅 클래스: .js-category-trigger */
 }
 
+/* [Action Tag] 마우스 오버 시 활성화 */
 .category-menu > li:hover {
     color: #ff6600;
 }
 
-/* 화살표 */
+/* [Action Tag] 활성화 상태 클래스 (모바일/클릭용): .is-active */
+.category-menu > li.is-active {
+    color: #ff6600;
+}
+
+/* 화살표 아이콘 */
 .category-menu > li.has-submenu::after {
     content: '▼';
     font-size: 10px;
@@ -87,8 +98,14 @@ header {
     transition: transform 0.3s;
 }
 
+/* [Action Tag] 호버 시 화살표 회전 액션 */
 .category-menu > li:hover::after {
     color: #ff6600;
+    transform: rotate(180deg);
+}
+
+/* [Action Tag] 활성화 시 화살표 회전 (클릭용) */
+.category-menu > li.is-active::after {
     transform: rotate(180deg);
 }
 
@@ -113,9 +130,20 @@ header {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    
+    /* [Action Tag] 서브메뉴 표시 상태 클래스: .is-visible */
 }
 
+/* [Action Tag] 호버 시 서브메뉴 표시 액션 */
 .category-menu > li:hover .submenu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 0;
+}
+
+/* [Action Tag] JS 로 강제 표시할 때 사용하는 클래스 */
+.category-menu > li.is-active .submenu {
     display: block;
     opacity: 1;
     visibility: visible;
@@ -128,6 +156,8 @@ header {
     font-weight: normal;
     color: #555;
     white-space: nowrap;
+    /* [Action Tag] 서브메뉴 아이템 클릭 액션 */
+    cursor: pointer;
 }
 
 .submenu li:hover {
@@ -143,4 +173,17 @@ header {
 
 .sale-text {
     color: #ff3333 !important;
+    /* [Action Tag] 강조 텍스트 애니메이션 훅: .animate-pulse */
 }
+
+/* ============================= */
+/* [Action Script Hooks] 자바스크립트 연동 가이드 */
+/* ============================= */
+/* 
+   1. 모바일 환경에서는 :hover 가 작동하지 않으므로, 
+      .category-menu > li 에 click 이벤트를 부여하고 
+      .is-active 클래스를 토글하세요.
+   
+   2. 서브메뉴 접근성을 위해 keydown (Enter, Space) 이벤트도 
+      .js-category-trigger 클래스에 연결하는 것을 권장합니다.
+*/
