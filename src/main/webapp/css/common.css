@@ -89,6 +89,8 @@ section.main2::before {
     inset: 0;                  /* top:0 left:0 right:0 bottom:0 */
     background: rgba(255,255,255,0.8); /* ← 투명도 조절 */
     z-index: 1;
+    
+    pointer-events: none;              /* 클릭 막힘 해결 */
 }
 
 /* 안에 있는 내용은 위로 올려줘야 함 */
