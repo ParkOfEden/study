@@ -442,3 +442,10 @@ table tr td input[type='number'] {
     padding: 6px 10px;
     cursor: pointer;
 }
+
+.content-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.85);
+    padding: 30px;
+}
