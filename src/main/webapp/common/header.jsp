@@ -34,6 +34,26 @@
 
 
 <style>
+
+	/* ============================= */
+	/* 상단 메뉴 (로그인 등) */
+	/* ============================= */
+	
+	.top-menu {
+	    display: flex;
+	    justify-content: flex-end;
+	    gap: 20px;
+	    margin-bottom: 15px;
+	    font-size: 13px;
+	    color: #666;
+	}
+	
+	/* [Action Tag] 마우스 오버 시 색상 변화 */
+	.top-menu a:hover {
+	    color: #ff6600;
+	    text-decoration: underline;
+	}
+
     .top-menu li {
         margin-left: 15px;         /* 메뉴 항목 간 간격 */
     }
