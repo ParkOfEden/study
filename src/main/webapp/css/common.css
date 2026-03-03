@@ -74,19 +74,21 @@ section.main h1{
 
 section.main2{
 	background-image:url(img/sitemapbg01.png);
-	
 	/* background-position: relative; */
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size:cover;
-	padding:60px 0;
+	padding: 0;
 	/* margin 설정 안함 */
-    /* min-height: 800px; */      /* 배경 높이 고정 (원하는 값으로 조절) */
+    height: 800px;      /* 배경 높이 고정 (원하는 값으로 조절) */
     overflow: hidden;
+	display: flex;      /* inner 를 정확히 맞추기 위해 */
 }
 
 .main2-inner {
     background: rgba(255,255,255,0.8);
+    height: 100%;           /* 부모(section) 높이 그대로 */
+    width: 100%;
     padding: 30px;
     
 }
