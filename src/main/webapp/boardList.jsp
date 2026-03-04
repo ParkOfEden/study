@@ -35,10 +35,16 @@
                         <%-- BoardVO의 필드명에 맞춰서 작성 (num인지 p_id인지 확인 필요) --%>
                         <td>${b.num}</td> 
                         <td>
-                            <c:if test="${not empty b.systemFilename}">
-                                <img src="${pageContext.request.contextPath}/css/upload/product/${b.systemFilename}" 
-                                     style="width: 50px; height: 50px; object-fit: cover;">
-                            </c:if>
+						<c:choose>
+						    <c:when test="${not empty b.systemFilename}">
+						        <img src="${pageContext.request.contextPath}/css/image/upload/product/${b.systemFilename}"
+						             style="width:50px;height:50px;object-fit:cover;">
+						    </c:when>
+						    <c:otherwise>
+						        <img src="${pageContext.request.contextPath}/css/img/no_image.jpg"
+						             style="width:50px;height:50px;">
+						    </c:otherwise>
+						</c:choose>
                         </td>
                         <td>[${b.category}]</td>
                         <td style="text-align:left;">
