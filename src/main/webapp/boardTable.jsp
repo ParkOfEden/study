@@ -2,6 +2,9 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ include file="common/header.jsp" %>
 
+boardList size : ${boardList.size()}
+<br>
+boardList : ${boardList}
 
 <table class="board-table">
     <thead>
