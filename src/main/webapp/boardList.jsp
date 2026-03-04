@@ -35,17 +35,18 @@
                         <%-- BoardVO의 필드명에 맞춰서 작성 (num인지 p_id인지 확인 필요) --%>
                         <td>${b.num}</td> 
                         <td>
-						<c:choose>
+							<%-- 이미지의 경로가 틀렸을때 엑박 대체이미지 출력되도록 설정 --%>
 						    <c:when test="${not empty b.systemFilename}">
 						        <img src="${pageContext.request.contextPath}/css/image/upload/product/${b.systemFilename}"
 						             style="width:50px;height:50px;object-fit:cover;"
-						             onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/css/img/no_image.png';">
+						             onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/css/img/no_image.jpg';">
 						    </c:when>
+						    <%-- 이미지가 null 일 경우에 엑박 대체이미지 출력되도록 설정 --%>
 						    <c:otherwise>
 						        <img src="${pageContext.request.contextPath}/css/img/no_image.jpg"
 						             style="width:50px;height:50px;">
 						    </c:otherwise>
-						</c:choose>
+					
                         </td>
                         <td>[${b.category}]</td>
                         <td style="text-align:left;">
