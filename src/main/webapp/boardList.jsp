@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ include file="common/header.jsp" %>
-<%-- 
-  여기에 있던 DAO 호출 및 List 생성 로직을 모두 삭제하세요. 
-  데이터는 BoardListServlet에서 이미 보냈습니다.
---%>
+
 <section>
 <table class="board-table">
     <thead>
@@ -40,11 +37,7 @@
 					             style="width:50px;height:50px;object-fit:cover;"
 					             onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/css/img/no_image.jpg';">
 						    
-						    <%-- 이미지가 null 일 경우에 엑박 대체이미지 출력되도록 설정 --%>
-						    <c:otherwise>
-						        <img src="${pageContext.request.contextPath}/css/img/no_image.jpg"
-						             style="width:50px;height:50px;">
-						    </c:otherwise>
+						    
 					
                         </td>
                         <td>[${b.category}]</td>
@@ -71,7 +64,7 @@
 </table>
 <%-- 디버깅용 코드 --%>
 <div style="color:red; background:#eee; padding:10px;">
-    현재 넘어온 데이터 개수: ${boardList.size()} <br>
+    현재 넘어온 데이터 개수: ${empty boardList ? 0 : boardList.size()} <br>
     AuthUser 세션 상태: ${sessionScope.authUser}
 </div>
 
