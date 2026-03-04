@@ -31,7 +31,7 @@
 	</jsp:include>
 	<!-- ✅ c:import 닫는 태그 필수 -->
 	
-<!-- 공백 출력 원인 1 : main2 class 중복 선언. 원인 2 : </section> 없이 <section> 사용. 원인 3 : c:import request 분리
+<%-- 공백 출력 원인 1 : main2 class 중복 선언. 원인 2 : </section> 없이 <section> 사용. 원인 3 : c:import request 분리
 <section class="main2">
 	<div class="main2-inner">
 		<div class="contents-wrapper">
@@ -44,7 +44,7 @@
 			
 		</div>
 	</div>
- -->
+ --%>
 </section>
 
 <%@ include file="/common/footer.jsp"%>
