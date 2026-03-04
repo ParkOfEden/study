@@ -54,7 +54,7 @@ request.setAttribute("boardList", list);
 			            <td>[${b.category}]</td>
             
             			<td style="text-align:left;">
-            				<a href="${pageContext.request.contextPath}/boardDetail.jsp?num=${b.p_id}">
+            				<a href="${pageContext.request.contextPath}/boardDetail.jsp?num=${b.num}">
             					${b.p_name} </a>
             			</td>
             			
@@ -66,9 +66,9 @@ request.setAttribute("boardList", list);
 		            
 		            <c:if test="${sessionScope.authUser == 'admin'}">
                         <td>
-                            <a href="boardUpdateForm.do?num=${b.p_id}">수정</a>
+                            <a href="boardUpdateForm.do?num=${b.num}">수정</a>
                             |
-                            <a href="boardDelete.do?num=${b.p_id}"
+                            <a href="boardDelete.do?num=${b.num}"
                                onclick="return confirm('삭제하시겠습니까?');">
                                 삭제
                             </a>
