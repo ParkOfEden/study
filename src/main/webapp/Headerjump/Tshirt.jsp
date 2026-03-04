@@ -6,13 +6,15 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>  
 <!-- Tomcat 9 이하라면: uri="http://java.sun.com/jsp/jstl/core" -->
 
+<%-- 확인 후 주석 삭제해주세요.
 <%
     String keyword = request.getParameter("keyword");
     if (keyword != null) {
         keyword = new String(keyword.getBytes("ISO-8859-1"), "UTF-8");
     }
     request.setAttribute("pageTitle", "티셔츠");
-%>    
+%>
+--%>   
 
 
 
@@ -21,7 +23,7 @@
 	<h3>여기는 티셔츠 상품 페이지입니다.</h3>
 	
 	<!-- ✅ c:import 시작 태그와 닫는 태그 정확히 작성 -->
-	<%-- <c:import url="/boardList.do"> --%>
+	
 	<jsp:include page="/boardList.do">
 	    <jsp:param name="type" value="category"/>
 	    <jsp:param name="keyword" value="티셔츠"/>
