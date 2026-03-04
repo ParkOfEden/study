@@ -4,11 +4,13 @@
     
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
     
-boardList : ${boardList}
+<%-- boardList : ${boardList}
 <br>
-size : ${boardList.size()}    
+size : ${boardList.size()} --%>    
     
 <table class="grid-table">
+
+
  
 <tbody>
 
@@ -21,11 +23,15 @@ size : ${boardList.size()}
 <c:if test="${not empty boardList}">
    	<c:forEach var="b" items="${boardList}" varStatus="status">
    	
-   		<c:if test="${status.index mod 4 == 0}">
+   		<c:if test="${status.index % 4 == 0}">
        		<tr>
         </c:if>
            
         <td class="grid-item">
+        
+        	<img src="${pageContext.request.contextPath}/css/img/upload/product/${b.systemFilename}"
+			     style="width:120px;height:120px;object-fit:cover;"
+			     onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/css/img/no_image.jpg';">
            	
            	<div class="grid-category">
            		[${b.category}]
@@ -37,22 +43,21 @@ size : ${boardList.size()}
                 </a>
            	</div>
            	
-            <div class="grid-info">
-                ${b.author}
-            </div>
-
             <div class="grid-meta">
                 조회 ${b.viewCount}
             </div>       
-            
-           
+                    
 		</td>     	
    
-        <c:if test="${status.index mod 4 == 3}">
-        	</tr>		            
-		</c:if>		
-    					
+        <c:if test="${status.index % 4 == 3}">
+        	</tr>
+        </c:if>	
+        		            
       	</c:forEach>
+      	 	
+		<c:if test="${not empty boardList and boardList.size() % 4 != 0}">		
+    	</tr>
+        </c:if>				
 	</c:if>    	
 </tbody>
 </table>
