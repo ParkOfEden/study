@@ -44,7 +44,7 @@ request.setAttribute("boardList", list);
             <c:otherwise>
             	<c:forEach var="b" items="${boardList}">
             		<tr>
-			            <td>${b.p_id}</td> <td>
+			            <td>${b.num}</td> <td>
                             <c:if test="${not empty b.system_filename}">
                                 <img src="${pageContext.request.contextPath}/upload/${b.system_filename}" 
                                      style="width: 50px; height: 50px; object-fit: cover;">
