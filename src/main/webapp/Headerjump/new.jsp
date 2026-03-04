@@ -26,7 +26,7 @@ request.setAttribute("pageTitle", "신상품");
 <!-- section 태그 내에서 관리하세요. (골격 구조 통일 - common.css 참조) -->
 
 <section class="main2 section-base">
-	<div class="main2-inner">
+	<!-- <div class="main2-inner"> -->
 		<div class="contents-wrapper">
 			<h3>여기는 신상품 소개 페이지입니다.</h3>
 			
@@ -37,7 +37,7 @@ request.setAttribute("pageTitle", "신상품");
 			</jsp:include>	
 						
 		</div>
-	</div>
+	<!-- </div> -->
 </section>
 
 
