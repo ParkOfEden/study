@@ -2,9 +2,8 @@
 
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <!-- 타이틀은 여기서 작업하면 반영됩니다. -->
-<%
-request.setAttribute("pageTitle", "상품 관리 목록");
-%>  
+<c:set var="pageTitle" value="상품 관리 목록" />
+  
 
 <%@ include file="common/header.jsp" %>
 
@@ -13,7 +12,7 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 
      
 <h2 class="board-title">전체 게시글 목록 
-<c:if test="${sessionScope.authUser == 'admin'}">
+<c:if test="${sessionScope.authUser eq 'admin'}">
 <span style="color: gray;
 			 font-weight: bold;">
 (Admin)
@@ -22,13 +21,13 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 </h2>
 
 <div class="write-area">
-<c:if test="${sessionScope.authUser == 'admin'}">
+<c:if test="${sessionScope.authUser eq 'admin'}">
 	<a href="boardWrite.jsp">[새 상품 등록]</a>
 </c:if>
 </div>
 
 <div class="search-area">
-    <form action="boardList.do" method="get">
+    <form action="${pageContext.request.contextPath}/boardList.do" method="get">
         
         <select name="type">
             <option value="title"
@@ -53,20 +52,20 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 <div class="paging">
 
     <c:if test="${pageMaker.prev}">
-        <a href="?page=${pageMaker.startPage - 1}">[이전]</a>
+        <a href="?page=${pageMaker.startPage - 1}&type=${param.type}&keyword=${param.keyword}">[이전]</a>
     </c:if>
 
     <c:forEach var="i"
                begin="${pageMaker.startPage}"
                end="${pageMaker.endPage}">
-        <a href="?page=${i}"
+        <a href="?page=${i}&type=${param.type}&keyword=${param.keyword}"
            class="${pageMaker.criteria.page == i ? 'current-page' : ''}">
             ${i}
         </a>
     </c:forEach>
 
     <c:if test="${pageMaker.next}">
-        <a href="?page=${pageMaker.endPage + 1}">[다음]</a>
+        <a href="?page=${pageMaker.endPage + 1}&type=${param.type}&keyword=${param.keyword}">[다음]</a>
     </c:if>
 
 </div>
