@@ -93,6 +93,22 @@ INSERT INTO board_test (
 
 COMMIT;
 
+INSERT INTO board_test (
+    category,
+    title,
+    author,
+    content,
+    img_url
+) VALUES (
+    '바지',
+    '남아) 1+1 편안한 바지',
+    'admin',
+    'null',
+    'css/img/upload/product/bottom/pants-boy121.jpg'
+);
+
+COMMIT;
+
 
 SELECT * FROM board_test;
 
