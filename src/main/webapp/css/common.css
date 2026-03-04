@@ -74,16 +74,28 @@ section.main h1{
 
 section.main2{
 	background-image:url(img/sitemapbg01.png);
+	/* background-position: relative; */
 	background-position: center;
-	/*background-repeat: no-repeat;*/	
-	/*background-size:cover;*/
-	padding:0;
+	background-repeat: no-repeat;
+	background-size:cover;
+	padding: 0;
 	/* margin 설정 안함 */
+    height: 800px;      /* 배경 높이 고정 (원하는 값으로 조절) */
+    overflow: hidden;
+	display: flex;      /* inner 를 정확히 맞추기 위해 */
+}
+
+.main2-inner {
+    background: #ffffff80;
+    height: 100%;           /* 부모(section) 높이 그대로 */
+    width: 100%;
+    padding: 30px;
+    
 }
 
 section.main2 h3{
 	width:100%;
-	min-height: 700px;
+	/* min-height: 700px; */
 	background-color:#ffffff80;
 	color:blue;
 	display: flex;
@@ -441,4 +453,12 @@ table tr td input[type='number'] {
 .search-area button {
     padding: 6px 10px;
     cursor: pointer;
+}
+
+.content-wrapper {
+    max-width: 900px;
+    margin: 60 auto; /* 위아래 여백 추가 */
+    background-color:#ffffff80;
+    padding: 30px;
+    border-radius: 10px;   /* 선택사항 */
 }

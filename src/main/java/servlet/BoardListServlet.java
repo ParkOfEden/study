@@ -86,10 +86,10 @@ public class BoardListServlet extends HttpServlet {
         String include = request.getParameter("include");
 
         if ("table".equals(include)) {
-            request.getRequestDispatcher("boardTable.jsp")
+            request.getRequestDispatcher("/boardTable.jsp")
                    .forward(request, response);
         } else {
-            request.getRequestDispatcher("boardList.jsp")
+            request.getRequestDispatcher("/boardList.jsp")
                    .forward(request, response);
         }
     } // end doGet method	

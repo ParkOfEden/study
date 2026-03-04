@@ -22,7 +22,7 @@ CREATE TABLE ACCOUNTS(
 INSERT INTO ACCOUNTS (
     id, pass, name, addr, phone, gender, age, email
 ) VALUES (
-    'ADMIN', 'ADMIN', 'MASTER',
+    'admin', 'admin', 'MASTER',
     '부산광역시', '01011111111', '남성', 30, 'ADMIN@admin.com'
 );
 
@@ -30,4 +30,21 @@ COMMIT
 
 -- 확인용
 SELECT * FROM ACCOUNTS;
+------임의로 1000명 생성
+INSERT INTO ACCOUNTS (id, pass, name, addr, phone, gender, age, email)
+SELECT 
+    'user' || LEVEL,                     -- id: user1, user2...
+    'pass' || LEVEL,                     -- pass: pass1, pass2...
+    '사용자' || LEVEL,                    -- name: 사용자1, 사용자2...
+    '서울시 ' || MOD(LEVEL, 25) || '구',    -- addr
+    '010-1234-' || LPAD(LEVEL, 4, '0'),  -- phone: 010-1234-0001...
+    CASE WHEN MOD(LEVEL, 2) = 0 THEN '남성' ELSE '여성' END, -- 성별 랜덤
+    20 + MOD(LEVEL, 30),                 -- 나이 20~50 사이
+    'user' || LEVEL || '@naver.com'      -- email
+FROM DUAL
+CONNECT BY LEVEL <= 1000;
 
+COMMIT;
+
+-- 확인용
+SELECT COUNT(*) FROM ACCOUNTS;

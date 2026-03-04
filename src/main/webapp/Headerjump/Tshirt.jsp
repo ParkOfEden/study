@@ -16,6 +16,7 @@
 
 
 
+<<<<<<< HEAD
 <section class="main2 section-base">
 	<h3>여기는 티셔츠 상품 페이지입니다.</h3>
 	
@@ -27,6 +28,20 @@
 	</c:import>
 	<!-- ✅ c:import 닫는 태그 필수 -->
 	
+=======
+<section class="main2">
+	<div class="main2-inner">
+		<div class="contents-wrapper">
+			<h3>여기는 티셔츠 상품 페이지입니다.</h3>
+		
+			<jsp:include page="/boardTable.jsp">
+			    <jsp:param name="type" value="category"/>
+			    <jsp:param name="keyword" value="티셔츠"/>  
+			</jsp:include>	
+			
+		</div>
+	</div>
+>>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
 </section>
 
 <%@ include file="/common/footer.jsp"%>

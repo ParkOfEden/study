@@ -32,6 +32,7 @@ public class BoardDAO {
 	            vo.setViewCount(rs.getInt("view_count"));
 
 	            list.add(vo);
+	            vo.setSystemFilename(rs.getString("system_filename"));
 	        }
 
 	    } catch (Exception e) {
@@ -107,18 +108,12 @@ public class BoardDAO {
 	// 게시글 1개 조회 (수정폼용)
 	
 	public BoardVO getBoard(int num) {
-
 	    BoardVO vo = null;
-
 	    String sql = "SELECT * FROM board_test WHERE num=?";
-
 	    try (Connection conn = DBCPUtil.getConnection();
 	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
 	        pstmt.setInt(1, num);
-
 	        try (ResultSet rs = pstmt.executeQuery()) {
-
 	            if (rs.next()) {
 	                vo = new BoardVO();
 	                vo.setNum(rs.getInt("num"));
@@ -127,74 +122,52 @@ public class BoardDAO {
 	                vo.setAuthor(rs.getString("author"));
 	                vo.setContent(rs.getString("content"));
 	                vo.setImgUrl(rs.getString("img_url"));
+	                vo.setSystemFilename(rs.getString("system_filename")); // 추가
 	                vo.setCreatedAt(rs.getTimestamp("created_at"));
-	                vo.setUpdatedAt(rs.getTimestamp("updated_at"));
 	                vo.setViewCount(rs.getInt("view_count"));
 	            }
 	        }
-
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-
+	    } catch (Exception e) { e.printStackTrace(); }
 	    return vo;
-	}	
+	}
 	
 	// 게시글 등록 메서드
 	
 	public int insertBoard(BoardVO vo) {
-
 	    int result = 0;
-
-	    String sql = "INSERT INTO board_test "
-	               + "(category, title, author, content, img_url) "
-	               + "VALUES (?, ?, ?, ?, ?)";
+	    // system_filename 컬럼과 ? 추가
+	    String sql = "INSERT INTO board_test (category, title, author, content, img_url, system_filename) VALUES (?, ?, ?, ?, ?, ?)";
 
 	    try (Connection conn = DBCPUtil.getConnection();
 	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
 	        pstmt.setString(1, vo.getCategory());
 	        pstmt.setString(2, vo.getTitle());
 	        pstmt.setString(3, vo.getAuthor());
 	        pstmt.setString(4, vo.getContent());
 	        pstmt.setString(5, vo.getImgUrl());
-
+	        pstmt.setString(6, vo.getSystemFilename()); // 추가
 	        result = pstmt.executeUpdate();
-
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-
+	    } catch (Exception e) { e.printStackTrace(); }
 	    return result;
 	}
 	
     // 게시글 수정
-    public int updateBoard(BoardVO vo) {
-
-        int result = 0;
-
-        String sql = "UPDATE board_test "
-                   + "SET category=?, title=?, content=?, img_url=?, "
-                   + "updated_at=SYSTIMESTAMP "
-                   + "WHERE num=?";
-
-        try (Connection conn = DBCPUtil.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setString(1, vo.getCategory());
-            pstmt.setString(2, vo.getTitle());
-            pstmt.setString(3, vo.getContent());
-            pstmt.setString(4, vo.getImgUrl());
-            pstmt.setInt(5, vo.getNum());
-
-            result = pstmt.executeUpdate();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return result;
-    }
+	public int updateBoard(BoardVO vo) {
+	    int result = 0;
+	    // system_filename=? 추가
+	    String sql = "UPDATE board_test SET category=?, title=?, content=?, img_url=?, system_filename=?, updated_at=SYSTIMESTAMP WHERE num=?";
+	    try (Connection conn = DBCPUtil.getConnection();
+	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+	        pstmt.setString(1, vo.getCategory());
+	        pstmt.setString(2, vo.getTitle());
+	        pstmt.setString(3, vo.getContent());
+	        pstmt.setString(4, vo.getImgUrl());
+	        pstmt.setString(5, vo.getSystemFilename()); // 추가
+	        pstmt.setInt(6, vo.getNum());
+	        result = pstmt.executeUpdate();
+	    } catch (Exception e) { e.printStackTrace(); }
+	    return result;
+	}
     
     // 게시글 삭제
     public int deleteBoard(int num) {

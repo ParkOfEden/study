@@ -1,23 +1,21 @@
 package vo;
 
 import java.util.Date;
-import java.sql.Timestamp;
 
 public class BoardVO {
     private int num;
-    private String category; // 추가됨
+    private String category;
     private String title;
     private String author;
     private String content;
-    private String imgUrl;   // 추가됨
+    private String imgUrl;
+    private String systemFilename; // 파일 업로드용 필드 추가
     private Date createdAt;
     private Date updatedAt;
     private int viewCount;
 
-    // 기본 생성자
     public BoardVO() {}
 
-    // Getter와 Setter (필수)
     public int getNum() { return num; }
     public void setNum(int num) { this.num = num; }
 
@@ -35,6 +33,9 @@ public class BoardVO {
 
     public String getImgUrl() { return imgUrl; }
     public void setImgUrl(String imgUrl) { this.imgUrl = imgUrl; }
+
+    public String getSystemFilename() { return systemFilename; }
+    public void setSystemFilename(String systemFilename) { this.systemFilename = systemFilename; }
 
     public Date getCreatedAt() { return createdAt; }
     public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }

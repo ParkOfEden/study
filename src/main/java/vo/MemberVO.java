@@ -11,18 +11,21 @@ public class MemberVO {
 	private String name;		// 이름
 	private String addr;		// 주소	
 	private String phone;		// 전화번호
+	private String email;   // 이메일
 	private String gender;		// 성별(남성여성)
 	private int age;			// 나이
 	
 	public MemberVO() {}
 
-	public MemberVO(int num, String id, String pass, String name, String addr, String phone, String gender, int age) {
+	public MemberVO(int num, String id, String pass, String name, String addr, 
+					String phone, String email, String gender, int age) {
 		this.num = num;
 		this.id = id;
 		this.pass = pass;
 		this.name = name;
 		this.addr = addr;
 		this.phone = phone;
+		this.email = email;
 		this.gender = gender;
 		this.age = age;
 	}
@@ -76,6 +79,14 @@ public class MemberVO {
 		this.phone = phone;
 	}
 	
+	public String getEmail() {
+	    return email;
+	}
+
+	public void setEmail(String email) {
+	    this.email = email;
+	}	
+	
 	public String getGender() {
 		return gender;
 	}
@@ -95,7 +106,7 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [num=" + num + ", id=" + id + ", pass=" + pass + ", name=" + name + ", addr=" + addr
-				+ ", phone=" + phone + ", gender=" + gender + ", age=" + age + "]";
+				+ ", phone=" + phone + ", email=" + email + ", gender=" + gender + ", age=" + age + "]";
 	}
 	
 }
