@@ -65,7 +65,7 @@ public class BoardListServlet extends HttpServlet {
                     cri.getPerPageNum()
             );
             
-            System.out.println("search list size = " + list.size());
+			/* System.out.println("search list size = " + list.size()); */
             
         } else {
         	
@@ -76,7 +76,7 @@ public class BoardListServlet extends HttpServlet {
                     cri.getPerPageNum()
             );
             
-            System.out.println("list size = " + list.size());
+			/* System.out.println("list size = " + list.size()); */
             
         }
 

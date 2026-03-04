@@ -7,8 +7,6 @@ import utils.DBCPUtil;
 
 public class BoardDAO {
 	
-	
-	
 	// 전체 목록 조회
 	
 	public List<BoardVO> getAllBoards() {
@@ -290,9 +288,7 @@ public class BoardDAO {
         }
 
         return list;
-        
-        
+          
     }    
     
-
 } // end BoardDAO class
