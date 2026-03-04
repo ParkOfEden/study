@@ -13,7 +13,7 @@
 request.setAttribute("pageTitle", "신상품");
 %>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>    
-<%@ include file="/common/header.jsp"%>
+<%-- <%@ include file="/common/header.jsp"%> --%>
 <!-- header.jsp에서 처리합니다.(중복코드)
 <!DOCTYPE html>
 <html>
