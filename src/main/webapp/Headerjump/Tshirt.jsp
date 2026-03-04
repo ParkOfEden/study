@@ -16,7 +16,7 @@
 
 
 
-<<<<<<< HEAD
+
 <section class="main2 section-base">
 	<h3>여기는 티셔츠 상품 페이지입니다.</h3>
 	
@@ -28,7 +28,7 @@
 	</c:import>
 	<!-- ✅ c:import 닫는 태그 필수 -->
 	
-=======
+
 <section class="main2">
 	<div class="main2-inner">
 		<div class="contents-wrapper">
@@ -41,7 +41,7 @@
 			
 		</div>
 	</div>
->>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
+
 </section>
 
 <%@ include file="/common/footer.jsp"%>
