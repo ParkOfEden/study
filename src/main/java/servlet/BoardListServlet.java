@@ -85,9 +85,7 @@ public class BoardListServlet extends HttpServlet {
         // 6. Forward 분기
         // view 타입
         String viewType = request.getParameter("include");
-        // 데이터 전달
-        request.setAttribute("boardList", list);
-        request.setAttribute("pageMaker", pm);
+      
         // view 분기
         if ("grid".equals(viewType)) {
 
