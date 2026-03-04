@@ -25,6 +25,11 @@
     </form>
 </div>
 
+<jsp:include page="/boardList.do">
+    <jsp:param name="type" value="${param.type}" />
+    <jsp:param name="keyword" value="${param.keyword}" />
+</jsp:include>
+
 <!-- 페이징 -->
 <div class="paging">
 
