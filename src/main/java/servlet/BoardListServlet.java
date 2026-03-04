@@ -65,6 +65,8 @@ public class BoardListServlet extends HttpServlet {
                     cri.getPerPageNum()
             );
             
+            System.out.println("search list size = " + list.size());
+            
         } else {
         	
             totalCount = dao.getBoardCount();
@@ -73,6 +75,9 @@ public class BoardListServlet extends HttpServlet {
                     cri.offset(),
                     cri.getPerPageNum()
             );
+            
+            System.out.println("list size = " + list.size());
+            
         }
 
         // 3. PageMaker 생성
