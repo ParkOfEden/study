@@ -282,7 +282,7 @@
             <input type="checkbox" id="searchToggle" class="search-checkbox">
             <label for="searchToggle" class="search-toggle">상품조회</label>
             <div class="search-box">
-                <form action="<%=path%>/boardList.jsp" method="get">
+                <form action="<%=path%>/boardList.do" method="get">
                     <input type="hidden" name="type" value="all">
                     <input type="text" name="keyword" placeholder="상품 검색">
                     <button type="submit">검색</button>
