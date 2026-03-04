@@ -1,22 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, utils.*" %>
-
 <%
-
-
     // 1. 한글 깨짐 방지 인코딩
     request.setCharacterEncoding("UTF-8");
 
-    // 2. 세션에서 id를 가져온다
-    String id     = (String)session.getAttribute("authUser");
+    // 2. 수정 대상 ID 가져오기 (중요!)
+    // 폼에서 <input type="hidden" name="id" value="...">로 보낸 값을 우선 사용합니다.
+    String id = request.getParameter("id");
     
-    if(id == null){
+    // 로그인 세션 확인 (권한 체크용)
+    String authUser = (String)session.getAttribute("authUser");
+    
+    if(authUser == null){
         response.sendRedirect("login.jsp");
         return;
     }    
     
-    System.out.println("수정요청 id = [" + id + "]");	
+    // 만약 폼에서 넘어온 id가 없다면 본인 정보를 수정하는 것으로 간주
+    if(id == null || id.isEmpty()) {
+        id = authUser;
+    }
     
+    System.out.println("수정 실행 대상 id = [" + id + "]");	
+    
+    // 나머지 파라미터 수집
     String pass   = request.getParameter("pass");
     String name   = request.getParameter("name");
     String addr   = request.getParameter("addr");
@@ -25,7 +32,6 @@
     String email  = request.getParameter("email");
     String ageStr = request.getParameter("age");
 
-    // 나이 데이터 정수 변환 (Null 및 빈 문자열 체크로 안정성 확보)
     int age = 0;
     if(ageStr != null && !ageStr.equals("")) {
         try {
@@ -41,45 +47,15 @@
     boolean isSuccess = false;
 
     try {
-        // 3. DB 연결
         conn = DBCPUtil.getConnection();
 
-        /* null값으로 생성된 id가 페이지를 넘길 수 있도록 하는 로직 (join 관련 수정 필요)
-        if(email == null || email.trim().equals("")){
-        	// 기존 email 유지
-            String sql3 = "SELECT email FROM ACCOUNTS WHERE id=?";
-            PreparedStatement ps3 = conn.prepareStatement(sql3);
-            ps3.setString(1, id);
-            ResultSet rs3 = ps3.executeQuery();
-            if(rs3.next()){
-                email = rs3.getString("email");
-            }
-            rs3.close();
-            ps3.close();
-        }
-        
-        if(pass == null || pass.trim().equals("")){
-            // 기존 비밀번호 유지
-            String sql2 = "SELECT pass FROM ACCOUNTS WHERE id=?";
-            PreparedStatement ps2 = conn.prepareStatement(sql2);
-            ps2.setString(1, id);
-            ResultSet rs2 = ps2.executeQuery();
-            if(rs2.next()){
-                pass = rs2.getString("pass");
-            }
-            rs2.close();
-            ps2.close();
-        }        
-		*/
-		
-        // 4. UPDATE 문 작성 (아이디는 고유값이므로 WHERE 조건에 사용)
-		String sql = "UPDATE ACCOUNTS SET "
-		           + "pass=?, name=?, addr=?, phone=?, gender=?, age=?, email=? "
-		           + "WHERE id=?";
+        // UPDATE 문 작성
+        String sql = "UPDATE ACCOUNTS SET "
+                   + "pass=?, name=?, addr=?, phone=?, gender=?, age=?, email=? "
+                   + "WHERE id=?";
 
         pstmt = conn.prepareStatement(sql);
 
-        // 5. ? 채우기 (순서 주의)
         pstmt.setString(1, pass);
         pstmt.setString(2, name);
         pstmt.setString(3, addr);
@@ -87,24 +63,30 @@
         pstmt.setString(5, gender);
         pstmt.setInt(6, age);
         pstmt.setString(7, email);
-        pstmt.setString(8, id);
+        pstmt.setString(8, id); // 여기서 파라미터로 받은 id를 사용함
 
         int result = pstmt.executeUpdate();
 
         if(result > 0) {
             isSuccess = true;
             msg = "회원 정보가 성공적으로 수정되었습니다.";
-            // [센스!] 이름이 변경되었을 수 있으므로 세션 정보도 갱신해줍니다.
-            session.setAttribute("userName", name);
-        } else {
-            msg = "정보 수정에 실패했습니다. (일치하는 아이디 없음)";
+            
+            // [수정 포인트] 
+            // 1. String 키워드를 빼고 기존에 이미 선언된 authUser 변수(header 등에서 온 것)를 재사용하거나,
+            // 2. 아래처럼 바로 비교 연산에 사용합니다.
+            
+            String loginId = (String)session.getAttribute("authUser");
+            if(id != null && id.equals(loginId)) {
+                session.setAttribute("userName", name);
+            }
+        }else {
+            msg = "정보 수정에 실패했습니다.";
         }
 
     } catch(Exception e) {
         e.printStackTrace();
         msg = "DB 오류 발생: " + e.getMessage();
     } finally {
-        // 6. 자원 반납
         DBCPUtil.close(pstmt, conn);
     }
 %>
@@ -112,8 +94,9 @@
 <script>
     alert('<%= msg %>');
     <% if(isSuccess) { %>
-        location.href = 'index.jsp'; // 성공 시 메인으로 이동
+        // 관리자가 수정했다면 목록으로, 본인이면 인덱스로 이동하는 로직을 추가하면 더 좋습니다.
+        location.href = 'memberList.do'; 
     <% } else { %>
-        history.back(); // 실패 시 이전 페이지(수정 폼)로 이동
+        history.back();
     <% } %>
 </script>

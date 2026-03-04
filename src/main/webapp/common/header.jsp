@@ -272,7 +272,7 @@
             <li><a href="<%=path%>/memberUpdateForm.jsp"><strong><%= userName %></strong>님 환영합니다</a></li>
             <li><a href="<%=path%>/logout.jsp">로그아웃</a></li>
             <li><a href="<%=path%>/memberList.do">회원관리</a></li>
-            <li><a href="<%=path%>/orin.jsp">주문조회</a></li>
+            <li><a href="<%=path%>/cartView.jsp">장바구니</a></li>
             <% if ("admin".equals(authUser)) { %>
                 <li><a href="<%=path%>/boardWrite.jsp">글쓰기</a></li>
             <% } %>
