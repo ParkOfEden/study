@@ -34,9 +34,9 @@ request.setAttribute("boardList", list);
 <table class="grid-table">
  
 <tbody>
-   	<c:forEach>
+   	<c:forEach var="b" items="${boardList}" varStatus="status">
    	
-   		<c:if test="${status.index % 4 == 0}">
+   		<c:if test="${status.index mod 4 == 0}">
        		<tr>
         </c:if>
            
@@ -64,7 +64,7 @@ request.setAttribute("boardList", list);
            
 		</td>     	
    
-        <c:if test="${status.index % 4 == 3}">
+        <c:if test="${status.index mod 4 == 3}">
         	</tr>		            
 		</c:if>		
     					
