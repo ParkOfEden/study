@@ -6,45 +6,19 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>  
 <!-- Tomcat 9 이하라면: uri="http://java.sun.com/jsp/jstl/core" -->
 
-<%-- 확인 후 주석 삭제해주세요.
-<%
-    String keyword = request.getParameter("keyword");
-    if (keyword != null) {
-        keyword = new String(keyword.getBytes("ISO-8859-1"), "UTF-8");
-    }
-    request.setAttribute("pageTitle", "티셔츠");
-%>
---%>   
-
-
-
-
 <section class="main2 section-base">
+	<div class="main2-inner">
 	<h3>여기는 티셔츠 상품 페이지입니다.</h3>
 	
-	<!-- ✅ c:import 시작 태그와 닫는 태그 정확히 작성 -->
+	<!-- ✅ jsp:include 시작 태그와 닫는 태그 정확히 작성 -->
 	
 	<jsp:include page="/boardList.do">
 	    <jsp:param name="type" value="category"/>
 	    <jsp:param name="keyword" value="티셔츠"/>
 	    <jsp:param name="include" value="table"/>
 	</jsp:include>
-	<!-- ✅ c:import 닫는 태그 필수 -->
-	
-<%-- 공백 출력 원인 1 : main2 class 중복 선언. 원인 2 : </section> 없이 <section> 사용. 원인 3 : c:import request 분리
-<section class="main2">
-	<div class="main2-inner">
-		<div class="contents-wrapper">
-			<h3>여기는 티셔츠 상품 페이지입니다.</h3>
-		
-			<jsp:include page="/boardTable.jsp">
-			    <jsp:param name="type" value="category"/>
-			    <jsp:param name="keyword" value="티셔츠"/>  
-			</jsp:include>	
-			
-		</div>
+	<!-- ✅ jsp:include 닫는 태그 필수 -->
 	</div>
- --%>
 </section>
 
 <%@ include file="/common/footer.jsp"%>
