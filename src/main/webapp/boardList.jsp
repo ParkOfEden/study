@@ -36,7 +36,7 @@
                         <td>${b.num}</td> 
                         <td>
                             <c:if test="${not empty b.systemFilename}">
-                                <img src="${pageContext.request.contextPath}/upload/${b.systemFilename}" 
+                                <img src="${pageContext.request.contextPath}/css/upload/product/${b.systemFilename}" 
                                      style="width: 50px; height: 50px; object-fit: cover;">
                             </c:if>
                         </td>
@@ -67,9 +67,6 @@
     현재 넘어온 데이터 개수: ${boardList.size()} <br>
     AuthUser 세션 상태: ${sessionScope.authUser}
 </div>
-
-<%@ include file="common/footer.jsp" %>
-
 
 <div class="search-area">
     <form action="boardList.do" method="get">

@@ -1,3 +1,8 @@
+-- products 테이블이 실제로 있는지 검증
+SELECT table_name 
+FROM user_tables 
+WHERE table_name = 'PRODUCTS';
+
 DROP TABLE products PURGE;
 
 CREATE TABLE products (
@@ -13,18 +18,19 @@ CREATE TABLE products (
     created_at TIMESTAMP DEFAULT SYSTIMESTAMP,
     updated_at TIMESTAMP DEFAULT SYSTIMESTAMP
 );
+
 --가짜 100개 데이터
 BEGIN
     FOR i IN 1..100 LOOP
-        INSERT INTO products (
-            category, 
-            p_name, 
-            author, 
-            p_desc, 
-            price, 
+        INSERT INTO PRODUCTS (
+            category,
+            p_name,
+            author,
+            p_desc,
+            price,
             view_count
         ) VALUES (
-            '카테고리' || MOD(i, 5),
+            '카테고리' || MOD(i,5),
             '상품명 ' || i,
             '관리자',
             '상세 설명 데이터 ' || i,
@@ -34,7 +40,8 @@ BEGIN
     END LOOP;
 END;
 
-commit
+COMMIT
+
 -- 1. 상품 등록 예시 (가격 컬럼 추가)
 INSERT INTO products (category, p_name, author, p_desc, price, system_filename) 
 VALUES (
@@ -43,7 +50,7 @@ VALUES (
     'admin',
     '부드러운 면 소재의 기본 반팔입니다.',
     15000,
-    'tshirt1.jpg' -- 경로 없이 파일명만 저장
+    'top/tshirt1.jpg' -- 경로 : '중분류/파일명.확장자' (으)로 저장
 );
 
 INSERT INTO products (category, p_name, author, p_desc, price, system_filename) 
@@ -53,7 +60,7 @@ VALUES (
     'admin',
     '편안한 착용감의 아동용 로퍼입니다.',
     35000,
-    'shoes-boy140.jpg'
+    'shoes_bag/shoes-boy140.jpg' -- 경로 : '중분류/파일명.확장자' (으)로 저장
 );
 
 COMMIT;
@@ -69,3 +76,5 @@ SELECT * FROM products WHERE p_name LIKE '%반팔%';
 
 -- 특정 가격대 검색 (예: 2만원 이하 상품)
 SELECT * FROM products WHERE price <= 20000;
+
+COMMIT;

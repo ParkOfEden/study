@@ -1,9 +1,13 @@
 package vo;
 
+import java.io.Serializable;
+
 /**
  * 회원 정보를 저장할 class
  */
-public class MemberVO {
+public class MemberVO implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private int num;			// 회원번호
 	private String id;			// 회원아이디
@@ -105,7 +109,7 @@ public class MemberVO {
 	
 	@Override
 	public String toString() {
-		return "MemberVO [num=" + num + ", id=" + id + ", pass=" + pass + ", name=" + name + ", addr=" + addr
+		return "MemberVO [num=" + num + ", id=" + id + ", name=" + name + ", addr=" + addr
 				+ ", phone=" + phone + ", email=" + email + ", gender=" + gender + ", age=" + age + "]";
 	}
 	
