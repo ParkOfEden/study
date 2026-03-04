@@ -6,13 +6,15 @@ import vo.BoardVO;
 import utils.DBCPUtil;
 
 public class BoardDAO {
-<<<<<<< HEAD
+
 	
 	// 전체 목록 조회
 	
 	public List<BoardVO> getAllBoards() {
-=======
->>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
+	    List<BoardVO> list = new ArrayList<>();
+        return list;
+    }
+
 
     // 1. 검색 결과의 전체 개수 조회
     public int getSearchBoardCount(String type, String keyword) {
@@ -45,6 +47,7 @@ public class BoardDAO {
         } catch (Exception e) { e.printStackTrace(); }
         return count;
     }
+	
 
     // 2. 검색 결과 페이징 목록 조회
     public List<BoardVO> getSearchBoardListPaging(String type, String keyword, int offset, int limit) {
@@ -94,13 +97,12 @@ public class BoardDAO {
             }
         } catch (Exception e) { e.printStackTrace(); }
         return list;
-<<<<<<< HEAD
-          
+        
     }    
     
-} // end BoardDAO class
-=======
-    }
+
+
+    
 
     // 3. 상품 상세 조회
     public BoardVO getBoard(int num) {
@@ -217,5 +219,5 @@ public class BoardDAO {
         } catch (Exception e) { e.printStackTrace(); }
         return result;
     }
-}
->>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
+} // end BoardDAO class
+
