@@ -29,11 +29,11 @@
 <c:choose>
 
     <c:when test="${param.view == 'grid'}">
-        <jsp:include page="gridTable.jsp"/>
+        <jsp:forward page="gridTable.jsp"/>
     </c:when>
 
     <c:otherwise>
-        <jsp:include page="boardTableNew.jsp"/>
+        <jsp:forward page="boardTableNew.jsp"/>
     </c:otherwise>
 
 </c:choose>
