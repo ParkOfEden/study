@@ -38,7 +38,7 @@
         pstmt.setString(6, fileExt);
 
         pstmt.executeUpdate();
-        response.sendRedirect("boardList.jsp");
+        response.sendRedirect("boardList.do");
 
     } catch (Exception e) {
         e.printStackTrace();

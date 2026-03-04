@@ -32,6 +32,10 @@ public class BoardListServlet extends HttpServlet {
         System.out.println("type = [" + type + "]");
         System.out.println("keyword = [" + keyword + "]");
         
+        if (keyword != null) {
+            keyword = new String(keyword.getBytes("ISO-8859-1"), "UTF-8");
+        }
+        
         int pageNum = 1;
 
         if (paramPage != null && !paramPage.trim().isEmpty()) {
@@ -78,8 +82,16 @@ public class BoardListServlet extends HttpServlet {
         request.setAttribute("boardList", list);
         request.setAttribute("pageMaker", pm);
 
-        request.getRequestDispatcher("boardList.jsp")
-               .forward(request, response);
+        // forward 분기 처리
+        String include = request.getParameter("include");
+
+        if ("table".equals(include)) {
+            request.getRequestDispatcher("/boardTable.jsp")
+                   .forward(request, response);
+        } else {
+            request.getRequestDispatcher("/boardList.jsp")
+                   .forward(request, response);
+        }
     } // end doGet method	
 
 } // end BoardListServlet class

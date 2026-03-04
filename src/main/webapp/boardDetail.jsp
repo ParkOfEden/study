@@ -33,6 +33,7 @@
             board.setCategory(rs.getString("category")); 
             board.setTitle(rs.getString("title"));
             board.setAuthor(rs.getString("author"));
+            board.setSystemFilename(rs.getString("system_filename")); // 없으면 업로드 안됨
             
             // CLOB 타입은 getString으로 읽어올 수 있습니다.
             board.setContent(rs.getString("content"));
@@ -77,60 +78,74 @@
 </head>
 <body>
     <table border="1">
-        <tr>
-            <th colspan="2">
-                <h4>[<%= board.getCategory() %>] <%= board.getNum() %>번 상품 상세 정보</h4>
-            </th>
-        </tr>
-        <% if(board.getImgUrl() != null && !board.getImgUrl().isEmpty()) { %>
-        <tr>
-            <td colspan="2" align="center">
-                <img src="<%= board.getImgUrl() %>" class="prod-img" alt="상품이미지">
-            </td>
-        </tr>
+    <tr>
+        <th colspan="2">
+            <h4>[<%= board.getCategory() %>] <%= board.getNum() %>번 상품 상세 정보</h4>
+        </th>
+    </tr>
+
+    <tr>
+    <td colspan="2" align="center" style="padding: 20px; background-color: #f9f9f9;">
+        <% 
+	        // DB에서 가져온 파일명 확인
+		    String systemFile = board.getSystemFilename();
+		    String imgUrl = board.getImgUrl();
+        %>
+        
+        <% if(systemFile != null && !systemFile.isEmpty()) { %>
+        
+            <img src="<%= request.getContextPath() %>/upload/<%= systemFile %>" 
+                 style="max-width: 450px; height: auto; border: 2px solid #eee;" 
+                 alt="상품이미지">
+            <p style="color: blue; font-size: 11px;">(server에) 저장된 파일명: <%= systemFile %></p>
+        <% } else if(imgUrl != null && !imgUrl.isEmpty()) { %>
+	    <img src="<%= imgUrl %>"
+	         style="max-width: 450px; height: auto; border: 2px solid #eee;">
+	    <p style="color: green; font-size: 11px;">
+	        외부URL: <%= imgUrl %>
+	    </p>
+	    <% } else { %>        
+            <p style="color: #ccc;">등록된 이미지가 없습니다.</p>
         <% } %>
-        <tr>
-            <td>제목</td>
-            <td><%= board.getTitle() %></td>
-        </tr>
-        <tr>
-            <td>작성자</td>
-            <td><%= board.getAuthor() %></td>
-        </tr>
-        <tr>
-            <td>내용</td>
-            <td>
-                <div style="min-height: 150px; white-space: pre-wrap;"><%= board.getContent() %></div>
-            </td>
-        </tr>
-        <tr>
-            <td>조회수</td>
-            <td><%= board.getViewCount() %></td>
-        </tr>
-        <tr>
-            <td>등록 시간</td>
-            <td>
-            <%--
-            <%= new SimpleDateFormat("yyyy-MM-dd HH:mm").format(board.getCreatedAt()) %>
-            --%>
-                    <%= board.getCreatedAt() == null ? "-" :
-            new SimpleDateFormat("yyyy-MM-dd HH:mm")
-                .format(board.getCreatedAt()) %>
-            
-            </td>
-        </tr>
-        <tr>
-            <th colspan="2">
-                <button onclick="location.href='boardList.do'">목록</button>
-            <%
-            String loginUser = (String)session.getAttribute("authUser");
-            if ("admin".equals(loginUser)) { 
-            %>
-                <button onclick="location.href='boardUpdateForm.do?num=<%= board.getNum() %>'">수정</button>
-                <button onclick="if(confirm('정말 삭제하시겠습니까?')) location.href='boardDelete.do?num=<%= board.getNum() %>'">삭제</button>
-            <% } %>
-            </th>
-        </tr>
-    </table>
+    </td>
+</tr>
+    <tr>
+        <td>제목</td>
+        <td><%= board.getTitle() %></td>
+    </tr>
+    <tr>
+        <td>작성자</td>
+        <td><%= board.getAuthor() %></td>
+    </tr>
+    <tr>
+        <td>내용</td>
+        <td>
+            <div style="min-height: 150px; white-space: pre-wrap;"><%= board.getContent() %></div>
+        </td>
+    </tr>
+    <tr>
+        <td>조회수</td>
+        <td><%= board.getViewCount() %></td>
+    </tr>
+    <tr>
+        <td>등록 시간</td>
+        <td>
+            <%= board.getCreatedAt() == null ? "-" :
+            new SimpleDateFormat("yyyy-MM-dd HH:mm").format(board.getCreatedAt()) %>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2">
+            <button onclick="location.href='boardList.do'">목록</button>
+        <%
+        String loginUser = (String)session.getAttribute("authUser");
+        if ("admin".equals(loginUser)) { 
+        %>
+            <button onclick="location.href='boardUpdateForm.do?num=<%= board.getNum() %>'">수정</button>
+            <button onclick="if(confirm('정말 삭제하시겠습니까?')) location.href='boardDelete.do?num=<%= board.getNum() %>'">삭제</button>
+        <% } %>
+        </th>
+    </tr>
+</table>
 </body>
 </html>
