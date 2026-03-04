@@ -1,13 +1,13 @@
 <!-- new.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
+<%--
     String keyword = request.getParameter("keyword");
 
     if (keyword != null) {
         keyword = new String(keyword.getBytes("ISO-8859-1"), "UTF-8");
     }
-%>    
+--%>    
 <!-- 타이틀은 여기서 작업하면 반영됩니다. -->    
 <%
 request.setAttribute("pageTitle", "신상품");
