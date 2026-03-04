@@ -109,6 +109,38 @@ INSERT INTO board_test (
 
 COMMIT;
 
+INSERT INTO board_test (
+    category,
+    title,
+    author,
+    content,
+    img_url
+) VALUES (
+    '바지',
+    '남아) 1+1 조거 통 바지',
+    'admin',
+    'null',
+    'css/img/upload/product/bottom/pants-boy122.jpg'
+);
+
+COMMIT;
+
+
+INSERT INTO board_test (
+    category,
+    title,
+    author,
+    content,
+    img_url
+) VALUES (
+    '바지',
+    '남아) 1+1 조거 츄리닝 바지',
+    'admin',
+    'null',
+    'css/img/upload/product/bottom/pants-boy123.jpg'
+);
+
+COMMIT;
 
 SELECT * FROM board_test;
 
