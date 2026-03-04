@@ -46,7 +46,7 @@ request.setAttribute("boardList", list);
             		<tr>
 			            <td>${b.num}</td> <td>
                             <c:if test="${not empty b.systemFilename}">
-                                <img src="${pageContext.request.contextPath}/upload/${b.system_filename}" 
+                                <img src="${pageContext.request.contextPath}/upload/${b.systemFilename}" 
                                      style="width: 50px; height: 50px; object-fit: cover;">
                             </c:if>
                         </td>
