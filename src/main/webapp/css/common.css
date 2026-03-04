@@ -457,7 +457,7 @@ table tr td input[type='number'] {
 
 .content-wrapper {
     max-width: 900px;
-    margin: 60 auto; /* 위아래 여백 추가 */
+    margin: 60px auto; /* 위아래 여백 추가 */
     background-color:#ffffff80;
     padding: 30px;
     border-radius: 10px;   /* 선택사항 */
