@@ -2,14 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+    
 boardList : ${boardList}
 <br>
 size : ${boardList.size()}    
     
-<%@ taglib uri="jakarta.tags.core" prefix="c" %>
-
-<c:set var="boardList" value="${requestScope.boardList}" />
-
 <table class="grid-table">
  
 <tbody>
