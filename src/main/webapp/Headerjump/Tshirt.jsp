@@ -22,11 +22,11 @@
 	
 	<!-- ✅ c:import 시작 태그와 닫는 태그 정확히 작성 -->
 	<%-- <c:import url="/boardList.do"> --%>
-	<c:include page="/boardList.do">
+	<jsp:include page="/boardList.do">
 	    <c:param name="type" value="category"/>
 	    <c:param name="keyword" value="티셔츠"/>
 	    <c:param name="include" value="table"/>
-	</c:include>
+	</jsp:include>
 	<!-- ✅ c:import 닫는 태그 필수 -->
 	
 <!-- 공백 출력 원인 1 : main2 class 중복 선언. 원인 2 : </section> 없이 <section> 사용. 원인 3 : c:import request 분리
