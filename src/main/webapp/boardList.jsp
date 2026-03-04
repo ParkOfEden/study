@@ -38,7 +38,7 @@
 						<c:choose>
 						    <c:when test="${not empty b.systemFilename}">
 						        <img src="${pageContext.request.contextPath}/css/image/upload/product/${b.systemFilename}"
-						             style="width:50px;height:50px;object-fit:cover;
+						             style="width:50px;height:50px;object-fit:cover;"
 						             onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/css/img/no_image.png';">
 						    </c:when>
 						    <c:otherwise>
