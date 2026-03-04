@@ -25,19 +25,6 @@
     </form>
 </div>
 
-<!-- view 분기 -->
-<c:choose>
-
-    <c:when test="${param.view == 'grid'}">
-        <jsp:include page="gridTable.jsp"/>
-    </c:when>
-
-    <c:otherwise>
-        <jsp:include page="boardTableNew.jsp"/>
-    </c:otherwise>
-
-</c:choose>
-
 <!-- 페이징 -->
 <div class="paging">
 
