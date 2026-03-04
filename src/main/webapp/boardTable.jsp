@@ -60,7 +60,7 @@ request.setAttribute("boardList", list);
 			            <td>[${b.category}]</td>
             
             			<td style="text-align:left;">
-            				<a href="boardDetail.jsp?num=${b.num}">
+            				<a href="${pageContext.request.contextPath}/boardDetail.jsp?num=${b.num}">
             					${b.title}
             				</a>
             			</td>
