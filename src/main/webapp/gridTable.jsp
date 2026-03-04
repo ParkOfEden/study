@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 
-
+<c:set var="boardList" value="${requestScope.boardList}" />
 
 <table class="grid-table">
  
