@@ -33,6 +33,7 @@
             board.setCategory(rs.getString("category")); 
             board.setTitle(rs.getString("title"));
             board.setAuthor(rs.getString("author"));
+            board.setSystemFilename(rs.getString("system_filename")); // 없으면 업로드 안됨
             
             // CLOB 타입은 getString으로 읽어올 수 있습니다.
             board.setContent(rs.getString("content"));
@@ -86,15 +87,24 @@
     <tr>
     <td colspan="2" align="center" style="padding: 20px; background-color: #f9f9f9;">
         <% 
-           // DB에서 가져온 파일명 확인
-           String fileName = board.getImgUrl(); 
-           if(fileName != null && !fileName.isEmpty()) { 
+	        // DB에서 가져온 파일명 확인
+		    String systemFile = board.getSystemFilename();
+		    String imgUrl = board.getImgUrl();
         %>
-            <img src="<%= request.getContextPath() %>/upload/<%= fileName %>" 
+        
+        <% if(systemFile != null && !systemFile.isEmpty()) { %>
+        
+            <img src="<%= request.getContextPath() %>/upload/<%= systemFile %>" 
                  style="max-width: 450px; height: auto; border: 2px solid #eee;" 
                  alt="상품이미지">
-            <p style="color: blue; font-size: 11px;">저장된 파일명: <%= fileName %></p>
-        <% } else { %>
+            <p style="color: blue; font-size: 11px;">(server에) 저장된 파일명: <%= systemFile %></p>
+        <% } else if(imgUrl != null && !imgUrl.isEmpty()) { %>
+	    <img src="<%= imgUrl %>"
+	         style="max-width: 450px; height: auto; border: 2px solid #eee;">
+	    <p style="color: green; font-size: 11px;">
+	        외부URL: <%= imgUrl %>
+	    </p>
+	    <% } else { %>        
             <p style="color: #ccc;">등록된 이미지가 없습니다.</p>
         <% } %>
     </td>
