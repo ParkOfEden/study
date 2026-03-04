@@ -55,7 +55,7 @@ request.setAttribute("boardList", list);
             
             			<td style="text-align:left;">
             				<a href="${pageContext.request.contextPath}/boardDetail.jsp?num=${b.num}">
-            					${b.p_name} </a>
+            					${b.title} </a>
             			</td>
             			
                         <td style="color: #e74c3c; font-weight: bold;">
