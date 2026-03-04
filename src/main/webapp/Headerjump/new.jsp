@@ -31,10 +31,10 @@ request.setAttribute("pageTitle", "신상품");
 			<h3>여기는 신상품 소개 페이지입니다.</h3>
 			
 			<!-- header와 footer include를 제거한 버전의 boardTableNone을 including -->
-			<jsp:include page="/boardList.do">
+<%-- 			<jsp:include page="/boardList.do">
 			    <jsp:param name="type" value="category"/>
 			    <jsp:param name="keyword" value="신상품"/> 
-			</jsp:include>	
+			</jsp:include>	 --%>
 						
 		</div>
 	<!-- </div> -->
