@@ -8,6 +8,14 @@
 <table class="grid-table">
  
 <tbody>
+
+<c:if test="${empty boardList}">
+    <tr>
+        <td colspan="4">등록된 게시글이 없습니다.</td>
+    </tr>
+</c:if>
+
+<c:if test="${not empty boardList}">
    	<c:forEach var="b" items="${boardList}" varStatus="status">
    	
    		<c:if test="${status.index mod 4 == 0}">
@@ -42,6 +50,7 @@
 		</c:if>		
     					
       	</c:forEach>
+	</c:if>    	
 </tbody>
 </table>
 
