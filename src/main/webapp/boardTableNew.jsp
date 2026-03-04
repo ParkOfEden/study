@@ -3,6 +3,9 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%-- <%@ include file="common/header.jsp" %> --%>
 <!-- boardTableNew.jsp -->
+<div style="color:red">
+boardList size : ${boardList.size()}
+</div>
 <section>
 <table class="board-table">
     <thead>
