@@ -36,11 +36,10 @@
                         <td>${b.num}</td> 
                         <td>
 							<%-- 이미지의 경로가 틀렸을때 엑박 대체이미지 출력되도록 설정 --%>
-						    <c:when test="${not empty b.systemFilename}">
-						        <img src="${pageContext.request.contextPath}/css/image/upload/product/${b.systemFilename}"
-						             style="width:50px;height:50px;object-fit:cover;"
-						             onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/css/img/no_image.jpg';">
-						    </c:when>
+					        <img src="${pageContext.request.contextPath}/css/image/upload/product/${b.systemFilename}"
+					             style="width:50px;height:50px;object-fit:cover;"
+					             onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/css/img/no_image.jpg';">
+						    
 						    <%-- 이미지가 null 일 경우에 엑박 대체이미지 출력되도록 설정 --%>
 						    <c:otherwise>
 						        <img src="${pageContext.request.contextPath}/css/img/no_image.jpg"
