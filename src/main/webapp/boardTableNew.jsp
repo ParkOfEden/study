@@ -66,7 +66,7 @@
     AuthUser 세션 상태: ${sessionScope.authUser}
 </div>
 
-<!-- 페이징 -->
+<!-- 페이징 (중복 확인 후 주석 제거 요망)
 <div class="paging">
 
     <c:if test="${pageMaker.prev}">
@@ -87,5 +87,6 @@
     </c:if>
 
 </div>
+-->
 </section>
 <%-- <%@ include file="common/footer.jsp"%> --%>
