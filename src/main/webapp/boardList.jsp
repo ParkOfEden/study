@@ -25,10 +25,17 @@
     </form>
 </div>
 
-<jsp:include page="/boardList.do">
-    <jsp:param name="type" value="${param.type}" />
-    <jsp:param name="keyword" value="${param.keyword}" />
-</jsp:include>
+<c:choose>
+
+    <c:when test="${param.include == 'grid'}">
+        <jsp:include page="gridTable.jsp"/>
+    </c:when>
+
+    <c:otherwise>
+        <jsp:include page="boardTableNew.jsp"/>
+    </c:otherwise>
+
+</c:choose>
 
 <!-- 페이징 -->
 <div class="paging">
