@@ -84,10 +84,16 @@ public class BoardListServlet extends HttpServlet {
 
         // 6. Forward 분기
         String include = request.getParameter("include");
-
+        /* table 게시판 view */
         if ("table".equals(include)) {
             request.getRequestDispatcher("/boardTable.jsp")
                     .forward(request, response);
+        /* grid view */
+        } else if ("grid".equals(include)) {
+
+            request.getRequestDispatcher("/gridTable.jsp")
+                   .forward(request, response);    
+        /* list view */    
         } else {
             request.getRequestDispatcher("/boardList.jsp")
                     .forward(request, response);
