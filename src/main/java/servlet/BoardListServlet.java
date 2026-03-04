@@ -83,7 +83,7 @@ public class BoardListServlet extends HttpServlet {
         request.setAttribute("pageMaker", pm);
 
         
-        request.getRequestDispatcher("/boardList.jsp")
+        request.getRequestDispatcher("/boardTableNew.jsp")
         .forward(request, response);
 
     } // end doGet method
