@@ -32,7 +32,8 @@ boardList : ${boardList}
 			            <td>${b.num}</td> <td>
                             <c:if test="${not empty b.systemFilename}">
                                 <img src="${pageContext.request.contextPath}/upload/${b.systemFilename}" 
-                                     style="width: 50px; height: 50px; object-fit: cover;">
+                                     style="width: 50px; height: 50px; object-fit: cover;"
+                                     onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/css/img/no_image.jpg';">
                             </c:if>
                         </td>
 

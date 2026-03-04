@@ -21,14 +21,15 @@
 	<h3>여기는 티셔츠 상품 페이지입니다.</h3>
 	
 	<!-- ✅ c:import 시작 태그와 닫는 태그 정확히 작성 -->
-	<c:import url="/boardList.do">
+	<%-- <c:import url="/boardList.do"> --%>
+	<c:include page="/boardList.do">
 	    <c:param name="type" value="category"/>
 	    <c:param name="keyword" value="티셔츠"/>
 	    <c:param name="include" value="table"/>
-	</c:import>
+	</c:include>
 	<!-- ✅ c:import 닫는 태그 필수 -->
 	
-<!-- 공백 출력 원인 1 : main2 class 중복 선언. 원인 2 : </section> 없이 <section> 사용. 원인 3 : 서블릿 없이 JSP 직접 호출
+<!-- 공백 출력 원인 1 : main2 class 중복 선언. 원인 2 : </section> 없이 <section> 사용. 원인 3 : c:import request 분리
 <section class="main2">
 	<div class="main2-inner">
 		<div class="contents-wrapper">
