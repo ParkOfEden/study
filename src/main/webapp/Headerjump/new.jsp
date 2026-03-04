@@ -12,7 +12,7 @@
 <%
 request.setAttribute("pageTitle", "신상품");
 %>    
-<%@ include file="/common/header.jsp"%>
+<%-- <%@ include file="/common/header.jsp"%> --%>
 <!-- header.jsp에서 처리합니다.(중복코드)
 <!DOCTYPE html>
 <html>
@@ -44,4 +44,4 @@ request.setAttribute("pageTitle", "신상품");
 </body>
 </html>
  -->
-<%@ include file="/common/footer.jsp"%>
+<%-- <%@ include file="/common/footer.jsp"%> --%>

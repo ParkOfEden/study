@@ -24,7 +24,7 @@
 	
 	<!-- ✅ c:import 시작 태그와 닫는 태그 정확히 작성 -->
 	
-	<jsp:include page="/boardList.do">
+	<jsp:include page="/gridBoardTable.jsp">
 	    <jsp:param name="type" value="category"/>
 	    <jsp:param name="keyword" value="티셔츠"/>
 	    <jsp:param name="include" value="table"/>
