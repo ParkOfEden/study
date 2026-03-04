@@ -1,25 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ include file="common/header.jsp" %>
-<%
-String type = request.getParameter("type");
-String keywordParam = request.getParameter("keyword");
 
-if (type == null || type.trim().isEmpty()) { type = "all"; }
-if (keywordParam == null) { keywordParam = ""; }
-
-/* DAO 호출 (기존 DAO의 리턴 타입이 ProductVO로 바뀌었다고 가정) */
-dao.BoardDAO dao = new dao.BoardDAO();
-java.util.List<vo.BoardVO> list; // BoardVO -> ProductVO
-
-if (!keywordParam.trim().isEmpty()) {
-    list = dao.getSearchBoardListPaging(type, keywordParam, 0, 10);
-} else {
-    list = dao.getBoardListPaging(0, 10);
-}
-
-request.setAttribute("boardList", list);
-%>
 
 <table class="board-table">
     <thead>
