@@ -47,7 +47,17 @@ request.setAttribute("pageTitle", "상품 관리 목록");
     </form>
 </div>
 
-<jsp:include page="boardTable.jsp" />
+<c:choose>
+
+    <c:when test="${param.view == 'grid'}">
+        <jsp:include page="gridTable.jsp"/>
+    </c:when>
+
+    <c:otherwise>
+        <jsp:include page="boardTable.jsp"/>
+    </c:otherwise>
+
+</c:choose>
 
 <!-- 페이징 -->
 <div class="paging">
