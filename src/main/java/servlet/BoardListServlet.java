@@ -62,11 +62,47 @@ public class BoardListServlet extends HttpServlet {
 	        list = dao.getBoardListPaging(cri.offset(), cri.getPerPageNum());
 	    }
 
+<<<<<<< HEAD
 	    // 3. PageMaker 생성 및 데이터 전달
 	    PageMaker pm = new PageMaker(cri, totalCount, 10);     
 	    request.setAttribute("boardList", list);
 	    request.setAttribute("pageMaker", pm);
+=======
+        if (paramPage != null && !paramPage.trim().isEmpty()) {
+            try {
+                pageNum = Integer.parseInt(paramPage);
+            } catch (NumberFormatException e) {
+                pageNum = 1;
+            }
+        }    	
+        
+        // 2. Criteria 생성
+        Criteria cri = new Criteria(pageNum, 10);        
+    	
+        BoardDAO dao = new BoardDAO();
+        
+        int totalCount = 0;
+        List<BoardVO> list = null;        
+        
+        if(keyword != null && !keyword.trim().isEmpty()) {
+        	
+        	totalCount = dao.getSearchBoardCount(type, keyword);
+        	
+            list = dao.getSearchBoardListPaging(
+                    type,
+                    keyword,
+                    cri.offset(),
+                    cri.getPerPageNum()
+            );
+            
+            System.out.println("search list size = " + list.size());
+            
+        } else {
+        	
+            totalCount = dao.getBoardCount();
+>>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
 
+<<<<<<< HEAD
 	    // 4. 화면 이동 (Forward) - 가장 마지막에 한 번만!
 	    String include = request.getParameter("include");
 	    if ("table".equals(include)) {
@@ -75,5 +111,34 @@ public class BoardListServlet extends HttpServlet {
 	        request.getRequestDispatcher("/boardList.jsp").forward(request, response);
 	    }
 	}
+=======
+            list = dao.getBoardListPaging(
+                    cri.offset(),
+                    cri.getPerPageNum()
+            );
+            
+            System.out.println("list size = " + list.size());
+            
+        }
+
+        // 3. PageMaker 생성
+        PageMaker pm = new PageMaker(cri, totalCount, 10);     
+        
+        // 4. JSP에 전달
+        request.setAttribute("boardList", list);
+        request.setAttribute("pageMaker", pm);
+
+        // forward 분기 처리
+        String include = request.getParameter("include");
+
+        if ("table".equals(include)) {
+            request.getRequestDispatcher("/boardTable.jsp")
+                   .forward(request, response);
+        } else {
+            request.getRequestDispatcher("/boardList.jsp")
+                   .forward(request, response);
+        }
+    } // end doGet method	
+>>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
 
 } // end BoardListServlet class

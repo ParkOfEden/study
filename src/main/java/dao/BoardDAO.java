@@ -6,6 +6,15 @@ import vo.BoardVO;
 import utils.DBCPUtil;
 
 public class BoardDAO {
+<<<<<<< HEAD
+=======
+	
+	
+	
+	// 전체 목록 조회
+	
+	public List<BoardVO> getAllBoards() {
+>>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
 
 	// 1. 검색 결과의 전체 개수 조회 (products 테이블 기준)
 	public int getSearchBoardCount(String type, String keyword) {
@@ -217,7 +226,18 @@ public class BoardDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+<<<<<<< HEAD
         return result;
     }
     
 }
+=======
+
+        return list;
+        
+        
+    }    
+    
+
+} // end BoardDAO class
+>>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
