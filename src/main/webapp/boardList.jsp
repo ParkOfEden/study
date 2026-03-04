@@ -5,7 +5,7 @@
   여기에 있던 DAO 호출 및 List 생성 로직을 모두 삭제하세요. 
   데이터는 BoardListServlet에서 이미 보냈습니다.
 --%>
-
+<section>
 <table class="board-table">
     <thead>
         <tr>
@@ -67,9 +67,9 @@
     현재 넘어온 데이터 개수: ${boardList.size()} <br>
     AuthUser 세션 상태: ${sessionScope.authUser}
 </div>
-<<<<<<< HEAD
+
 <%@ include file="common/footer.jsp" %>
-=======
+
 
 <div class="search-area">
     <form action="boardList.do" method="get">
@@ -126,4 +126,4 @@
 </div>
 </section>
 <%@ include file="common/footer.jsp"%>
->>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
+
