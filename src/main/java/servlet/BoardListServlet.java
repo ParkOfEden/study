@@ -82,22 +82,13 @@ public class BoardListServlet extends HttpServlet {
         request.setAttribute("boardList", list);
         request.setAttribute("pageMaker", pm);
 
-        // 6. Forward 분기
-        String include = request.getParameter("include");
-        /* table 게시판 view */
-        if ("table".equals(include)) {
-            request.getRequestDispatcher("/boardTable.jsp")
-                    .forward(request, response);
-        /* grid view */
-        } else if ("grid".equals(include)) {
+        // 6. Forward 분기 => boardList.jsp에서 처리
+        // view 타입만 전달
+        request.setAttribute("viewType", request.getParameter("include"));
 
-            request.getRequestDispatcher("/gridTable.jsp")
-                   .forward(request, response);    
-        /* list view */    
-        } else {
-            request.getRequestDispatcher("/boardList.jsp")
-                    .forward(request, response);
-        }
+        request.getRequestDispatcher("/boardList.jsp")
+               .forward(request, response);
+
     } // end doGet method
 
 }// end BoardListServlet class
