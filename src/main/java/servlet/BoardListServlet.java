@@ -94,7 +94,7 @@ public class BoardListServlet extends HttpServlet {
 
         } else {
 
-            request.getRequestDispatcher("/boardTableNew.jsp")
+            request.getRequestDispatcher("/boardList.jsp")
                    .forward(request, response);
         }
 
