@@ -12,7 +12,7 @@
 <%
 request.setAttribute("pageTitle", "신상품");
 %>    
-<%-- <%@ include file="/common/header.jsp"%> --%>
+<%@ include file="/common/header.jsp"%>
 <!-- header.jsp에서 처리합니다.(중복코드)
 <!DOCTYPE html>
 <html>
@@ -30,7 +30,8 @@ request.setAttribute("pageTitle", "신상품");
 		<div class="contents-wrapper">
 			<h3>여기는 신상품 소개 페이지입니다.</h3>
 			
-			<jsp:include page="/boardTable.jsp">
+			<!-- header와 footer include를 제거한 버전의 boardTableNone을 including -->
+			<jsp:include page="/boardList.do">
 			    <jsp:param name="type" value="category"/>
 			    <jsp:param name="keyword" value="신상품"/>  
 			</jsp:include>	
@@ -44,4 +45,4 @@ request.setAttribute("pageTitle", "신상품");
 </body>
 </html>
  -->
-<%-- <%@ include file="/common/footer.jsp"%> --%>
+<%@ include file="/common/footer.jsp"%>
