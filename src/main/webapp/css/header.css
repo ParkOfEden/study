@@ -1,292 +1,214 @@
 @charset "UTF-8";
 
 /* ============================= */
-/* 공통 초기화 */
-/* ============================= */
+	/* 공통 초기화 */
+	/* ============================= */
+	
+	* {
+	    box-sizing: border-box;
+	    margin: 0;
+	    padding: 0;
+	}
+	
+	body {
+	    margin: 0;
+	    font-family: 'Noto Sans KR', sans-serif;
+	}
+	
+	a {
+	    text-decoration: none;
+	    color: #333;
+	    /* [Action Tag] 링크 클릭 시 기본 동작 */
+	    cursor: pointer; 
+	}
+	
+	ul {
+	    list-style: none;
+	}
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+	/* ============================= */
+	/* 헤더 기본 구조 */
+	/* ============================= */
+	
+	header {
+	    height: auto;
+	    /* border-bottom: 1px solid #ccc; */
+	    border-bottom: none;
+	    padding: 15px 20px;
+	    background-color: #fff;
+	    position: relative;
+	    /* [Action Tag] 스크롤 시 헤더 고정용 클래스 hook: .header-fixed */
+	}
 
-body {
-    margin: 0;
-    font-family: 'Noto Sans KR', sans-serif;
-}
+	/* ============================= */
+	/* 상단 메뉴 (로그인 등) */
+	/* ============================= */
+	
+	.top-menu {
+	    display: flex;
+	    justify-content: flex-end;
+	    gap: 20px;
+	    margin-bottom: 15px;
+	    font-size: 13px;
+	    color: #666;
+	}
+	
+	/* [Action Tag] 마우스 오버 시 색상 변화 */
+	.top-menu a:hover {
+	    color: #ff6600;
+	    text-decoration: underline;
+	}
 
-a {
-    text-decoration: none;
-    color: #333;
-    /* [Action Tag] 링크 클릭 시 기본 동작 */
-    cursor: pointer; 
-}
+    .top-menu li {
+        margin-left: 15px;         /* 메뉴 항목 간 간격 */
+    }
 
-ul {
-    list-style: none;
-}
+    .top-menu a {
+        text-decoration: none;     /* 밑줄 제거 */
+        color: #333;               /* 글자색 */
+    }
 
-/* ============================= */
-/* 헤더 기본 구조 */
-/* ============================= */
+    .top-menu a:hover {
+        color: #000;               /* 마우스 올렸을 때 색상 */
+        text-decoration: underline;
+    }
 
-header {
-    height: auto;
-    border-bottom: 1px solid #ccc;
-    padding: 15px 20px;
-    background-color: #fff;
-    position: relative;
-    /* [Action Tag] 스크롤 시 헤더 고정용 클래스 hook: .header-fixed */
-}
+    /* 🔹 카테고리 메뉴 (가로 정렬 기본 스타일) */
+    .category-menu {
+        display: flex;             /* 가로 나열 */
+        justify-content: center;   /* 중앙 정렬 (원하시면 flex-start 로 변경) */
+        list-style: none;
+        margin: 0;
+        padding: 15px 0;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+    }
 
-  
+    .category-menu > li {
+        position: relative;        /* 서브메뉴 위치 기준 */
+        margin: 0 15px;
+        padding: 10px 0;
+        cursor: pointer;
+        font-weight: bold;
+    }
 
-/* ============================= */
-/* 상단 메뉴 (로그인 등) */
-/* ============================= */
+    /* 서브메뉴 숨김 */
+    .category-menu .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #ddd;
+        list-style: none;
+        padding: 10px;
+        min-width: 150px;
+        z-index: 100;
+    }
 
-/* ============================= */
-/* 상단 메뉴 (로그인 등) */
-/* ============================= */
+    /* 마우스 올렸을 때 서브메뉴 보임 */
+    .category-menu > li:hover .submenu {
+        display: block;
+    }
 
-.top-menu {
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    margin-bottom: 15px;
-    font-size: 13px;
-    color: #666;
+    .category-menu .submenu li {
+        padding: 5px 0;
+        border-bottom: 1px solid #eee;
+    }
     
-    /* 👇 이 줄을 추가하세요 (첫 번째 코드의 배경색) */
-    background-color: #f5f5f5; 
-    padding: 10px 20px;
-}
-
-/* [Action Tag] 마우스 오버 시 색상 변화 */
-.top-menu a:hover {
-    color: #ff6600;
-    text-decoration: underline;
-}
-
-/* ============================= */
-/* 카테고리 메뉴 */
-/* ============================= */
-
-.category-menu {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.category-menu > li {
-    position: relative;
-    cursor: pointer;
-    padding: 10px 15px;
-    transition: color 0.3s;
-    /* [Action Tag] 서브메뉴 토글을 위한 JS 훅 클래스: .js-category-trigger */
-}
-
-/* [Action Tag] 마우스 오버 시 활성화 */
-.category-menu > li:hover {
-    color: #ff6600;
-}
-
-/* [Action Tag] 활성화 상태 클래스 (모바일/클릭용): .is-active */
-.category-menu > li.is-active {
-    color: #ff6600;
-}
-
-/* 화살표 아이콘 */
-.category-menu > li.has-submenu::after {
-    content: '▼';
-    font-size: 10px;
-    margin-left: 5px;
-    color: #999;
-    transition: transform 0.3s;
-}
-
-/* [Action Tag] 호버 시 화살표 회전 액션 */
-.category-menu > li:hover::after {
-    color: #ff6600;
-    transform: rotate(180deg);
-}
-
-/* [Action Tag] 활성화 시 화살표 회전 (클릭용) */
-.category-menu > li.is-active::after {
-    transform: rotate(180deg);
-}
-
-/* ============================= */
-/* 서브 메뉴 */
-/* ============================= */
-
-.submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #fff;
-    border: 1px solid #eee;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    min-width: 160px;
-    z-index: 1000;
-    padding: 15px 0;
-    border-radius: 4px;
-    margin-top: 10px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    
-    /* [Action Tag] 서브메뉴 표시 상태 클래스: .is-visible */
-}
-
-/* [Action Tag] 호버 시 서브메뉴 표시 액션 */
-.category-menu > li:hover .submenu {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    margin-top: 0;
-}
-
-/* [Action Tag] JS 로 강제 표시할 때 사용하는 클래스 */
-.category-menu > li.is-active .submenu {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    margin-top: 0;
-}
-
-.submenu li {
-    padding: 8px 20px;
-    font-size: 14px;
-    font-weight: normal;
-    color: #555;
-    white-space: nowrap;
-    /* [Action Tag] 서브메뉴 아이템 클릭 액션 */
-    cursor: pointer;
-}
-
-.submenu li:hover {
-    background-color: #f9f9f9;
-    color: #ff6600;
-    padding-left: 25px;
-    transition: all 0.2s;
-}
-
-/* ============================= */
-/* 특별 메뉴 */
-/* ============================= */
-
-.sale-text {
-    color: #ff3333 !important;
-
-    /* [Action Tag] 강조 텍스트 애니메이션 훅: .animate-pulse */
-}
-
-/* ============================= */
-/* [Action Script Hooks] 자바스크립트 연동 가이드 */
-/* ============================= */
-/* 
-   1. 모바일 환경에서는 :hover 가 작동하지 않으므로, 
-      .category-menu > li 에 click 이벤트를 부여하고 
-      .is-active 클래스를 토글하세요.
-   
-   2. 서브메뉴 접근성을 위해 keydown (Enter, Space) 이벤트도 
-      .js-category-trigger 클래스에 연결하는 것을 권장합니다.
-*/
-
-
-/* ============================= */
-/* 커서 효과 (맨 아래 위치!) */
-/* ============================= */
-
-.category-menu > li:hover,
-.submenu a:hover,
-.top-menu a:hover {
-    cursor: url("link-w.cur"), pointer;
-}
-
-/* ============================= */
-/* 🔍 상단 검색창 */
-/* ============================= */
-
-.top-search {
-    
-    position: relative;   /* 검색창 absolute 기준 */
-}
-
-.top-search form {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.top-search input {
-    height: 28px;
-    padding: 0 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 13px;
-    outline: none;
-    transition: 0.2s ease;
-}
-
-.top-search input:focus {
-    border-color: #000;
-}
-
-.top-search button {
-    height: 28px;
-    padding: 0 10px;
-    border: 1px solid #000;
-    background-color: #000;
-    color: #fff;
-    font-size: 13px;
-    cursor: pointer;
-    border-radius: 3px;
-    transition: 0.2s ease;
-}
-
-.top-search button:hover {
-    background-color: #333;
-}
-
-/* 체크박스 숨기기 */
-.search-checkbox {
-    display: none;
-}
-
-/* 기본은 숨김 */
-.search-box {
-    display: none;
-    position: absolute;
-    top: 30px;
-    right: 0;
-    background: #fff;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    white-space: nowrap;    
-}
-
-.search-box input {
-    padding: 4px 6px;
-    border: 1px solid #ccc;
-}
-
-.search-box button {
-    padding: 4px 8px;
-    background: #CD5C5C;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-/* 체크되면 보이기 */
-.search-checkbox:checked + .search-toggle + .search-box {
-    display: block;
-}
+    .category-menu .submenu li a {
+        text-decoration: none;
+        color: #555;
+        display: block;
+    }
+    	
+	/* ============================= */
+	/* 🔍 상단 검색창 */
+	/* ============================= */
+	
+	.top-search {
+	    
+	    position: relative;   /* 검색창 absolute 기준 */
+	}
+	
+	.top-search form {
+	    display: flex;
+	    align-items: center;
+	    gap: 6px;
+	}
+	
+	.top-search input {
+	    height: 28px;
+	    padding: 0 8px;
+	    border: 1px solid #ccc;
+	    border-radius: 3px;
+	    font-size: 13px;
+	    outline: none;
+	    transition: 0.2s ease;
+	}
+	
+	.top-search input:focus {
+	    border-color: #000;
+	}
+	
+	.top-search button {
+	    height: 28px;
+	    padding: 0 10px;
+	    border: 1px solid #000;
+	    background-color: #000;
+	    color: #fff;
+	    font-size: 13px;
+	    cursor: pointer;
+	    border-radius: 3px;
+	    transition: 0.2s ease;
+	}
+	
+	.top-search button:hover {
+	    background-color: #333;
+	}
+	
+	/* 체크박스 숨기기 */
+	.search-checkbox {
+	    display: none;
+	}
+	
+	/* 기본은 숨김 */
+	.search-box {
+	    display: none;
+	    position: absolute;
+	    top: 30px;
+	    right: 0;
+	    background: #fff;
+	    padding: 8px;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    white-space: nowrap;    
+	}
+	
+	.search-box input {
+	    padding: 4px 6px;
+	    border: 1px solid #ccc;
+	}
+	
+	.search-box button {
+	    padding: 4px 8px;
+	    background: #CD5C5C;
+	    color: white;
+	    border: none;
+	    cursor: pointer;
+	}
+	
+	/* 체크되면 보이기 */
+	.search-checkbox:checked + .search-toggle + .search-box {
+	    display: block;
+	}
+	
+	/* ============================= */
+	/* 커서 효과 (맨 아래 위치!) */
+	/* ============================= */
+	
+	.category-menu > li:hover,
+	.submenu a:hover,
+	.top-menu a:hover {
+	    cursor: url("link-w.cur"), pointer;
+	}	 
