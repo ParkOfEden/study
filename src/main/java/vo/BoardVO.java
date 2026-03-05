@@ -10,7 +10,7 @@ public class BoardVO {
     private String content;     // DB의 p_desc와 매칭
     private int price;          // [추가] 상품 가격 필드
     private String imgUrl;      
-    private String system_filename; 
+    private String systemFilename; 
     private Date createdAt;
     private Date updatedAt;
     private int viewCount;
