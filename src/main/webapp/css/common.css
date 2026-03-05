@@ -166,6 +166,17 @@ table tr td input[type='number'] {
     table-layout: fixed;
 }
 
+.product-table img{
+    width:100%; /* td 크기에 맞게 줄어듦 */
+    height:auto; /* 비율 유지 */
+    object-fit:cover; /* 이미지 찌그러짐 방지 */
+}
+
+.product-table td{
+    width:25%;
+    text-align:center;
+}
+
 /* 기존 전역 table 스타일 대신 클래스 기반으로 변경 */
 .pd-table {
     margin: 0 auto;          /* 가운데 정렬 */
