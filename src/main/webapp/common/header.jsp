@@ -305,7 +305,7 @@
         <li class="has-submenu">
             TOP
             <ul class="submenu">
-                <li><a href="<%=path%>/Headerjump/Tshirt.jsp">티셔츠</a></li>
+                <li><a href="<%=path%>/boardList.do?category=티셔츠">티셔츠</a></li>
                 <li><a href="<%=path%>/Headerjump/blouse.jsp">블라우스</a></li>
                 <li><a href="<%=path%>/Headerjump/Shirt.jsp">셔츠</a></li>
                 <li><a href="<%=path%>/Headerjump/knsw.jsp">니트/스웨터</a></li>
