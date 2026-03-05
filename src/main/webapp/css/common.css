@@ -170,7 +170,7 @@ table tr td input[type='number'] {
 }
 
 .product-table {
-    width: 80%;
+    width: 100%;
     table-layout: fixed;
 }
 
