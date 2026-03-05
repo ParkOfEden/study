@@ -32,10 +32,10 @@
 					<div class="product">
 					<table class="product-table">
 						<tr>
-							<td><a href="#"><img src="css/img/main/sort_link/today_pick-01.jpg"></a></td>
-							<td><a href="#"><img src="css/img/main/sort_link/today_pick-02.jpg"></a></td>
-							<td><a href="#"><img src="css/img/main/sort_link/today_pick-03.jpg"></a></td>
-							<td><a href="#"><img src="css/img/main/sort_link/today_pick-04.jpg"></a></td>
+							<td><a href="#"><img src="css/img/main/md/today_pick-01.jpg"></a></td>
+							<td><a href="#"><img src="css/img/main/md/today_pick-02.jpg"></a></td>
+							<td><a href="#"><img src="css/img/main/md/today_pick-03.jpg"></a></td>
+							<td><a href="#"><img src="css/img/main/md/today_pick-04.jpg"></a></td>
 						</tr>
 						<tr>
 							<td>상품 1</td>
