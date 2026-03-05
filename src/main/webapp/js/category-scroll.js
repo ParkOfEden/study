@@ -28,13 +28,13 @@ let scrollInterval;
 
 document.querySelector(".scroll-btn.left").addEventListener("mouseenter", ()=>{
     scrollInterval = setInterval(()=>{
-        scrollBox.scrollLeft -= 8;
+        scrollBox.scrollLeft -= 12;
     },10);
 });
 
 document.querySelector(".scroll-btn.right").addEventListener("mouseenter", ()=>{
     scrollInterval = setInterval(()=>{
-        scrollBox.scrollLeft += 8;
+        scrollBox.scrollLeft += 12;
     },10);
 });
 
