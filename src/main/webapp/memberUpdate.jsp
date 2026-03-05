@@ -90,12 +90,15 @@
         DBCPUtil.close(pstmt, conn);
     }
 %>
-
 <script>
     alert('<%= msg %>');
     <% if(isSuccess) { %>
-        // 관리자가 수정했다면 목록으로, 본인이면 인덱스로 이동하는 로직을 추가하면 더 좋습니다.
-        location.href = 'memberList.do'; 
+        <%-- 세션에 저장된 authUser가 'admin'인지 체크하여 경로 분기 --%>
+        <% if("admin".equals(session.getAttribute("authUser"))) { %>
+            location.href = 'memberList.do'; 
+        <% } else { %>
+            location.href = 'memberUpdateForm.jsp'; 
+        <% } %>
     <% } else { %>
         history.back();
     <% } %>
