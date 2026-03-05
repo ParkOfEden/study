@@ -155,6 +155,17 @@ table tr td input[type='number'] {
 }
 */
 
+/* 메인 페이지 추천 아이템 관련 css */
+.product {
+    display: flex;
+    justify-content: center;
+}
+
+.product-table {
+    width: 80%;
+    table-layout: fixed;
+}
+
 /* 기존 전역 table 스타일 대신 클래스 기반으로 변경 */
 .pd-table {
     margin: 0 auto;          /* 가운데 정렬 */
