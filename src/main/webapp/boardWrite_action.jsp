@@ -31,8 +31,10 @@
 
         // 2. SQL문 수정: 테이블명(products), 컬럼명(p_name, p_desc, price 등) 반영
         // p_id는 IDENTITY이므로 생략 가능
+        /* String sql = "INSERT INTO products (category, p_name, author, p_desc, price, system_filename) "
+                   + "VALUES (?, ?, ?, ?, ?, ? || '_' || (SELECT COUNT(*) FROM products) || ?)"; */
         String sql = "INSERT INTO products (category, p_name, author, p_desc, price, system_filename) "
-                   + "VALUES (?, ?, ?, ?, ?, ? || '_' || (SELECT COUNT(*) FROM products) || ?)";
+        + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, category);

@@ -1,45 +1,20 @@
 @charset "UTF-8";
 
 /* ============================= */
-	/* 공통 초기화 */
-	/* ============================= */
-	
-	* {
-	    box-sizing: border-box;
-	    margin: 0;
-	    padding: 0;
-	}
-	
-	body {
-	    margin: 0;
-	    font-family: 'Noto Sans KR', sans-serif;
-	}
-	
-	a {
-	    text-decoration: none;
-	    color: #333;
-	    /* [Action Tag] 링크 클릭 시 기본 동작 */
-	    cursor: pointer; 
-	}
-	
-	ul {
-	    list-style: none;
-	}
+/* 1. 공통 초기화 */
+/* ============================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-	/* ============================= */
-	/* 헤더 기본 구조 */
-	/* ============================= */
-	
-	header {
-	    height: auto;
-	    /* border-bottom: 1px solid #ccc; */
-	    border-bottom: none;
-	    padding: 15px 20px;
-	    background-color: #fff;
-	    position: relative;
-	    /* [Action Tag] 스크롤 시 헤더 고정용 클래스 hook: .header-fixed */
-	}
+body {
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
 
+<<<<<<< HEAD
 	/* ============================= */
 	/* 상단 메뉴 (로그인 등) */
 	/* ============================= */
@@ -57,8 +32,15 @@
 .top-menu a:hover {
     color: red !important; /* 강제로 빨간색으로 변하는지 확인 */
     text-decoration: underline !important;
+=======
+a {
+    text-decoration: none;
+    color: #333;
+    cursor: pointer; 
+>>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
 }
 
+<<<<<<< HEAD
 .top-menu a:hover {
     color: #ff6600; /* 마우스 올렸을 때 색상 */
     text-decoration: underline;
@@ -73,132 +55,166 @@
         background-color: #fff;
         border-bottom: 1px solid #ddd;
     }
+=======
+ul {
+    list-style: none;
+}
 
-    .category-menu > li {
-        position: relative;        /* 서브메뉴 위치 기준 */
-        margin: 0 15px;
-        padding: 10px 0;
-        cursor: pointer;
-        font-weight: bold;
-    }
+/* ============================= */
+/* 2. 헤더 레이아웃 */
+/* ============================= */
+header {
+    height: auto;
+    border-bottom: none;
+    padding: 15px 20px;
+    background-color: #fff;
+    position: relative;
+}
 
-    /* 서브메뉴 숨김 */
-    .category-menu .submenu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: #fff;
-        border: 1px solid #ddd;
-        list-style: none;
-        padding: 10px;
-        min-width: 150px;
-        z-index: 100;
-    }
+/* ============================= */
+/* 3. 상단 메뉴 (top-menu) */
+/* ============================= */
+.top-menu {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #666;
+}
 
-    /* 마우스 올렸을 때 서브메뉴 보임 */
-    .category-menu > li:hover .submenu {
-        display: block;
-    }
+.top-menu li {
+    margin-left: 15px;
+}
+>>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
 
-    .category-menu .submenu li {
-        padding: 5px 0;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .category-menu .submenu li a {
-        text-decoration: none;
-        color: #555;
-        display: block;
-    }
-    	
-	/* ============================= */
-	/* 🔍 상단 검색창 */
-	/* ============================= */
-	
-	.top-search {
-	    
-	    position: relative;   /* 검색창 absolute 기준 */
-	}
-	
-	.top-search form {
-	    display: flex;
-	    align-items: center;
-	    gap: 6px;
-	}
-	
-	.top-search input {
-	    height: 28px;
-	    padding: 0 8px;
-	    border: 1px solid #ccc;
-	    border-radius: 3px;
-	    font-size: 13px;
-	    outline: none;
-	    transition: 0.2s ease;
-	}
-	
-	.top-search input:focus {
-	    border-color: #000;
-	}
-	
-	.top-search button {
-	    height: 28px;
-	    padding: 0 10px;
-	    border: 1px solid #000;
-	    background-color: #000;
-	    color: #fff;
-	    font-size: 13px;
-	    cursor: pointer;
-	    border-radius: 3px;
-	    transition: 0.2s ease;
-	}
-	
-	.top-search button:hover {
-	    background-color: #333;
-	}
-	
-	/* 체크박스 숨기기 */
-	.search-checkbox {
-	    display: none;
-	}
-	
-	/* 기본은 숨김 */
-	.search-box {
-	    display: none;
-	    position: absolute;
-	    top: 30px;
-	    right: 0;
-	    background: #fff;
-	    padding: 8px;
-	    border: 1px solid #ccc;
-	    border-radius: 4px;
-	    white-space: nowrap;    
-	}
-	
-	.search-box input {
-	    padding: 4px 6px;
-	    border: 1px solid #ccc;
-	}
-	
-	.search-box button {
-	    padding: 4px 8px;
-	    background: #CD5C5C;
-	    color: white;
-	    border: none;
-	    cursor: pointer;
-	}
-	
-	/* 체크되면 보이기 */
-	.search-checkbox:checked + .search-toggle + .search-box {
-	    display: block;
-	}
-	
-	/* ============================= */
-	/* 커서 효과 (맨 아래 위치!) */
-	/* ============================= */
-	
-	.category-menu > li:hover,
-	.submenu a:hover,
-	.top-menu a:hover {
-	    cursor: url("link-w.cur"), pointer;
-	}	 
+/* ============================= */
+/* 4. 카테고리 메뉴 (category-menu) */
+/* ============================= */
+.category-menu {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 15px 0;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.category-menu > li {
+    position: relative;
+    margin: 0 15px;
+    padding: 10px 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* 서브메뉴(작은 메뉴) 스타일 */
+.category-menu .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    min-width: 150px;
+    z-index: 1000; /* 서브메뉴가 컨텐츠를 덮도록 보장 */
+}
+
+.category-menu .submenu li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.category-menu .submenu li a {
+    color: #000;
+    display: block;
+    font-size: 14px;
+    font-weight: normal; /* 기본은 얇게 */
+}
+
+/* 마우스 호버 시 서브메뉴 표시 */
+.category-menu > li:hover .submenu {
+    display: block;
+}
+
+/* ============================= */
+/* 5. 검색창 (Search) */
+/* ============================= */
+.top-search {
+    position: relative;
+}
+
+.top-search form {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.top-search input {
+    height: 28px;
+    padding: 0 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 13px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.top-search input:focus {
+    border-color: #000;
+}
+
+.top-search button {
+    height: 28px;
+    padding: 0 10px;
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.search-checkbox {
+    display: none;
+}
+
+.search-box {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: #fff;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 1001;
+}
+
+.search-checkbox:checked + .search-toggle + .search-box {
+    display: block;
+}
+
+/* ============================= */
+/* 6. Hover 및 커서 효과 (최종 우선순위) */
+/* ============================= */
+
+/* 큰 메뉴 및 상단 메뉴 hover */
+.top-menu a:hover,
+.category-menu > li:hover {
+    color: #ff6600;
+    text-decoration: underline;
+    cursor: url("link-w.cur"), pointer;
+}
+
+/* 작은 메뉴(서브메뉴) 전용 hover 효과 */
+/* 선택자를 구체적으로 작성하여 기존 color: #555를 덮어씁니다. */
+.category-menu .submenu li a:hover {
+    color: #ff0000!important;
+    font-size: 15px;      /* 글자 크기 살짝 확대 */
+    font-weight: bold;    /* 글자 굵게 */
+    text-decoration: underline;
+    cursor: url("link-w.cur"), pointer;
+}

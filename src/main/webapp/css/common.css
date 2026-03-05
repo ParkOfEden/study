@@ -23,10 +23,18 @@ section {
 /* 전역 설정 방지 예시 */
 .section-base {
 	min-height: 700px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	/* display: flex; */
+	/* align-items: center; */
+	/* justify-content: center; */
 	padding: 30px;
+}
+
+.section-base.main{
+    width:100%;
+    padding:120px 0;   /* 위아래 공간 확보 */
+    position:relative;
+	display:block;
+	text-align:center;    
 }
 
 /* 상단 중앙 정렬이 필요할 때만 */
@@ -54,7 +62,7 @@ section {
 } 
 
 section.main{
-	background-image:url(img/dog.jpg);
+	background-image:url(img/main00.jpg);
 	background-position: center;
 	/*background-repeat: no-repeat;*/	
 	/*background-size:cover;*/
@@ -154,6 +162,28 @@ table tr td input[type='number'] {
 	font-size: 14px;
 }
 */
+
+/* 메인 페이지 추천 아이템 관련 css */
+.product {
+    width:80%;
+    margin:40px auto;
+}
+
+.product-table {
+    width: 80%;
+    table-layout: fixed;
+}
+
+.product-table img{
+    width:100%; /* td 크기에 맞게 줄어듦 */
+    height:auto; /* 비율 유지 */
+    /* object-fit:cover; */ /* 이미지 찌그러짐 방지 */
+}
+
+.product-table td{
+    width:25%;
+    text-align:center;
+}
 
 /* 기존 전역 table 스타일 대신 클래스 기반으로 변경 */
 .pd-table {
