@@ -75,8 +75,8 @@ section.main h1{
 	min-height: 700px;
 	background-color:#ffffff80;
 	color:black;
-	display: flex;
-	align-items: center;
+	/* display: flex; */
+	/* align-items: center; */
 	justify-content: center;
 }
 
