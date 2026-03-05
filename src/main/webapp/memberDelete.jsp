@@ -4,14 +4,21 @@
 <%
     // 1. 삭제할 번호(num) 파라미터 받기
     Integer sessionNum = (Integer)session.getAttribute("authNum");
+String authUser = (String)session.getAttribute("authUser"); // 세션에 저장된 아이디 확인
     String numStr = request.getParameter("num");
     
-    if(sessionNum == null || numStr == null ||
-    	       sessionNum != Integer.parseInt(numStr)) {
-    
-        out.println("<script>alert('잘못된 접근입니다.'); location.href='index.jsp';</script>");
-        return;
-    }
+    if(sessionNum == null || numStr == null || 
+    	       sessionNum != Integer.parseInt(numStr) || 
+    	       "admin".equals(authUser)) {
+    	    
+    	        String msg = "잘못된 접근입니다.";
+    	        if("admin".equals(authUser)) {
+    	            msg = "관리자 계정은 탈퇴할 수 없습니다.";
+    	        }
+    	        
+    	        out.println("<script>alert('" + msg + "'); location.href='index.jsp';</script>");
+    	        return;
+    	    }
 
     Connection conn = null;
     PreparedStatement pstmt = null;
