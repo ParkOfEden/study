@@ -146,7 +146,7 @@ header {
     position: relative;
 }
 
-.top-search a:hover {
+.top-search lable:hover {
     color: red !important; /* 강제로 빨간색으로 변하는지 확인 */
     text-decoration: underline !important;
 }
