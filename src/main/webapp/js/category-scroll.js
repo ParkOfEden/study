@@ -1,6 +1,7 @@
 /**
  *  메인(index.jsp) 상단부 카테고리 영역 스크롤 기능 수정
  */
+console.log("scroll js loaded");
 
 document.addEventListener("DOMContentLoaded", function(){
 
