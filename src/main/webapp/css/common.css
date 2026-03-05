@@ -180,12 +180,13 @@ table tr td input[type='number'] {
     position:relative;
     display:flex;
     align-items:center;
+    
+    width:60%;
+    margin:0 auto;    
 }
 
 .category {
-    /* width:60%; */
-    /* margin:40px auto; */
-    overflow-x:auto;
+    overflow:hidden;
 }
 
 .category-table{
@@ -232,11 +233,11 @@ table tr td input[type='number'] {
 }
 
 .scroll-btn.left{
-    left:0;
+    left:-40px;
 }
 
 .scroll-btn.right{
-    right:0;
+    right:-40px;
 }
 
 /* 추천 아이템 관련 css */
