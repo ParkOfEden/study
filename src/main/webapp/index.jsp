@@ -27,23 +27,25 @@
 			
 			<section class="section-base main">
 			
-				<h1>고객님을 위한 추천 아이템</h1>
-				
-					<div class="product">
-					<table class="product-table">
-						<tr>
-							<td><a href="#"><img src="css/img/main/md/today_pick-01.jpg"></a></td>
-							<td><a href="#"><img src="css/img/main/md/today_pick-02.jpg"></a></td>
-							<td><a href="#"><img src="css/img/main/md/today_pick-03.jpg"></a></td>
-							<td><a href="#"><img src="css/img/main/md/today_pick-04.jpg"></a></td>
-						</tr>
-						<tr>
-							<td>상품 1</td>
-							<td>상품 2</td>
-							<td>상품 3</td>
-							<td>상품 4</td>
-						</tr>
-					</table>
+				<div class="recommend">
+					<h1>고객님을 위한 추천 아이템</h1>
+					
+						
+						<table class="product-table">
+							<tr>
+								<td><a href="#"><img src="css/img/main/md/today_pick-01.jpg"></a></td>
+								<td><a href="#"><img src="css/img/main/md/today_pick-02.jpg"></a></td>
+								<td><a href="#"><img src="css/img/main/md/today_pick-03.jpg"></a></td>
+								<td><a href="#"><img src="css/img/main/md/today_pick-04.jpg"></a></td>
+							</tr>
+							<tr>
+								<td>상품 1</td>
+								<td>상품 2</td>
+								<td>상품 3</td>
+								<td>상품 4</td>
+							</tr>
+						</table>
+						
 				</div>
 			
 			</section>

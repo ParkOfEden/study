@@ -164,14 +164,26 @@ table tr td input[type='number'] {
 */
 
 /* 메인 페이지 추천 아이템 관련 css */
+.recommend{
+    position:relative;
+    text-align:center;
+}
+
+.recommend h3{
+    margin-top:80px;
+}
+
 .product {
     width:80%;
     margin:40px auto;
 }
 
 .product-table {
-    width: 100%;
-    table-layout: fixed;
+	position:absolute;
+    top:150px;   /* h3 아래 위치 */
+    left:50%;
+    transform:translateX(-50%);
+    width:80%;	
 }
 
 .product-table img{
@@ -184,6 +196,7 @@ table tr td input[type='number'] {
     width:25%;
     text-align:center;
 }
+
 
 /* 기존 전역 table 스타일 대신 클래스 기반으로 변경 */
 .pd-table {
