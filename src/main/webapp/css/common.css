@@ -193,7 +193,7 @@ table tr td input[type='number'] {
     border-spacing: 25px 0; /* 가로 간격, 세로 간격 */	
     /* width:100%; */
     /* table-layout:fixed; */
-    margin:auto;      /* 가운데 정렬 */
+    /* margin:auto; */      /* 가운데 정렬 */
     width:max-content;   /* 콘텐츠 크기만큼 table 너비 확장 */
 }
 
