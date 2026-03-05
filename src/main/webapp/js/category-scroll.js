@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
 	const scrollBox = document.querySelector(".category-scroll");
 	
-	document.querySelector(".scroll-btn.left").addEventListener("mouseenter", ()=>{
+	document.querySelector(".scroll-btn.left").addEventListener("click", ()=>{
 	    scrollBox.scrollBy({ left:-300, behavior:"smooth" });
 	});
 	
-	document.querySelector(".scroll-btn.right").addEventListener("mouseenter", ()=>{
+	document.querySelector(".scroll-btn.right").addEventListener("click", ()=>{
 	    scrollBox.scrollBy({ left:300, behavior:"smooth" });
 	});
 
