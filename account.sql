@@ -54,6 +54,9 @@ SELECT
 FROM DUAL
 CONNECT BY LEVEL <= 1000;
 
+DELETE FROM ACCOUNTS 
+WHERE email = 'studylsy@gmail.com';
+
 COMMIT;
 
 -- 확인용

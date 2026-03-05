@@ -44,7 +44,7 @@
 <%-- 상단 메뉴 바 섹션 --%>
 <ul class="top-menu">
     <li><a href="<%= request.getContextPath() %>/index.jsp">홈</a></li>
-    <li><a href="<%= request.getContextPath() %>/sendMail.jsp">SEND MAIL</a></li>
+    <%-- <li><a href="<%= request.getContextPath() %>/sendMail.jsp">SEND MAIL</a></li> --%>
 
     <% if(authUser == null){ %>
         <%-- 비회원 상태 --%>

@@ -49,10 +49,16 @@
 		   //수신자 지정
 		   message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
 		   //제목지정
-		   message.setSubject("CGG 인증코드", "UTF-8");
+		   message.setSubject("[월클의류] 비밀번호 찾기 인증번호", "UTF-8");
 		   //발신 본문 내용 생성
-		   String content ="<h1>인증하실려면 코드를 입력페이지에 입력해 주세요.</h1>";
-		   content +="<h2>["+code+"]</h2>";
+		   String content = "<div style='font-family: sans-serif; padding: 20px; border: 1px solid #eee;'>";
+content += "<h2 style='color: #d16464;'>비밀번호 재설정 인증번호</h2>";
+content += "<p>안녕하세요. 요청하신 비밀번호 찾기 인증번호를 안내해 드립니다.</p>";
+content += "<div style='background: #f9f9f9; padding: 15px; text-align: center; font-size: 1.5rem; font-weight: bold;'>";
+content += "[" + code + "]"; // 랜덤하게 생성된 5자리 코드
+content += "</div>";
+content += "<p>해당 코드를 인증번호 입력창에 입력해 주세요.</p>";
+content += "</div>";
 		   
 		   //본문 내용등록
 		   message.setContent(content, "text/html;charset=utf-8");
