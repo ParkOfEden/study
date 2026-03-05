@@ -4,6 +4,28 @@
 <%@ include file="common/header.jsp" %>
 <!-- boardTableNew.jsp -->
 <section>
+
+<!-- 검색 -->
+<div class="search-area">
+    <form action="boardList.do" method="get">
+        
+        <select name="type">
+            <option value="title"
+            	${param.type == 'title' ? 'selected' : ''}>제목</option>
+            <option value="category"
+            	${param.type == 'category' ? 'selected' : ''}>카테고리</option>
+            <option value="all"
+            	${param.type == 'all' ? 'selected' : ''}>제목+카테고리</option>
+        </select>
+		<!-- 검색 후에도 값 유지 -->
+        <input type="text" name="keyword" 
+               value="${param.keyword}" 
+               placeholder="검색어 입력">
+
+        <button type="submit">검색</button>
+    </form>
+</div>
+
 <table class="board-table">
     <thead>
         <tr>
@@ -66,7 +88,7 @@
     AuthUser 세션 상태: ${sessionScope.authUser}
 </div>
 
-<!-- 페이징 (중복 확인 후 주석 제거 요망)
+<!-- 페이징 -->
 <div class="paging">
 
     <c:if test="${pageMaker.prev}">
@@ -87,6 +109,6 @@
     </c:if>
 
 </div>
--->
+
 </section>
 <%@ include file="common/footer.jsp"%>
