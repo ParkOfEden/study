@@ -14,7 +14,7 @@ body {
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-<<<<<<< HEAD
+
 	/* ============================= */
 	/* 상단 메뉴 (로그인 등) */
 	/* ============================= */
@@ -32,15 +32,16 @@ body {
 .top-menu a:hover {
     color: red !important; /* 강제로 빨간색으로 변하는지 확인 */
     text-decoration: underline !important;
-=======
+}
+
 a {
     text-decoration: none;
     color: #333;
     cursor: pointer; 
->>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
+
 }
 
-<<<<<<< HEAD
+
 .top-menu a:hover {
     color: #ff6600; /* 마우스 올렸을 때 색상 */
     text-decoration: underline;
@@ -55,7 +56,7 @@ a {
         background-color: #fff;
         border-bottom: 1px solid #ddd;
     }
-=======
+
 ul {
     list-style: none;
 }
@@ -86,7 +87,7 @@ header {
 .top-menu li {
     margin-left: 15px;
 }
->>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
+
 
 /* ============================= */
 /* 4. 카테고리 메뉴 (category-menu) */
