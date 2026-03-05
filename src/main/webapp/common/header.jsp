@@ -37,8 +37,6 @@
 
 
 </head>
-<%-- 메인 상단 컨텐츠 아이콘 스크롤 기능 --%>
-<script src="js/category-scroll.js"></script>
 <body>
 
 <header>
