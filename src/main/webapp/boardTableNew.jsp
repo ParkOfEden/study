@@ -92,10 +92,10 @@
     </tbody>
 </table>
 <%-- 디버깅용 코드 --%>
-<div style="color:red; background:#eee; padding:10px;">
+<%-- <div style="color:red; background:#eee; padding:10px;">
     현재 넘어온 데이터 개수: ${empty boardList ? 0 : boardList.size()} <br>
     AuthUser 세션 상태: ${sessionScope.authUser}
-</div>
+</div> --%> 
 
 <!-- 페이징 -->
 <div class="paging">
