@@ -34,7 +34,7 @@
             board.setTitle(rs.getString("p_name")); 
             board.setPrice(rs.getInt("price")); 
             board.setAuthor(rs.getString("author"));
-            board.setSystemFilename(rs.getString("system_filename")); 
+            board.setSystem_filename(rs.getString("system_filename")); 
             
             // p_desc 컬럼을 content로 매핑
             board.setContent(rs.getString("p_desc")); 
@@ -86,16 +86,16 @@
     <td colspan="2" align="center" style="padding: 20px; background-color: #f9f9f9;">
         <% 
 	        // DB에서 가져온 파일명 확인
-		    String systemFile = board.getSystemFilename();
+		    String system_file = board.getSystem_filename();
 		    String imgUrl = board.getImgUrl();
         %>
         
-        <% if(systemFile != null && !systemFile.isEmpty()) { %>
+        <% if(system_file != null && !system_file.isEmpty()) { %>
         
-            <img src="<%= request.getContextPath() %>/upload/<%= systemFile %>" 
+            <img src="<%= request.getContextPath() %>/upload/<%= system_file %>" 
                  style="max-width: 450px; height: auto; border: 2px solid #eee;" 
                  alt="상품이미지">
-            <p style="color: blue; font-size: 11px;">(server에) 저장된 파일명: <%= systemFile %></p>
+            <p style="color: blue; font-size: 11px;">(server에) 저장된 파일명: <%= system_file %></p>
         <% } else if(imgUrl != null && !imgUrl.isEmpty()) { %>
 	    <img src="<%= imgUrl %>"
 	         style="max-width: 450px; height: auto; border: 2px solid #eee;">

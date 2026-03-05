@@ -29,7 +29,7 @@ size : ${boardList.size()} --%>
            
         <td class="grid-item">
         
-        	<img src="${pageContext.request.contextPath}/css/img/upload/product/${b.systemFilename}"
+        	<img src="${pageContext.request.contextPath}/css/img/upload/product/${b.system_filename}"
 			     style="width:120px;height:120px;object-fit:cover;"
 			     onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/css/img/no_image.jpg';">
            	

@@ -91,7 +91,7 @@ public class BoardDAO {
                     vo.setPrice(rs.getInt("price"));
                     vo.setCreatedAt(rs.getTimestamp("created_at"));
                     vo.setViewCount(rs.getInt("view_count"));
-                    vo.setSystemFilename(rs.getString("system_filename"));
+                    vo.setSystem_filename(rs.getString("system_filename"));
                     list.add(vo);
                 }
             }
@@ -121,7 +121,7 @@ public class BoardDAO {
                     vo.setAuthor(rs.getString("author"));
                     vo.setContent(rs.getString("content"));
                     vo.setPrice(rs.getInt("price"));
-                    vo.setSystemFilename(rs.getString("system_filename"));
+                    vo.setSystem_filename(rs.getString("system_filename"));
                     vo.setCreatedAt(rs.getTimestamp("created_at"));
                     vo.setViewCount(rs.getInt("view_count"));
                 }
@@ -142,7 +142,7 @@ public class BoardDAO {
             pstmt.setString(3, vo.getAuthor());
             pstmt.setString(4, vo.getContent());
             pstmt.setInt(5, vo.getPrice());
-            pstmt.setString(6, vo.getSystemFilename());
+            pstmt.setString(6, vo.getSystem_filename());
             result = pstmt.executeUpdate();
         } catch (Exception e) { e.printStackTrace(); }
         return result;
@@ -193,7 +193,7 @@ public class BoardDAO {
                     vo.setPrice(rs.getInt("price"));
                     vo.setCreatedAt(rs.getTimestamp("created_at"));
                     vo.setViewCount(rs.getInt("view_count"));
-                    vo.setSystemFilename(rs.getString("system_filename"));
+                    vo.setSystem_filename(rs.getString("system_filename"));
                     list.add(vo);
                 }
             }
@@ -213,7 +213,7 @@ public class BoardDAO {
             pstmt.setString(3, vo.getAuthor());
             pstmt.setString(4, vo.getContent());
             pstmt.setInt(5, vo.getPrice());
-            pstmt.setString(6, vo.getSystemFilename());
+            pstmt.setString(6, vo.getSystem_filename());
             pstmt.setInt(7, vo.getNum());
             result = pstmt.executeUpdate();
         } catch (Exception e) { e.printStackTrace(); }

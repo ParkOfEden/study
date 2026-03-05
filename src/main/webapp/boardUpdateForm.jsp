@@ -40,7 +40,7 @@
         <tr>
             <td>파일명(수정불가)</td>
             <td>
-                <input type="text" name="systemFilename" value="${board.systemFilename}" readonly style="background-color:#eee; width:100%;"/>
+                <input type="text" name="system_filename" value="${board.systemFilename}" readonly style="background-color:#eee; width:100%;"/>
             </td>
         </tr>
     </table>
