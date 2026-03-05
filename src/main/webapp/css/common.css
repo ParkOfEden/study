@@ -185,9 +185,7 @@ table tr td input[type='number'] {
     margin:0 auto;    
 }
 
-.category {
-    overflow:hidden;
-}
+
 
 .category-table{
     border-collapse: separate;
