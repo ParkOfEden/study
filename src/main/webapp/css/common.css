@@ -175,6 +175,13 @@ table tr td input[type='number'] {
 }
 
 /* index 상단 카테고리 아이콘 css */
+
+.category-wrapper{
+    position:relative;
+    display:flex;
+    align-items:center;
+}
+
 .category {
     /* width:60%; */
     /* margin:40px auto; */
@@ -197,6 +204,38 @@ table tr td input[type='number'] {
 .category-table img{
     width:100px;
     height:auto;
+}
+
+.category-scroll{
+    overflow-x:auto;
+    scroll-behavior:smooth;
+	width:100%;
+    scrollbar-width:none; /* firefox */
+}
+
+.category-scroll::-webkit-scrollbar{
+    display:none; /* chrome */
+}
+
+.scroll-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:#ffffffcc;
+    border:none;
+    cursor:pointer;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    z-index:10;
+}
+
+.scroll-btn.left{
+    left:0;
+}
+
+.scroll-btn.right{
+    right:0;
 }
 
 /* 추천 아이템 관련 css */
