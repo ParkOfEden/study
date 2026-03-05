@@ -92,7 +92,7 @@
         
         <% if(system_file != null && !system_file.isEmpty()) { %>
         
-            <img src="<%= request.getContextPath() %>/css/img/upload/product/<%= system_file %>" 
+            <img src="<%= request.getContextPath() %>/css/img/upload/<%= system_file %>" 
                  style="max-width: 450px; height: auto; border: 2px solid #eee;" 
                  alt="상품이미지">
             <p style="color: blue; font-size: 11px;">(server에) 저장된 파일명: <%= system_file %></p>

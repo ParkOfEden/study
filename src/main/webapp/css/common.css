@@ -23,10 +23,18 @@ section {
 /* 전역 설정 방지 예시 */
 .section-base {
 	min-height: 700px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	/* display: flex; */
+	/* align-items: center; */
+	/* justify-content: center; */
 	padding: 30px;
+}
+
+.section-base.main{
+    width:100%;
+    padding:120px 0;   /* 위아래 공간 확보 */
+    position:relative;
+	display:block;
+	text-align:center;    
 }
 
 /* 상단 중앙 정렬이 필요할 때만 */
@@ -157,8 +165,8 @@ table tr td input[type='number'] {
 
 /* 메인 페이지 추천 아이템 관련 css */
 .product {
-    display: flex;
-    justify-content: center;
+    width:80%;
+    margin:40px auto;
 }
 
 .product-table {
@@ -169,7 +177,7 @@ table tr td input[type='number'] {
 .product-table img{
     width:100%; /* td 크기에 맞게 줄어듦 */
     height:auto; /* 비율 유지 */
-    object-fit:cover; /* 이미지 찌그러짐 방지 */
+    /* object-fit:cover; */ /* 이미지 찌그러짐 방지 */
 }
 
 .product-table td{
