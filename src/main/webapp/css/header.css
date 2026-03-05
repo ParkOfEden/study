@@ -53,26 +53,16 @@
 	    color: #666;
 	}
 	
-	/* [Action Tag] 마우스 오버 시 색상 변화 */
-	.top-menu a:hover {
-	    color: #ff6600;
-	    text-decoration: underline;
-	}
+/* 테스트용 */
+.top-menu a:hover {
+    color: red !important; /* 강제로 빨간색으로 변하는지 확인 */
+    text-decoration: underline !important;
+}
 
-    .top-menu li {
-        margin-left: 15px;         /* 메뉴 항목 간 간격 */
-    }
-
-    .top-menu a {
-        text-decoration: none;     /* 밑줄 제거 */
-        color: #333;               /* 글자색 */
-    }
-
-    .top-menu a:hover {
-        color: #000;               /* 마우스 올렸을 때 색상 */
-        text-decoration: underline;
-    }
-
+.top-menu a:hover {
+    color: #ff6600; /* 마우스 올렸을 때 색상 */
+    text-decoration: underline;
+}
     /* 🔹 카테고리 메뉴 (가로 정렬 기본 스타일) */
     .category-menu {
         display: flex;             /* 가로 나열 */

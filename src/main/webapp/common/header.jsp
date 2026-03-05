@@ -29,10 +29,10 @@
     <title><%= request.getAttribute("pageTitle") != null ? request.getAttribute("pageTitle") : "월클의류(주)" %></title>
     <link rel="icon" href="<%=path%>/css/img/wolcl.ico" type="image/x-icon">
     <link rel="stylesheet" href="<%=path%>/css/common.css">
-     <link rel="stylesheet" href="<%=path%>/css/header.css">
+     
     <link rel="stylesheet" href="<%=path%>/css/footer.css">
     <link rel="stylesheet" href="<%=path%>/css/boardList.css">
-
+<link rel="stylesheet" href="<%=path%>/css/header.css">
 
 
 
