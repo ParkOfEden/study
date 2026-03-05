@@ -31,7 +31,7 @@ boardList : ${boardList}
             		<tr>
 			            <td>${b.num}</td> <td>
                             <c:if test="${not empty b.system_filename}">
-                                <img src="${pageContext.request.contextPath}/upload/${b.system_filename}" 
+                                <img src="${pageContext.request.contextPath}/css/img/upload/${b.system_filename}" 
                                      style="width: 50px; height: 50px; object-fit: cover;"
                                      onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/css/img/no_image.jpg';">
                             </c:if>
