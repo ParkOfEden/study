@@ -202,8 +202,13 @@ table tr td input[type='number'] {
 }
 
 .category-table img{
-    width:100px;
+    width:80px;
     height:auto;
+    transition: transform 0.25s ease;
+}
+
+.category-table img:hover{
+    transform: scale(1.08);
 }
 
 .category-scroll{
