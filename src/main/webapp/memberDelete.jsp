@@ -43,16 +43,24 @@
         
         if (result > 0) {
             if (!isAdmin) {
+                // [추가] 쿠키 삭제 로직
+                Cookie cookie = new Cookie("rememberMe", "");
+                cookie.setPath(request.getContextPath()); 
+                cookie.setMaxAge(0); 
+                response.addCookie(cookie);
+
                 // 일반 회원이 본인 탈퇴 시 세션 무효화
                 session.invalidate();
                 out.println("<script>alert('회원 탈퇴가 완료되었습니다.'); location.href='join.jsp';</script>");
             } else {
-                // 관리자가 삭제 시 세션 유지 및 목록 이동
+                // 관리자가 타인을 삭제했을 때
                 out.println("<script>alert('해당 회원이 삭제되었습니다.'); location.href='memberList.do';</script>");
-            }
+            } // if (!isAdmin)의 else 끝
         } else {
+            // executeUpdate 결과가 0인 경우 (삭제 대상 없음)
             out.println("<script>alert('삭제 대상을 찾을 수 없습니다.'); history.back();</script>");
-        }
+        } // if (result > 0)의 else 끝
+
     } catch (Exception e) {
         e.printStackTrace();
     } finally {

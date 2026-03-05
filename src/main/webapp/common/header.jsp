@@ -41,42 +41,43 @@
 
 <header>
 
-<!-- 🔹 상단 메뉴 (수정됨: </ul> 태그 추가 및 클래스 적용) -->
+<%-- 상단 메뉴 바 섹션 --%>
 <ul class="top-menu">
     <li><a href="<%= request.getContextPath() %>/index.jsp">홈</a></li>
     <li><a href="<%= request.getContextPath() %>/sendMail.jsp">SEND MAIL</a></li>
 
-<%-- header.jsp 에는 <header></header>태그 안에서만 작성하되, css 효과는 header.css에서 처리할 것 
-	 변경사항 : html 선언 & css 링크 선언 (절대 링크로 요청) & body 선언을 헤더에서 작업 후 일괄 include 처리
---%>
-
-        <% if(authUser == null){ %>
-            <li><a href="<%=path%>/login.jsp">로그인</a></li>
-            <li><a href="<%=path%>/join.jsp">회원가입</a></li>
-            <li><a href="<%=path%>/cuscen.jsp">고객센터</a></li>
-        <% } else { %>
-            <li><a href="<%=path%>/memberUpdateForm.jsp"><strong><%= userName %></strong>님 환영합니다</a></li>
-            <li><a href="<%=path%>/logout.jsp">로그아웃</a></li>
+    <% if(authUser == null){ %>
+        <%-- 비회원 상태 --%>
+        <li><a href="<%=path%>/login.jsp">로그인</a></li>
+        <li><a href="<%=path%>/join.jsp">회원가입</a></li>
+        <li><a href="<%=path%>/cuscen.jsp">고객센터</a></li>
+        <li><a href="<%=path%>/cartView.jsp">장바구니</a></li> <%-- 비회원 노출 추가 --%>
+    <% } else { %>
+        <%-- 로그인 상태 (일반회원/관리자 공통) --%>
+        <li><a href="<%=path%>/memberUpdateForm.jsp"><strong><%= userName %></strong>님 환영합니다</a></li>
+        <li><a href="<%=path%>/logout.jsp">로그아웃</a></li>
+        
+        <%-- 관리자 전용 메뉴 --%>
+        <% if ("admin".equals(authUser)) { %>
             <li><a href="<%=path%>/memberList.do">회원관리</a></li>
-            <li><a href="<%=path%>/cartView.jsp">장바구니</a></li>
-            <% if ("admin".equals(authUser)) { %>
-                <li><a href="<%=path%>/boardWrite.jsp">글쓰기</a></li>
-            <% } %>
+            <li><a href="<%=path%>/boardWrite.jsp">글쓰기</a></li>
         <% } %>
+        
+        <li><a href="<%=path%>/cartView.jsp">장바구니</a></li>
+    <% } %>
 
-        <li class="top-search">
-            <input type="checkbox" id="searchToggle" class="search-checkbox">
-            <label for="searchToggle" class="search-toggle">상품조회</label>
-            <div class="search-box">
-                <form action="<%=path%>/boardList.do" method="get">
-                    <input type="hidden" name="type" value="all">
-                    <input type="text" name="keyword" placeholder="상품 검색">
-                    <button type="submit">검색</button>
-                </form>
-            </div>
-        </li>
-    </ul>
-
+    <li class="top-search">
+        <input type="checkbox" id="searchToggle" class="search-checkbox">
+        <label for="searchToggle" class="search-toggle">상품조회</label>
+        <div class="search-box">
+            <form action="<%=path%>/boardList.do" method="get">
+                <input type="hidden" name="type" value="all">
+                <input type="text" name="keyword" placeholder="상품 검색">
+                <button type="submit">검색</button>
+            </form>
+        </div>
+    </li>
+</ul>
 
     <ul class="category-menu">
         <li class="has-submenu">

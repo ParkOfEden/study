@@ -1,6 +1,15 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="common/header.jsp" %>
+<%-- 관리자 체크 로직 --%>
+<c:if test="${sessionScope.authUser ne 'admin' and sessionScope.authUser ne 'ADMIN'}">
+    <script>
+        alert("관리자 전용 페이지입니다.");
+        location.href = "${pageContext.request.contextPath}/index.jsp";
+    </script>
+    <% if(true) return; // JSP 실행 중단 %>
+</c:if>
+
 <section class="section-center" style="display: block;"> <table class="pd-table member-table list" style="margin: 0 auto; min-width: 800px;"> <thead>
             <tr>
                 <th colspan="8"><h1>회원목록</h1></th>

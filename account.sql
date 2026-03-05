@@ -28,6 +28,14 @@ INSERT INTO ACCOUNTS (
     '부산광역시', '01011111111', '남성', 30, 'ADMIN@admin.com'
 );
 
+-- 확인용 일반 계정 추가
+INSERT INTO ACCOUNTS (
+    id, pass, name, addr, phone, gender, age, email
+) VALUES (
+    '1', '1', '일반계정',
+    '부산광역시', '01011121111', '남성', 30, 'normal@normal.com'
+);
+
 COMMIT
 
 -- 확인용
