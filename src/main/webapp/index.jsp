@@ -7,6 +7,7 @@
 			<section class="product-list">
 			
 				<div class="category-wrapper">
+				
 					<button class="scroll-btn left">◀</button>
 					
 						<div class="category-scroll">
@@ -41,6 +42,9 @@
 							</table>
 							</div>
 						</div>
+						
+						<button class="scroll-btn right">▶</button>
+						
 					</div>
 			</section>
 			
