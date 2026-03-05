@@ -208,7 +208,7 @@ table tr td input[type='number'] {
 }
 
 .category-table img:hover{
-    transform: scale(1.08);
+    transform: scale(1.25);
 }
 
 .category-scroll{
