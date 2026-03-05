@@ -13,47 +13,45 @@
         conn.setAutoCommit(false);
         int num = Integer.parseInt(paramNum);
         
-        // 1. 조회수 증가
-        String sql = "UPDATE board_test SET view_count = view_count + 1 WHERE num = ?";
+        // 1. 조회수 증가 (num -> p_id로 변경)
+        String sql = "UPDATE products SET view_count = view_count + 1 WHERE p_id = ?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setInt(1, num);
         pstmt.executeUpdate();
         DBCPUtil.close(pstmt);
         
-        // 2. 게시글 정보 검색 (컬럼명으로 가져오기 위해 * 대신 명시하거나 rs.getXX("이름") 사용)
-        sql = "SELECT * FROM board_test WHERE num = ?";
+        // 2. 게시글 정보 검색 (num -> p_id로 변경)
+        sql = "SELECT * FROM products WHERE p_id = ?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setInt(1, num);
         rs = pstmt.executeQuery();
         
         if(rs.next()){
             board = new BoardVO();
-            // DB 컬럼명과 정확히 일치해야 합니다.
-            board.setNum(rs.getInt("num"));
+            // DB 컬럼명과 정확히 매핑
+            board.setNum(rs.getInt("p_id")); 
             board.setCategory(rs.getString("category")); 
-            board.setTitle(rs.getString("title"));
+            board.setTitle(rs.getString("p_name")); 
+            board.setPrice(rs.getInt("price")); 
             board.setAuthor(rs.getString("author"));
-            board.setSystemFilename(rs.getString("system_filename")); // 없으면 업로드 안됨
+            board.setSystem_filename(rs.getString("system_filename")); 
             
-            // CLOB 타입은 getString으로 읽어올 수 있습니다.
-            board.setContent(rs.getString("content"));
+            // p_desc 컬럼을 content로 매핑
+            board.setContent(rs.getString("p_desc")); 
             
-            board.setImgUrl(rs.getString("img_url"));
-            
-            // TIMESTAMP 타입 대응
+            // created_at, updated_at, view_count는 컬럼명 동일하므로 유지
             board.setCreatedAt(rs.getTimestamp("created_at"));
             board.setUpdatedAt(rs.getTimestamp("updated_at"));
             board.setViewCount(rs.getInt("view_count"));
             
-            System.out.println("데이터 로드 성공: " + board.getTitle()); // 이클립스 콘솔 확인용
+            System.out.println("데이터 로드 성공: " + board.getTitle());
         }
         
         conn.commit();
     } catch(Exception e) {
         if(conn != null) try { conn.rollback(); } catch(SQLException ex) {}
         e.printStackTrace();
-    } finally {
-        if(conn != null) try { conn.setAutoCommit(true); } catch(SQLException ex) {}
+    } { if(conn != null) try { conn.setAutoCommit(true); } catch(SQLException ex) {}
         DBCPUtil.close(rs, pstmt, conn);    
     }
 %>
@@ -88,16 +86,16 @@
     <td colspan="2" align="center" style="padding: 20px; background-color: #f9f9f9;">
         <% 
 	        // DB에서 가져온 파일명 확인
-		    String systemFile = board.getSystemFilename();
+		    String system_file = board.getSystem_filename();
 		    String imgUrl = board.getImgUrl();
         %>
         
-        <% if(systemFile != null && !systemFile.isEmpty()) { %>
+        <% if(system_file != null && !system_file.isEmpty()) { %>
         
-            <img src="<%= request.getContextPath() %>/upload/<%= systemFile %>" 
+            <img src="<%= request.getContextPath() %>/upload/<%= system_file %>" 
                  style="max-width: 450px; height: auto; border: 2px solid #eee;" 
                  alt="상품이미지">
-            <p style="color: blue; font-size: 11px;">(server에) 저장된 파일명: <%= systemFile %></p>
+            <p style="color: blue; font-size: 11px;">(server에) 저장된 파일명: <%= system_file %></p>
         <% } else if(imgUrl != null && !imgUrl.isEmpty()) { %>
 	    <img src="<%= imgUrl %>"
 	         style="max-width: 450px; height: auto; border: 2px solid #eee;">
@@ -133,12 +131,28 @@
             <%= board.getCreatedAt() == null ? "-" :
             new SimpleDateFormat("yyyy-MM-dd HH:mm").format(board.getCreatedAt()) %>
         </td>
+        
     </tr>
     <tr>
         <th colspan="2">
-            <button onclick="location.href='boardList.do'">목록</button>
         <%
+        // 1. 여기서 먼저 세션 정보를 가져옵니다 (변수 선언)
         String loginUser = (String)session.getAttribute("authUser");
+        %>
+
+            <form action="cart" method="post" style="display: inline;">
+    <input type="hidden" name="p_name" value="<%= board.getTitle() %>">
+    <input type="hidden" name="price" value="<%= board.getPrice() %>">
+    
+    <button type="submit" style="background-color: orange; color: white; border: none; padding: 7px 15px; cursor: pointer;">
+        장바구니 담기
+    </button>
+</form>
+
+            <button onclick="location.href='boardList.do'">목록</button>
+            
+        <%
+        // 3. 관리자일 때만 수정/삭제 버튼 노출
         if ("admin".equals(loginUser)) { 
         %>
             <button onclick="location.href='boardUpdateForm.do?num=<%= board.getNum() %>'">수정</button>
@@ -146,6 +160,7 @@
         <% } %>
         </th>
     </tr>
+    
 </table>
 </body>
 </html>

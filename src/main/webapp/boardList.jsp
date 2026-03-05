@@ -1,32 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
-<!-- 타이틀은 여기서 작업하면 반영됩니다. -->
-<%
-request.setAttribute("pageTitle", "상품 관리 목록");
-%>  
-
 <%@ include file="common/header.jsp" %>
 
-<section class="section-container">
+<section>
 
-
-     
-<h2 class="board-title">전체 게시글 목록 
-<c:if test="${sessionScope.authUser == 'admin'}">
-<span style="color: gray;
-			 font-weight: bold;">
-(Admin)
-</span>
-</c:if>
-</h2>
-
-<div class="write-area">
-<c:if test="${sessionScope.authUser == 'admin'}">
-	<a href="boardWrite.jsp">[새 상품 등록]</a>
-</c:if>
-</div>
-
+<!-- 검색 -->
 <div class="search-area">
     <form action="boardList.do" method="get">
         
@@ -47,7 +25,17 @@ request.setAttribute("pageTitle", "상품 관리 목록");
     </form>
 </div>
 
-<jsp:include page="boardTable.jsp" />
+<c:choose>
+
+    <c:when test="${param.include == 'grid'}">
+        <jsp:include page="gridTable.jsp"/>
+    </c:when>
+
+    <c:otherwise>
+        <jsp:include page="boardTableNew.jsp"/>
+    </c:otherwise>
+
+</c:choose>
 
 <!-- 페이징 -->
 <div class="paging">
@@ -72,3 +60,4 @@ request.setAttribute("pageTitle", "상품 관리 목록");
 </div>
 </section>
 <%@ include file="common/footer.jsp"%>
+

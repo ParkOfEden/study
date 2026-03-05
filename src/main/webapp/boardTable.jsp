@@ -1,44 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ include file="common/header.jsp" %>
 
-<%
-String type = request.getParameter("type");
-String keywordParam = request.getParameter("keyword");
-
-/* 기본값 처리 */
-if (type == null || type.trim().isEmpty()) {
-    type = "all";
-}
-
-if (keywordParam == null) {
-    keywordParam = "";
-}
-
-/* DAO 호출 */
-dao.BoardDAO dao = new dao.BoardDAO();
-
-java.util.List<vo.BoardVO> list;
-
-/* 검색어가 있을 때만 검색 메서드 호출 */
-if (!keywordParam.trim().isEmpty()) {
-    list = dao.getSearchBoardListPaging(type, keywordParam, 0, 10);
-} else {
-    list = dao.getBoardListPaging(0, 10);
-}
-
-/* request 영역에 저장 */
-request.setAttribute("boardList", list);
-%>
+boardList size : ${boardList.size()}
+<br>
+boardList : ${boardList}
 
 <table class="board-table">
     <thead>
         <tr>
-            <th>번호</th>
-            <th>카테고리</th> <th>제목</th>
-            <th>작성자</th>
-            <th>작성일</th>
-            <th>조회수</th>
+            <th>상품번호</th>
+            <th>이미지</th> <th>카테고리</th> 
+            <th>상품명</th>
+            <th>판매가</th> <th>조회수</th>
         <c:if test="${sessionScope.authUser == 'admin'}">
             <th>관리</th>
         </c:if>
@@ -48,26 +22,31 @@ request.setAttribute("boardList", list);
     	<c:choose>
     		<c:when test="${empty boardList}">
 	        	<tr>
-	            	<td colspan="7">등록된 게시글이 없습니다.</td>
+	            	<td colspan="7">등록된 상품이 없습니다.</td>
 	            </tr>
             </c:when>
             
             <c:otherwise>
             	<c:forEach var="b" items="${boardList}">
             		<tr>
-			            <td>${b.num}</td>
-			            
+			            <td>${b.num}</td> <td>
+                            <c:if test="${not empty b.system_filename}">
+                                <img src="${pageContext.request.contextPath}/upload/${b.system_filename}" 
+                                     style="width: 50px; height: 50px; object-fit: cover;"
+                                     onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/css/img/no_image.jpg';">
+                            </c:if>
+                        </td>
+
 			            <td>[${b.category}]</td>
             
             			<td style="text-align:left;">
             				<a href="${pageContext.request.contextPath}/boardDetail.jsp?num=${b.num}">
-            					${b.title}
-            				</a>
+            					${b.title} </a>
             			</td>
             			
-			            <td>${b.author}</td>
-			            
-			            <td>${b.createdAt}</td>
+                        <td style="color: #e74c3c; font-weight: bold;">
+                            ${b.price}원
+                        </td>
 			            
 			            <td>${b.viewCount}</td>
 		            
@@ -81,11 +60,10 @@ request.setAttribute("boardList", list);
                             </a>
                         </td>			            
     				</c:if>		
-    				
    				</tr>
         	</c:forEach>
     	</c:otherwise>
    	</c:choose>
     </tbody>
 </table>
-
+<%@ include file="common/footer.jsp" %>

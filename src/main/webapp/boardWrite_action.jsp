@@ -3,15 +3,19 @@
 <%
     request.setCharacterEncoding("UTF-8");
 
-    // 폼 파라미터 받기
+    // 1. 폼 파라미터 받기 (보내준 boardWrite.jsp의 name값과 일치해야 함)
     String category = request.getParameter("category");
-    String title = request.getParameter("title");
+    String p_name = request.getParameter("p_name"); // title -> p_name
     String author = request.getParameter("author");
-    String content = request.getParameter("content");
-    String imgUrl = request.getParameter("imgUrl"); // 파일명 대용
+    String p_desc = request.getParameter("p_desc"); // content -> p_desc
+    String priceStr = request.getParameter("price"); // 가격 추가
+    String imgUrl = request.getParameter("imgUrl"); // 파일명 대용 (임시)
 
-    // 파일명과 확장자 분리 (예: test.jpg -> test / .jpg)
-    String fileName = "default";
+    // 가격 숫자 변환
+    int price = (priceStr != null) ? Integer.parseInt(priceStr) : 0;
+
+    // 파일명과 확장자 분리 로직 (유지)
+    String fileName = "product";
     String fileExt = ".jpg";
     if(imgUrl != null && imgUrl.contains(".")) {
         fileName = imgUrl.substring(0, imgUrl.lastIndexOf("."));
@@ -25,25 +29,30 @@
         Class.forName("oracle.jdbc.driver.OracleDriver");
         conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "1234");
 
-        // 요청하신 그대로: 파일명 + _ + 전체개수 + 확장자
-        String sql = "INSERT INTO board_test (category, title, author, content, system_filename) "
-                   + "VALUES (?, ?, ?, ?, ? || '_' || (SELECT COUNT(*) FROM board_test) || ?)";
+        // 2. SQL문 수정: 테이블명(products), 컬럼명(p_name, p_desc, price 등) 반영
+        // p_id는 IDENTITY이므로 생략 가능
+        String sql = "INSERT INTO products (category, p_name, author, p_desc, price, system_filename) "
+                   + "VALUES (?, ?, ?, ?, ?, ? || '_' || (SELECT COUNT(*) FROM products) || ?)";
 
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, category);
-        pstmt.setString(2, title);
+        pstmt.setString(2, p_name);
         pstmt.setString(3, author);
-        pstmt.setString(4, content);
-        pstmt.setString(5, fileName); 
-        pstmt.setString(6, fileExt);
+        pstmt.setString(4, p_desc);
+        pstmt.setInt(5, price);      // 가격 설정
+        pstmt.setString(6, fileName); 
+        pstmt.setString(7, fileExt);
 
         pstmt.executeUpdate();
+        
+        // 목록 페이지로 이동 (서블릿 매핑 주소 확인)
         response.sendRedirect("boardList.do");
 
     } catch (Exception e) {
+        out.println("<script>alert('등록 실패: " + e.getMessage() + "'); history.back();</script>");
         e.printStackTrace();
     } finally {
-        if(pstmt != null) pstmt.close();
-        if(conn != null) conn.close();
+        if(pstmt != null) try { pstmt.close(); } catch(Exception e) {}
+        if(conn != null) try { conn.close(); } catch(Exception e) {}
     }
 %>

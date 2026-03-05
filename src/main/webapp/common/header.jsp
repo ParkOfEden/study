@@ -58,7 +58,7 @@
             <li><a href="<%=path%>/memberUpdateForm.jsp"><strong><%= userName %></strong>님 환영합니다</a></li>
             <li><a href="<%=path%>/logout.jsp">로그아웃</a></li>
             <li><a href="<%=path%>/memberList.do">회원관리</a></li>
-            <li><a href="<%=path%>/orin.jsp">주문조회</a></li>
+            <li><a href="<%=path%>/cartView.jsp">장바구니</a></li>
             <% if ("admin".equals(authUser)) { %>
                 <li><a href="<%=path%>/boardWrite.jsp">글쓰기</a></li>
             <% } %>
@@ -82,44 +82,44 @@
         <li class="has-submenu">
             NEW &amp; BEST
             <ul class="submenu">
-                <li><a href="<%=path%>/Headerjump/new.jsp">신상품 (New)</a></li>
-                <li><a href="<%=path%>/Headerjump/best.jsp">베스트 (Best)</a></li>
-                <li><a href="<%=path%>/Headerjump/mdre.jsp">MD 추천</a></li>
+                <li><a href="<%=path%>/boardList.do?category=신상품">신상품 (New)</a></li>
+                <li><a href="<%=path%>/boardList.do?category=베스트">베스트 (Best)</a></li>
+                <li><a href="<%=path%>/boardList.do?category=MD">MD 추천</a></li>
             </ul>
         </li>
 
         <li class="has-submenu">
             TOP
             <ul class="submenu">
-                <li><a href="<%=path%>/Headerjump/Tshirt.jsp">티셔츠</a></li>
-                <li><a href="<%=path%>/Headerjump/blouse.jsp">블라우스</a></li>
-                <li><a href="<%=path%>/Headerjump/Shirt.jsp">셔츠</a></li>
-                <li><a href="<%=path%>/Headerjump/knsw.jsp">니트/스웨터</a></li>
-                <li><a href="<%=path%>/Headerjump/card.jsp">카디건</a></li>
-                <li><a href="<%=path%>/Headerjump/hosw.jsp">후드/맨투맨</a></li>
+                <li><a href="<%=path%>/boardList.do?category=티셔츠">티셔츠</a></li>
+                <li><a href="<%=path%>/boardList.do?category=블라우스">블라우스</a></li>
+                <li><a href="<%=path%>/boardList.do?category=셔츠">셔츠</a></li>
+                <li><a href="<%=path%>/boardList.do?category=니트">니트/스웨터</a></li>
+                <li><a href="<%=path%>/boardList.do?category=카디건">카디건</a></li>
+                <li><a href="<%=path%>/boardList.do?category=후드">후드/맨투맨</a></li>
             </ul>
         </li>
 
         <li class="has-submenu">
             OUTER
             <ul class="submenu">
-                <li><a href="<%=path%>/Headerjump/jacket.jsp">자켓</a></li>
-                <li><a href="<%=path%>/Headerjump/coat.jsp">코트</a></li>
-                <li><a href="<%=path%>/Headerjump/pacoat.jsp">패딩/경량</a></li>
-                <li><a href="<%=path%>/Headerjump/vest.jsp">조끼</a></li>
-                <li><a href="<%=path%>/Headerjump/cardigan.jsp">가디건</a></li>
+                <li><a href="<%=path%>/boardList.do?category=자켓">자켓</a></li>
+                <li><a href="<%=path%>/boardList.do?category=코트">코트</a></li>
+                <li><a href="<%=path%>/boardList.do?category=패딩">패딩/경량</a></li>
+                <li><a href="<%=path%>/boardList.do?category=조끼">조끼</a></li>
+                <li><a href="<%=path%>/boardList.do?category=가디건">가디건</a></li>
             </ul>
         </li>
 
         <li class="has-submenu">
             BOTTOM
             <ul class="submenu">
-                <li><a href="<%=path%>/Headerjump/demin.jsp">데님 (Jeans)</a></li>
-                <li><a href="<%=path%>/Headerjump/slacks.jsp">슬랙스</a></li>
-                <li><a href="<%=path%>/Headerjump/widep.jsp">와이드 팬츠</a></li>
-                <li><a href="<%=path%>/Headerjump/skirt.jsp">스커트</a></li>
-                <li><a href="<%=path%>/Headerjump/shorts.jsp">쇼츠</a></li>
-                <li><a href="<%=path%>/Headerjump/train.jsp">트레이닝</a></li>
+                <li><a href="<%=path%>/boardList.do?category=데님">데님 (Jeans)</a></li>
+                <li><a href="<%=path%>/boardList.do?category=슬랙스">슬랙스</a></li>
+                <li><a href="<%=path%>/boardList.do?category=와이드 팬츠">와이드 팬츠</a></li>
+                <li><a href="<%=path%>/boardList.do?category=스커트">스커트</a></li>
+                <li><a href="<%=path%>/boardList.do?category=쇼츠">쇼츠</a></li>
+                <li><a href="<%=path%>/boardList.do?category=트레이닝">트레이닝</a></li>
             </ul>
         </li>
 
@@ -127,29 +127,29 @@
         <li class="has-submenu">
             ONE-PIECE
             <ul class="submenu">
-                <li><a href="<%=path%>/Headerjump/onepiece.jsp">원피스</a></li>
-                <li><a href="<%=path%>/Headerjump/jumps.jsp">점프수트</a></li>
-                <li><a href="<%=path%>/Headerjump/Romper.jsp">롬퍼</a></li>
+                <li><a href="<%=path%>/boardList.do?category=원피스">원피스</a></li>
+                <li><a href="<%=path%>/boardList.do?category=점프수트">점프수트</a></li>
+                <li><a href="<%=path%>/boardList.do?category=롬퍼">롬퍼</a></li>
             </ul>
         </li>
 
         <li class="has-submenu">
             SHOES &amp; BAG
             <ul class="submenu">
-                <li><a href="<%=path%>/Headerjump/sneak.jsp">스니커즈</a></li>
-                <li><a href="<%=path%>/Headerjump/shoesheel.jsp">구두/힐</a></li>
-                <li><a href="<%=path%>/Headerjump/boots.jsp">부츠</a></li>
-                <li><a href="<%=path%>/Headerjump/bag.jsp">가방</a></li>
-                <li><a href="<%=path%>/Headerjump/capacc.jsp">모자/액세서리</a></li>
+                <li><a href="<%=path%>/boardList.do?category=스니커즈">스니커즈</a></li>
+                <li><a href="<%=path%>/boardList.do?category=구두">구두/힐</a></li>
+                <li><a href="<%=path%>/boardList.do?category=부츠">부츠</a></li>
+                <li><a href="<%=path%>/boardList.do?category=가방">가방</a></li>
+                <li><a href="<%=path%>/boardList.do?category=모자">모자/액세서리</a></li>
             </ul>
         </li>
 
         <li class="has-submenu sale-text">
             SALE
             <ul class="submenu">
-                <li><a href="<%=path%>/Headerjump/alldis.jsp">전상품 할인</a></li>
-                <li><a href="<%=path%>/Headerjump/seoff.jsp">시즌 오프</a></li>
-                <li><a href="<%=path%>/Headerjump/Spzone.jsp">특가 존</a></li>
+                <li><a href="<%=path%>/boardList.do?category=할인">전상품 할인</a></li>
+                <li><a href="<%=path%>/boardList.do?category=시즌">시즌 오프</a></li>
+                <li><a href="<%=path%>/boardList.do?category=특가">특가 존</a></li>
             </ul>
         </li>
     </ul>

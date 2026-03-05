@@ -139,8 +139,42 @@ INSERT INTO board_test (
     'null',
     'css/img/upload/product/bottom/pants-boy123.jpg'
 );
-
 COMMIT;
+
+INSERT INTO board_test (
+    category,
+    title,
+    author,
+    content,
+    img_url
+) VALUES (
+    '머리띠',
+    '여아) 파랑 리본',
+    'admin',
+    'null',
+    'css/img/upload/product/acc-girl0100.jpg'
+);
+COMMIT;
+
+INSERT INTO board_test (
+    category,
+    title,
+    author,
+    content,
+    img_url
+) VALUES (
+    '머리띠',
+    '여아) 파랑 리본',
+    'admin',
+    'null',
+    'css/img/upload/product/acc-girl0100.jpg'
+);
+COMMIT;
+
+
+
+
+
 
 SELECT * FROM board_test;
 
