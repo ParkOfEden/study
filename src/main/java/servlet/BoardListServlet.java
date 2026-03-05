@@ -11,31 +11,27 @@ import jakarta.servlet.http.*;
 import dao.BoardDAO;
 import vo.BoardVO;
 import utils.Criteria;
-import utils.PageMaker;   // 현재 패키지에 맞게 수정
+import utils.PageMaker;
 
 @WebServlet("/boardList.do")
 public class BoardListServlet extends HttpServlet {
-	
-	private static final long serialVersionUID = 1L;
 
-	@Override
-    protected void doGet(HttpServletRequest request,
-                         HttpServletResponse response)
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-    	// 1. 파라미터 받기
+        // 1. 파라미터 받기
         String paramPage = request.getParameter("page");
         String type = request.getParameter("type");
-        String keyword = request.getParameter("keyword");    
-        
-        // Console 출력 확인
-        System.out.println("type = [" + type + "]");
-        System.out.println("keyword = [" + keyword + "]");
-        
-        if (keyword != null) {
-            keyword = new String(keyword.getBytes("ISO-8859-1"), "UTF-8");
+        String keyword = request.getParameter("keyword");
+        String category = request.getParameter("category");
+
+        if ("p_name".equals(type)) {
+            type = "title";
         }
-        
+
         int pageNum = 1;
 
         if (paramPage != null && !paramPage.trim().isEmpty()) {
@@ -44,54 +40,64 @@ public class BoardListServlet extends HttpServlet {
             } catch (NumberFormatException e) {
                 pageNum = 1;
             }
-        }    	
-        
+        }
+
         // 2. Criteria 생성
-        Criteria cri = new Criteria(pageNum, 10);        
-    	
+        Criteria cri = new Criteria(pageNum, 10);
+
         BoardDAO dao = new BoardDAO();
-        
+
         int totalCount = 0;
-        List<BoardVO> list = null;        
-        
-        if(keyword != null && !keyword.trim().isEmpty()) {
+        List<BoardVO> list = null;
+
+        // 3. 데이터 조회
+        if (category != null && !category.trim().isEmpty()) {
         	
-        	totalCount = dao.getSearchBoardCount(type, keyword);
-        	
+            totalCount = dao.getSearchBoardCount("category", category);
+
+            list = dao.getSearchBoardListPaging(
+                    "category",
+                    category,
+                    cri.offset(),
+                    cri.getPerPageNum()
+            );
+
+            System.out.println("카테고리 검색 결과 수: " + list.size());        	
+
+        }else if(keyword != null && !keyword.trim().isEmpty()){     totalCount = dao.getSearchBoardCount(type, keyword);
+
             list = dao.getSearchBoardListPaging(
                     type,
                     keyword,
                     cri.offset(),
                     cri.getPerPageNum()
             );
-            
+
+            System.out.println("검색 결과 수: " + list.size());
+        
         } else {
-        	
+
             totalCount = dao.getBoardCount();
 
             list = dao.getBoardListPaging(
                     cri.offset(),
                     cri.getPerPageNum()
             );
+
+            System.out.println("전체 게시글 수: " + list.size());
         }
 
-        // 3. PageMaker 생성
-        PageMaker pm = new PageMaker(cri, totalCount, 10);     
-        
-        // 4. JSP에 전달
+        // 4. PageMaker 생성
+        PageMaker pm = new PageMaker(cri, totalCount, 10);
+
+        // 5. JSP에 전달
         request.setAttribute("boardList", list);
         request.setAttribute("pageMaker", pm);
 
-        // forward 분기 처리
-        String include = request.getParameter("include");
+        
+        request.getRequestDispatcher("/boardTableNew.jsp")
+        .forward(request, response);
 
-        if ("table".equals(include)) {
-            request.getRequestDispatcher("/boardTable.jsp")
-                   .forward(request, response);
-        } else {
-            request.getRequestDispatcher("/boardList.jsp")
-                   .forward(request, response);
-        }
-    } // end doGet method	
+    } // end doGet method
 
-} // end BoardListServlet class
+}// end BoardListServlet class

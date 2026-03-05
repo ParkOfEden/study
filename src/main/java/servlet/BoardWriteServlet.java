@@ -12,12 +12,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import vo.BoardVO;
-
 @WebServlet("/boardWrite.do")
 @MultipartConfig(
-    fileSizeThreshold = 1024 * 1024 * 1, // 1MB
-    maxFileSize = 1024 * 1024 * 10,      // 10MB
-    maxRequestSize = 1024 * 1024 * 15    // 15MB
+    fileSizeThreshold = 1024 * 1024 * 1, 
+    maxFileSize = 1024 * 1024 * 10,      
+    maxRequestSize = 1024 * 1024 * 15    
 )
 public class BoardWriteServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -27,12 +26,15 @@ public class BoardWriteServlet extends HttpServlet {
         
         request.setCharacterEncoding("UTF-8");
         
-        // 1. 일반 텍스트 데이터 추출
+        // 1. 데이터 추출 (JSP의 name 속성과 일치시켜야 함)
         String category = request.getParameter("category");
-        String title = request.getParameter("title");
+        String p_name = request.getParameter("p_name");   // title -> p_name
         String author = request.getParameter("author");
-        String content = request.getParameter("content");
-        String imgUrl = request.getParameter("imgUrl");
+        String p_desc = request.getParameter("p_desc");   // content -> p_desc
+        
+        // 가격 처리 (문자열을 숫자로 변환)
+        String priceStr = request.getParameter("price");
+        int price = (priceStr != null && !priceStr.isEmpty()) ? Integer.parseInt(priceStr) : 0;
 
         // 2. 파일 업로드 처리
         Part filePart = request.getPart("uploadFile");
@@ -40,10 +42,8 @@ public class BoardWriteServlet extends HttpServlet {
         
         if (filePart != null && filePart.getSize() > 0) {
             String fileName = filePart.getSubmittedFileName();
-            // 파일명 중복 방지를 위한 타임스탬프 결합
             systemFilename = System.currentTimeMillis() + "_" + fileName;
             
-            // 서버상의 실제 저장 경로 (WebContent/upload 또는 src/main/webapp/upload)
             String uploadPath = getServletContext().getRealPath("/upload");
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) uploadDir.mkdirs();
@@ -51,24 +51,24 @@ public class BoardWriteServlet extends HttpServlet {
             filePart.write(uploadPath + File.separator + systemFilename);
         }
 
-        // 3. VO 객체에 데이터 담기
+        // 3. VO 객체에 데이터 담기 (ProductVO 또는 수정한 BoardVO)
         BoardVO vo = new BoardVO();
         vo.setCategory(category);
-        vo.setTitle(title);
+        vo.setTitle(p_name);    // VO 내부 변수명이 title이라도 값은 p_name을 넣음
         vo.setAuthor(author);
-        vo.setContent(content);
-        vo.setImgUrl(imgUrl);
+        vo.setContent(p_desc);  // VO 내부 변수명이 content라도 값은 p_desc를 넣음
         vo.setSystemFilename(systemFilename); 
+        vo.setPrice(price);     // 반드시 BoardVO에 setPrice 메서드가 있어야 함
 
-        // 4. DAO를 통해 DB 저장
+        // 4. DAO 호출
         BoardDAO dao = new BoardDAO();
-        int result = dao.insertBoard(vo);
+        int result = dao.insertBoard(vo); // 이 메서드 안의 SQL이 중요함
 
         if (result > 0) {
             response.sendRedirect("boardList.do");
         } else {
             response.setContentType("text/html; charset=UTF-8");
-            response.getWriter().println("<script>alert('등록 실패'); history.back();</script>");
+            response.getWriter().println("<script>alert('등록 실패: DB 연동 에러'); history.back();</script>");
         }
     }
 }

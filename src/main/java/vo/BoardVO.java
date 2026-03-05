@@ -3,19 +3,25 @@ package vo;
 import java.util.Date;
 
 public class BoardVO {
-    private int num;
+    private int num;            // DB의 p_id와 매칭
     private String category;
-    private String title;
+    private String title;       // DB의 p_name과 매칭
     private String author;
-    private String content;
-    private String imgUrl;
-    private String systemFilename; // 파일 업로드용 필드 추가
+    private String content;     // DB의 p_desc와 매칭
+    private int price;          // [추가] 상품 가격 필드
+    private String imgUrl;      
+    private String systemFilename; 
     private Date createdAt;
     private Date updatedAt;
     private int viewCount;
 
     public BoardVO() {}
 
+    // 가격(price)에 대한 Getter와 Setter를 추가해야 합니다.
+    public int getPrice() { return price; }
+    public void setPrice(int price) { this.price = price; }
+
+    // 기존 Getter/Setter 유지
     public int getNum() { return num; }
     public void setNum(int num) { this.num = num; }
 

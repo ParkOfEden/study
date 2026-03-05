@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
-<%@ include file="common/header.jsp" %>
+
 
 boardList size : ${boardList.size()}
 <br>
@@ -66,4 +66,3 @@ boardList : ${boardList}
    	</c:choose>
     </tbody>
 </table>
-<%@ include file="common/footer.jsp" %>

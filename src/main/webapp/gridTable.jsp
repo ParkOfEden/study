@@ -1,46 +1,37 @@
+<!-- gridTable.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
-
-<%
-String type = request.getParameter("type");
-String keywordParam = request.getParameter("keyword");
-
-/* 기본값 처리 */
-if (type == null || type.trim().isEmpty()) {
-    type = "all";
-}
-
-if (keywordParam == null) {
-    keywordParam = "";
-}
-
-/* DAO 호출 */
-dao.BoardDAO dao = new dao.BoardDAO();
-
-java.util.List<vo.BoardVO> list;
-
-/* 검색어가 있을 때만 검색 메서드 호출 */
-if (!keywordParam.trim().isEmpty()) {
-    list = dao.getSearchBoardListPaging(type, keywordParam, 0, 12);
-} else {
-    list = dao.getBoardListPaging(0, 10);
-}
-
-/* request 영역에 저장 */
-request.setAttribute("boardList", list);
-%>
-
+    
+<%-- boardList : ${boardList}
+<br>
+size : ${boardList.size()} --%>    
+    
 <table class="grid-table">
+
+
  
 <tbody>
+
+<c:if test="${empty boardList}">
+    <tr>
+        <td colspan="4">등록된 게시글이 없습니다.</td>
+    </tr>
+</c:if>
+
+<c:if test="${not empty boardList}">
    	<c:forEach var="b" items="${boardList}" varStatus="status">
    	
-   		<c:if test="${status.index mod 4 == 0}">
+   		<c:if test="${status.index % 4 == 0}">
        		<tr>
         </c:if>
            
         <td class="grid-item">
+        
+        	<img src="${pageContext.request.contextPath}/css/img/upload/product/${b.systemFilename}"
+			     style="width:120px;height:120px;object-fit:cover;"
+			     onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/css/img/no_image.jpg';">
            	
            	<div class="grid-category">
            		[${b.category}]
@@ -52,23 +43,22 @@ request.setAttribute("boardList", list);
                 </a>
            	</div>
            	
-            <div class="grid-info">
-                ${b.author}
-            </div>
-
             <div class="grid-meta">
                 조회 ${b.viewCount}
             </div>       
-            
-           </div>
-           
+                    
 		</td>     	
    
-        <c:if test="${status.index mod 4 == 3}">
-        	</tr>		            
-		</c:if>		
-    					
+        <c:if test="${status.index % 4 == 3}">
+        	</tr>
+        </c:if>	
+        		            
       	</c:forEach>
+      	 	
+		<c:if test="${not empty boardList and boardList.size() % 4 != 0}">		
+    	</tr>
+        </c:if>				
+	</c:if>    	
 </tbody>
 </table>
 
