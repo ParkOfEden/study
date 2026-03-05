@@ -6,8 +6,8 @@
 	
 			<section class="product-list">
 			
-				<div class="product">
-					<table class="product-table">
+				<div class="category">
+					<table class="category-table">
 						<tr>
 							<td><a href="Headerjump/Tshirt.jsp"><img src="css/img/main/sort_link/T_shirt.jpg"></a></td>
 							<td><a href="Headerjump/knsw.jsp"><img src="css/img/main/sort_link/Knit.jpg"></a></td>

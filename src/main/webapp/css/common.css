@@ -174,11 +174,27 @@ table tr td input[type='number'] {
     margin-top:80px;
 }
 
-.product {
-    width:80%;
+/* index 상단 카테고리 아이콘 css */
+.category {
+    width:60%;
     margin:40px auto;
 }
 
+.category-table{
+    width:100%;
+    table-layout:fixed;
+}
+
+.category-table td{
+    text-align:center;
+}
+
+.category-table img{
+    width:120px;
+    height:auto;
+}
+
+/* 추천 아이템 관련 css */
 .product-table {
 	position:absolute;
     top:150px;   /* h3 아래 위치 */
