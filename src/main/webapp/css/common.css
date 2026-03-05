@@ -176,8 +176,9 @@ table tr td input[type='number'] {
 
 /* index 상단 카테고리 아이콘 css */
 .category {
-    width:60%;
-    margin:40px auto;
+    /* width:60%; */
+    /* margin:40px auto; */
+    overflow-x:auto;
 }
 
 .category-table{
