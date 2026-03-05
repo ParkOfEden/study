@@ -194,6 +194,7 @@ table tr td input[type='number'] {
     /* width:100%; */
     /* table-layout:fixed; */
     margin:auto;      /* 가운데 정렬 */
+    width:max-content;   /* 콘텐츠 크기만큼 table 너비 확장 */
 }
 
 .category-table td{
@@ -207,10 +208,10 @@ table tr td input[type='number'] {
 }
 
 .category-scroll{
-    overflow-x:auto;
-    scroll-behavior:smooth;
 	width:100%;
-    scrollbar-width:none; /* firefox */
+    overflow-x:auto;
+    scroll-behavior:smooth;	
+    /* scrollbar-width:none; */ /* firefox */
 }
 
 .category-scroll::-webkit-scrollbar{
