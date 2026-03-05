@@ -26,6 +26,7 @@ public class BoardListServlet extends HttpServlet {
         String paramPage = request.getParameter("page");
         String type = request.getParameter("type");
         String keyword = request.getParameter("keyword");
+        String category = request.getParameter("category");
 
         if ("p_name".equals(type)) {
             type = "title";
@@ -50,9 +51,20 @@ public class BoardListServlet extends HttpServlet {
         List<BoardVO> list = null;
 
         // 3. 데이터 조회
-        if (keyword != null && !keyword.trim().isEmpty()) {
+        if (category != null && !category.trim().isEmpty()) {
+        	
+            totalCount = dao.getSearchBoardCount("category", category);
 
-            totalCount = dao.getSearchBoardCount(type, keyword);
+            list = dao.getSearchBoardListPaging(
+                    "category",
+                    category,
+                    cri.offset(),
+                    cri.getPerPageNum()
+            );
+
+            System.out.println("카테고리 검색 결과 수: " + list.size());        	
+
+        }else if(keyword != null && !keyword.trim().isEmpty()){     totalCount = dao.getSearchBoardCount(type, keyword);
 
             list = dao.getSearchBoardListPaging(
                     type,
@@ -62,7 +74,7 @@ public class BoardListServlet extends HttpServlet {
             );
 
             System.out.println("검색 결과 수: " + list.size());
-
+        
         } else {
 
             totalCount = dao.getBoardCount();
