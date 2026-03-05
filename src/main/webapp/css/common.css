@@ -181,11 +181,14 @@ table tr td input[type='number'] {
 }
 
 .category-table{
-    width:100%;
-    table-layout:fixed;
+    border-collapse: separate;
+    border-spacing: 25px 0; /* 가로 간격, 세로 간격 */	
+    /* width:100%; */
+    /* table-layout:fixed; */
 }
 
 .category-table td{
+	padding:0 20px;
     text-align:center;
 }
 
