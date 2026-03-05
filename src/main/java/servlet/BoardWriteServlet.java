@@ -44,7 +44,7 @@ public class BoardWriteServlet extends HttpServlet {
             String fileName = filePart.getSubmittedFileName();
             system_filename = System.currentTimeMillis() + "_" + fileName;
             
-            String uploadPath = getServletContext().getRealPath("/upload");
+            String uploadPath = getServletContext().getRealPath("/css/img/upload");
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) uploadDir.mkdirs();
             
