@@ -10,7 +10,7 @@ public class BoardVO {
     private String content;     // DB의 p_desc와 매칭
     private int price;          // [추가] 상품 가격 필드
     private String imgUrl;      
-    private String systemFilename; 
+    private String system_filename; 
     private Date createdAt;
     private Date updatedAt;
     private int viewCount;
@@ -40,8 +40,8 @@ public class BoardVO {
     public String getImgUrl() { return imgUrl; }
     public void setImgUrl(String imgUrl) { this.imgUrl = imgUrl; }
 
-    public String getSystemFilename() { return systemFilename; }
-    public void setSystemFilename(String systemFilename) { this.systemFilename = systemFilename; }
+    public String getSystem_filename() { return systemFilename; }
+    public void setSystem_filename(String systemFilename) { this.systemFilename = systemFilename; }
 
     public Date getCreatedAt() { return createdAt; }
     public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
