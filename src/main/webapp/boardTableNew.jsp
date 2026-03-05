@@ -56,9 +56,13 @@
                         <td>${b.num}</td> 
                         <td>
 							<%-- 이미지의 경로가 null 이거나 틀렸을때 엑박 대체이미지 출력되도록 설정 --%>
-					        <img src="${pageContext.request.contextPath}/css/img/upload/product/${b.system_filename}"
-					             style="width:50px;height:50px;object-fit:cover;"
-					             onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/css/img/no_image.jpg';">
+					        <img src="<%= request.getContextPath() %>/css/img/upload/product/<%= system_file %>"
+					        	style="width:50px;height:50px;object-fit:cover;"
+					            onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/css/img/upload/product/${b.system_filename}';"
+					            this.onerror=function(){
+                  					this.onerror=null;
+                  					this.src='${pageContext.request.contextPath}/css/img/no_image.jpg';
+            				};">
                         </td>
                         <td>[${b.category}]</td>
                         <td style="text-align:left;">

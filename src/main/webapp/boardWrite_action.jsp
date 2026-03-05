@@ -34,7 +34,7 @@
         /* String sql = "INSERT INTO products (category, p_name, author, p_desc, price, system_filename) "
                    + "VALUES (?, ?, ?, ?, ?, ? || '_' || (SELECT COUNT(*) FROM products) || ?)"; */
         String sql = "INSERT INTO products (category, p_name, author, p_desc, price, system_filename) "
-        + "VALUES (?, ?, ?, ?, ?, ?)";
+        + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, category);
