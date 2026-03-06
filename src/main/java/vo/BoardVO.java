@@ -40,8 +40,8 @@ public class BoardVO {
     public String getImgUrl() { return imgUrl; }
     public void setImgUrl(String imgUrl) { this.imgUrl = imgUrl; }
 
-    public String getSystem_filename() { return system_filename; }
-    public void setSystem_filename(String systemFilename) { this.system_filename = system_filename; }
+    public String getSystem_filename() { return systemFilename; }
+    public void setSystem_filename(String systemFilename) { this.systemFilename = systemFilename; }
 
     public Date getCreatedAt() { return createdAt; }
     public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }

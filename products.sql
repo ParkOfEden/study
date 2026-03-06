@@ -64,6 +64,181 @@ VALUES (
 );
 
 COMMIT;
+p_desc서부터 board_test 에서 가져온 sql
+INSERT INTO products (category, p_name, author, p_desc, price, system_filename)
+VALUES (
+    '티셔츠', 
+    '여름 신상', 
+    'admin', 
+    '상세 내용...', 
+    -- '파일명' + '_' + '현재 전체 개수' + '.확장자'
+    'tshirts' || '_' || (SELECT COUNT(*) FROM board_test) || '.jpg'
+);
+
+SELECT * FROM board_test;
+
+----------------------------------------------------------------------
+-- 상품 등록
+----------------------------------------------------------------------
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    img_url
+) VALUES (
+    '티셔츠',
+    '기본 반팔 티셔츠',
+    'admin',
+    '부드러운 면 소재의 기본 반팔입니다.',
+    10000,
+    'css/img/upload/product/top/tshirt1.jpg'
+);
+
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '티셔츠',
+    '여성) 스트라이프 반팔 T',
+    'admin',
+    '부드러운 면 소재의 스트라이프 무늬 반팔입니다.',
+    10000,
+    'css/img/upload/product/top/tshirt2.jpg'
+);
+
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '티셔츠',
+    '여성) [디즈니] 코튼 반팔 T',
+    'admin',
+    '부드러운 면 소재의 스트라이프 무늬 반팔입니다.',
+    10000,
+    'css/img/upload/product/top/tshirt3.jpg'
+);
+
+COMMIT;
+
+INSERT INTO board_test (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '슈즈',
+    '남아) 남색 로퍼',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/shoes_bag/shoes-boy140.jpg'
+);
+
+COMMIT;
+
+INSERT INTO board_test (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '바지',
+    '남아) 1+1 편안한 바지',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/bottom/pants-boy121.jpg'
+);
+
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '바지',
+    '남아) 1+1 조거 통 바지',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/bottom/pants-boy122.jpg'
+);
+
+COMMIT;
+
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '바지',
+    '남아) 1+1 조거 츄리닝 바지',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/bottom/pants-boy123.jpg'
+);
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '머리띠',
+    '여아) 파랑 리본',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/acc-girl0100.jpg'
+);
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '머리띠',
+    '여아) 파랑 리본',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/acc-girl0100.jpg'
+);
+COMMIT;
 
 -- 전체 상품 조회 (최신순)
 SELECT * FROM products ORDER BY p_id DESC;
