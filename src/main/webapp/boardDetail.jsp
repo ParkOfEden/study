@@ -104,7 +104,7 @@ border-radius:6px;
 
 .detail-btn-area{
 text-align:center;
-padding:20px 0;
+padding:25px 0;
 }
 
 /* 장바구니 버튼 */
@@ -242,7 +242,7 @@ opacity:0;
     </button>
 </form>
 
-            <button onclick="location.href='boardList.do'">목록</button>
+            <button class="btn-list" onclick="location.href='boardList.do'">목록</button>
             
         <%
         // 3. 관리자일 때만 수정/삭제 버튼 노출
