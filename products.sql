@@ -270,3 +270,6 @@ SELECT * FROM products WHERE p_name LIKE '%반팔%';
 SELECT * FROM products WHERE price <= 20000;
 
 COMMIT;
+
+--products 테이블에서 system_filename 조회
+SELECT system_filename FROM products;

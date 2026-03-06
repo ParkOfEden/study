@@ -26,7 +26,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title><%= request.getAttribute("pageTitle") != null ? request.getAttribute("pageTitle") : "월클의류(주)" %></title>
+    <title>${not empty pageTitle ? pageTitle : '월클의류 (주)'}</title>
     <link rel="icon" href="<%=path%>/css/img/wolcl.ico" type="image/x-icon">
     <link rel="stylesheet" href="<%=path%>/css/common.css">
 	<link rel="stylesheet" href="<%=path%>/css/header.css">     
@@ -44,7 +44,7 @@
 <%-- 상단 메뉴 바 섹션 --%>
 <ul class="top-menu">
     <li><a href="<%= request.getContextPath() %>/index.jsp">홈</a></li>
-    <%-- <li><a href="<%= request.getContextPath() %>/sendMail.jsp">SEND MAIL</a></li> --%>
+    <li><a href="${pageContext.request.contextPath}/sendMail.jsp">SEND MAIL</a></li>
 
     <% if(authUser == null){ %>
         <%-- 비회원 상태 --%>

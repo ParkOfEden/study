@@ -10,7 +10,7 @@ public class BoardVO {
     private String content;     // DB의 p_desc와 매칭
     private int price;          // [추가] 상품 가격 필드
     private String imgUrl;      
-    private String systemFilename; 
+    private String system_filename; 
     private Date createdAt;
     private Date updatedAt;
     private int viewCount;
@@ -40,8 +40,13 @@ public class BoardVO {
     public String getImgUrl() { return imgUrl; }
     public void setImgUrl(String imgUrl) { this.imgUrl = imgUrl; }
 
+<<<<<<< HEAD
     public String getSystem_filename() { return systemFilename; }
     public void setSystem_filename(String systemFilename) { this.systemFilename = systemFilename; }
+=======
+    public String getSystem_filename() { return system_filename; }
+    public void setSystem_filename(String system_filename) { this.system_filename = system_filename; }
+>>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
 
     public Date getCreatedAt() { return createdAt; }
     public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
