@@ -71,6 +71,10 @@
 						</table>
 						
 				</div>
+				
+				<div>
+					<jsp:include page="gridTable.jsp"/>
+				</div>
 			
 			</section>
 			
