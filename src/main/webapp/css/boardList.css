@@ -92,3 +92,10 @@
     color:#999;
     margin-top:5px;
 }
+
+.grid-empty{
+    text-align:center;
+    padding:40px 0;
+    font-size:16px;
+    color:#666;
+}

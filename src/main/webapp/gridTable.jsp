@@ -8,19 +8,17 @@
 <br>
 size : ${boardList.size()} --%>    
     
-<table class="grid-table">
 
-
- 
-<tbody>
 
 <c:if test="${empty boardList}">
-    <tr>
-        <td colspan="4">등록된 게시글이 없습니다.</td>
-    </tr>
+    <div class="grid-empty">
+        등록된 게시글이 없습니다.
+    </div>
 </c:if>
 
 <c:if test="${not empty boardList}">
+<table class="grid-table">
+<tbody>
    	<c:forEach var="b" items="${boardList}" varStatus="status">
    	
    		<c:if test="${status.index % 4 == 0}">
