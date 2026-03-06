@@ -240,6 +240,23 @@ INSERT INTO products (
 );
 COMMIT;
 
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '블라우스',
+    '여성) 씨쓰루 브이넥 검정 블라우스',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/top/blouse-lady008.jpg'
+);
+COMMIT
+
 -- 전체 상품 조회 (최신순)
 SELECT * FROM products ORDER BY p_id DESC;
 

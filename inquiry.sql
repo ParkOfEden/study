@@ -8,3 +8,4 @@ CREATE TABLE inquiry (
 );
 
 CREATE SEQUENCE inquiry_seq;
+ALTER TABLE inquiry ADD answer VARCHAR2(1000);
