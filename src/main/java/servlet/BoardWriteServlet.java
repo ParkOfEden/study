@@ -12,10 +12,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import vo.BoardVO;
+
 @WebServlet("/boardWrite.do")
 @MultipartConfig(
-    fileSizeThreshold = 1024 * 1024 * 1, 
-    maxFileSize = 1024 * 1024 * 10,      
+    fileSizeThreshold = 1024 * 1024 * 1,  
+    maxFileSize = 1024 * 1024 * 10,       
     maxRequestSize = 1024 * 1024 * 15    
 )
 public class BoardWriteServlet extends HttpServlet {
@@ -24,53 +25,72 @@ public class BoardWriteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
-        request.setCharacterEncoding("UTF-8");
-        
-        // 1. 데이터 추출 (JSP의 name 속성과 일치시켜야 함)
-        String category = request.getParameter("category");
-        String p_name = request.getParameter("p_name");   // title -> p_name
-        String author = request.getParameter("author");
-        String p_desc = request.getParameter("p_desc");   // content -> p_desc
-        
-        // 가격 처리 (문자열을 숫자로 변환)
-        String priceStr = request.getParameter("price");
-        int price = (priceStr != null && !priceStr.isEmpty()) ? Integer.parseInt(priceStr) : 0;
-
-        // 2. 파일 업로드 처리
-        Part filePart = request.getPart("uploadFile");
-        String system_filename = null;
-        
-        if (filePart != null && filePart.getSize() > 0) {
-            String fileName = filePart.getSubmittedFileName();
-            system_filename = System.currentTimeMillis() + "_" + fileName;
+        try {
+            request.setCharacterEncoding("UTF-8");
             
-            String uploadPath = getServletContext().getRealPath("/css/img/upload");
-            File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()) uploadDir.mkdirs();
+            // 1. 데이터 추출 및 유효성 검사
+            String category = request.getParameter("category");
+            String p_name = request.getParameter("p_name");   
+            String author = request.getParameter("author");
+            String p_desc = request.getParameter("p_desc");   
+            String priceStr = request.getParameter("price");
+
+            // 필수 파라미터가 아예 없는 경우 403 Forbidden 페이지로 유도
+            if (p_name == null || author == null) {
+                response.sendError(HttpServletResponse.SC_FORBIDDEN); // error_403.jsp
+                return;
+            }
+
+            // 2. 가격 처리 (숫자 변환 실패 시 404 Not Found 페이지로 유도)
+            int price = 0;
+            if (priceStr != null && !priceStr.trim().isEmpty()) {
+                try {
+                    price = Integer.parseInt(priceStr);
+                } catch (NumberFormatException e) {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND); // error_404.jsp
+                    return;
+                }
+            }
+
+            // 3. 파일 업로드 처리
+            Part filePart = request.getPart("uploadFile");
+            String system_filename = null;
             
-            filePart.write(uploadPath + File.separator + system_filename);
-        }
+            if (filePart != null && filePart.getSize() > 0) {
+                String fileName = filePart.getSubmittedFileName();
+                system_filename = System.currentTimeMillis() + "_" + fileName;
+                
+                String uploadPath = getServletContext().getRealPath("/css/img/upload");
+                File uploadDir = new File(uploadPath);
+                if (!uploadDir.exists()) uploadDir.mkdirs();
+                
+                filePart.write(uploadPath + File.separator + system_filename);
+            }
 
-        // 3. VO 객체에 데이터 담기 (ProductVO 또는 수정한 BoardVO)
-        BoardVO vo = new BoardVO();
-        vo.setCategory(category);
-        vo.setTitle(p_name);    // VO 내부 변수명이 title이라도 값은 p_name을 넣음
-        vo.setAuthor(author);
-        vo.setContent(p_desc);  // VO 내부 변수명이 content라도 값은 p_desc를 넣음
-        vo.setSystem_filename(system_filename); 
-        vo.setPrice(price);     // 반드시 BoardVO에 setPrice 메서드가 있어야 함
-        
-        vo.setSystem_filename(system_filename); // 파일 업로드 관련
+            // 4. VO 객체 생성 및 데이터 바인딩
+            BoardVO vo = new BoardVO();
+            vo.setCategory(category);
+            vo.setTitle(p_name);    
+            vo.setAuthor(author);
+            vo.setContent(p_desc);  
+            vo.setPrice(price);     
+            vo.setSystem_filename(system_filename); 
 
-        // 4. DAO 호출
-        BoardDAO dao = new BoardDAO();
-        int result = dao.insertBoard(vo); // 이 메서드 안의 SQL이 중요함
+            // 5. DAO 호출 (DAO가 throws Exception 상태이므로 catch로 이동 가능)
+            BoardDAO dao = new BoardDAO();
+            int result = dao.insertBoard(vo); 
 
-        if (result > 0) {
-            response.sendRedirect("boardList.do");
-        } else {
-            response.setContentType("text/html; charset=UTF-8");
-            response.getWriter().println("<script>alert('등록 실패: DB 연동 에러'); history.back();</script>");
+            if (result > 0) {
+                response.sendRedirect("boardList.do");
+            } else {
+                // 논리적 등록 실패 시 500 에러 처리
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            }
+
+        } catch (Exception e) {
+            // 파일 업로드 용량 초과, DB 접속 장애 등 발생 시 500 에러 페이지로 유도
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR); // error_500.jsp
         }
     }
 }
