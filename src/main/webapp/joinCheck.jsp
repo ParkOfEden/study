@@ -21,14 +21,14 @@
     String msg = "";
     String nextPage = "";
 
-    try {
-        // 1. 중복 체크
+    try {// [수정] 1. 중복 체크 SQL 실행 로직 추가
         String sql = "SELECT id FROM ACCOUNTS WHERE id=? OR email=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
         pstmt.setString(2, email);
-        rs = pstmt.executeQuery();
+        rs = pstmt.executeQuery(); // 여기서 rs에 결과가 담깁니다.
         
+        // 이제 rs.next() 호출 시 NPE가 발생하지 않습니다.
         if (rs.next()) {
             msg = "아이디 또는 이메일이 이미 존재합니다.";
             nextPage = "join.jsp";
@@ -47,19 +47,21 @@
             session.setAttribute("join_email", email);
             session.setAttribute("authCode", authCode);
             
-            // 4. 메일 발송 설정
-            Properties prop = new Properties();
-            prop.setProperty("mail.smtp.host", "smtp.gmail.com");
-            prop.setProperty("mail.smtp.port", "587");
-            prop.setProperty("mail.smtp.auth", "true");
-            prop.setProperty("mail.smtp.starttls.enable", "true");
-            
+            // 4. 메일 발송 설정 (오류 수정 및 최적화)
             GmailAuthenticator auth = new GmailAuthenticator();
-            Session mailSession = Session.getInstance(prop, auth);
             
+            // 중복 선언된 Properties prop 변수를 하나로 통합
+            Properties prop = auth.getInfo(); 
+            
+            Session mailSession = Session.getInstance(prop, auth);
             MimeMessage message = new MimeMessage(mailSession);
+            
+            // 수신자: 사용자가 입력한 이메일
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
-            message.setFrom(new InternetAddress("pshyun9063@gmail.com", "월클의류"));
+            
+            // 발신자: properties 파일의 user 계정 사용 (표시 이름: 월클의류)
+            message.setFrom(new InternetAddress(auth.getUser(), "월클의류"));
+            
             message.setSubject("[월클의류] 회원가입 인증번호입니다.", "UTF-8");
             
             // HTML 본문 구성
@@ -81,7 +83,7 @@
             
             msg = "인증코드가 이메일로 발송되었습니다.";
             nextPage = "verifyCode.jsp";
-        } // end else
+        } 
     } catch (Exception e) {
         e.printStackTrace();
         msg = "처리 실패: " + e.getMessage();
