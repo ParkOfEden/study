@@ -19,6 +19,19 @@
 
 .board-table th { background-color: #f4f4f4; }
 
+/* 관리 링크 스타일 */
+.board-table td a {
+    text-decoration: none;
+    color: #333;
+    transition: all 0.2s ease;
+}
+
+/* 마우스 올렸을 때 */
+.board-table td a:hover {
+    color: #e74c3c;   /* 색상 변경 */
+    font-weight: bold; /* 글씨 굵게 */
+}
+
 .paging { text-align: center; margin-top: 20px; }
 
 .paging a { text-decoration: none; color: black; margin: 0 5px; }
