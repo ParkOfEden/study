@@ -69,9 +69,59 @@
 <meta charset="UTF-8">
 <title><%= board.getTitle() %></title>
 <style>
-    .prod-img { max-width: 400px; display: block; margin-bottom: 10px; border: 1px solid #eee; }
-    table { width: 500px; border-collapse: collapse; }
-    td, th { padding: 10px; }
+.detail-table{
+width:600px;
+margin:40px auto;
+border-collapse:collapse;
+background:white;
+}
+
+.detail-table td{
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+.detail-table td:first-child{
+width:120px;
+font-weight:bold;
+background:#fafafa;
+}
+
+.detail-image{
+text-align:center;
+padding:30px 0;
+}
+
+.prod-img{
+max-width:350px;
+border-radius:6px;
+}
+
+.detail-btn-area{
+text-align:center;
+padding:20px 0;
+}
+
+.btn-cart{
+background:#ff8a00;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:4px;
+cursor:pointer;
+}
+
+.btn-cart:hover{
+background:#ff7300;
+}
+
+.btn-list{
+background:#f5f5f5;
+border:1px solid #ccc;
+padding:10px 15px;
+margin-left:10px;
+cursor:pointer;
+}
 </style>
 </head>
 <body>
@@ -83,7 +133,7 @@
     </tr>
 
     <tr>
-    <td colspan="2" align="center" style="padding: 20px; background-color: #f9f9f9;">
+    <td colspan="2" class="detail-image">
         <% 
 	        // DB에서 가져온 파일명 확인
 		    String system_file = board.getSystem_filename();
@@ -92,18 +142,22 @@
         
         <% if(system_file != null && !system_file.isEmpty()) { %>
         
-            <img src="<%= request.getContextPath() %>/css/img/upload/<%= system_file %>" 
+            <img class="prod-img"
+             src="<%= request.getContextPath() %>/css/img/upload/<%= system_file %>" 
                  style="max-width: 450px; height: auto; border: 2px solid #eee;" 
                  alt="상품이미지">
+                 
             <p style="color: blue; font-size: 11px;">(server에) 저장된 파일명: <%= system_file %></p>
+            
         <% } else if(imgUrl != null && !imgUrl.isEmpty()) { %>
-	    <img src="<%= imgUrl %>"
-	         style="max-width: 450px; height: auto; border: 2px solid #eee;">
+        
+	    <img class="prod-img" src="<%= imgUrl %>">
 	    <p style="color: green; font-size: 11px;">
 	        외부URL: <%= imgUrl %>
 	    </p>
 	    <% } else { %>        
-            <p style="color: #ccc;">등록된 이미지가 없습니다.</p>
+        	<img class="prod-img"
+			 src="<%= request.getContextPath() %>/css/img/no_image.jpg">
         <% } %>
     </td>
 </tr>
@@ -134,7 +188,7 @@
         
     </tr>
     <tr>
-        <th colspan="2">
+        <th colspan="2" class="detail-btn-area">
         <%
         // 1. 여기서 먼저 세션 정보를 가져옵니다 (변수 선언)
         String loginUser = (String)session.getAttribute("authUser");
