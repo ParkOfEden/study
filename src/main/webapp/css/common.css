@@ -47,11 +47,16 @@ section {
 }
 
 /* grid 게시판용 */
-.section-grid {
-  min-height: 700px;	
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+.section-grid{
+min-height:700px;
+
+display:grid;
+
+grid-template-columns:repeat(4, 220px);
+
+gap:25px;
+
+justify-content:center;
 }
 
 /* 기본(테이블형) 게시판용 */ 
