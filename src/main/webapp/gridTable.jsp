@@ -36,6 +36,7 @@ size : ${boardList.size()} --%>
         </c:if>
            
         <td class="grid-item">
+        <div class="grid-card">
         
 			<%-- 이미지의 경로가 null 이거나 틀렸을때 엑박 대체이미지 출력되도록 설정 --%>
 			<c:choose>
@@ -64,6 +65,8 @@ size : ${boardList.size()} --%>
             <div class="grid-meta">
                 조회 ${b.viewCount}
             </div>       
+        
+        </div>
                     
 		</td>     	
    
@@ -76,7 +79,9 @@ size : ${boardList.size()} --%>
 		<c:if test="${not empty boardList and boardList.size() % 4 != 0}">		
     	</tr>
         </c:if>				
-	</c:if>    	
+	   	
 </tbody>
 </table>
+
+</c:if> 
 
