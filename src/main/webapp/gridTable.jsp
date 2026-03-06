@@ -42,11 +42,11 @@ size : ${boardList.size()} --%>
 			<c:choose>
 			    <c:when test="${empty b.system_filename}">
 			        <img src="${pageContext.request.contextPath}/css/img/no_image.jpg"
-			             style="width:50px;height:50px;object-fit:cover;">
+			             class="grid-img">
 			    </c:when>
 			    <c:otherwise>
 			        <img src="${pageContext.request.contextPath}/css/img/upload/${b.system_filename}"
-			             style="width:50px;height:50px;object-fit:cover;"
+			             class="grid-img"
 			             onerror="this.onerror=null;
 			                      this.src='${pageContext.request.contextPath}/css/img/upload/product/${b.system_filename}';">
 			    </c:otherwise>
