@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
     // 세션에 인증코드가 없으면 잘못된 접근
     String sessionCode = (String)session.getAttribute("authCode");
@@ -13,30 +12,25 @@
     }
 %>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
-<title>이메일 인증</title>
-</head>
-<body>
+<%-- 1. 헤더 포함 (기존 DOCTYPE, head, header 태그 대체) --%>
+<%@ include file="common/header.jsp" %>
 
-	<section class="section-base">
-		<div class="verify-wrapper">
+<%-- 2. 본문 영역 --%>
+<section class="section-base">
+    <div class="verify-wrapper">
 
-    		<div class="verify-text">
-				<h2>이메일 인증</h2>
-				
-				<p>입력하신 이메일로 인증코드를 발송했습니다.</p>
-				<p>받은 인증코드를 아래에 입력해주세요.</p>
-			</div>
-		
-			<form class="form-card verify-card" action="verifyCheck.jsp" method="post">
-			   <input type="text" name="inputCode" placeholder="인증코드 6자리 입력" required>
-			   <button type="submit">인증하기</button>
-			</form>
-		</div>
-	</section>
-</body>
-</html>
+        <div class="verify-text">
+            <h2>이메일 인증</h2>
+            <p>입력하신 이메일로 인증코드를 발송했습니다.</p>
+            <p>받은 인증코드를 아래에 입력해주세요.</p>
+        </div>
+    
+        <form class="form-card verify-card" action="verifyCheck.jsp" method="post">
+           <input type="text" name="inputCode" placeholder="인증코드 6자리 입력" required>
+           <button type="submit">인증하기</button>
+        </form>
+    </div>
+</section>
+
+<%-- 3. 푸터 포함 (기존 body, html 닫는 태그 대체) --%>
+<%@ include file="common/footer.jsp" %>

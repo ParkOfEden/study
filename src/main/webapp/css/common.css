@@ -23,10 +23,18 @@ section {
 /* 전역 설정 방지 예시 */
 .section-base {
 	min-height: 700px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	/* display: flex; */
+	/* align-items: center; */
+	/* justify-content: center; */
 	padding: 30px;
+}
+
+.section-base.main{
+    width:100%;
+    padding:0;
+    position:relative;
+	display:block;
+	text-align:center;    
 }
 
 /* 상단 중앙 정렬이 필요할 때만 */
@@ -54,7 +62,7 @@ section {
 } 
 
 section.main{
-	background-image:url(img/dog.jpg);
+	background-image:url(img/main00.jpg);
 	background-position: center;
 	/*background-repeat: no-repeat;*/	
 	/*background-size:cover;*/
@@ -64,11 +72,12 @@ section.main{
 
 section.main h1{
 	width:100%;
+	height:100%;
 	min-height: 700px;
 	background-color:#ffffff80;
 	color:black;
-	display: flex;
-	align-items: center;
+	/* display: flex; */
+	/* align-items: center; */
 	justify-content: center;
 }
 
@@ -154,6 +163,122 @@ table tr td input[type='number'] {
 	font-size: 14px;
 }
 */
+
+/* 메인 페이지 추천 아이템 관련 css */
+.recommend{
+    position:relative;
+    text-align:center;
+}
+
+.recommend h1{
+    padding-top:40px;
+}
+
+/* index 상단 카테고리 아이콘 css */
+
+.category-wrapper{
+    position:relative;
+    display:flex;
+    align-items:center;
+    
+    width:60%;
+    margin:0 auto;    
+}
+
+
+
+.category-table{
+    border-collapse: separate;
+    border-spacing: 25px 0; /* 가로 간격, 세로 간격 */	
+    /* width:100%; */
+    /* table-layout:fixed; */
+    /* margin:auto; */      /* 가운데 정렬 */
+    width:max-content;   /* 콘텐츠 크기만큼 table 너비 확장 */
+}
+
+.category-table td{
+	padding:0 20px;
+    text-align:center;
+}
+
+.category-table img{
+    width:80px;
+    height:auto;
+    transition: transform 0.25s ease;
+}
+
+.category-table img:hover{
+    transform: scale(1.25);
+}
+
+.category-scroll{
+	width:100%;
+    overflow-x:auto;
+    scroll-behavior:smooth;	
+    /* scrollbar-width:none; */ /* firefox */
+}
+
+.category-scroll::-webkit-scrollbar{
+    display:none; /* chrome */
+}
+
+.scroll-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    
+	width:40px;
+    height:40px;    
+    
+    border:none;
+    border-radius:50%;
+    
+    background:#ffffffcc;
+    color:black;
+    
+    border:2px solid transparent; /* 기본은 안 보이게 */
+    border-radius:50%;
+    
+    font-size:18px;
+    cursor:pointer;
+    
+    transition: all 0.3s ease;
+}
+
+.scroll-btn:hover{
+    border-color:#ff4d4d;
+    background:white;
+    color:#ff4d4d;
+    transform:translateY(-50%) scale(1.15);
+}
+
+.scroll-btn.left{
+    left:-40px;
+}
+
+.scroll-btn.right{
+    right:-40px;
+}
+
+/* 추천 아이템 관련 css */
+.product-table {
+	position:absolute;
+    top:150px;   /* h3 아래 위치 */
+    left:50%;
+    transform:translateX(-50%);
+    width:80%;	
+}
+
+.product-table img{
+    width:100%; /* td 크기에 맞게 줄어듦 */
+    height:auto; /* 비율 유지 */
+    /* object-fit:cover; */ /* 이미지 찌그러짐 방지 */
+}
+
+.product-table td{
+    width:25%;
+    text-align:center;
+}
 
 /* 기존 전역 table 스타일 대신 클래스 기반으로 변경 */
 .pd-table {

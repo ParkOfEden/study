@@ -38,11 +38,11 @@
         </tr>
 
         <tr>
-            <td>파일명(수정불가)</td>
-            <td>
-                <input type="text" name="system_filename" value="${board.systemFilename}" readonly style="background-color:#eee; width:100%;"/>
-            </td>
-        </tr>
+    <td>파일명(수정불가)</td>
+    <td>
+        <input type="hidden" name="system_filename" value="${board.system_filename}"/>
+    </td>
+</tr>
     </table>
 
     <%-- 버튼 영역 추가 --%>

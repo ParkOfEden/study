@@ -2,9 +2,6 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ include file="common/header.jsp" %>
 
-<section>
-
-<!-- 검색 -->
 <div class="search-area">
     <form action="boardList.do" method="get">
         
@@ -27,7 +24,7 @@
 
 <c:choose>
 
-    <c:when test="${param.include == 'grid'}">
+    <c:when test="${param.include eq 'grid'}">
         <jsp:include page="gridTable.jsp"/>
     </c:when>
 

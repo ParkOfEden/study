@@ -44,7 +44,7 @@ public class BoardWriteServlet extends HttpServlet {
             String fileName = filePart.getSubmittedFileName();
             system_filename = System.currentTimeMillis() + "_" + fileName;
             
-            String uploadPath = getServletContext().getRealPath("/upload");
+            String uploadPath = getServletContext().getRealPath("/css/img/upload");
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) uploadDir.mkdirs();
             
@@ -59,6 +59,8 @@ public class BoardWriteServlet extends HttpServlet {
         vo.setContent(p_desc);  // VO 내부 변수명이 content라도 값은 p_desc를 넣음
         vo.setSystem_filename(system_filename); 
         vo.setPrice(price);     // 반드시 BoardVO에 setPrice 메서드가 있어야 함
+        
+        vo.setSystem_filename(system_filename); // 파일 업로드 관련
 
         // 4. DAO 호출
         BoardDAO dao = new BoardDAO();

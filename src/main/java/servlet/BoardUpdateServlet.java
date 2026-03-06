@@ -34,16 +34,24 @@ public class BoardUpdateServlet extends HttpServlet {
         String category = request.getParameter("category");
         String title = request.getParameter("title");
         String content = request.getParameter("content");
-        String imgUrl = request.getParameter("imgUrl");
+        
+        // 업데이트 폼에 반영되는 파라미터
+        int price = Integer.parseInt(request.getParameter("price"));
+        String system_filename = request.getParameter("system_filename");
 
+        BoardDAO dao = new BoardDAO();
+        BoardVO old = dao.getBoard(num);
+        
         BoardVO vo = new BoardVO();
         vo.setNum(num);
         vo.setCategory(category);
         vo.setTitle(title);
+        vo.setAuthor(old.getAuthor());   // 기존 작성자 유지
         vo.setContent(content);
-        vo.setImgUrl(imgUrl);
+        
+        vo.setPrice(price);
+        vo.setSystem_filename(system_filename);
 
-        BoardDAO dao = new BoardDAO();
         dao.updateBoard(vo);
 
         response.sendRedirect("boardDetail.do?num=" + num);

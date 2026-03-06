@@ -31,7 +31,7 @@
                 <select name="category" required style="width: 100%; padding: 5px;">
                     <option value="">-- 카테고리를 선택하세요 --</option>
                     <optgroup label="NEW&amp;BEST">
-                    	<option value="신상품">신상품</option>
+                    	<option value="신상품" selected>신상품</option>
                     	<option value="Best 상품">Best 상품</option>
                     	<option value="MD 추천">MD 추천</option>                    
                     </optgroup>
@@ -118,8 +118,17 @@
 
         <tr>
             <th colspan="2" style="text-align: center; padding: 15px 0;">
-                <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer;">상품 등록 완료</button>
-                <button type="button" onclick="location.href='boardList.do'" style="padding: 10px 20px;">취소</button>
+                <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer;">
+                    상품 등록 완료
+                </button>
+                
+                <button type="button" onclick="location.href='boardList.do'" style="padding: 10px 20px; background-color: #6c757d; color: white; border: none; cursor: pointer;">
+                    글 목록보기
+                </button>
+
+                <button type="button" onclick="history.back();" style="padding: 10px 20px;">
+                    취소
+                </button>
             </th>
         </tr>
     </table>
