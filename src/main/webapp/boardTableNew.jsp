@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
-<%@ include file="common/header.jsp" %>
+<%-- include 주석 해제 시 이중 출력됨 --%>
+<%-- <%@ include file="common/header.jsp" %> --%>
 <!-- boardTableNew.jsp -->
 <section>
 
-<!-- 검색 -->
+<%-- 검색 주석 해제 시 이중 출력됨 --%>
+<!-- 검색
 <div class="search-area">
     <form action="boardList.do" method="get">
         
@@ -17,7 +19,7 @@
             <option value="all"
             	${param.type == 'all' ? 'selected' : ''}>제목+카테고리</option>
         </select>
-		<!-- 검색 후에도 값 유지 -->
+		<%-- 검색 후에도 값 유지 --%>
         <input type="text" name="keyword" 
                value="${param.keyword}" 
                placeholder="검색어 입력">
@@ -25,7 +27,7 @@
         <button type="submit">검색</button>
     </form>
 </div>
-
+ -->
 <table class="board-table">
     <thead>
         <tr>
@@ -97,7 +99,8 @@
     AuthUser 세션 상태: ${sessionScope.authUser}
 </div> --%> 
 
-<!-- 페이징 -->
+<!-- 페이징 주석 해제 시 이중 출력됨 -->
+<!-- 페이징
 <div class="paging">
 
     <c:if test="${pageMaker.prev}">
@@ -118,6 +121,6 @@
     </c:if>
 
 </div>
-
+ -->
 </section>
-<%@ include file="common/footer.jsp"%>
+<%-- <%@ include file="common/footer.jsp"%> --%>
