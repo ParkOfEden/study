@@ -125,7 +125,7 @@ cursor:pointer;
 </style>
 </head>
 <body>
-    <table border="1">
+    <table class="detail-table">
     <tr>
         <th colspan="2">
             <h4>[<%= board.getCategory() %>] <%= board.getNum() %>번 상품 상세 정보</h4>
