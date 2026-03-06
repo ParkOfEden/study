@@ -117,4 +117,18 @@ margin-bottom:8px;
 
 }
 
+.grid-noimg{
+
+width:100%;
+
+aspect-ratio:1;
+
+object-fit:cover;
+
+border-radius:6px;
+
+margin-bottom:8px;
+
+}
+
 /* 상품게시판 검색창 관련 css => common.css 에 있음 */

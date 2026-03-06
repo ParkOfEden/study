@@ -42,7 +42,7 @@ size : ${boardList.size()} --%>
 			<c:choose>
 			    <c:when test="${empty b.system_filename}">
 			        <img src="${pageContext.request.contextPath}/css/img/no_image.jpg"
-			             class="grid-img">
+			             class="grid-noimg">
 			    </c:when>
 			    <c:otherwise>
 			        <img src="${pageContext.request.contextPath}/css/img/upload/${b.system_filename}"
