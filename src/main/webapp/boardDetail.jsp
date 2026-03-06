@@ -70,10 +70,14 @@
 <title><%= board.getTitle() %></title>
 <style>
 .detail-table{
-width:600px;
+width:650px;
 margin:40px auto;
 border-collapse:collapse;
 background:white;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+border-radius:8px;
+overflow:hidden;
 }
 
 .detail-table td{
@@ -90,6 +94,7 @@ background:#fafafa;
 .detail-image{
 text-align:center;
 padding:30px 0;
+background:#fafafa;
 }
 
 .prod-img{
@@ -122,6 +127,29 @@ padding:10px 15px;
 margin-left:10px;
 cursor:pointer;
 }
+
+.debug-file{
+font-size:11px;
+color:#3b82f6;
+margin-top:8px;
+
+animation: debugFade 5s forwards;
+}
+
+@keyframes debugFade{
+
+0%{
+opacity:1;
+}
+
+70%{
+opacity:1;
+}
+
+100%{
+opacity:0;
+}
+}
 </style>
 </head>
 <body>
@@ -147,7 +175,7 @@ cursor:pointer;
                  style="max-width: 450px; height: auto; border: 2px solid #eee;" 
                  alt="상품이미지">
                  
-            <p style="color: blue; font-size: 11px;">(server에) 저장된 파일명: <%= system_file %></p>
+            <p class="debug-file">(server에) 저장된 파일명: <%= system_file %></p>
             
         <% } else if(imgUrl != null && !imgUrl.isEmpty()) { %>
         
@@ -196,7 +224,7 @@ cursor:pointer;
 
             <form action="cart" method="post" style="display: inline;">
     <input type="hidden" name="p_id" value="<%= board.getNum() %>">
-    <button type="submit" style="background-color: orange; color: white; border: none; padding: 7px 15px; cursor: pointer;">
+    <button type="submit" class="btn-cart">
         장바구니 담기
     </button>
 </form>
