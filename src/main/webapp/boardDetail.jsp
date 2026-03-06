@@ -141,9 +141,7 @@
         %>
 
             <form action="cart" method="post" style="display: inline;">
-    <input type="hidden" name="p_name" value="<%= board.getTitle() %>">
-    <input type="hidden" name="price" value="<%= board.getPrice() %>">
-    
+    <input type="hidden" name="p_id" value="<%= board.getNum() %>">
     <button type="submit" style="background-color: orange; color: white; border: none; padding: 7px 15px; cursor: pointer;">
         장바구니 담기
     </button>
