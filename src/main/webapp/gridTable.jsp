@@ -37,7 +37,7 @@ size : ${boardList.size()} --%>
            
         <td class="grid-item">
         <div class="grid-card">
-        
+        	<div class="grid-img-box">
 			<%-- 이미지의 경로가 null 이거나 틀렸을때 엑박 대체이미지 출력되도록 설정 --%>
 			<c:choose>
 			    <c:when test="${empty b.system_filename}">
@@ -51,7 +51,7 @@ size : ${boardList.size()} --%>
 			                      this.src='${pageContext.request.contextPath}/css/img/upload/product/${b.system_filename}';">
 			    </c:otherwise>
 			</c:choose>	
-           	
+           	</div>
            	<div class="grid-category">
            		[${b.category}]
            	</div>
