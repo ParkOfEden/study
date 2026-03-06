@@ -107,25 +107,38 @@ text-align:center;
 padding:20px 0;
 }
 
+/* 장바구니 버튼 */
 .btn-cart{
 background:#ff8a00;
-color:white;
+color:#fff;
 border:none;
 padding:10px 18px;
 border-radius:4px;
 cursor:pointer;
+font-weight:600;
+transition:0.2s;
 }
 
 .btn-cart:hover{
 background:#ff7300;
 }
 
+/* 목록 버튼 */
 .btn-list{
-background:#f5f5f5;
+background:#fff;
+color:#555;
 border:1px solid #ccc;
-padding:10px 15px;
-margin-left:10px;
+padding:10px 18px;
+border-radius:4px;
 cursor:pointer;
+margin-left:8px;
+transition:0.2s;
+}
+
+.btn-list:hover{
+background:#f2f2f2;
+color:#333;
+border-color:#bbb;
 }
 
 .debug-file{
@@ -133,7 +146,7 @@ font-size:11px;
 color:#3b82f6;
 margin-top:8px;
 
-animation: debugFade 5s forwards;
+animation: debugFade 3s forwards;
 }
 
 @keyframes debugFade{
