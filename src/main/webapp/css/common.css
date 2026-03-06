@@ -48,11 +48,15 @@ section {
 
 /* grid 게시판용 */
 .section-grid{
+max-width:1000px;
+
+margin:40px auto;	
+	
 min-height:700px;
 
 display:grid;
 
-grid-template-columns:repeat(4, 220px);
+grid-template-columns:repeat(4, 1fr);
 
 gap:25px;
 
