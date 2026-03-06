@@ -57,12 +57,14 @@
 }
 
 .grid-card{
-    border:1px solid #ddd;
+    border:1px solid #eee;
     border-radius:10px;
-    padding:15px;
-    background:white;
-    height:160px;
-    transition:0.2s;
+    padding:18px;
+    background:#fff;
+    height:180px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,0.04);
+    transition:all 0.25s ease;
 }
 
 .grid-card:hover{
