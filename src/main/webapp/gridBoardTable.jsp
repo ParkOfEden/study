@@ -4,8 +4,12 @@
 <!-- gridBoardTable.jsp -->
 <%@ include file="common/header.jsp" %>
 
+<div class="content-wrapper">
+
 <section class="section-grid">
 	<jsp:include page="gridTable.jsp"/>
 </section>
+
+</div>
 
 <%@ include file="common/footer.jsp" %>
