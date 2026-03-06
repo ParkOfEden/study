@@ -12,15 +12,18 @@
     String imgUrl = request.getParameter("imgUrl"); // 파일명 대용 (임시)
 
     // 가격 숫자 변환
-    int price = (priceStr != null) ? Integer.parseInt(priceStr) : 0;
+    int price = 0;
+	if(priceStr != null && !priceStr.isEmpty()){
+	    price = Integer.parseInt(priceStr);
+	}
 
-    // 파일명과 확장자 분리 로직 (유지)
+/*     // 파일명과 확장자 분리 로직 (유지)
     String fileName = "product";
     String fileExt = ".jpg";
     if(imgUrl != null && imgUrl.contains(".")) {
         fileName = imgUrl.substring(0, imgUrl.lastIndexOf("."));
         fileExt = imgUrl.substring(imgUrl.lastIndexOf("."));
-    }
+    } */
 
     Connection conn = null;
     PreparedStatement pstmt = null;
@@ -34,7 +37,7 @@
         /* String sql = "INSERT INTO products (category, p_name, author, p_desc, price, system_filename) "
                    + "VALUES (?, ?, ?, ?, ?, ? || '_' || (SELECT COUNT(*) FROM products) || ?)"; */
         String sql = "INSERT INTO products (category, p_name, author, p_desc, price, system_filename) "
-        + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        + "VALUES (?, ?, ?, ?, ?, ?)";
 
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, category);
@@ -42,8 +45,8 @@
         pstmt.setString(3, author);
         pstmt.setString(4, p_desc);
         pstmt.setInt(5, price);      // 가격 설정
-        pstmt.setString(6, fileName); 
-        pstmt.setString(7, fileExt);
+        pstmt.setString(6, imgUrl); 
+        /* pstmt.setString(7, fileExt); */
 
         pstmt.executeUpdate();
         
