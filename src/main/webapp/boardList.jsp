@@ -2,6 +2,7 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ include file="common/header.jsp" %>
 
+<section>
 <div class="search-area">
     <form action="boardList.do" method="get">
         

@@ -566,18 +566,28 @@ table tr td input[type='number'] {
 
 /* 검색창 테마 관리 */
 .search-area {
-    margin: 20px 0;
-    text-align: right;
+    width:900px;      /* 게시판 width랑 맞추기 */
+    margin:20px auto; /* 가운데 정렬 */
+    text-align:right;
 }
 
 .search-area select,
 .search-area input {
-    padding: 5px;
+    height:28px;
+    padding:0 8px;
+    border:1px solid #ccc;
+    border-radius:3px;
+    font-size:13px;
 }
 
 .search-area button {
-    padding: 6px 10px;
-    cursor: pointer;
+    height:28px;
+    padding:0 10px;
+    border:1px solid #000;
+    background:#000;
+    color:#fff;
+    border-radius:3px;
+    cursor:pointer;
 }
 
 .content-wrapper {
