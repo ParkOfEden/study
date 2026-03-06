@@ -24,7 +24,7 @@
 
 <c:choose>
 
-    <c:when test="${param.include == 'grid'}">
+    <c:when test="${param.include eq 'grid'}">
         <jsp:include page="gridTable.jsp"/>
     </c:when>
 
