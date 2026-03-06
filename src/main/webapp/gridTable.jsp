@@ -4,6 +4,16 @@
     
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
     
+<%@ page import="dao.BoardDAO"%>
+<%@ page import="java.util.List"%>
+<%@ page import="vo.BoardVO"%>  
+
+<%
+BoardDAO dao = new BoardDAO();
+List<BoardVO> boardList = dao.getBoardListPaging(0, 20);
+request.setAttribute("boardList", boardList);
+%>
+  
 <%-- boardList : ${boardList}
 <br>
 size : ${boardList.size()} --%>    
