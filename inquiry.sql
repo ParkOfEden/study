@@ -1,11 +1,21 @@
+-- 기존 테이블 삭제 (필요 시)
+-- DROP TABLE inquiry;
+-- DROP SEQUENCE inquiry_seq;
+
 CREATE TABLE inquiry (
-    id NUMBER PRIMARY KEY,
-    category VARCHAR2(50),
-    email VARCHAR2(100),
-    title VARCHAR2(200),
-    content VARCHAR2(1000),
-    regdate DATE DEFAULT SYSDATE
+    id NUMBER PRIMARY KEY,              -- 게시글 번호
+    category VARCHAR2(50),              -- 카테고리
+    email VARCHAR2(100),                -- 사용자 이메일
+    title VARCHAR2(200),                -- 문의 제목
+    content VARCHAR2(1000),             -- 문의 내용
+    answer VARCHAR2(1000),              -- 관리자 답변
+    status NUMBER DEFAULT 0,            -- 0: 답변대기, 1: 답변완료
+    regdate DATE DEFAULT SYSDATE        -- 등록일
 );
 
 CREATE SEQUENCE inquiry_seq;
-ALTER TABLE inquiry ADD answer VARCHAR2(1000);
+
+
+
+
+

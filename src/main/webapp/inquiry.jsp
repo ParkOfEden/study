@@ -11,7 +11,7 @@
 <section>
 <h2>1:1 문의하기</h2>
 
-<form action="inquiryResult.jsp"  method:"post">
+<form action="inquiryResult.jsp"  method="post">
 <p>문의 유형</p>
 <select name="category">
 	<option>배송문의</option>
