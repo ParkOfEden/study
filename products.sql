@@ -255,7 +255,41 @@ INSERT INTO products (
     10000,
     'css/img/upload/product/top/blouse-lady008.jpg'
 );
-COMMIT
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '블라우스',
+    '여성) 핑크 벌룬 반팔 블라우스',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/top/blouse-lady010pg'
+);
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '내복',
+    '여성) 베이지 긴팔 신축성 내복'
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/innner/lady010pg'
+);
+COMMIT;
 
 -- 전체 상품 조회 (최신순)
 SELECT * FROM products ORDER BY p_id DESC;
