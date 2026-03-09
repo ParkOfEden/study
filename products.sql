@@ -72,6 +72,7 @@ VALUES (
     'admin', 
     '상세 내용...', 
     -- '파일명' + '_' + '현재 전체 개수' + '.확장자'
+    
     'tshirts' || '_' || (SELECT COUNT(*) FROM board_test) || '.jpg'
 );
 
@@ -282,12 +283,12 @@ INSERT INTO products (
     price,
     system_filename
 ) VALUES (
-    '내복',
+    '속옷',
     '여성) 베이지 긴팔 신축성 내복'
     'admin',
     'null',
     10000,
-    'css/img/upload/product/innner/lady010pg'
+    'css/img/upload/product/innnerwear/inner-lady031.jpg'
 );
 COMMIT;
 
@@ -304,9 +305,180 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/innner/lady010pg'
+    'css/img/upload/product/innnerwear/'
 );
 COMMIT
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '속옷',
+    '여성) 베이지 올인원'
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/innnerwear/inner-lady032.jpg'
+);
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '신발',
+    '여성) 로퍼 블랙'
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/shoes/loafer-lady055.jpg'
+);
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '신발',
+    '여성) 로퍼 블랙'
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/shoes/maryjane-lady056.jpg'
+);
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '원피스',
+    '여성) 화이트리본 타이, 블랙 타이트 원피스'
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/one-piece/pnepiece-lady021.jpg'
+);
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '원피스',
+    '여성) 블랙, 민소매 루즈 원피스'
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/one-piece/onepiece-lady024.jpg'
+);
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '속옷',
+    '여성) 파지마 바지, 보라 그린 핑크, 할매바지'
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/one-piece/pajamas-lady015.jpg'
+);
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '바지',
+    '여성) 그래이 슬랙스 통바지'
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/bottom/pants-lady016.jpg'
+);
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '스커트',
+    '여성) 나무색, 옆트임, 6부, A라인'
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/bottom/skirt-lady041.jpg'
+);
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '스커트',
+    '여성) A라인, 9부, 앞 핀턱'
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/bottom/skirt-lady046.jpg'
+);
+COMMIT;
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '쟈켓'
+    '남성) 네이비 중간 길이 쟈켓'
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/outer/jacket-men029.jpg'
+);
+COMMIT;
+
 
 -- 전체 상품 조회 (최신순)
 SELECT * FROM products ORDER BY p_id DESC;

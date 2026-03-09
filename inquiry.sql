@@ -8,7 +8,6 @@ CREATE TABLE inquiry (
     email VARCHAR2(100),                -- 사용자 이메일
     title VARCHAR2(200),                -- 문의 제목
     content VARCHAR2(1000),             -- 문의 내용
-    answer VARCHAR2(1000),              -- 관리자 답변
     status NUMBER DEFAULT 0,            -- 0: 답변대기, 1: 답변완료
     regdate DATE DEFAULT SYSDATE        -- 등록일
 );
