@@ -36,21 +36,22 @@ size : ${boardList.size()} --%>
         </c:if>
            
         <td class="grid-item">
-        
+        <div class="grid-card">
+        	<div class="grid-img-box">
 			<%-- 이미지의 경로가 null 이거나 틀렸을때 엑박 대체이미지 출력되도록 설정 --%>
 			<c:choose>
 			    <c:when test="${empty b.system_filename}">
 			        <img src="${pageContext.request.contextPath}/css/img/no_image.jpg"
-			             style="width:50px;height:50px;object-fit:cover;">
+			             class="grid-noimg">
 			    </c:when>
 			    <c:otherwise>
 			        <img src="${pageContext.request.contextPath}/css/img/upload/${b.system_filename}"
-			             style="width:50px;height:50px;object-fit:cover;"
+			             class="grid-img"
 			             onerror="this.onerror=null;
 			                      this.src='${pageContext.request.contextPath}/css/img/upload/product/${b.system_filename}';">
 			    </c:otherwise>
 			</c:choose>	
-           	
+           	</div>
            	<div class="grid-category">
            		[${b.category}]
            	</div>
@@ -64,6 +65,8 @@ size : ${boardList.size()} --%>
             <div class="grid-meta">
                 조회 ${b.viewCount}
             </div>       
+        
+        </div>
                     
 		</td>     	
    
@@ -76,7 +79,9 @@ size : ${boardList.size()} --%>
 		<c:if test="${not empty boardList and boardList.size() % 4 != 0}">		
     	</tr>
         </c:if>				
-	</c:if>    	
+	   	
 </tbody>
 </table>
+
+</c:if> 
 

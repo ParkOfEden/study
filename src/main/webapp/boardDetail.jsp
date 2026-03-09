@@ -69,13 +69,104 @@
 <meta charset="UTF-8">
 <title><%= board.getTitle() %></title>
 <style>
-    .prod-img { max-width: 400px; display: block; margin-bottom: 10px; border: 1px solid #eee; }
-    table { width: 500px; border-collapse: collapse; }
-    td, th { padding: 10px; }
+.detail-table{
+width:650px;
+margin:40px auto;
+border-collapse:collapse;
+background:white;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+border-radius:8px;
+overflow:hidden;
+}
+
+.detail-table td{
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+.detail-table td:first-child{
+width:120px;
+font-weight:bold;
+background:#fafafa;
+}
+
+.detail-image{
+text-align:center;
+padding:30px 0;
+background:#fafafa;
+}
+
+.prod-img{
+max-width:350px;
+border-radius:6px;
+}
+
+.detail-btn-area{
+text-align:center;
+padding:25px 0;
+}
+
+/* 장바구니 버튼 */
+.btn-cart{
+background:#ff8a00;
+color:#fff;
+border:none;
+padding:10px 18px;
+border-radius:4px;
+cursor:pointer;
+font-weight:600;
+transition:0.2s;
+}
+
+.btn-cart:hover{
+background:#ff7300;
+}
+
+/* 목록 버튼 */
+.btn-list{
+background:#fff;
+color:#555;
+border:1px solid #ccc;
+padding:10px 18px;
+border-radius:4px;
+cursor:pointer;
+margin-left:8px;
+transition:0.2s;
+}
+
+.btn-list:hover{
+background:#f2f2f2;
+color:#333;
+border-color:#bbb;
+}
+
+.debug-file{
+font-size:11px;
+color:#3b82f6;
+margin-top:8px;
+
+animation: debugFade 3s forwards;
+}
+
+@keyframes debugFade{
+
+0%{
+opacity:1;
+}
+
+70%{
+opacity:1;
+}
+
+100%{
+opacity:0;
+}
+}
 </style>
 </head>
 <body>
-    <table border="1">
+    <table class="detail-table">
     <tr>
         <th colspan="2">
             <h4>[<%= board.getCategory() %>] <%= board.getNum() %>번 상품 상세 정보</h4>
@@ -83,7 +174,7 @@
     </tr>
 
     <tr>
-    <td colspan="2" align="center" style="padding: 20px; background-color: #f9f9f9;">
+    <td colspan="2" class="detail-image">
         <% 
 	        // DB에서 가져온 파일명 확인
 		    String system_file = board.getSystem_filename();
@@ -92,18 +183,22 @@
         
         <% if(system_file != null && !system_file.isEmpty()) { %>
         
-            <img src="<%= request.getContextPath() %>/css/img/upload/<%= system_file %>" 
+            <img class="prod-img"
+             src="<%= request.getContextPath() %>/css/img/upload/<%= system_file %>" 
                  style="max-width: 450px; height: auto; border: 2px solid #eee;" 
                  alt="상품이미지">
-            <p style="color: blue; font-size: 11px;">(server에) 저장된 파일명: <%= system_file %></p>
+                 
+            <p class="debug-file">(server에) 저장된 파일명: <%= system_file %></p>
+            
         <% } else if(imgUrl != null && !imgUrl.isEmpty()) { %>
-	    <img src="<%= imgUrl %>"
-	         style="max-width: 450px; height: auto; border: 2px solid #eee;">
+        
+	    <img class="prod-img" src="<%= imgUrl %>">
 	    <p style="color: green; font-size: 11px;">
 	        외부URL: <%= imgUrl %>
 	    </p>
 	    <% } else { %>        
-            <p style="color: #ccc;">등록된 이미지가 없습니다.</p>
+        	<img class="prod-img"
+			 src="<%= request.getContextPath() %>/css/img/no_image.jpg">
         <% } %>
     </td>
 </tr>
@@ -134,7 +229,7 @@
         
     </tr>
     <tr>
-        <th colspan="2">
+        <th colspan="2" class="detail-btn-area">
         <%
         // 1. 여기서 먼저 세션 정보를 가져옵니다 (변수 선언)
         String loginUser = (String)session.getAttribute("authUser");
@@ -142,12 +237,12 @@
 
             <form action="cart" method="post" style="display: inline;">
     <input type="hidden" name="p_id" value="<%= board.getNum() %>">
-    <button type="submit" style="background-color: orange; color: white; border: none; padding: 7px 15px; cursor: pointer;">
+    <button type="submit" class="btn-cart">
         장바구니 담기
     </button>
 </form>
 
-            <button onclick="location.href='boardList.do'">목록</button>
+            <button class="btn-list" onclick="location.href='boardList.do'">목록</button>
             
         <%
         // 3. 관리자일 때만 수정/삭제 버튼 노출

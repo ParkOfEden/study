@@ -3,12 +3,12 @@ package vo;
 import java.util.Date;
 
 public class BoardVO {
-    private int num;            // DB의 p_id와 매칭
+    private int num;            // DB의 p_id
     private String category;
-    private String title;       // DB의 p_name과 매칭
+    private String title;       // DB의 p_name
     private String author;
-    private String content;     // DB의 p_desc와 매칭
-    private int price;          // [추가] 상품 가격 필드
+    private String content;     // DB의 p_desc
+    private int price;          
     private String imgUrl;      
     private String system_filename; 
     private Date createdAt;
@@ -17,11 +17,7 @@ public class BoardVO {
 
     public BoardVO() {}
 
-    // 가격(price)에 대한 Getter와 Setter를 추가해야 합니다.
-    public int getPrice() { return price; }
-    public void setPrice(int price) { this.price = price; }
-
-    // 기존 Getter/Setter 유지
+    // Getter & Setter
     public int getNum() { return num; }
     public void setNum(int num) { this.num = num; }
 
@@ -37,16 +33,14 @@ public class BoardVO {
     public String getContent() { return content; }
     public void setContent(String content) { this.content = content; }
 
+    public int getPrice() { return price; }
+    public void setPrice(int price) { this.price = price; }
+
     public String getImgUrl() { return imgUrl; }
     public void setImgUrl(String imgUrl) { this.imgUrl = imgUrl; }
 
-<<<<<<< HEAD
-    public String getSystem_filename() { return systemFilename; }
-    public void setSystem_filename(String systemFilename) { this.systemFilename = systemFilename; }
-=======
     public String getSystem_filename() { return system_filename; }
     public void setSystem_filename(String system_filename) { this.system_filename = system_filename; }
->>>>>>> branch 'master' of https://github.com/ParkOfEden/study.git
 
     public Date getCreatedAt() { return createdAt; }
     public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
