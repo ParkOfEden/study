@@ -291,6 +291,23 @@ INSERT INTO products (
 );
 COMMIT;
 
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '바지',
+    '남아) 1+1 남색회색 1신축성 내복'
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/innner/lady010pg'
+);
+COMMIT
+
 -- 전체 상품 조회 (최신순)
 SELECT * FROM products ORDER BY p_id DESC;
 
