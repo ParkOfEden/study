@@ -606,3 +606,29 @@ table tr td input[type='number'] {
     padding: 30px;
     border-radius: 10px;   /* 선택사항 */
 }
+
+/* 세부페이지 css 설정 관리 */
+section.product-page{
+    background-image:url(img/sitemapbg01.png);
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+
+    padding:40px 0;
+}
+
+.product-inner{
+    max-width:1000px;
+    margin:0 auto;
+
+    background:#ffffff80;
+    padding:30px;
+    border-radius:10px;
+}
+
+.product-title{
+    text-align:center;
+    color:#1e40ff;
+
+    margin-bottom:30px;
+}
