@@ -6,7 +6,7 @@
 <!-- ✅ Tomcat 버전에 맞는 URI 선택 -->
 <!-- Tomcat 9 이하라면: uri="http://java.sun.com/jsp/jstl/core" -->
 
-<section>
+<section class="main2">
 	<div>
 	<h3>여기는 티셔츠 상품 페이지입니다.</h3>
 	
