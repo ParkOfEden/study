@@ -41,15 +41,15 @@
 /* GRID BOARD 게시판 css 관리 */
 
 .grid-table{
-    width:100%;
-    border-collapse:separate;
-    border-spacing:20px;
+    width:1000px;
+	margin:0 auto;
+	table-layout:fixed;
 }
 
 .grid-item{
     width:25%;
-    padding:15px;
-    vertical-align:top;
+    /* padding:15px; */
+    /* vertical-align:top; */
 }
 
 .grid-item a{
