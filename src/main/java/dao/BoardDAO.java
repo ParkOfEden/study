@@ -6,6 +6,10 @@ import vo.BoardVO;
 import utils.DBCPUtil;
 
 public class BoardDAO {
+	
+    Connection conn;
+    PreparedStatement pstmt;
+    ResultSet rs;	
 
 	
 	// 전체 목록 조회
@@ -215,8 +219,45 @@ public class BoardDAO {
         // catch 블록을 제거하여 예외 발생 시 호출부(Servlet)에서 500 에러 처리를 하도록 합니다.
         return list;
     }
+    
+ // 8. 카테고리별 상품 목록 조회   
+    public List<BoardVO> getBoardListByCategory(String keyword) throws Exception {
 
- // 8. 상품 정보 수정
+        List<BoardVO> list = new ArrayList<>();
+
+        String sql = "SELECT p_id as num, category, p_name as title, author, price, created_at, view_count, system_filename "
+                   + "FROM products WHERE category LIKE ? "
+                   + "ORDER BY p_id DESC";
+
+        try (Connection conn = DBCPUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + keyword + "%");
+
+            try (ResultSet rs = ps.executeQuery()) {
+
+                while(rs.next()){
+
+                    BoardVO vo = new BoardVO();
+
+                    vo.setNum(rs.getInt("num"));
+                    vo.setCategory(rs.getString("category"));
+                    vo.setTitle(rs.getString("title"));
+                    vo.setAuthor(rs.getString("author"));
+                    vo.setPrice(rs.getInt("price"));
+                    vo.setCreatedAt(rs.getTimestamp("created_at"));
+                    vo.setViewCount(rs.getInt("view_count"));
+                    vo.setSystem_filename(rs.getString("system_filename"));
+
+                    list.add(vo);
+                }
+            }
+        }
+
+        return list;
+    }  
+
+ // 9. 상품 정보 수정
     public int updateBoard(BoardVO vo) throws Exception {
         int result = 0;
         String sql = "UPDATE products SET category=?, p_name=?, author=?, p_desc=?, price=?, "
