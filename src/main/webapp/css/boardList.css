@@ -41,7 +41,7 @@
 /* GRID BOARD 게시판 css 관리 */
 
 .grid-table{
-    width:100%;
+    width:940px;
     border-collapse:separate;
     border-spacing:30px 30px;
 }
