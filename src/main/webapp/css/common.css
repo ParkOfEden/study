@@ -612,10 +612,9 @@ section.product-page{
     background-image:url(img/sitemapbg01.png);
     background-position:center;
     background-repeat:no-repeat;
-    background-size:cover;
+    background-size:auto;
 
     padding:40px 0;
-    min-height:900px;
 }
 
 .product-inner{
