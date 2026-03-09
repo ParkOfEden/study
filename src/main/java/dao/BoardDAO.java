@@ -59,12 +59,16 @@ public class BoardDAO {
         List<BoardVO> list = new ArrayList<>();
         String condition = "";
 
-        if ("p_name".equals(type) || "title".equals(type)) {
+        if ("title".equals(type)) {
             condition = "p_name LIKE ?";
         } else if ("category".equals(type)) {
             condition = "category LIKE ?";
+        } else if ("author".equals(type)) {
+            condition = "author LIKE ?";
+        } else if ("num".equals(type)) {
+            condition = "p_id = ?";
         } else {
-            condition = "p_name LIKE ? OR category LIKE ?";
+            condition = "p_name LIKE ? OR category LIKE ? OR author LIKE ?";
         }
 
         String sql = "SELECT p_id as num, category, p_name as title, author, price, created_at, view_count, system_filename "
@@ -77,12 +81,21 @@ public class BoardDAO {
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             int idx = 1;
-            if ("all".equals(type)) {
+            
+            if ("num".equals(type)) {
+                try {
+                    ps.setInt(idx++, Integer.parseInt(keyword));
+                } catch (NumberFormatException e) {
+                    ps.setInt(idx++, -1);  // 존재하지 않는 번호
+                }
+            } else if ("all".equals(type)) {
+                ps.setString(idx++, "%" + keyword + "%");
                 ps.setString(idx++, "%" + keyword + "%");
                 ps.setString(idx++, "%" + keyword + "%");
             } else {
                 ps.setString(idx++, "%" + keyword + "%");
             }
+
             ps.setInt(idx++, offset);
             ps.setInt(idx, limit);
 
