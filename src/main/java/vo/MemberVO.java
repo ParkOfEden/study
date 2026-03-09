@@ -11,20 +11,23 @@ public class MemberVO implements Serializable {
 	
 	private int num;			// 회원번호
 	private String id;			// 회원아이디
+	private String nickname;    // [추가] 닉네임
 	private String pass;		// 비밀번호
 	private String name;		// 이름
 	private String addr;		// 주소	
 	private String phone;		// 전화번호
-	private String email;   // 이메일
+	private String email;       // 이메일
 	private String gender;		// 성별(남성여성)
 	private int age;			// 나이
 	
 	public MemberVO() {}
 
-	public MemberVO(int num, String id, String pass, String name, String addr, 
+	// [수정] 생성자에 nickname 매개변수 추가
+	public MemberVO(int num, String id, String nickname, String pass, String name, String addr, 
 					String phone, String email, String gender, int age) {
 		this.num = num;
 		this.id = id;
+		this.nickname = nickname; // [추가]
 		this.pass = pass;
 		this.name = name;
 		this.addr = addr;
@@ -32,6 +35,15 @@ public class MemberVO implements Serializable {
 		this.email = email;
 		this.gender = gender;
 		this.age = age;
+	}
+
+	// [추가] 닉네임 Getter/Setter
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 	public int getNum() {
@@ -49,7 +61,6 @@ public class MemberVO implements Serializable {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
 	
 	public String getPass() {
 		return pass;
@@ -107,9 +118,10 @@ public class MemberVO implements Serializable {
 		this.age = age;
 	}
 	
+	// [수정] toString에도 nickname 포함
 	@Override
 	public String toString() {
-		return "MemberVO [num=" + num + ", id=" + id + ", name=" + name + ", addr=" + addr
+		return "MemberVO [num=" + num + ", id=" + id + ", nickname=" + nickname + ", name=" + name + ", addr=" + addr
 				+ ", phone=" + phone + ", email=" + email + ", gender=" + gender + ", age=" + age + "]";
 	}
 	

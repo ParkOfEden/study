@@ -2,7 +2,8 @@
 <%@ page import="jakarta.servlet.http.Cookie" %>
 <%
     String authUser = (String)session.getAttribute("authUser");
-    String userName = (String)session.getAttribute("userName");
+//loginCheck.jsp에서 저장한 "userNickname"을 가져옵니다.
+String userName = (String)session.getAttribute("userNickname");
     String path = request.getContextPath();
 
     // [자동 로그인 처리] 세션은 없는데 쿠키가 있는 경우

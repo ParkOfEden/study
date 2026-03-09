@@ -24,8 +24,8 @@
     PreparedStatement pstmt = null;
     ResultSet rs = null;
     
-    String name="", addr="", phone="", email="", gender="", pass="";
-    int age=0, num=0;
+    String name="", addr="", phone="", email="", gender="", pass="", nickname="";    int age=0, num=0;
+    
     
     try {
         conn = DBCPUtil.getConnection();
@@ -37,12 +37,17 @@
             num    = rs.getInt("num");
             pass   = rs.getString("pass");
             name   = rs.getString("name");
+            nickname = rs.getString("nickname"); // [추가] 닉네임 가져오기
             addr   = rs.getString("addr");
             phone  = rs.getString("phone");
             gender = rs.getString("gender");
             age    = rs.getInt("age");
             email  = rs.getString("email");
-        }
+            
+         // [추가] 닉네임이 비어있으면 ID로 채워서 보여주기
+            if(nickname == null || nickname.trim().isEmpty()) {
+                nickname = targetId;
+            }}
     } catch(Exception e) {
         e.printStackTrace();
     } finally {
@@ -75,6 +80,12 @@
                     <th>이름</th>
                     <td><input type="text" name="name" value="<%= name %>" style="text-align: center;" required></td>
                 </tr>
+                <tr>
+    <th>닉네임</th>
+    <td>
+        <input type="text" name="nickname" value="<%= nickname %>" style="text-align: center;">
+    </td>
+</tr>
                 <tr>
                     <th>주소</th>
                     <td><input type="text" name="addr" value="<%= addr %>" style="text-align: center; width:90%;"></td>
