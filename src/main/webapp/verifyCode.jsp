@@ -1,5 +1,10 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+System.out.println("입력된 코드:["+inputCode+"]");
+System.out.println("세션저장 코드:["+sessionCode+"]");
 <%
+
+
     // 세션에 인증코드가 없으면 잘못된 접근
     String sessionCode = (String)session.getAttribute("authCode");
 
