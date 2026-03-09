@@ -618,8 +618,9 @@ section.product-page{
 }
 
 .product-inner{
-    max-width:1000px;
+    max-width:1100px;
     margin:0 auto;
+    text-align:center;
 
     background:#ffffff80;
     padding:30px;
