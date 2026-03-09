@@ -19,7 +19,7 @@ request.setAttribute("keyword", keyword);
 	
 	<jsp:include page="/gridTable.jsp">
 	    <jsp:param name="type" value="category"/>
-	    <jsp:param name="keyword" value="티셔츠"/>
+	    <jsp:param name="keyword" value="<%=keyword%>"/>
 	    <jsp:param name="include" value="table"/>
 	</jsp:include>
 	<!-- ✅ jsp:include 닫는 태그 필수 -->
