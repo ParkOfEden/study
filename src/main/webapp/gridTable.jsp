@@ -17,10 +17,11 @@ request.setAttribute("boardList", boardList);
 
 <!-- 카테고리별 상품 조회(개정판) -->
 <%
-String keyword = request.getParameter("keyword");
+String keyword1 = request.getParameter("keyword1");
+String keyword2 = request.getParameter("keyword2");
 
 BoardDAO dao = new BoardDAO();
-List<BoardVO> boardList = dao.getBoardListByCategory(keyword);
+List<BoardVO> boardList = dao.getBoardListByCategory(keyword1, keyword2);
 
 request.setAttribute("boardList", boardList);
 %>
