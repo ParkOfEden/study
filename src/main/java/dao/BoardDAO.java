@@ -221,19 +221,18 @@ public class BoardDAO {
     }
     
  // 8. 카테고리별 상품 목록 조회   
-    public List<BoardVO> getBoardListByCategory(String keyword1, String keyword2) throws Exception {
+    public List<BoardVO> getBoardListByCategory(String keyword) throws Exception {
 
         List<BoardVO> list = new ArrayList<>();
 
         String sql = "SELECT p_id as num, category, p_name as title, author, price, created_at, view_count, system_filename "
-                   + "FROM products WHERE category LIKE ? OR category LIKE ? "
+                   + "FROM products WHERE category LIKE ? "
                    + "ORDER BY p_id DESC";
 
         try (Connection conn = DBCPUtil.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1, "%" + keyword1 + "%");
-            ps.setString(2, "%" + keyword2 + "%");
+            ps.setString(1, "%" + keyword + "%");
 
             try (ResultSet rs = ps.executeQuery()) {
 
