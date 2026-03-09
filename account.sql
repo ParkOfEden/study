@@ -55,7 +55,7 @@ FROM DUAL
 CONNECT BY LEVEL <= 1000;
 
 DELETE FROM ACCOUNTS 
-WHERE email = '';
+WHERE email = 'pcw5409@naver.com';
 
 COMMIT
 
