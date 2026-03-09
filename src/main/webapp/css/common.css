@@ -611,7 +611,7 @@ table tr td input[type='number'] {
 section.product-page{
     background-image:url(img/sitemapbg01.png);
     background-position:center;
-    background-repeat:no-repeat;
+    background-repeat:repeat;
     background-size:auto;
 
     padding:40px 0;
