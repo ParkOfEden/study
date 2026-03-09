@@ -44,7 +44,6 @@
             board.setUpdatedAt(rs.getTimestamp("updated_at"));
             board.setViewCount(rs.getInt("view_count"));
             
-            System.out.println("데이터 로드 성공: " + board.getTitle());
         }
         
         conn.commit();
