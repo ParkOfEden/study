@@ -145,4 +145,12 @@ border-radius:6px;
 
 }
 
+.grid-noimg{
+
+width:160px;
+
+height:160px;	
+	
+}
+
 /* 상품게시판 검색창 관련 css => common.css 에 있음 */
