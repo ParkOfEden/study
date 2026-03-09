@@ -19,6 +19,10 @@ request.setAttribute("boardList", boardList);
 <%
 String keyword = request.getParameter("keyword");
 
+if(keyword == null) {
+    keyword = "";
+}
+
 BoardDAO dao = new BoardDAO();
 List<BoardVO> boardList = dao.getBoardListByCategory(keyword);
 
