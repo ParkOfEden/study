@@ -36,7 +36,7 @@
     } else {
         // 일반 사용자는 세션에 수정 데이터 저장
         session.setAttribute("update_id", id);
-        session.setAttribute("update_nickname", nickname); // [추가] 닉네임 세션 저장
+        session.setAttribute("update_nickname", nickname);
         session.setAttribute("update_pass", pass);
         session.setAttribute("update_name", name);
         session.setAttribute("update_addr", addr);
@@ -45,11 +45,27 @@
         session.setAttribute("update_age", age);
         session.setAttribute("update_email", email);
 
-        // 인증코드 생성 및 발송 로직 (기존 동일)
+        // 1. 인증코드 생성 및 세션 저장
         String authCode = String.format("%06d", new java.util.Random().nextInt(1000000));
         session.setAttribute("authCode", authCode);
-        // MailUtil.sendMail(...) 호출 생략
-        response.sendRedirect("verifyCode_Update.jsp");
+
+        // 2. [수정] MailUtil.sendMail 호출 (주석 해제 및 설정)
+        try {
+            String subject = "[내 사이트] 회원정보 수정을 위한 인증번호입니다.";
+            String content = "<h2>안녕하세요, " + name + "님!</h2>"
+                           + "<p>정보 수정을 완료하려면 아래 인증번호를 입력해 주세요.</p>"
+                           + "<h3>인증번호: <span style='color:blue;'>" + authCode + "</span></h3>";
+            
+            // 입력받은 새 이메일(또는 기존 이메일)로 발송
+            MailUtil.sendMail(email, subject, content); 
+            
+            // 발송 성공 시 인증창으로 이동
+            response.sendRedirect("verifyCode_Update.jsp");
+        } catch (Exception e) {
+            e.printStackTrace();
+            // 에러 발생 시 처리 (예: 다시 수정 폼으로 이동)
+            out.println("<script>alert('메일 발송에 실패했습니다. 이메일을 확인해주세요.'); history.back();</script>");
+        }
     }
 %>
 
