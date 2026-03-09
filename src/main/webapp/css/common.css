@@ -632,3 +632,24 @@ section.product-page{
 
     margin-bottom:30px;
 }
+
+/* 5초간 text 노출 뒤 점점 투명해져서 안보이게 하는 css */
+.fade-message{
+animation: fadeOutMessage 6s forwards;
+}
+
+@keyframes fadeOutMessage{
+
+0%{
+opacity:1;
+}
+
+70%{
+opacity:1;
+}
+
+100%{
+opacity:0;
+}
+
+}
