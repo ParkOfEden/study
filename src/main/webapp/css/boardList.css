@@ -42,14 +42,12 @@
 
 .grid-table{
     width:1000px;
-	margin:0 auto;
-	table-layout:fixed;
+    border-collapse:separate;
+    border-spacing:20px;
 }
 
 .grid-item{
-    width:25%;
-    /* padding:15px; */
-    /* vertical-align:top; */
+    padding:10px;
 }
 
 .grid-item a{
