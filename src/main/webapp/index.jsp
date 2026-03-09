@@ -21,7 +21,7 @@
 									<td><a href="Headerjump/knsw.jsp"><img src="css/img/main/sort_link/Knit.jpg"></a></td>
 									<td><a href="Headerjump/blouse.jsp"><img src="css/img/main/sort_link/Y_shirt.jpg"></a></td>
 									<td><a href="Headerjump/skirt.jsp"><img src="css/img/main/sort_link/Skirt.jpg"></a></td>
-									<td><a href="Headerjump/skirt.jsp"><img src="css/img/main/sort_link/Pants.jpg"></a></td>
+									<td><a href="Headerjump/shorts.jsp"><img src="css/img/main/sort_link/Pants.jpg"></a></td>
 									<td><a href="Headerjump/denim.jsp"><img src="css/img/main/sort_link/Denim.jpg"></a></td>
 									<td><a href="Headerjump/outer.jsp"><img src="css/img/main/sort_link/Outer.jpg"></a></td>
 									<td><a href="Headerjump/onepiece.jsp"><img src="css/img/main/sort_link/One_piece.jpg"></a></td>
