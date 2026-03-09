@@ -94,7 +94,7 @@ INSERT INTO products (
     'admin',
     '부드러운 면 소재의 기본 반팔입니다.',
     10000,
-    'css/img/upload/product/top/tshirt1.jpg'
+    'top/tshirt1.jpg'
 );
 
 INSERT INTO products (
@@ -110,7 +110,7 @@ INSERT INTO products (
     'admin',
     '부드러운 면 소재의 스트라이프 무늬 반팔입니다.',
     10000,
-    'css/img/upload/product/top/tshirt2.jpg'
+    'top/tshirt2.jpg'
 );
 
 INSERT INTO products (
@@ -126,7 +126,7 @@ INSERT INTO products (
     'admin',
     '부드러운 면 소재의 스트라이프 무늬 반팔입니다.',
     10000,
-    'css/img/upload/product/top/tshirt3.jpg'
+    'top/tshirt3.jpg'
 );
 
 INSERT INTO products (
@@ -142,7 +142,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/shoes_bag/shoes-boy140.jpg'
+    'shoes_bag/shoes-boy140.jpg'
 );
 
 INSERT INTO products (
@@ -158,7 +158,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/bottom/pants-boy121.jpg'
+    'bottom/pants-boy121.jpg'
 );
 
 INSERT INTO products (
@@ -174,7 +174,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/bottom/pants-boy122.jpg'
+    'bottom/pants-boy122.jpg'
 );
 
 INSERT INTO products (
@@ -190,7 +190,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/bottom/pants-boy123.jpg'
+    'bottom/pants-boy123.jpg'
 );
 
 INSERT INTO products (
@@ -206,23 +206,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/acc-girl0100.jpg'
-);
-
-INSERT INTO products (
-    category,
-    p_name,
-    author,
-    p_desc,
-    price,
-    system_filename
-) VALUES (
-    '머리띠',
-    '여아) 파랑 리본',
-    'admin',
-    'null',
-    10000,
-    'css/img/upload/product/acc-girl0100.jpg'
+    'acc/acc-girl0100.jpg'
 );
 
 INSERT INTO products (
@@ -238,7 +222,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/top/blouse-lady008.jpg'
+    'top/blouse-lady008.jpg'
 );
 
 INSERT INTO products (
@@ -254,7 +238,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/top/blouse-lady010pg'
+    'top/blouse-lady010.jpg'
 );
 
 INSERT INTO products (
@@ -270,7 +254,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/innnerwear/inner-lady031.jpg'
+    'inner/inner-lady031.jpg'
 );
 
 INSERT INTO products (
@@ -286,7 +270,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/innnerwear/'
+    'inner/inner-boy001.jpg'
 );
 
 INSERT INTO products (
@@ -302,7 +286,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/innnerwear/inner-lady032.jpg'
+    'inner/inner-lady032.jpg'
 );
 
 INSERT INTO products (
@@ -318,7 +302,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/shoes/loafer-lady055.jpg'
+    'shoes_bag/loafer-lady055.jpg'
 );
 
 INSERT INTO products (
@@ -334,7 +318,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/shoes/maryjane-lady056.jpg'
+    'shoes_bag/maryjane-lady056.jpg'
 );
 
 INSERT INTO products (
@@ -350,7 +334,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/one-piece/pnepiece-lady021.jpg'
+    'onepiece/onepiece-lady021.jpg'
 );
 
 INSERT INTO products (
@@ -366,7 +350,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/one-piece/onepiece-lady024.jpg'
+    'onepiece/onepiece-lady024.png'
 );
 
 INSERT INTO products (
@@ -382,7 +366,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/one-piece/pajamas-lady015.jpg'
+    'inner/pajamas-lady015.png'
 );
 
 INSERT INTO products (
@@ -398,7 +382,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/bottom/pants-lady016.jpg'
+    'bottom/pants-lady016.jpg'
 );
 
 INSERT INTO products (
@@ -414,7 +398,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/bottom/skirt-lady041.jpg'
+    'bottom/skirt-lady041.jpg'
 );
 
 INSERT INTO products (
@@ -430,7 +414,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/bottom/skirt-lady046.jpg'
+    'bottom/skirt-lady046.jpeg'
 );
 
 INSERT INTO products (
@@ -446,7 +430,7 @@ INSERT INTO products (
     'admin',
     'null',
     10000,
-    'css/img/upload/product/outer/jacket-men029.jpg'
+    'outer/jacket-men029.jpg'
 );
 
 COMMIT
