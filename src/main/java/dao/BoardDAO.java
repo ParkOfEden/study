@@ -226,7 +226,7 @@ public class BoardDAO {
         List<BoardVO> list = new ArrayList<>();
 
         String sql = "SELECT p_id as num, category, p_name as title, author, price, created_at, view_count, system_filename "
-                   + "FROM products WHERE category LIKE ? OR category LIKE ?"
+                   + "FROM products WHERE category LIKE ? OR category LIKE ? "
                    + "ORDER BY p_id DESC";
 
         try (Connection conn = DBCPUtil.getConnection();
