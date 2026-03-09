@@ -10,7 +10,7 @@
 
 <section class="product-page">
 	<div class="product-inner">
-	<h3 class="product-title fade-message">"${keyword}" 검색 결과입니다.</h3>
+	<h3 class="product-title fade-message">"${keyword1}" 검색 결과입니다.</h3>
 	
 	<!-- ✅ jsp:include 시작 태그와 닫는 태그 정확히 작성 -->
 	
