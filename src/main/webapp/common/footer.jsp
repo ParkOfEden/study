@@ -7,12 +7,7 @@
 	 header.jsp에서 선언한 path 를 사용할 수 없음. => 500 error
 -->
 
-<!-- 
-<style>
-	여기다가.. css 스타일 요소 부여하지 마시고 오직 footer.css에서만 작업하세요
-	이유 : index.jsp 에서 include 해서 불러오면 여기다가 해놓은 style 속성이 그대로 적용되기 때문!!
-</style>
--->
+
 
 <footer class="footer">
 <section>

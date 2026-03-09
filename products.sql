@@ -63,8 +63,8 @@ VALUES (
     'shoes_bag/shoes-boy140.jpg' -- 경로 : '중분류/파일명.확장자' (으)로 저장
 );
 
-COMMIT;
-p_desc서부터 board_test 에서 가져온 sql
+COMMIT
+-- p_desc서부터 board_test 에서 가져온 sql --
 INSERT INTO products (category, p_name, author, p_desc, price, system_filename)
 VALUES (
     '티셔츠', 
@@ -72,10 +72,11 @@ VALUES (
     'admin', 
     '상세 내용...', 
     -- '파일명' + '_' + '현재 전체 개수' + '.확장자'
-    'tshirts' || '_' || (SELECT COUNT(*) FROM board_test) || '.jpg'
+    
+    'tshirts' || '_' || (SELECT COUNT(*) FROM products) || '.jpg'
 );
 
-SELECT * FROM board_test;
+SELECT * FROM products;
 
 ----------------------------------------------------------------------
 -- 상품 등록
@@ -86,7 +87,7 @@ INSERT INTO products (
     author,
     p_desc,
     price,
-    img_url
+    system_filename
 ) VALUES (
     '티셔츠',
     '기본 반팔 티셔츠',
@@ -95,8 +96,6 @@ INSERT INTO products (
     10000,
     'css/img/upload/product/top/tshirt1.jpg'
 );
-
-COMMIT;
 
 INSERT INTO products (
     category,
@@ -114,8 +113,6 @@ INSERT INTO products (
     'css/img/upload/product/top/tshirt2.jpg'
 );
 
-COMMIT;
-
 INSERT INTO products (
     category,
     p_name,
@@ -132,9 +129,7 @@ INSERT INTO products (
     'css/img/upload/product/top/tshirt3.jpg'
 );
 
-COMMIT;
-
-INSERT INTO board_test (
+INSERT INTO products (
     category,
     p_name,
     author,
@@ -150,9 +145,7 @@ INSERT INTO board_test (
     'css/img/upload/product/shoes_bag/shoes-boy140.jpg'
 );
 
-COMMIT;
-
-INSERT INTO board_test (
+INSERT INTO products (
     category,
     p_name,
     author,
@@ -167,8 +160,6 @@ INSERT INTO board_test (
     10000,
     'css/img/upload/product/bottom/pants-boy121.jpg'
 );
-
-COMMIT;
 
 INSERT INTO products (
     category,
@@ -186,9 +177,6 @@ INSERT INTO products (
     'css/img/upload/product/bottom/pants-boy122.jpg'
 );
 
-COMMIT;
-
-
 INSERT INTO products (
     category,
     p_name,
@@ -204,7 +192,6 @@ INSERT INTO products (
     10000,
     'css/img/upload/product/bottom/pants-boy123.jpg'
 );
-COMMIT;
 
 INSERT INTO products (
     category,
@@ -221,7 +208,6 @@ INSERT INTO products (
     10000,
     'css/img/upload/product/acc-girl0100.jpg'
 );
-COMMIT;
 
 INSERT INTO products (
     category,
@@ -238,7 +224,6 @@ INSERT INTO products (
     10000,
     'css/img/upload/product/acc-girl0100.jpg'
 );
-COMMIT;
 
 INSERT INTO products (
     category,
@@ -255,7 +240,6 @@ INSERT INTO products (
     10000,
     'css/img/upload/product/top/blouse-lady008.jpg'
 );
-COMMIT;
 
 INSERT INTO products (
     category,
@@ -272,7 +256,6 @@ INSERT INTO products (
     10000,
     'css/img/upload/product/top/blouse-lady010pg'
 );
-COMMIT;
 
 INSERT INTO products (
     category,
@@ -282,14 +265,13 @@ INSERT INTO products (
     price,
     system_filename
 ) VALUES (
-    '내복',
-    '여성) 베이지 긴팔 신축성 내복'
+    '속옷',
+    '여성) 베이지 긴팔 신축성 내복',
     'admin',
     'null',
     10000,
-    'css/img/upload/product/innner/lady010pg'
+    'css/img/upload/product/innnerwear/inner-lady031.jpg'
 );
-COMMIT;
 
 INSERT INTO products (
     category,
@@ -300,13 +282,175 @@ INSERT INTO products (
     system_filename
 ) VALUES (
     '바지',
-    '남아) 1+1 남색회색 1신축성 내복'
+    '남아) 1+1 남색회색 1신축성 내복',
     'admin',
     'null',
     10000,
-    'css/img/upload/product/innner/lady010pg'
+    'css/img/upload/product/innnerwear/'
 );
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '속옷',
+    '여성) 베이지 올인원',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/innnerwear/inner-lady032.jpg'
+);
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '신발',
+    '여성) 로퍼 블랙',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/shoes/loafer-lady055.jpg'
+);
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '신발',
+    '여성) 로퍼 블랙',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/shoes/maryjane-lady056.jpg'
+);
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '원피스',
+    '여성) 화이트리본 타이, 블랙 타이트 원피스',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/one-piece/pnepiece-lady021.jpg'
+);
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '원피스',
+    '여성) 블랙, 민소매 루즈 원피스',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/one-piece/onepiece-lady024.jpg'
+);
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '속옷',
+    '여성) 파지마 바지, 보라 그린 핑크, 할매바지',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/one-piece/pajamas-lady015.jpg'
+);
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '바지',
+    '여성) 그래이 슬랙스 통바지',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/bottom/pants-lady016.jpg'
+);
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '스커트',
+    '여성) 나무색, 옆트임, 6부, A라인',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/bottom/skirt-lady041.jpg'
+);
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '스커트',
+    '여성) A라인, 9부, 앞 핀턱',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/bottom/skirt-lady046.jpg'
+);
+
+INSERT INTO products (
+    category,
+    p_name,
+    author,
+    p_desc,
+    price,
+    system_filename
+) VALUES (
+    '쟈켓',
+    '남성) 네이비 중간 길이 쟈켓',
+    'admin',
+    'null',
+    10000,
+    'css/img/upload/product/outer/jacket-men029.jpg'
+);
+
 COMMIT
+
 
 -- 전체 상품 조회 (최신순)
 SELECT * FROM products ORDER BY p_id DESC;
@@ -320,7 +464,16 @@ SELECT * FROM products WHERE p_name LIKE '%반팔%';
 -- 특정 가격대 검색 (예: 2만원 이하 상품)
 SELECT * FROM products WHERE price <= 20000;
 
-COMMIT;
+COMMIT
+
+-- product 테이블 조회
+SELECT column_name
+FROM user_tab_columns
+WHERE table_name = 'PRODUCTS';
+
+SELECT table_name 
+FROM user_tables 
+WHERE table_name = 'PRODUCTS';
 
 --products 테이블에서 system_filename 조회
 SELECT system_filename FROM products;
