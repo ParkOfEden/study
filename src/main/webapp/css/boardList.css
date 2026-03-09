@@ -42,11 +42,13 @@
 
 .grid-table{
     width:1000px;
+    margin:0 auto;
     border-collapse:separate;
-    border-spacing:20px;
+    border-spacing:25px 25px;
 }
 
 .grid-item{
+	text-align:center;
     padding:10px;
 }
 
