@@ -132,7 +132,15 @@
                 <li><a href="<%=path%>/boardList.do?category=롬퍼">롬퍼</a></li>
             </ul>
         </li>
-
+<%-- 신규 추가: 이너웨어 메뉴 --%>
+        <li class="has-submenu">
+            INNERWEAR
+            <ul class="submenu">
+                <li><a href="<%=path%>/boardList.do?category=속옷">속옷</a></li>
+                <li><a href="<%=path%>/boardList.do?category=이지웨어">이지웨어</a></li>
+                <li><a href="<%=path%>/boardList.do?category=잠옷">홈웨어/잠옷</a></li>
+            </ul>
+        </li>
         <li class="has-submenu">
             SHOES &amp; BAG
             <ul class="submenu">
