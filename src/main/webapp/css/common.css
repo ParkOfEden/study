@@ -633,9 +633,9 @@ section.product-page{
     margin-bottom:30px;
 }
 
-/* 4초간 text 노출 뒤 점점 투명해져서 안보이게 하는 css */
+/* 2초간 text 노출 뒤 점점 투명해져서 안보이게 하는 css */
 .fade-message{
-animation: fadeOutMessage 5s forwards;
+animation: fadeOutMessage 3s forwards;
 }
 
 @keyframes fadeOutMessage{
