@@ -43,7 +43,7 @@
 .grid-table{
     width:940px;
     border-collapse:separate;
-    border-spacing:30px 30px;
+    border-spacing:0 30px;
     
     margin:0 auto;   /* 테이블 정렬 */
 }
