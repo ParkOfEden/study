@@ -6,6 +6,7 @@
     request.setCharacterEncoding("utf-8");
 
     String id = request.getParameter("id");
+    String nickname = request.getParameter("nickname"); // [추가] 닉네임 파라미터 받기
     String pass = request.getParameter("pass");
     String name = request.getParameter("name");
     String addr = request.getParameter("addr");
@@ -13,6 +14,11 @@
     String gender = request.getParameter("gender");
     String email = request.getParameter("email");
     int age = Integer.parseInt(request.getParameter("age"));
+    
+ // [추가] 닉네임 기본값 처리 (선택사항 대응)
+    if (nickname == null || nickname.trim().isEmpty()) {
+        nickname = id;
+    }
     
     Connection conn = DBCPUtil.getConnection();
     PreparedStatement pstmt = null;
@@ -38,6 +44,7 @@
             
             // 3. 세션에 정보 저장
             session.setAttribute("join_id", id);
+            session.setAttribute("join_nickname", nickname); // [추가] 닉네임 세션 저장
             session.setAttribute("join_pass", pass);
             session.setAttribute("join_name", name);
             session.setAttribute("join_addr", addr);

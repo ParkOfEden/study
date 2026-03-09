@@ -27,18 +27,22 @@
         try {
             conn = DBCPUtil.getConnection();
 
+         // [수정] 닉네임(nickname) 컬럼 추가 (3번째 위치에 삽입)
             String sql = "INSERT INTO ACCOUNTS "
-                       + "(id, pass, name, addr, phone, gender, age, email) "
-                       + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
+                       + "(id, nickname, pass, name, addr, phone, gender, age, email) "
+                       + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             pstmt = conn.prepareStatement(sql);
 
+         // [추가] 세션에서 닉네임 가져오기 (joinCheck.jsp에서 저장한 값)
+            String nickname = (String)session.getAttribute("join_nickname");
+            
             pstmt.setString(1, (String)session.getAttribute("join_id"));
-            pstmt.setString(2, (String)session.getAttribute("join_pass"));
-            pstmt.setString(3, (String)session.getAttribute("join_name"));
-            pstmt.setString(4, (String)session.getAttribute("join_addr"));
-            pstmt.setString(5, (String)session.getAttribute("join_phone"));
-            pstmt.setString(6, (String)session.getAttribute("join_gender"));
+            pstmt.setString(2, nickname); // [추가] 닉네임 바인딩
+            pstmt.setString(3, (String)session.getAttribute("join_pass"));
+            pstmt.setString(4, (String)session.getAttribute("join_name"));
+            pstmt.setString(5, (String)session.getAttribute("join_addr"));
+            pstmt.setString(6, (String)session.getAttribute("join_phone"));
+            pstmt.setString(7, (String)session.getAttribute("join_gender"));
             
             // age 처리: Integer 또는 String 대응
             Object ageObj = session.getAttribute("join_age");
@@ -48,9 +52,9 @@
             } else if (ageObj instanceof String) {
                 age = Integer.parseInt((String)ageObj);
             }
-            pstmt.setInt(7, age);
+            pstmt.setInt(8, age);
             
-            pstmt.setString(8, (String)session.getAttribute("join_email"));
+            pstmt.setString(9, (String)session.getAttribute("join_email"));
 
             int result = pstmt.executeUpdate();
 

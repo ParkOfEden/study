@@ -19,8 +19,8 @@
     String nextPage = "";
 
     try {
-        // 3. 아이디와 비밀번호가 일치하는 사용자 조회
-        String sql = "SELECT num, name FROM ACCOUNTS WHERE id=? AND pass=?";
+        // 3. 아이디와 비밀번호가 일치하는 사용자 조회// [수정 후] 반드시 쿼리에 nickname을 넣어줘야 rs.getString("nickname")이 작동합니다!
+        String sql = "SELECT num, name, nickname FROM ACCOUNTS WHERE id=? AND pass=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
         pstmt.setString(2, pass);
@@ -31,11 +31,19 @@
             // [성공] 일치하는 회원 있음
             int userNum = rs.getInt("num");   // 회원탈퇴 로직 처리용
             String userName = rs.getString("name");
+            String nickname = rs.getString("nickname"); // [추가] DB에서 닉네임 가져오기
+            
+         // [핵심 로직] 닉네임이 비어있으면 아이디를 기본값으로 사용
+            if (nickname == null || nickname.trim().isEmpty()) {
+                nickname = id; 
+            }
             
             // 세션에 로그인 정보 저장 (이게 핵심!)
             session.setAttribute("authUser", id);
             session.setAttribute("authNum", userNum);   // 회원탈퇴 로직 처리용
             session.setAttribute("userName", userName);
+            session.setAttribute("userNickname", nickname); // [추가] 닉네임 세션 저장
+            
             //자동 로그인 쿠키 처리 (추가된 부분)
             if(rememberMe != null && rememberMe.equals("login")) {
                 // "rememberMe"라는 이름으로 아이디를 1일간 저장하는 쿠키 생성
@@ -43,8 +51,8 @@
                 cookie.setMaxAge(60 * 60 * 24 * 1); // 1일
                 cookie.setPath("/"); // 프로젝트 전역에서 사용
                 response.addCookie(cookie);
-            }
-            msg = userName + "님, 환영합니다!";
+            }// [수정] 알림 메시지에 이름 대신 닉네임 노출
+            msg = nickname + "님, 환영합니다!";
             if ("admin".equals(id)) {
                 nextPage = "boardWrite.jsp"; // 관리자면 글쓰기로
             } else {
