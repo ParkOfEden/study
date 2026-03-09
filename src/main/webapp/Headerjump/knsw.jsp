@@ -16,7 +16,7 @@
 	
 	<jsp:include page="/gridTable.jsp">
 	    <jsp:param name="type" value="category"/>
-	    <jsp:param name="keyword" value="${keyword1}"/>  
+	    <jsp:param name="keyword" value="${keyword}"/>  
 	</jsp:include>
 	<!-- ✅ jsp:include 닫는 태그 필수 -->
 	</div>
