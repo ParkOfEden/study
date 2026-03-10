@@ -145,9 +145,10 @@ section.main2 h3{
     /* position:absolute; */
     /* top:50px; */
     /* left:80px; */    
-    width:400px;
+    width:600px;
     height:auto;
      margin-top:20px;
+     margin-bottom:20px; /* 지도 아래 공백 */
     /* object-fit:cover; */
 }
 /* ⚠️ 전역 table 스타일 사용 금지
