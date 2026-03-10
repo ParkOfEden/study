@@ -8,12 +8,28 @@
 <%@ page import="java.util.List"%>
 <%@ page import="vo.BoardVO"%>  
 
-<%
+<!-- 전체 상품 조회(구버전) -->
+<%--
 BoardDAO dao = new BoardDAO();
 List<BoardVO> boardList = dao.getBoardListPaging(0, 20);
 request.setAttribute("boardList", boardList);
+--%>
+
+<!-- 카테고리별 상품 조회(개정판) -->
+<%
+String keyword = request.getParameter("keyword");
+
+if(keyword == null) {
+    keyword = "";
+}
+
+BoardDAO dao = new BoardDAO();
+List<BoardVO> boardList = dao.getBoardListByCategory(keyword);
+
+request.setAttribute("boardList", boardList);
 %>
-  
+
+<!-- 디버깅용 확인 코드 -->  
 <%-- boardList : ${boardList}
 <br>
 size : ${boardList.size()} --%>    

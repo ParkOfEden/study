@@ -1,30 +1,25 @@
 <!-- blouse.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- 타이틀은 여기서 작업하면 반영됩니다. -->
-<%
-request.setAttribute("pageTitle", "블라우스");
-%>    
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>  
 <%@ include file="/common/header.jsp"%>
-<!-- header.jsp에서 처리합니다.(중복코드)
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+<!-- ✅ Tomcat 버전에 맞는 URI 선택 -->
+<!-- Tomcat 9 이하라면: uri="http://java.sun.com/jsp/jstl/core" -->
 
-</head>
-<body>
- -->
+<c:set var="keyword" value="블라"/>
 
-<!-- section 태그 내에서 관리하세요. (골격 구조 통일 - common.css 참조) -->
-
-<section class="main2 section-base">
-	<h3>여기는 블라우스 상품 페이지입니다.</h3>
+<section class="product-page">
+	<div class="product-inner">
+	<h3 class="product-title fade-message">"블라우스/셔츠" 검색 결과입니다.</h3>
+	
+	<!-- ✅ jsp:include 시작 태그와 닫는 태그 정확히 작성 -->
+	
+	<jsp:include page="/gridTable.jsp">
+	    <jsp:param name="type" value="category"/>
+	    <jsp:param name="keyword" value="${keyword}"/>  
+	</jsp:include>
+	<!-- ✅ jsp:include 닫는 태그 필수 -->
+	</div>
 </section>
 
-
-<!-- footer.jsp에서 처리합니다.(중복코드)
-</body>
-</html>
- -->
 <%@ include file="/common/footer.jsp"%>
