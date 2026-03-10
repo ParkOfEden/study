@@ -7,7 +7,7 @@
 		<div class="main2-inner">
 			<h3 class="cover-title fade-message">여기는 매장안내 페이지입니다.
 			<h2>오시는길</h2>
-			<img src="img/map01.png" class="map-img">
+			<img src="css/img/map01.png" class="map-img">
 			<h2>대표 인사말</h2>
 			<h5>안녕하세요. 월클의류 주식회사 대표 박소심입니다.</h5>
 			</h3>
