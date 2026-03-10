@@ -5,7 +5,8 @@
 
 	<section class="main2 section-base">
 		<div class="main2-inner">
-			<div class="cover-title fade-message main2.h3">여기는 매장안내 페이지입니다.
+			<div class="cover-title fade-message main2.h3">여기는 매장안내 페이지입니다.</div>
+			<div>
 			<h2>오시는길</h2>
 			<img src="css/img/map01.png" class="map-img">
 			<h2>대표 인사말</h2>
