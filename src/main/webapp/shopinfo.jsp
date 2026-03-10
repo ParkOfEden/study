@@ -5,7 +5,7 @@
 
 	<section class="main2 section-base">
 		<div class="main2-inner">
-			<h3 class="cover-title">여기는 매장안내 페이지입니다.
+			<h3 class="cover-title fade-message">여기는 매장안내 페이지입니다.
 			<h5>안녕하세요. 월클의류 주식회사 대표 박소심입니다.</h5>
 			</h3>
 		</div>
