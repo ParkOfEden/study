@@ -4,25 +4,6 @@
 // 문서가 모두 로드 되면 실행
 window.onload = function(){
 	
-	var form = document.querySelector("form");
-	var input = form.querySelectorAll("input");
-	var btn = form.querySelector("button");
-	btn.onclick = function(event){
-
-	        for(var i = 0; i<input.length; i++){
-
-	            // 검색 input은 검사 제외
-	            if(input[i].name == "keyword") continue;
-
-	            if(input[i].value.length == 0){
-	                var msg = (input[i].dataset.msg || "입력값")+"를 확인해주세요.";
-	                alert(msg);
-	                input[i].focus();
-	                event.preventDefault();
-	                break;
-	            }
-	        }
-	    }		
 	// tag 이름이 input인 모든 요소들을 배열로 반환
 	var input = document.getElementsByTagName("input");
 	// tag 들 중에 최초에 검색되는 한개 요소를 반환
@@ -30,6 +11,8 @@ window.onload = function(){
 	// button tag click event 발생 시 호출 될 함수
 	btn.onclick = function(event){
 		for(var i = 0; i<input.length; i++){
+			// 검색 input 제외
+			if(input[i].name == "keyword") continue;			
 			// 작성된 value 값이 없을때.
 			if(input[i].value.length == 0){
 				var msg = input[i].dataset.msg+"를 확인해주세요.";
