@@ -142,11 +142,12 @@ section.main2 h3{
 }
 /* 매장 안내 지도 관리 css */
 .map-img{
-    position:absolute;
-    top:50px;
-    left:80px;    
-    width:40%;
+    /* position:absolute; */
+    /* top:50px; */
+    /* left:80px; */    
+    width:400px;
     height:auto;
+     margin-top:20px;
     /* object-fit:cover; */
 }
 /* ⚠️ 전역 table 스타일 사용 금지
