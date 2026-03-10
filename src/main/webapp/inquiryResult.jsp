@@ -30,7 +30,7 @@
 %>
         <script>
             alert("정상 접수되었습니다.");
-            window.close();
+            location.href="inquiryMail.jsp";
         </script>
 <%
     } catch (Exception e) {
