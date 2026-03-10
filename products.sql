@@ -42,6 +42,18 @@ END;
 
 COMMIT
 
+-- p_desc서부터 board_test 에서 가져온 sql --
+INSERT INTO products (category, p_name, author, p_desc, price, system_filename)
+VALUES (
+    '티셔츠', 
+    '여름 신상', 
+    'admin', 
+    '상세 내용...', 
+    -- '파일명' + '_' + '현재 전체 개수' + '.확장자'
+    
+    'tshirts' || '_' || (SELECT COUNT(*) FROM products) || '.jpg'
+);
+
 -- 1. 상품 등록 예시 (가격 컬럼 추가)
 INSERT INTO products (category, p_name, author, p_desc, price, system_filename) 
 VALUES (
@@ -64,17 +76,6 @@ VALUES (
 );
 
 COMMIT
--- p_desc서부터 board_test 에서 가져온 sql --
-INSERT INTO products (category, p_name, author, p_desc, price, system_filename)
-VALUES (
-    '티셔츠', 
-    '여름 신상', 
-    'admin', 
-    '상세 내용...', 
-    -- '파일명' + '_' + '현재 전체 개수' + '.확장자'
-    
-    'tshirts' || '_' || (SELECT COUNT(*) FROM products) || '.jpg'
-);
 
 SELECT * FROM products;
 
