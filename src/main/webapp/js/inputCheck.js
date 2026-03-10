@@ -10,6 +10,8 @@ window.onload = function(){
 	// button tag click event 발생 시 호출 될 함수
 	btn.onclick = function(event){
 		for(var i = 0; i<input.length; i++){
+			// 검색 input은 검사 제외
+			if(input[i].name == "keyword") continue;
 			// 작성된 value 값이 없을때.
 			if(input[i].value.length == 0){
 				var msg = input[i].dataset.msg+"를 확인해주세요.";
