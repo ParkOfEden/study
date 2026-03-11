@@ -55,6 +55,19 @@
             </c:choose>
         </tbody>
     </table>
+	<div class="paging">
+	    <c:if test="${startPage > 1}">
+	        <a href="memberList.do?page=${startPage-1}">이전</a>
+	    </c:if>
+	
+	    <c:forEach var="i" begin="${startPage}" end="${endPage}">
+	        <a href="memberList.do?page=${i}">${i}</a>
+	    </c:forEach>
+	
+	    <c:if test="${endPage < maxPage}">
+	        <a href="memberList.do?page=${endPage+1}">다음</a>
+	    </c:if>
+	</div>    
     </section>
 
 <%@ include file="common/footer.jsp" %>
