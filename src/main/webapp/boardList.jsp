@@ -58,9 +58,6 @@
     <c:if test="${pageMaker.next}">
         <a href="?page=${pageMaker.endPage + 1}&type=${param.type}&keyword=${param.keyword}">[다음]</a>
     </c:if>
-<br><br><br>
-
-</span>
 </div>
 </section>
 <%@ include file="common/footer.jsp"%>

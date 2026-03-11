@@ -180,25 +180,33 @@ opacity:0;
 		    String imgUrl = board.getImgUrl();
         %>
         
-        <% if(system_file != null && !system_file.isEmpty()) { %>
+		<%
+		if(system_file != null && system_file.trim().equals("")){
+		%>
         
             <img class="prod-img"
-             src="<%= request.getContextPath() %>/css/img/upload/<%= system_file %>" 
+             src="<%= request.getContextPath() %>/css/img/upload/product/<%= system_file %>" 
                  style="max-width: 450px; height: auto; border: 2px solid #eee;" 
                  alt="상품이미지">
                  
             <p class="debug-file">(server에) 저장된 파일명: <%= system_file %></p>
-            
-        <% } else if(imgUrl != null && !imgUrl.isEmpty()) { %>
+                    
+        <%
+        } else if(imgUrl != null && !imgUrl.isEmpty()) { 
+        %>
         
-	    <img class="prod-img" src="<%= imgUrl %>">
-	    <p style="color: green; font-size: 11px;">
-	        외부URL: <%= imgUrl %>
-	    </p>
-	    <% } else { %>        
+		    <img class="prod-img" src="<%= imgUrl %>">
+		    
+		    <p style="color: green; font-size: 11px;">
+		        외부URL: <%= imgUrl %>
+		    </p>
+	    
+	    <% } else { %>    
+	        
         	<img class="prod-img"
 			 src="<%= request.getContextPath() %>/css/img/no_image.jpg">
         <% } %>
+        
     </td>
 </tr>
     <tr>
