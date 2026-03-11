@@ -17,6 +17,25 @@ WHERE id = 'admin';
 -- 변경사항 반영
 COMMIT;
 
+-- 임의로 1,000명 생성 (닉네임 포함)
+INSERT INTO ACCOUNTS (
+    id, pass, name, addr, phone, gender, age, email, nickname
+)
+SELECT 
+    'user' || LEVEL,                     -- id: user1, user2...
+    'pass' || LEVEL,                     -- pass: pass1, pass2...
+    '사용자' || LEVEL,                    -- name: 사용자1, 사용자2...
+    '서울시 ' || MOD(LEVEL, 25) || '구',    -- addr
+    '010-1234-' || LPAD(LEVEL, 4, '0'),  -- phone: 010-1234-0001...
+    CASE WHEN MOD(LEVEL, 2) = 0 THEN '남성' ELSE '여성' END, -- 성별
+    20 + MOD(LEVEL, 30),                 -- 나이 20~50 사이
+    'user' || LEVEL || '@naver.com',      -- email
+    'user' || LEVEL                     -- nickname: id와 동일하게 설정
+FROM DUAL
+CONNECT BY LEVEL <= 1000;
+
+COMMIT;
+
 -- 기존 테이블 삭제 (존재할 경우만)
 DROP TABLE ACCOUNTS PURGE;
 
