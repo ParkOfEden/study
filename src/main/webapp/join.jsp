@@ -35,12 +35,13 @@
                     <input type="text" name="name" data-msg="이름" placeholder="INSERT NAME HERE" required/>
                 </td>
             </tr>
-            <tr>
-                <td>주소</td>
-                <td>
-                    <input type="text" name="addr" data-msg="주소" placeholder="INSERT ADDR HERE"/>
-                </td>
-            </tr>
+<tr>
+    <td>주소</td>
+    <td>
+        <textarea name="addr" data-msg="주소" placeholder="INSERT ADDR HERE"></textarea>
+    </td>
+</tr>
+
 
             <tr>
                 <td>전화번호</td>
@@ -51,7 +52,8 @@
                 </td>
             </tr>
             <tr id="sms-input-row" style="display:none;">
-                <td>SMS 인증번호</td>
+                <td>SMS&nbsp;인증번호</td>
+                
                 <td>
                     <input type="text" id="sms_auth_code" placeholder="6자리 숫자" maxlength="6" />
                     <button type="button" onclick="confirmSMS()">번호 확인</button>
@@ -64,13 +66,14 @@
                     <input type="email" name="email" data-msg="이메일" placeholder="example@mail.com" required/>
                 </td>
             </tr>
-            <tr>
-                <td>성별</td>
-                <td>
-                    <label><input type="radio" name="gender" value="남성" checked /> 남성</label>
-                    <label><input type="radio" name="gender" value="여성" /> 여성</label>
-                </td>
-            </tr>
+            
+<tr>
+    <td>성별</td>
+    <td>
+        <label style="margin-right: 15px;"><input type="radio" name="gender" value="남성" checked /> 남성</label>
+        <label><input type="radio" name="gender" value="여성" /> 여성</label>
+    </td>
+</tr>
             <tr>
                 <td>나이</td>
                 <td>
@@ -166,37 +169,100 @@
       });
   };
 </script><style>
-  /* 기존 스타일 수정 */
-  .pd-table button {
-    width: auto;             /* 고정 % 대신 내부 콘텐츠에 맞게 조절 */
-    min-width: 100px;        /* 최소 너비 확보 */
-    padding: 0 10px;         /* 좌우 여백 */
-    height: 40px;
+  section {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+  }
+
+  .form-card {
+    width: 500px; /* 전체 폼 너비를 약간 확장하여 가독성 확보 */
+    margin: 0 auto;
+  }
+
+  .pd-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+  }
+
+  .pd-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
     vertical-align: middle;
-    white-space: nowrap;     /* 글자가 아래로 떨어지는 것 방지 */
-    cursor: pointer;
+    text-align: left; /* 입력 칸 내부 요소 왼쪽 정렬 */
+  }
+
+  /* 왼쪽 항목명(Label) 영역 */
+  .pd-table tr td:first-child {
+    text-align: center;
+    background-color: #f9f9f9;
+    font-weight: bold;
+    width: 100px; /* 라벨 너비 고정 */
+    font-size: 13px;
+  }
+
+  /* 모든 입력 필드 너비 통일 (닉네임 설명이 잘리지 않도록 조정) */
+  .pd-table input[type="text"],
+  .pd-table input[type="password"],
+  .pd-table input[type="email"],
+  .pd-table input[type="number"],
+  .pd-table textarea[name="addr"] {
+    width: 100%; /* 부모 컨테이너(td)의 너비를 따름 */
+    max-width: 320px; /* 최대 너비를 제한하여 줄 맞춤 */
+    height: 32px;
+    box-sizing: border-box;
+    padding: 0 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 13px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  /* 주소창 높이만 별도 조절 */
+  .pd-table textarea[name="addr"] {
+    height: 60px;
+    padding: 5px 8px;
+    resize: none;
+  }
+
+  /* 특수 케이스: 버튼이 포함된 입력 칸 (전화번호, 인증번호) */
+  #user_phone, #sms_auth_code {
+    width: calc(100% - 95px) !important; /* 버튼 공간 제외한 나머지 너비 차지 */
+    max-width: 220px !important;
+  }
+
+  .pd-table button {
+    height: 32px;
+    padding: 0 12px;
     background-color: #d9534f;
     color: white;
     border: none;
-    border-radius: 4px;
-    font-size: 14px;         /* 글자 크기 살짝 조절 */
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 11px;
+    vertical-align: middle;
+    margin-left: 5px;
   }
 
-  /* 버튼 옆의 입력창 너비도 이에 맞춰 자동 조절되게 설정 */
-  #user_phone, #sms_auth_code {
-    width: calc(100% - 115px) !important; /* 버튼 너비 제외한 나머지 */
-    display: inline-block;
+  .pd-table th[colspan="2"] {
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .pd-table button[type="submit"] {
+    width: 140px;
+    height: 40px;
+    font-size: 15px;
+  }
+  
+  /* 제목 스타일 수정 */
+  .pd-table h1 {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
   }
 </style>
-<script>
-  function validateFinal() {
-    const isVerified = document.getElementById("phone_verified_status").value;
-    if(isVerified !== "true") {
-      alert("회원가입 전 반드시 휴대폰 인증을 완료해야 합니다.");
-      return false;
-    }
-    return true;
-  }
-</script>
 
 <%@ include file="common/footer.jsp" %>
