@@ -41,10 +41,10 @@
 		// TO : 수신자
 		// CC : 참조
 		// BCC : 숨은 참조
-		message.setRecipient(Message.RecipientType.TO, new InternetAddress("parkofeden446@gmail.com"));
+		message.setRecipient(Message.RecipientType.TO, new InternetAddress("pafagolu@gmail.com"));
 		
 		// 발신자 설정
-		message.setFrom(new InternetAddress("chlrlms@gmail.com"));
+		message.setFrom(new InternetAddress(email));
 		
 		message.setReplyTo(new Address[]{new InternetAddress(email)});
 		
@@ -66,14 +66,18 @@
 		// Mail Server 에서 메일 발신을 처리할 때 까지 blocking(대기) 
 		processMessage = "메일 발신 성공";
 		System.out.println(processMessage);
+		
 	}catch(MessagingException e){
 		e.printStackTrace();
 		System.out.println("메일 발신 실패");
+		
 	}
 
 %>
 
 <script>
 	alert('<%=processMessage%>');
-	location.href='<%=contextPath%>';
+	<%-- location.href='<%=contextPath%>'; --%>
+	window.open('', '_self');
+	window.close();
 </script>
