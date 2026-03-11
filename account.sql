@@ -2,6 +2,40 @@
 ---------------------------------------------------------------------------
 --	여기서부터 추가된 내용 													 --
 ---------------------------------------------------------------------------
+-- 기존 테이블을 삭제하지 않고 닉네임 column만 추가
+ALTER TABLE ACCOUNTS
+ADD nickname VARCHAR2(50);
+
+-- 확인용
+SELECT * FROM ACCOUNTS;
+
+-- admin에게 '관리자' 닉네임 부여
+UPDATE ACCOUNTS
+SET nickname = '관리자'
+WHERE id = 'admin';
+
+-- 변경사항 반영
+COMMIT;
+
+-- 임의로 1,000명 생성 (닉네임 포함)
+INSERT INTO ACCOUNTS (
+    id, pass, name, addr, phone, gender, age, email, nickname
+)
+SELECT 
+    'user' || LEVEL,                     -- id: user1, user2...
+    'pass' || LEVEL,                     -- pass: pass1, pass2...
+    '사용자' || LEVEL,                    -- name: 사용자1, 사용자2...
+    '서울시 ' || MOD(LEVEL, 25) || '구',    -- addr
+    '010-1234-' || LPAD(LEVEL, 4, '0'),  -- phone: 010-1234-0001...
+    CASE WHEN MOD(LEVEL, 2) = 0 THEN '남성' ELSE '여성' END, -- 성별
+    20 + MOD(LEVEL, 30),                 -- 나이 20~50 사이
+    'user' || LEVEL || '@naver.com',      -- email
+    'user' || LEVEL                     -- nickname: id와 동일하게 설정
+FROM DUAL
+CONNECT BY LEVEL <= 1000;
+
+COMMIT;
+
 -- 기존 테이블 삭제 (존재할 경우만)
 DROP TABLE ACCOUNTS PURGE;
 
@@ -74,3 +108,14 @@ COMMIT
 -- 확인용
 SELECT COUNT(*) FROM ACCOUNTS;
 SELECT * FROM ACCOUNTS WHERE email = '';
+
+---------------------------------------------------------------------------
+--	닉네임 관련 sql   													 --
+---------------------------------------------------------------------------
+-- 닉네임 중복 확인 sql
+ALTER TABLE ACCOUNTS
+ADD CONSTRAINT ACCOUNTS_NICKNAME_UNIQUE UNIQUE (nickname);
+
+-- 일반/카카오 로그인 구분 sql
+ALTER TABLE ACCOUNTS ADD kakao_id VARCHAR2(100);
+ALTER TABLE ACCOUNTS ADD login_type VARCHAR2(20);
