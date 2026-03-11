@@ -43,20 +43,20 @@
 <div class="paging">
 
     <c:if test="${pageMaker.prev}">
-        <a href="?page=${pageMaker.startPage - 1}">[이전]</a>
+        <a href="?page=${pageMaker.startPage - 1}&type=${param.type}&keyword=${param.keyword}">[이전]</a>
     </c:if>
 
     <c:forEach var="i"
                begin="${pageMaker.startPage}"
                end="${pageMaker.endPage}">
-        <a href="?page=${i}"
+        <a href="?page=${i}&type=${param.type}&keyword=${param.keyword}"
            class="${pageMaker.criteria.page == i ? 'current-page' : ''}">
             ${i}
         </a>
     </c:forEach>
 
     <c:if test="${pageMaker.next}">
-        <a href="?page=${pageMaker.endPage + 1}">[다음]</a>
+        <a href="?page=${pageMaker.endPage + 1}&type=${param.type}&keyword=${param.keyword}">[다음]</a>
     </c:if>
 
 </div>
