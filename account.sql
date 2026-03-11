@@ -101,7 +101,7 @@ CONNECT BY LEVEL <= 1000;
 COMMIT;
 
 DELETE FROM ACCOUNTS 
-WHERE email = 'pcw5409@naver.com';
+WHERE email = '';
 
 COMMIT
 
