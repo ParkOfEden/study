@@ -185,7 +185,7 @@ opacity:0;
 		%>
         
             <img class="prod-img"
-             src="<%= request.getContextPath() %>/css/img/upload/product/<%= system_file %>" 
+             src="${pageContext.request.contextPath}/css/img/upload/product/${b.system_filename}" 
                  style="max-width: 450px; height: auto; border: 2px solid #eee;" 
                  alt="상품이미지">
                  
