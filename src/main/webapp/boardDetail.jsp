@@ -188,7 +188,7 @@ opacity:0;
             <img class="prod-img"
              	 src="<%= ctx %>/css/img/upload/product/<%= system_file %>" 
              	 onerror="this.src='<%= ctx %>/css/img/no_image.jpg'"
-                 style="max-width: 450px; height: auto; border: 2px solid #eee;" 
+                 style="max-width: 650px; height: auto; border: 2px solid #eee;" 
                  alt="상품이미지">
                  
             <p class="debug-file">(server에) 저장된 파일명: <%= system_file %></p>
