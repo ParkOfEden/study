@@ -22,33 +22,49 @@ public class BoardDAO {
 
 	// 1. 검색 결과의 전체 개수 조회
 	public int getSearchBoardCount(String type, String keyword) throws Exception {
+		
 	    int count = 0;
-	    String columnName = "p_name";
-	    if ("category".equals(type)) {
-	        columnName = "category";
+	    String condition = "";
+	    
+	    if ("title".equals(type)) {
+	        condition = "p_name LIKE ?";
+	    } else if ("category".equals(type)) {
+	        condition = "category LIKE ?";
+	    } else if ("author".equals(type)) {
+	        condition = "author LIKE ?";
+	    } else if ("content".equals(type)) {
+	        condition = "p_desc LIKE ?";
+	    } else if ("num".equals(type)) {
+	        condition = "p_id = ?";
+	    } else { // all
+	        condition = "p_name LIKE ? OR category LIKE ? OR author LIKE ?";
 	    }
 
-	    String sql = "SELECT COUNT(*) FROM products WHERE ";
-	    if ("all".equals(type)) {
-	        sql += "p_name LIKE ? OR category LIKE ?";
-	    } else {
-	        sql += columnName + " LIKE ?";
-	    }
+	    String sql = "SELECT COUNT(*) FROM products WHERE " + condition;
 
 	    try (Connection conn = DBCPUtil.getConnection();
 	         PreparedStatement ps = conn.prepareStatement(sql)) {
 
-	        if ("all".equals(type)) {
-	            ps.setString(1, "%" + keyword + "%");
-	            ps.setString(2, "%" + keyword + "%");
+	        int idx = 1;
+
+	        if ("num".equals(type)) {
+	            try {
+	                ps.setInt(idx++, Integer.parseInt(keyword));
+	            } catch (NumberFormatException e) {
+	                ps.setInt(idx++, -1);  // 존재하지 않는 번호
+	            }
+	        } else if ("all".equals(type)) {
+	            ps.setString(idx++, "%" + keyword + "%");
+	            ps.setString(idx++, "%" + keyword + "%");
+	            ps.setString(idx++, "%" + keyword + "%");
 	        } else {
-	            ps.setString(1, "%" + keyword + "%");
+	            ps.setString(idx++, "%" + keyword + "%");
 	        }
 
 	        try (ResultSet rs = ps.executeQuery()) {
 	            if (rs.next()) count = rs.getInt(1);
 	        }
-	    } 
+	    }
 	    // catch 블록을 제거하여 호출부(Servlet)에서 예외를 처리하도록 합니다.
 	    return count;
 	}
