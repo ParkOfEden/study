@@ -14,7 +14,7 @@
 	<div class="line1">
 	  <!-- EL 사용하여 contextPath 자동 적용 -->
 	  <a href="${pageContext.request.contextPath}/shopinfo.jsp">매장 안내</a> | 
-	  <a href="${pageContext.request.contextPath}/customerService.jsp">고객센터</a> | 
+	  <a href="${pageContext.request.contextPath}/customerSerHvice.jsp">고객센터</a> | 
 	  <a href="${pageContext.request.contextPath}/privacy.jsp">개인정보처리방침</a>
 	  
 	</div>
