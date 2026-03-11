@@ -68,7 +68,7 @@
         <%-- 로그인 상태 (일반회원/관리자 공통) --%>
         <li><a href="<%=path%>/memberUpdateForm.jsp"><strong><%= displayName %></strong>님 환영합니다</a></li>
         <li><a href="<%=path%>/logout.jsp">로그아웃</a></li>
-        <li><a href="<%=path%>/cuscen.jsp">고객센터</a></li>
+        <li><a href="<%=path%>/customerService.jsp">고객센터</a></li>
         
         <%-- 관리자 전용 메뉴 --%>
         <% if ("admin".equals(authUser)) { %>
