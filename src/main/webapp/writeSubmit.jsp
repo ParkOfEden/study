@@ -19,7 +19,7 @@ String imgUrl = request.getParameter("imgUrl");
 	
 	try{
 		
-		String sql = "INSERT INTO products(category, p_name, author, p_desc, price, img_url) VALUES(?,?,?,?,?,?)";
+		String sql = "INSERT INTO products(category, p_name, author, p_desc, price, system_filename) VALUES(?,?,?,?,?,?)";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, category);
 		pstmt.setString(2, title);
