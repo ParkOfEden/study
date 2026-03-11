@@ -181,7 +181,7 @@ opacity:0;
         %>
         
 		<%
-		if(system_file != null && system_file.trim().equals("")){
+		if(system_file != null && !system_file.trim().equals("")){
 		%>
         
             <img class="prod-img"
