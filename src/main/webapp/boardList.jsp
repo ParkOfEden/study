@@ -59,12 +59,13 @@
         <a href="?page=${pageMaker.endPage + 1}&type=${param.type}&keyword=${param.keyword}">[다음]</a>
     </c:if>
 <br><br><br>
-<!-- 확인용 -->
+<!-- 확인용
 <span style="color:red;">
 pageMaker.startPage : ${pageMaker.startPage}	<br>
 pageMaker.endPage : ${pageMaker.endPage}		<br>
 pageMaker.total : ${pageMaker.totalCount}	<br>
 </span>
+ -->
 </div>
 </section>
 <%@ include file="common/footer.jsp"%>
