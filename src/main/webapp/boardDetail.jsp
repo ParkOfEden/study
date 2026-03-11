@@ -186,8 +186,9 @@ opacity:0;
 		%>
         
             <img class="prod-img"
-             	 src="<%= ctx %>/css/img/upload/product/<%= system_file %>" 
-             	 onerror="this.src='<%= ctx %>/css/img/no_image.jpg'"
+             	 src="<%= ctx %>/css/img/upload/<%= system_file %>" 
+             	 onerror="this.onerror=null;
+              			  this.src='<%= ctx %>/css/img/upload/product/<%= system_file %>';"
                  style="max-width: 650px; height: auto; border: 2px solid #eee;" 
                  alt="상품이미지">
                  
@@ -197,7 +198,9 @@ opacity:0;
         } else if(imgUrl != null && !imgUrl.isEmpty()) { 
         %>
         
-		    <img class="prod-img" src="<%= imgUrl %>">
+		    <img class="prod-img" 
+		    	 src="<%= imgUrl %>"
+		    	 onerror="this.src='<%= ctx %>/css/img/no_image.jpg'">
 		    
 		    <p style="color: green; font-size: 11px;">
 		        외부URL: <%= imgUrl %>
@@ -207,6 +210,7 @@ opacity:0;
 	        
         	<img class="prod-img"
 			 src="<%= ctx %>/css/img/no_image.jpg">
+			 
         <% } %>
         
     </td>
