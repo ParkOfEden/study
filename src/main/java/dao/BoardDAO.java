@@ -65,6 +65,8 @@ public class BoardDAO {
             condition = "category LIKE ?";
         } else if ("author".equals(type)) {
             condition = "author LIKE ?";
+        } else if ("content".equals(type)) {
+            condition = "p_desc LIKE ?";    
         } else if ("num".equals(type)) {
             condition = "p_id = ?";
         } else {

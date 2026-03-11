@@ -15,8 +15,8 @@
             	${param.type == 'all' ? 'selected' : ''}>제목+카테고리</option>
          	<option value="author"
          		${param.type == 'author' ? 'selected' : ''}>저자</option>
-    		<option value="num"
-    			${param.type == 'num' ? 'selected' : ''}>상품번호</option>
+    		<option value="content"
+    			${param.type == 'content' ? 'selected' : ''}>내용</option>
         </select>
 		<!-- 검색 후에도 값 유지 -->
         <input type="text" name="keyword" 
