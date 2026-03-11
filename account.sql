@@ -2,6 +2,21 @@
 ---------------------------------------------------------------------------
 --	여기서부터 추가된 내용 													 --
 ---------------------------------------------------------------------------
+-- 기존 테이블을 삭제하지 않고 닉네임 column만 추가
+ALTER TABLE ACCOUNTS
+ADD nickname VARCHAR2(50);
+
+-- 확인용
+SELECT * FROM ACCOUNTS;
+
+-- admin에게 '관리자' 닉네임 부여
+UPDATE ACCOUNTS
+SET nickname = '관리자'
+WHERE id = 'admin';
+
+-- 변경사항 반영
+COMMIT;
+
 -- 기존 테이블 삭제 (존재할 경우만)
 DROP TABLE ACCOUNTS PURGE;
 
@@ -74,3 +89,14 @@ COMMIT
 -- 확인용
 SELECT COUNT(*) FROM ACCOUNTS;
 SELECT * FROM ACCOUNTS WHERE email = '';
+
+---------------------------------------------------------------------------
+--	닉네임 관련 sql   													 --
+---------------------------------------------------------------------------
+-- 닉네임 중복 확인 sql
+ALTER TABLE ACCOUNTS
+ADD CONSTRAINT ACCOUNTS_NICKNAME_UNIQUE UNIQUE (nickname);
+
+-- 일반/카카오 로그인 구분 sql
+ALTER TABLE ACCOUNTS ADD kakao_id VARCHAR2(100);
+ALTER TABLE ACCOUNTS ADD login_type VARCHAR2(20);
