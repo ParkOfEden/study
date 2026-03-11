@@ -19,12 +19,13 @@ String imgUrl = request.getParameter("imgUrl");
 	
 	try{
 		
-		String sql = "INSERT INTO board_test(category, title, author, content, img_url) VALUES(?,?,?,?,?)";
+		String sql = "INSERT INTO products(category, p_name, author, p_desc, price, img_url) VALUES(?,?,?,?,?,?)";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, category);
 		pstmt.setString(2, title);
 		pstmt.setString(3, author);
 		pstmt.setString(4, content);
+		pstmt.setString(5, price)
 		pstmt.setString(5, imgUrl);
 
 		int result = pstmt.executeUpdate();

@@ -28,7 +28,7 @@
         // 2. DBCP를 통한 커넥션 획득 (ID/PW 불필요)
         conn = DBCPUtil.getConnection();
 
-        String sql = "INSERT INTO products (category, p_name, author, p_desc, price, system_filename) "
+        String sql = "INSERT INTO products (category, p_name, author, p_desc, price, img_url) "
                    + "VALUES (?, ?, ?, ?, ?, ?)";
 
         pstmt = conn.prepareStatement(sql);
