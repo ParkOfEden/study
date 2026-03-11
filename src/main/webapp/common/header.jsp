@@ -1,13 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.Cookie" %>
 <%
-    String authUser = (String)session.getAttribute("authUser");
-//loginCheck.jsp에서 저장한 "userNickname"을 가져옵니다.
-String userName = (String)session.getAttribute("userNickname");
+    // 1. 일반 로그인 세션 (DB 기반)
+    String authUser = (String)session.getAttribute("authUser"); // DB의 id
+    String userName = (String)session.getAttribute("userName"); // DB의 name 또는 nickname
+
+    // 2. 카카오 로그인 세션 (카카오 기반)
+    String kakaoName = (String)session.getAttribute("userName"); 
+    // ※ 주의: 만약 일반 로그인과 카카오 로그인 모두 'userName'이라는 키를 쓴다면 
+    // 하나만 체크해도 됩니다.
+
     String path = request.getContextPath();
 
-    // [자동 로그인 처리] 세션은 없는데 쿠키가 있는 경우
-    if (authUser == null) {
+    // [자동 로그인 처리] 쿠키 로직 (기존 유지)
+    if (authUser == null && kakaoName == null) {
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie c : cookies) {
@@ -22,6 +28,12 @@ String userName = (String)session.getAttribute("userNickname");
             }
         }
     }
+
+    // 최종 로그인 여부 판단 (일반 DB 로그인 유저 OR 카카오 로그인 유저)
+    boolean isLoggedIn = (authUser != null || kakaoName != null);
+    
+    // 표시할 이름 결정 (카카오 닉네임이 있으면 그것을, 없으면 DB 유저명을 사용)
+    String displayName = (kakaoName != null) ? kakaoName : userName;
 %>
 <!DOCTYPE html>
 <html>
@@ -54,8 +66,9 @@ String userName = (String)session.getAttribute("userNickname");
         <li><a href="<%=path%>/cartView.jsp">장바구니</a></li> <%-- 비회원 노출 추가 --%>
     <% } else { %>
         <%-- 로그인 상태 (일반회원/관리자 공통) --%>
-        <li><a href="<%=path%>/memberUpdateForm.jsp"><strong><%= userName %></strong>님 환영합니다</a></li>
+        <li><a href="<%=path%>/memberUpdateForm.jsp"><strong><%= displayName %></strong>님 환영합니다</a></li>
         <li><a href="<%=path%>/logout.jsp">로그아웃</a></li>
+        <li><a href="<%=path%>/cuscen.jsp">고객센터</a></li>
         
         <%-- 관리자 전용 메뉴 --%>
         <% if ("admin".equals(authUser)) { %>

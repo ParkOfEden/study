@@ -30,7 +30,13 @@
 						</label>
 					</td>
 				</tr>
-				
+				<tr>
+    <td colspan="2" style="text-align: center;">
+        <a href="https://kauth.kakao.com/oauth/authorize?client_id=412803eee2a93e9ee787821e916e63d4&redirect_uri=http://localhost:8080/14_db_member_practice/kakaoLoginCheck.jsp&response_type=code">
+    카카오톡 로그인
+</a>
+    </td>
+</tr>
 				<tr>
 			<th colspan="2">
 				<button>로그인</button>
