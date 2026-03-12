@@ -102,7 +102,7 @@ CONNECT BY LEVEL <= 1000;
 COMMIT;
 
 DELETE FROM ACCOUNTS 
-WHERE email = 'cheolwon18@gmail.com';
+WHERE email = 'cheolwon18@gmail';
 
 COMMIT
 
