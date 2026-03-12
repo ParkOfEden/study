@@ -221,7 +221,7 @@ table tr td input[type='number'] {
     position:relative;
     display:flex;
     /* align-items:center; */ 
-    width:20%;
+    width:60%;
     margin:0 auto;    
 }
 
