@@ -10,6 +10,7 @@ String category = request.getParameter("category");
 String title = request.getParameter("title");
 String author = request.getParameter("author");
 String content = request.getParameter("content");
+String price = request.getParameter("price");
 String imgUrl = request.getParameter("imgUrl");
 
 	Connection conn=DBCPUtil.getConnection();
@@ -25,8 +26,8 @@ String imgUrl = request.getParameter("imgUrl");
 		pstmt.setString(2, title);
 		pstmt.setString(3, author);
 		pstmt.setString(4, content);
-		pstmt.setString(5, price)
-		pstmt.setString(5, imgUrl);
+		pstmt.setString(5, price);
+		pstmt.setString(6, imgUrl);
 
 		int result = pstmt.executeUpdate();
 		if(result==1) msg="1개의 게시글이 등록되었습니다.";

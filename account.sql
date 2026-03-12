@@ -75,7 +75,8 @@ INSERT INTO ACCOUNTS (
 ) VALUES (
     '1', '1', '1', '일반계정',
     '부산광역시', '01011121111', '남성', 30, 'normal@normal.com'
-);
+);  '2','2','2' '일반계정',
+    '부산광역시' '010-86616807', '남성', 26, 'cheolwon18@gmail.com'
 
 COMMIT;
 
@@ -101,13 +102,13 @@ CONNECT BY LEVEL <= 1000;
 COMMIT;
 
 DELETE FROM ACCOUNTS 
-WHERE email = '';
+WHERE email = 'cheolwon18@gmail';
 
 COMMIT
 
 -- 확인용
 SELECT COUNT(*) FROM ACCOUNTS;
-SELECT * FROM ACCOUNTS WHERE email = '';
+SELECT * FROM ACCOUNTS WHERE email = 'cheolwon18@gmail.com';
 
 ---------------------------------------------------------------------------
 --	닉네임 관련 sql   													 --
