@@ -95,7 +95,7 @@ size : ${boardList.size()} --%>
       	</c:forEach>
       	 	
 		<c:if test="${not empty boardList and boardList.size() % 4 != 0}">		
-    	</tr>
+    		</tr>
         </c:if>				
 	   	
 </tbody>
