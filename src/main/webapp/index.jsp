@@ -16,7 +16,7 @@
 							<div class="category">
 					
 							<table class="category-table">
-								<tr>
+								<!-- <tr>
 									<td><a href="Headerjump/Tshirt.jsp"><img src="css/img/main/sort_link/T_shirt.jpg"></a></td>
 									<td><a href="Headerjump/knsw.jsp"><img src="css/img/main/sort_link/Knit.jpg"></a></td>
 									<td><a href="Headerjump/blouse.jsp"><img src="css/img/main/sort_link/Y_shirt.jpg"></a></td>
@@ -27,7 +27,49 @@
 									<td><a href="Headerjump/onepiece.jsp"><img src="css/img/main/sort_link/One_piece.jpg"></a></td>
 									<td><a href="Headerjump/capacc.jsp"><img src="css/img/main/sort_link/etc.jpg"></a></td>
 									<td><a href="Headerjump/alldis.jsp"><img src="css/img/main/sort_link/sale.jpg"></a></td>
+								</tr> -->
+								<tr>
 								</tr>
+									<td>
+										<a href="<%= request.getContextPath() %>/boardList.do?category=티셔츠">
+										<img src="css/img/main/sort_link/T_shirt.jpg"></a>
+									</td>
+									<td>
+										<a href="<%= request.getContextPath() %>/boardList.do?category=니트">
+										<img src="css/img/main/sort_link/Knit.jpg"></a>
+									</td>
+									<td>
+										<a href="<%= request.getContextPath() %>/boardList.do?category=블라">
+										<img src="css/img/main/sort_link/Y_shirt.jpg"></a>
+									</td>
+									<td>
+										<a href="<%= request.getContextPath() %>/boardList.do?category=스커트">
+										<img src="css/img/main/sort_link/Skirt.jpg"></a>
+									</td>
+									<td>
+										<a href="<%= request.getContextPath() %>/boardList.do?category=팬츠">
+										<img src="css/img/main/sort_link/Pants.jpg"></a>
+									</td>
+									<td>
+										<a href="<%= request.getContextPath() %>/boardList.do?category=데님">
+										<img src="css/img/main/sort_link/Denim.jpg"></a>
+									</td>
+									<td>
+										<a href="<%= request.getContextPath() %>/boardList.do?category=아우터">
+										<img src="css/img/main/sort_link/Outer.jpg"></a>
+									</td>																																																						
+									<td>
+										<a href="<%= request.getContextPath() %>/boardList.do?category=원피스">
+										<img src="css/img/main/sort_link/One_piece.jpg"></a>
+									</td>
+									<td>
+										<a href="<%= request.getContextPath() %>/boardList.do?category=모자">
+										<img src="css/img/main/sort_link/etc.jpg"></a>
+									</td>									
+									<td>
+										<a href="<%= request.getContextPath() %>/boardList.do?category=할인">
+										<img src="css/img/main/sort_link/sale.jpg"></a>
+									</td>
 								<tr>
 									<td>티셔츠</td>
 									<td>니트/스웨터</td>
