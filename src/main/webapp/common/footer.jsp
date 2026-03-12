@@ -9,7 +9,7 @@
 -->
 
  <footer class="footer">
-<section>
+<div class="footer-inner">
 	<div class="line1">
 	  <!-- EL 사용하여 contextPath 자동 적용 -->
 	  <a href="${pageContext.request.contextPath}/shopinfo.jsp">매장 안내</a> | 
@@ -36,7 +36,7 @@
 	<div class="line4">
 	  ©2026    |    WOL<span class="heart">♥</span>CL.com    |    ALL RIGHTS RESERVED
 	</div>
-</section>
+</div>
 </footer>
 
 <!-- 아랫부분은 건드리지마세요 -->

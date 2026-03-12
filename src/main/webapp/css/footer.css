@@ -90,6 +90,12 @@
   /* justify-content 속성 전역 설정 금지 */
 }
 
+.footer-inner{
+    max-width:1100px;
+    margin:0 auto;
+    text-align:center;
+}
+
 .line1 {
   font-size: 22px;
   font-weight: bold;
