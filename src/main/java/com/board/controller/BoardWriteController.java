@@ -12,7 +12,8 @@ import java.io.IOException;
 public class BoardWriteController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @SuppressWarnings("unused")
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 1. 한글 깨짐 방지
         request.setCharacterEncoding("UTF-8");
 
