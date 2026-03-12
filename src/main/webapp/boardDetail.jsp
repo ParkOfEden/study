@@ -178,15 +178,18 @@ opacity:0;
 	        // DB에서 가져온 파일명 확인
 		    String system_file = board.getSystem_filename();
 		    String imgUrl = board.getImgUrl();
+		    String ctx = request.getContextPath();
         %>
         
 		<%
-		if(system_file != null && system_file.trim().equals("")){
+		if(system_file != null && !system_file.trim().isEmpty()){
 		%>
         
             <img class="prod-img"
-             src="${pageContext.request.contextPath}/css/img/upload/product/${b.system_filename}" 
-                 style="max-width: 450px; height: auto; border: 2px solid #eee;" 
+             	 src="<%= ctx %>/css/img/upload/<%= system_file %>" 
+             	 onerror="this.onerror=null;
+              			  this.src='<%= ctx %>/css/img/upload/product/<%= system_file %>';"
+                 style="max-width: 650px; height: auto; border: 2px solid #eee;" 
                  alt="상품이미지">
                  
             <p class="debug-file">(server에) 저장된 파일명: <%= system_file %></p>
@@ -195,7 +198,9 @@ opacity:0;
         } else if(imgUrl != null && !imgUrl.isEmpty()) { 
         %>
         
-		    <img class="prod-img" src="<%= imgUrl %>">
+		    <img class="prod-img" 
+		    	 src="<%= imgUrl %>"
+		    	 onerror="this.src='<%= ctx %>/css/img/no_image.jpg'">
 		    
 		    <p style="color: green; font-size: 11px;">
 		        외부URL: <%= imgUrl %>
@@ -204,7 +209,8 @@ opacity:0;
 	    <% } else { %>    
 	        
         	<img class="prod-img"
-			 src="<%= request.getContextPath() %>/css/img/no_image.jpg">
+			 src="<%= ctx %>/css/img/no_image.jpg">
+			 
         <% } %>
         
     </td>
