@@ -218,12 +218,10 @@ table tr td input[type='number'] {
 /* index 상단 카테고리 아이콘 css */
 
 .category-wrapper{
-    position:relative;
     display:flex;
-    /* align-items:center; */
-    
-    width:60%;
-    margin:0 auto;    
+    align-items:center;
+    justify-content:center;
+    gap:40px;  
 }
 
 

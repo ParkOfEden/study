@@ -3,12 +3,13 @@
 /* index.jsp */
 
 .product-list {
-  display: flex;
-  justify-content: center;  /* 가로 가운데 정렬 */
+  display:flex;
+  justify-content:center;  /* 가로 가운데 정렬 */
+  align-items:center;
+  height:300px;	
   /* align-items: flex-start; */ /* 세로 방향 위쪽 정렬 */
-  
-  padding-top: 40px;        /* 위쪽 여백 조절 */
-  width: 100%;
+  /* padding-top: 40px; */        /* 위쪽 여백 조절 */
+  /* width: 100%; */
 }
 
 .product {
