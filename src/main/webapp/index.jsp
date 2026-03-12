@@ -58,18 +58,18 @@
 						<table class="product-table">
 							<tr>
 								<td>
-									<a href="${pageContext.request.contextPath}/boardDetail.jsp?slug=md_skirt01">
+									<a href="${pageContext.request.contextPath}/boardDetail.jsp?num=1">
 									<img src="css/img/main/md/md_skirt01.jpg"></a>
 								</td>
 								<td>
-									<a href="${pageContext.request.contextPath}/boardDetail.jsp?slug=today-pick-02">
+									<a href="${pageContext.request.contextPath}/boardDetail.jsp?num=2">
 									<img src="css/img/main/md/today_pick-02.jpg"></a>
 								</td>
 								<td>
-									<a href="${pageContext.request.contextPath}/boardDetail.jsp?slug=md_jacket01">
+									<a href="${pageContext.request.contextPath}/boardDetail.jsp?num=3">
 									<img src="css/img/main/md/md_jacket01.jpg"></a>
 								</td>
-								<td><a href="${pageContext.request.contextPath}/boardDetail.jsp?slug=today-pick-04">
+								<td><a href="${pageContext.request.contextPath}/boardDetail.jsp?num=4">
 								<img src="css/img/main/md/today_pick-04.jpg"></a>
 								</td>
 							</tr>
