@@ -220,7 +220,7 @@ table tr td input[type='number'] {
 .category-wrapper{
     position:relative;
     display:flex;
-    align-items:center;
+    /* align-items:center; */
     
     width:60%;
     margin:0 auto;    
