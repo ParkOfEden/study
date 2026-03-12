@@ -1,8 +1,9 @@
 package vo;
 
 import java.io.Serializable;
-import java.util.Arrays; // toString용
+import java.util.*; // toString용
 
+@SuppressWarnings("unused")
 public class MemberVO implements Serializable {
     
     private static final long serialVersionUID = 1L;
