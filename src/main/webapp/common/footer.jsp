@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+
 <!-- header.jsp에서 관리함(중복 코드) 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
  -->
@@ -7,9 +8,7 @@
 	 header.jsp에서 선언한 path 를 사용할 수 없음. => 500 error
 -->
 
-
-
-<footer class="footer">
+ <footer class="footer">
 <section>
 	<div class="line1">
 	  <!-- EL 사용하여 contextPath 자동 적용 -->
