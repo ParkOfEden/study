@@ -1,3 +1,7 @@
+-- 테이블 존재유무 확인
+SELECT * FROM inquiry;
+SELECT * FROM inquiry_sql;
+
 -- 기존 테이블 삭제 (필요 시)
 -- DROP TABLE inquiry;
 -- DROP SEQUENCE inquiry_seq;

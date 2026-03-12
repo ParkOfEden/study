@@ -61,10 +61,12 @@ size : ${boardList.size()} --%>
 			             class="grid-noimg">
 			    </c:when>
 			    <c:otherwise>
+			    	<a href="${pageContext.request.contextPath}/boardDetail.jsp?num=${b.num}">
 			        <img src="${pageContext.request.contextPath}/css/img/upload/${b.system_filename}"
 			             class="grid-img"
 			             onerror="this.onerror=null;
 			                      this.src='${pageContext.request.contextPath}/css/img/upload/product/${b.system_filename}';">
+                    </a>
 			    </c:otherwise>
 			</c:choose>	
            	</div>
