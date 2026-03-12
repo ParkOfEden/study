@@ -57,16 +57,27 @@
 						
 						<table class="product-table">
 							<tr>
-								<td><a href="#"><img src="css/img/main/md/today_pick-01.jpg"></a></td>
-								<td><a href="#"><img src="css/img/main/md/today_pick-02.jpg"></a></td>
-								<td><a href="#"><img src="css/img/main/md/today_pick-03.jpg"></a></td>
-								<td><a href="#"><img src="css/img/main/md/today_pick-04.jpg"></a></td>
+								<td>
+									<a href="${pageContext.request.contextPath}/boardDetail.jsp?num=1">
+									<img src="css/img/main/md/md_skirt01.jpg"></a>
+								</td>
+								<td>
+									<a href="${pageContext.request.contextPath}/boardDetail.jsp?num=2">
+									<img src="css/img/main/md/today_pick-02.jpg"></a>
+								</td>
+								<td>
+									<a href="${pageContext.request.contextPath}/boardDetail.jsp?num=3">
+									<img src="css/img/main/md/md_jacket01.jpg"></a>
+								</td>
+								<td><a href="${pageContext.request.contextPath}/boardDetail.jsp?num=4">
+								<img src="css/img/main/md/today_pick-04.jpg"></a>
+								</td>
 							</tr>
 							<tr>
-								<td>상품 1</td>
-								<td>상품 2</td>
-								<td>상품 3</td>
-								<td>상품 4</td>
+								<td>여성) 데님 스코츠</td>
+								<td>여성) 스쿠바 스트레이트 팬츠</td>
+								<td>여성) COOL 카라 재킷</td>
+								<td>여성) 다이아 퀄팅 점퍼</td>
 							</tr>
 						</table>
 						
