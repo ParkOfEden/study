@@ -8,7 +8,7 @@
   align-items:center;
   
   min-height:0;      /* section 기본값 제거 */
-  padding:10px 0;   /* 필요 최소의 여백 */
+  padding:20px 0;   /* 필요 최소의 여백 */
   /* align-items: flex-start; */ /* 세로 방향 위쪽 정렬 */
   /* padding-top: 40px; */        /* 위쪽 여백 조절 */
   /* width: 100%; */
