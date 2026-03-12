@@ -1,8 +1,8 @@
 package utils;
 
-import java.io.FileNotFoundException;
+/*import java.io.FileNotFoundException;*/
 import java.io.FileReader;
-import java.io.IOException;
+/*import java.io.IOException;*/
 import java.util.Properties;
 
 import jakarta.mail.Authenticator;
