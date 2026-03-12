@@ -50,7 +50,7 @@ VALUES (
     'admin', 
     '심플한 스타일의 캐주얼 데님 치마바지', 
     39900,
-    'css/img/main/md/md_skirt01.jpg'
+    '../main/md/md_skirt01.jpg'
 );
 
 INSERT INTO products (category, p_name, author, p_desc, price, system_filename)
@@ -60,7 +60,7 @@ VALUES (
     'admin', 
     '다리 라인을 자연스럽게 커버하는 스트레이트 핏', 
     25900,   
-    'css/img/main/md/today_pick-02.jpg'
+    '../main/md/today_pick-02.jpg'
 );
 
 INSERT INTO products (category, p_name, author, p_desc, price, system_filename)
@@ -70,7 +70,7 @@ VALUES (
     'admin', 
     '가볍고 시원한 착용감으로 한여름까지 부담없이 걸치기 좋은 카라 재킷', 
     69900,
-    'css/img/main/md/md_jacket01.jpg'
+    '../main/md/md_jacket01.jpg'
 );
 
 INSERT INTO products (category, p_name, author, p_desc, price, system_filename)
@@ -80,7 +80,7 @@ VALUES (
     'admin', 
     '부드러운 터치감의 라운드넥 다이아 퀄팅 점퍼', 
     29900, 
-    'css/img/main/md/today_pick-04.jpg'
+    '../main/md/today_pick-04.jpg'
 );
 
 COMMIT

@@ -57,10 +57,21 @@
 						
 						<table class="product-table">
 							<tr>
-								<td><a href="#"><img src="css/img/main/md/md_skirt01.jpg"></a></td>
-								<td><a href="#"><img src="css/img/main/md/today_pick-02.jpg"></a></td>
-								<td><a href="#"><img src="css/img/main/md/md_jacket01.jpg"></a></td>
-								<td><a href="#"><img src="css/img/main/md/today_pick-04.jpg"></a></td>
+								<td>
+									<a href="${pageContext.request.contextPath}/boardDetail.jsp?slug=md_skirt01">
+									<img src="css/img/main/md/md_skirt01.jpg"></a>
+								</td>
+								<td>
+									<a href="${pageContext.request.contextPath}/boardDetail.jsp?slug=today-pick-02">
+									<img src="css/img/main/md/today_pick-02.jpg"></a>
+								</td>
+								<td>
+									<a href="${pageContext.request.contextPath}/boardDetail.jsp?slug=md_jacket01">
+									<img src="css/img/main/md/md_jacket01.jpg"></a>
+								</td>
+								<td><a href="${pageContext.request.contextPath}/boardDetail.jsp?slug=today-pick-04">
+								<img src="css/img/main/md/today_pick-04.jpg"></a>
+								</td>
 							</tr>
 							<tr>
 								<td>여성) 데님 스코츠</td>
