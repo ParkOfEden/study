@@ -42,6 +42,49 @@ END;
 
 COMMIT
 
+-- 메인화면의 상세페이지를 위한 상품등록 sql --
+INSERT INTO products (category, p_name, author, p_desc, price, system_filename)
+VALUES (
+    '스커트', 
+    '여성) 데님 스코츠', 
+    'admin', 
+    '심플한 스타일의 캐주얼 데님 치마바지', 
+    39900,
+    'css/img/main/md/md_skirt01.jpg'
+);
+
+INSERT INTO products (category, p_name, author, p_desc, price, system_filename)
+VALUES (
+    '팬츠', 
+    '여성) 스쿠바 스트레이트 팬츠', 
+    'admin', 
+    '다리 라인을 자연스럽게 커버하는 스트레이트 핏', 
+    25900,   
+    'css/img/main/md/today_pick-02.jpg'
+);
+
+INSERT INTO products (category, p_name, author, p_desc, price, system_filename)
+VALUES (
+    '자켓', 
+    '여성) COOL 카라 재킷', 
+    'admin', 
+    '가볍고 시원한 착용감으로 한여름까지 부담없이 걸치기 좋은 카라 재킷', 
+    69900,
+    'css/img/main/md/md_jacket01.jpg'
+);
+
+INSERT INTO products (category, p_name, author, p_desc, price, system_filename)
+VALUES (
+    '점퍼', 
+    '여성) 다이아 퀄팅 점퍼', 
+    'admin', 
+    '부드러운 터치감의 라운드넥 다이아 퀄팅 점퍼', 
+    29900, 
+    'css/img/main/md/today_pick-04.jpg'
+);
+
+COMMIT
+
 -- p_desc서부터 board_test 에서 가져온 sql --
 INSERT INTO products (category, p_name, author, p_desc, price, system_filename)
 VALUES (
@@ -49,8 +92,7 @@ VALUES (
     '여름 신상', 
     'admin', 
     '상세 내용...', 
-    -- '파일명' + '_' + '현재 전체 개수' + '.확장자'
-    
+    10000,
     'tshirts' || '_' || (SELECT COUNT(*) FROM products) || '.jpg'
 );
 
