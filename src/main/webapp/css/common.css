@@ -109,6 +109,7 @@ section.main2{
     height: 100%;           /* 부모(section) 높이 그대로 */
     width: 100%;
     padding: 30px;
+    text-align:center; /* 가운데 정렬 */
     
 }
 
@@ -145,10 +146,11 @@ section.main2 h3{
     /* position:absolute; */
     /* top:50px; */
     /* left:80px; */    
-    width:600px;
+    width:500px;
     height:auto;
      margin-top:20px;
      margin-bottom:20px; /* 지도 아래 공백 */
+     
     /* object-fit:cover; */
 }
 /* ⚠️ 전역 table 스타일 사용 금지
