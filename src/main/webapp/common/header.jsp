@@ -62,7 +62,7 @@
         <%-- 비회원 상태 --%>
         <li><a href="<%=path%>/login.jsp">로그인</a></li>
         <li><a href="<%=path%>/join.jsp">회원가입</a></li>
-        <li><a href="<%=path%>/customerSerHvice.jsp">고객센터</a></li>
+        <li><a href="<%=path%>/customerService.jsp">고객센터</a></li>
         <li><a href="<%=path%>/cartView.jsp">장바구니</a></li> <%-- 비회원 노출 추가 --%>
     <% } else { %>
         <%-- 로그인 상태 (일반회원/관리자 공통) --%>
