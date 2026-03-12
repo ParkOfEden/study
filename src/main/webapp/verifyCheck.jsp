@@ -1,5 +1,7 @@
+<!-- verifyCheck.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*, utils.*" %>
+<%-- java.util.* 또는 java.util.Enumeration 추가 --%>
+<%@ page import="java.sql.*, utils.*, java.util.*" %>
 
 <%
     request.setCharacterEncoding("utf-8");
@@ -7,7 +9,6 @@
     String inputCode = request.getParameter("inputCode");
     String sessionCode = (String)session.getAttribute("authCode");
 
-    // 변수 초기화 (기본값 설정)
     String msg = "";
     String nextPage = "";
 
@@ -20,31 +21,28 @@
         nextPage = "verifyCode.jsp";
     } 
     else {
-        // 인증 성공 → 회원 DB 저장 로직 시작
         Connection conn = null;
         PreparedStatement pstmt = null;
 
         try {
             conn = DBCPUtil.getConnection();
 
-         // [수정] 닉네임(nickname) 컬럼 추가 (3번째 위치에 삽입)
+            // 1. SQL 수정: profile_blob 컬럼 추가
             String sql = "INSERT INTO ACCOUNTS "
-                       + "(id, nickname, pass, name, addr, phone, gender, age, email) "
-                       + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                       + "(id, nickname, pass, name, addr, phone, gender, age, email, profile_blob) "
+                       + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             pstmt = conn.prepareStatement(sql);
 
-         // [추가] 세션에서 닉네임 가져오기 (joinCheck.jsp에서 저장한 값)
-            String nickname = (String)session.getAttribute("join_nickname");
-            
+            // 2. 세션 데이터 바인딩
             pstmt.setString(1, (String)session.getAttribute("join_id"));
-            pstmt.setString(2, nickname); // [추가] 닉네임 바인딩
+            pstmt.setString(2, (String)session.getAttribute("join_nickname"));
             pstmt.setString(3, (String)session.getAttribute("join_pass"));
             pstmt.setString(4, (String)session.getAttribute("join_name"));
             pstmt.setString(5, (String)session.getAttribute("join_addr"));
             pstmt.setString(6, (String)session.getAttribute("join_phone"));
             pstmt.setString(7, (String)session.getAttribute("join_gender"));
             
-            // age 처리: Integer 또는 String 대응
+            // age 처리
             Object ageObj = session.getAttribute("join_age");
             int age = 0;
             if (ageObj instanceof Integer) {
@@ -56,22 +54,28 @@
             
             pstmt.setString(9, (String)session.getAttribute("join_email"));
 
+            // 3. BLOB 데이터 바인딩 (이미지 바이너리)
+            byte[] profileBytes = (byte[])session.getAttribute("join_profile_blob");
+            if (profileBytes != null && profileBytes.length > 0) {
+                pstmt.setBytes(10, profileBytes);
+            } else {
+                pstmt.setNull(10, java.sql.Types.BLOB);
+            }
+
             int result = pstmt.executeUpdate();
 
             if (result == 1) {
                 msg = "회원가입 성공 🎉";
                 nextPage = "login.jsp";
                 
-                // 가입 완료 후 불필요한 세션 데이터 제거
-                session.removeAttribute("authCode");
-                session.removeAttribute("join_id");
-                session.removeAttribute("join_pass");
-                session.removeAttribute("join_name");
-                session.removeAttribute("join_addr");
-                session.removeAttribute("join_phone");
-                session.removeAttribute("join_gender");
-                session.removeAttribute("join_age");
-                session.removeAttribute("join_email");
+                // 가입 완료 후 세션 데이터 일괄 제거
+                Enumeration<String> attributes = session.getAttributeNames();
+                while (attributes.hasMoreElements()) {
+                    String attr = attributes.nextElement();
+                    if (attr.startsWith("join_") || attr.equals("authCode")) {
+                        session.removeAttribute(attr);
+                    }
+                }
             } else {
                 msg = "회원가입 실패 (데이터 미삽입)";
                 nextPage = "join.jsp";
@@ -83,10 +87,9 @@
         } finally {
             DBCPUtil.close(pstmt, conn);
         }
-    } // else 블록 닫기 (중요)
+    }
 %>
 
-<%-- 스크립트는 모든 로직이 끝난 후 한 번만 실행되도록 위치 --%>
 <script>
     alert("<%= msg %>");
     location.href = "<%= nextPage %>";

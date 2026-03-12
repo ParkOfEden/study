@@ -4,18 +4,14 @@
 <%@ page import="java.sql.*, utils.*" %>
 
 <%
-    // 1. URL 파라미터(id=user1000) 가져오기
     String targetId = request.getParameter("id");
     
-    // 2. 로그인 세션 확인 (header.jsp에 선언된 authUser 변수 사용)
-    // 만약 에러가 나면 String을 붙이지 말고 값만 할당하세요.
     if(session.getAttribute("authUser") == null) {
         out.println("<script>alert('로그인이 필요합니다.'); location.href='login.jsp';</script>");
         return;
     }
     String currentLoginUser = (String)session.getAttribute("authUser");
 
-    // 3. 파라미터가 없으면 본인 정보 조회
     if(targetId == null || targetId.isEmpty()) {
         targetId = currentLoginUser;
     }
@@ -24,8 +20,8 @@
     PreparedStatement pstmt = null;
     ResultSet rs = null;
     
-    String name="", addr="", phone="", email="", gender="", pass="", nickname="";    int age=0, num=0;
-    
+    String name="", addr="", phone="", email="", gender="", pass="", nickname="";    
+    int age=0, num=0;
     
     try {
         conn = DBCPUtil.getConnection();
@@ -37,17 +33,17 @@
             num    = rs.getInt("num");
             pass   = rs.getString("pass");
             name   = rs.getString("name");
-            nickname = rs.getString("nickname"); // [추가] 닉네임 가져오기
+            nickname = rs.getString("nickname");
             addr   = rs.getString("addr");
             phone  = rs.getString("phone");
             gender = rs.getString("gender");
             age    = rs.getInt("age");
             email  = rs.getString("email");
             
-         // [추가] 닉네임이 비어있으면 ID로 채워서 보여주기
             if(nickname == null || nickname.trim().isEmpty()) {
                 nickname = targetId;
-            }}
+            }
+        }
     } catch(Exception e) {
         e.printStackTrace();
     } finally {
@@ -57,13 +53,26 @@
 
 <section>
     <div class="form-card">
+        <%-- 탈퇴 폼 유지 --%>
         <form action="memberDelete.jsp" method="post" onsubmit="return confirm('정말 탈퇴하시겠습니까?');" class="withdraw-form">
             <input type="hidden" name="num" value="<%= num %>">
             <button type="submit">회원탈퇴</button>
         </form>
 
-        <form action="memberUpdate.jsp" method="post">
+        <%-- [수정] enctype 추가: 이미지 파일 전송을 위해 필수 --%>
+        <form action="memberUpdate.jsp" method="post" enctype="multipart/form-data">
             <h2>내 정보 수정하기</h2>
+            
+            <%-- [추가] 프로필 이미지 미리보기 및 수정 --%>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img id="preview" src="${pageContext.request.contextPath}/displayProfile?id=<%= targetId %>" 
+                     alt="프로필 이미지" 
+                     style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 2px solid #ccc; cursor: pointer;"
+                     onclick="document.getElementById('profile_img').click();">
+                <p style="font-size: 12px; color: #666; margin-top: 5px;">이미지를 클릭하여 변경</p>
+                <input type="file" id="profile_img" name="profile_img" accept="image/*" style="display:none;" onchange="previewImage(this)">
+            </div>
+
             <table class="form-table">
                 <tr>
                     <th>아이디</th>
@@ -72,6 +81,7 @@
                         <input type="hidden" name="id" value="<%= targetId %>">
                     </td>
                 </tr>
+                <%-- 기존 입력 필드들 --%>
                 <tr>
                     <th>비밀번호</th>
                     <td><input type="text" name="pass" value="<%= pass %>" style="text-align: center;" required></td>
@@ -81,11 +91,9 @@
                     <td><input type="text" name="name" value="<%= name %>" style="text-align: center;" required></td>
                 </tr>
                 <tr>
-    <th>닉네임</th>
-    <td>
-        <input type="text" name="nickname" value="<%= nickname %>" style="text-align: center;">
-    </td>
-</tr>
+                    <th>닉네임</th>
+                    <td><input type="text" name="nickname" value="<%= nickname %>" style="text-align: center;"></td>
+                </tr>
                 <tr>
                     <th>주소</th>
                     <td><input type="text" name="addr" value="<%= addr %>" style="text-align: center; width:90%;"></td>
@@ -122,5 +130,18 @@
         </form>
     </div>
 </section>
+
+<script>
+// 이미지 선택 시 즉시 미리보기
+function previewImage(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('preview').src = e.target.result;
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
 
 <%@ include file="common/footer.jsp" %>

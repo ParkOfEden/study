@@ -4,7 +4,7 @@
 <script type="text/javascript" src="js/inputCheck.js"></script>
 
 <section>
-    <form class="form-card" action="joinCheck.jsp" method="POST" onsubmit="return validateFinal()">
+    <form class="form-card" action="joinCheck.jsp" method="POST" enctype="multipart/form-data" onsubmit="return validateFinal()">
         <input type="hidden" id="phone_verified_status" name="phone_verified" value="false" />
 
         <table class="pd-table">
@@ -80,14 +80,37 @@
                     <input type="number" name="age" data-msg="나이" placeholder="INSERT Age HERE"/>
                 </td>
             </tr>
+            
+<tr>
+                <td>프로필 사진</td>
+                <td>
+                    <input type="file" name="profile_img" accept="image/*" onchange="previewImage(this)"/>
+                    <div id="image_preview" style="margin-top: 5px; display: none;">
+                        <img id="preview" src="#" alt="미리보기" style="max-width: 100px; border-radius: 50%; border: 1px solid #ccc;"/>
+                    </div>
+                </td>
+            </tr>
+
             <tr>
                 <th colspan="2">
                     <button type="submit">회원가입</button>
                 </th>
             </tr>
         </table>
-    </form>
-</section>
+    </form> </section>
+    <script>
+// 이미지 미리보기 함수 (script 태그 내 혹은 외부 파일에 추가)
+function previewImage(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('preview').src = e.target.result;
+            document.getElementById('image_preview').style.display = 'block';
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
