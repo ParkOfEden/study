@@ -22,7 +22,8 @@
     // logout_redirect_uri: 로그아웃 후 돌아올 주소 (카카오 설정에 등록되어 있어야 함)
     var logoutUrl = "https://kauth.kakao.com/oauth/logout"
                   + "?client_id=412803eee2a93e9ee787821e916e63d4"
-                  + "&logout_redirect_uri=" + encodeURIComponent("http://localhost:8080/14_db_member_practice/index.jsp");
-    
+                  /* + "&logout_redirect_uri=" + encodeURIComponent("http://localhost:8080/14_db_member_practice/index.jsp"); */
+                  + "&logout_redirect_uri="
+                  + encodeURIComponent("<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/index.jsp");
     location.replace(logoutUrl);
 </script>
