@@ -18,7 +18,17 @@ public class BoardDAO {
 	    List<BoardVO> list = new ArrayList<>();
         return list;
     }
-
+	private String getOrderBy(String sort) {
+	    if (sort == null || sort.isEmpty()) return "created_at DESC";
+	    
+	    switch (sort) {
+	        case "view":  return "view_count DESC"; // 조회수 높은순
+	        case "title": return "p_name ASC";      // 상품명순 (가나다순)
+	        case "time":  return "created_at DESC"; // 최신순
+	        case "id":    return "p_id DESC";       // 등록순 (필요 시 유지)
+	        default:      return "created_at DESC";
+	    }
+	}
 
 	// 1. 검색 결과의 전체 개수 조회
 	public int getSearchBoardCount(String type, String keyword) throws Exception {
@@ -70,8 +80,8 @@ public class BoardDAO {
 	}
 	
 
- // 2. 검색 결과 페이징 목록 조회
-    public List<BoardVO> getSearchBoardListPaging(String type, String keyword, int offset, int limit) throws Exception {
+	// 2. 검색 결과 페이징 목록 조회 (정렬 매개변수 추가)
+    public List<BoardVO> getSearchBoardListPaging(String type, String keyword, int offset, int limit, String sort) throws Exception {
         List<BoardVO> list = new ArrayList<>();
         String condition = "";
 
@@ -92,19 +102,18 @@ public class BoardDAO {
         String sql = "SELECT p_id as num, category, p_name as title, author, price, created_at, view_count, system_filename "
                    + "FROM products "
                    + "WHERE " + condition + " "
-                   + "ORDER BY p_id DESC "
+                   + "ORDER BY " + getOrderBy(sort) + " "
                    + "OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
 
         try (Connection conn = DBCPUtil.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             int idx = 1;
-            
             if ("num".equals(type)) {
                 try {
                     ps.setInt(idx++, Integer.parseInt(keyword));
                 } catch (NumberFormatException e) {
-                    ps.setInt(idx++, -1);  // 존재하지 않는 번호
+                    ps.setInt(idx++, -1);
                 }
             } else if ("all".equals(type)) {
                 ps.setString(idx++, "%" + keyword + "%");
@@ -132,9 +141,8 @@ public class BoardDAO {
                 }
             }
         } 
-        // catch 블록을 제거하여 예외 발생 시 호출부(Servlet)에서 500 에러 처리를 하도록 유도합니다.
         return list;
-    }  
+    } 
     
 
 
@@ -218,12 +226,12 @@ public class BoardDAO {
     }
     
     
- // 7. 전체 상품 페이징 목록 조회
-    public List<BoardVO> getBoardListPaging(int offset, int limit) throws Exception {
+ // 7. 전체 상품 페이징 목록 조회 (정렬 매개변수 추가)
+    public List<BoardVO> getBoardListPaging(int offset, int limit, String sort) throws Exception {
         List<BoardVO> list = new ArrayList<>();
         String sql = "SELECT p_id as num, category, p_name as title, author, price, created_at, view_count, system_filename "
                    + "FROM products "
-                   + "ORDER BY p_id DESC "
+                   + "ORDER BY " + getOrderBy(sort) + " "
                    + "OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
                    
         try (Connection conn = DBCPUtil.getConnection();
@@ -247,7 +255,6 @@ public class BoardDAO {
                 }
             }
         } 
-        // catch 블록을 제거하여 예외 발생 시 호출부(Servlet)에서 500 에러 처리를 하도록 합니다.
         return list;
     }
     
